@@ -1,12 +1,15 @@
 package com.projectinspire.activities;
 
-import com.projectinspire.R;
-
 import android.app.Activity;
-import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
+
+import com.projectinspire.R;
 
 public class MainActivity extends Activity {
 
@@ -15,12 +18,20 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+		TextView registerIntent = (TextView)this.findViewById(R.id.txtMainSignup);
+		
+		registerIntent.setOnClickListener(new OnClickListener() {
+			
+			public void onClick(View v) {
+
+				Intent sendToRegister = new Intent(getApplicationContext(), RegisterAccountActivity.class );
+				startActivity(sendToRegister);
+				
+			}
+		});
 	}
 
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -39,18 +50,6 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
-		
-
-		
-		}
 	}
 
 }
