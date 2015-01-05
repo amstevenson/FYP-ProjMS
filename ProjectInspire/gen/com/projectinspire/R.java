@@ -22,68 +22,114 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int style_ab_bottom_solid=0x7f020001;
-        public static final int style_ab_solid=0x7f020002;
-        public static final int style_ab_stacked_solid=0x7f020003;
-        public static final int style_ab_texture_tile=0x7f020004;
-        public static final int style_ab_transparent=0x7f020005;
-        public static final int style_activity_background_gradient=0x7f020006;
-        public static final int style_btn_cab_done=0x7f020007;
-        public static final int style_btn_cab_done_default=0x7f020008;
-        public static final int style_btn_cab_done_focused=0x7f020009;
-        public static final int style_btn_cab_done_pressed=0x7f02000a;
-        public static final int style_cab_background_bottom=0x7f02000b;
-        public static final int style_cab_background_top=0x7f02000c;
-        public static final int style_list_focused=0x7f02000d;
-        public static final int style_list_pressed=0x7f02000e;
-        public static final int style_menu_dropdown_panel=0x7f02000f;
-        public static final int style_progress_bg=0x7f020010;
-        public static final int style_progress_horizontal=0x7f020011;
-        public static final int style_progress_primary=0x7f020012;
-        public static final int style_progress_secondary=0x7f020013;
-        public static final int style_selectable_background=0x7f020014;
-        public static final int style_spinner_ab_default=0x7f020015;
-        public static final int style_spinner_ab_disabled=0x7f020016;
-        public static final int style_spinner_ab_focused=0x7f020017;
-        public static final int style_spinner_ab_pressed=0x7f020018;
-        public static final int style_spinner_background=0x7f020019;
-        public static final int style_tab_indicator=0x7f02001a;
-        public static final int style_tab_selected=0x7f02001b;
-        public static final int style_tab_selected_focused=0x7f02001c;
-        public static final int style_tab_selected_pressed=0x7f02001d;
-        public static final int style_tab_unselected=0x7f02001e;
-        public static final int style_tab_unselected_focused=0x7f02001f;
-        public static final int style_tab_unselected_pressed=0x7f020020;
+        public static final int drawer_background_shape_one=0x7f020000;
+        public static final int drawer_background_shape_two=0x7f020001;
+        public static final int drawer_list_selector=0x7f020002;
+        public static final int drawer_list_shape_one=0x7f020003;
+        public static final int drawer_list_shape_two=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int nav_menu_icon=0x7f020006;
+        public static final int style_ab_bottom_solid=0x7f020007;
+        public static final int style_ab_solid=0x7f020008;
+        public static final int style_ab_stacked_solid=0x7f020009;
+        public static final int style_ab_texture_tile=0x7f02000a;
+        public static final int style_ab_transparent=0x7f02000b;
+        public static final int style_activity_background_gradient=0x7f02000c;
+        public static final int style_btn_cab_done=0x7f02000d;
+        public static final int style_btn_cab_done_default=0x7f02000e;
+        public static final int style_btn_cab_done_focused=0x7f02000f;
+        public static final int style_btn_cab_done_pressed=0x7f020010;
+        public static final int style_cab_background_bottom=0x7f020011;
+        public static final int style_cab_background_top=0x7f020012;
+        public static final int style_list_focused=0x7f020013;
+        public static final int style_list_pressed=0x7f020014;
+        public static final int style_menu_dropdown_panel=0x7f020015;
+        public static final int style_progress_bg=0x7f020016;
+        public static final int style_progress_horizontal=0x7f020017;
+        public static final int style_progress_primary=0x7f020018;
+        public static final int style_progress_secondary=0x7f020019;
+        public static final int style_selectable_background=0x7f02001a;
+        public static final int style_spinner_ab_default=0x7f02001b;
+        public static final int style_spinner_ab_disabled=0x7f02001c;
+        public static final int style_spinner_ab_focused=0x7f02001d;
+        public static final int style_spinner_ab_pressed=0x7f02001e;
+        public static final int style_spinner_background=0x7f02001f;
+        public static final int style_tab_indicator=0x7f020020;
+        public static final int style_tab_selected=0x7f020021;
+        public static final int style_tab_selected_focused=0x7f020022;
+        public static final int style_tab_selected_pressed=0x7f020023;
+        public static final int style_tab_unselected=0x7f020024;
+        public static final int style_tab_unselected_focused=0x7f020025;
+        public static final int style_tab_unselected_pressed=0x7f020026;
     }
     public static final class id {
-        public static final int action_settings=0x7f080005;
-        public static final int btnMainLogin=0x7f080002;
+        public static final int action_settings=0x7f080019;
+        public static final int btnRegisterSpace=0x7f080015;
+        public static final int btnRegisterSubmit=0x7f080014;
         public static final int container=0x7f080000;
-        public static final int lblRegisterDescription=0x7f080004;
+        public static final int dashboard_drawer_frame_container=0x7f080017;
+        public static final int dashboard_drawer_menu_listview=0x7f080018;
+        public static final int dashboard_drawer_nav_layout=0x7f080016;
+        public static final int editRegisterEmail=0x7f080011;
+        public static final int editRegisterForename=0x7f080009;
+        public static final int editRegisterPassword=0x7f08000d;
+        public static final int editRegisterRepeatEmail=0x7f080013;
+        public static final int editRegisterRepeatPassword=0x7f08000f;
+        public static final int editRegisterSurname=0x7f08000b;
+        public static final int mainBtnLogin=0x7f080004;
+        public static final int mainEditEmail=0x7f080002;
+        public static final int mainEditPassword=0x7f080003;
+        public static final int mainTxtForgotPassword=0x7f080006;
+        public static final int mainTxtRegister=0x7f080005;
         public static final int projectInspireIconImage=0x7f080001;
-        public static final int txtMainSignup=0x7f080003;
+        public static final int txtRegisterDescription=0x7f080007;
+        public static final int txtRegisterEmail=0x7f080010;
+        public static final int txtRegisterForename=0x7f080008;
+        public static final int txtRegisterPassword=0x7f08000c;
+        public static final int txtRegisterRepeatEmail=0x7f080012;
+        public static final int txtRegisterRepeatPassword=0x7f08000e;
+        public static final int txtRegisterSurname=0x7f08000a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_register_account=0x7f030001;
+        public static final int activity_user_dashboard=0x7f030002;
     }
     public static final class menu {
         public static final int main=0x7f070000;
         public static final int register_account=0x7f070001;
+        public static final int user_dashboard=0x7f070002;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
-        /**   Main activity 
-         */
-        public static final int btn_login=0x7f050004;
         public static final int hello_world=0x7f050001;
-        /**   Signup activity 
+        /**  Register activity 
          */
-        public static final int lbl_register_description=0x7f050006;
-        public static final int title_activity_register_account=0x7f050003;
-        public static final int txt_signup=0x7f050005;
+        public static final int lbl_register_description=0x7f050009;
+        public static final int main_btn_login=0x7f050007;
+        public static final int main_btn_register=0x7f050008;
+        public static final int main_edit_email_address=0x7f050004;
+        public static final int main_edit_password=0x7f050005;
+        public static final int main_txt_forgot_password=0x7f050006;
+        /**  Main activity 
+         */
+        public static final int main_txt_register=0x7f050003;
+        public static final int register_btn_account=0x7f050016;
+        public static final int register_edit_email=0x7f05000f;
+        public static final int register_edit_forename=0x7f05000b;
+        public static final int register_edit_password=0x7f050013;
+        public static final int register_edit_repeat_email=0x7f050011;
+        public static final int register_edit_repeat_password=0x7f050015;
+        public static final int register_edit_surname=0x7f05000d;
+        public static final int register_lbl_email=0x7f05000e;
+        public static final int register_lbl_forename=0x7f05000a;
+        public static final int register_lbl_password=0x7f050012;
+        public static final int register_lbl_repeat_email=0x7f050010;
+        public static final int register_lbl_repeat_password=0x7f050014;
+        public static final int register_lbl_surname=0x7f05000c;
+        public static final int title_activity_register_account=0x7f050017;
+        public static final int title_activity_user_dashboard=0x7f050018;
     }
     public static final class style {
         public static final int ActionBar_Solid=0x7f060001;

@@ -4,14 +4,32 @@
     <string name="app_name">ProjectInspire</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_register_account">RegisterAccountActivity</string>
-	
-    <!--  Main activity -->
-    <string name="btn_login">Sign in to your account</string>
-    <string name="txt_signup">Don\'t have an account? Click here</string>
-    
-    <!--  Signup activity -->
-    <string name="lbl_register_description">In order to make an account with us, we need some information
-         from you, please put relevant information in all of the fields below and press the \'submit\' button.</string>
-    
+
+    <!-- Main activity -->
+    <string name="main_txt_register">Don\'t have an account? Click here</string>
+    <string name="main_edit_email_address">Enter Email Address</string>
+    <string name="main_edit_password">Enter Password</string>
+    <string name="main_txt_forgot_password">Forgot your password?</string>
+    <string name="main_btn_login">Login</string>
+    <string name="main_btn_register">Sign up</string>
+
+    <!-- Register activity -->
+    <string name="lbl_register_description">To create an account, there is some information that is 
+        required, please fill in the boxes below and press the \'submit\' button.</string>
+    <string name="register_lbl_forename">Forename</string>
+    <string name="register_edit_forename">Enter Forename</string>
+    <string name="register_lbl_surname">Surname</string>
+    <string name="register_edit_surname">Enter Surname</string>
+    <string name="register_lbl_email">Email Address</string>
+    <string name="register_edit_email">Enter Email Address</string>
+    <string name="register_lbl_repeat_email">Repeat Email Address</string>
+    <string name="register_edit_repeat_email">Repeat Email Address</string>
+    <string name="register_lbl_password">Password</string>
+    <string name="register_edit_password">Enter Password</string>
+    <string name="register_lbl_repeat_password">Repeat Password</string>
+    <string name="register_edit_repeat_password">Repeat Password</string>
+    <string name="register_btn_account">Register your account</string>
+    <string name="title_activity_register_account">Register Account</string>
+    <string name="title_activity_user_dashboard">UserDashboard</string>
+
 </resources>

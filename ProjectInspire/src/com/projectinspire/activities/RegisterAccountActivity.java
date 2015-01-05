@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/*
+ * @author Adam Stevenson
+ */
 public class RegisterAccountActivity extends Activity {
 
 	@Override

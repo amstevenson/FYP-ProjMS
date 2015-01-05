@@ -11,21 +11,43 @@ import android.widget.TextView;
 
 import com.projectinspire.R;
 
+/*
+ * The main class for the application. Allows the user to progress to either
+ * registering an account, or logging in to their dashboard. 
+ * 
+ * @author Adam Stevenson
+ */
 public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		TextView registerIntent = (TextView)this.findViewById(R.id.txtMainSignup);
 		
+		// Get the identifiers for the objects that will be used as links to other activities
+		TextView registerIntent = (TextView)this.findViewById(R.id.mainTxtRegister);
+		TextView loginIntent    = (TextView)this.findViewById(R.id.mainBtnLogin);
+		
+		// Provide the implementation for each on click listener
+		// In most cases this will be used to simply go to another form
+		// Although some will have networking functionalities attached.
 		registerIntent.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 
 				Intent sendToRegister = new Intent(getApplicationContext(), RegisterAccountActivity.class );
 				startActivity(sendToRegister);
+				
+			}
+		});
+		
+		loginIntent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+				Intent sendToDashboard = new Intent(getApplicationContext(), UserDashboard.class);
+				startActivity(sendToDashboard);
 				
 			}
 		});
