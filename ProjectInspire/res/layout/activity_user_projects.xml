@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/style_activity_background_gradient" 
+    tools:context="com.projectinspire.activities.UserProjects">
+
+    <!--  List view that contains all of the projects that are specific to one person -->
+    <ListView
+	    android:id="@+id/listProjectsAll"
+	    android:layout_marginTop="60dp"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="start"
+	    android:choiceMode="singleChoice"
+	    android:divider="#FFF"
+	    android:dividerHeight="0dp"        
+	    android:listSelector="@drawable/drawer_list_selector"/>
+    
+    <!--  If there are no projects, display a textivew saying so -->
+	<TextView
+		android:id="@+id/txtProjectsNone"
+		android:paddingBottom="50dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingLeft="5dp"
+		android:layout_marginTop="60dp"
+		android:text="@string/lbl_projects_none"
+		android:textSize="16sp" 
+		android:textColor="#FFF"/>
+    
+    <!--  Create a new project -->
+    <Button
+        android:id="@+id/btnProjectCreate"
+        android:layout_alignRight="@id/listProjectsAll"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#0c4661"
+        android:textSize="16sp" 
+        android:text="@string/projects_create" />
+    
+    <!--  Might want to create an adapter that creates an edit button that is clickable
+    		instead of having this -->
+    <Button
+        android:id="@+id/btnProjectEdit"
+        android:layout_alignLeft="@id/listProjectsAll"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="#0c4661"
+        android:textSize="16sp" 
+        android:text="@string/projects_edit" />
+
+</RelativeLayout>

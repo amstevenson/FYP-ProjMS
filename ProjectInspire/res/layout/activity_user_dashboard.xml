@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/style_activity_background_gradient"
-    tools:context="com.projectinspire.activities.UserDashboard" >
+    tools:context="com.projectinspire.activities.UserDashboardActivity" >
 
  	<!--  Navigation panel -->
 	<android.support.v4.widget.DrawerLayout
@@ -30,5 +30,140 @@
 	        android:listSelector="@drawable/drawer_list_selector"
 	        android:background="@drawable/drawer_background_shape_two"/>
 	</android.support.v4.widget.DrawerLayout>
-
+	
+	<!--  create a scrollview to contain the rest of the layout -->
+	<ScrollView
+	    android:id="@+id/scrollViewDashboard"
+	    android:layout_width="fill_parent"
+	    android:layout_height="match_parent">
+	
+		<RelativeLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="@drawable/style_activity_background_gradient"
+		    android:scrollbars="vertical" >
+	    
+		    <!--  Projects -->
+			<TextView
+			    android:id="@+id/txtDashboardProjects"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:layout_marginTop="40dp"
+			    android:paddingBottom="10dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+				android:background="#AF1D0600"
+			    android:text="@string/dashboard_projects"
+			    android:textColor="#fff" />
+		
+			<TextView
+			    android:id="@+id/txtDashboardProjectsTitle"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardProjects"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="50dp"
+				android:background="#3F1b2600"
+			    android:text="@string/dashboard_projects_title"
+			    android:textColor="#fff" />
+			
+			<!--  Tasks -->
+			<TextView
+			    android:id="@+id/txtDashboardTasks"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:layout_marginTop="40dp"
+			    android:layout_below="@id/txtDashboardProjectsTitle"
+			    android:paddingBottom="10dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+				android:background="#AF1D0600"
+			    android:text="@string/dashboard_tasks"
+			    android:textColor="#fff" />
+			
+			<TextView
+			    android:id="@+id/txtDashboardTasksTitle"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardTasks"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="50dp"
+				android:background="#3F1b2600"
+			    android:text="@string/dashboard_tasks_title"
+			    android:textColor="#fff" />
+			
+			<!-- Events  -->
+			<TextView
+			    android:id="@+id/txtDashboardEvents"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:layout_marginTop="40dp"
+			    android:layout_below="@id/txtDashboardTasksTitle"
+			    android:paddingBottom="10dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+				android:background="#AF1D0600"
+			    android:text="@string/dashboard_events"
+			    android:textColor="#fff" />
+			
+			<TextView
+			    android:id="@+id/txtDashboardEventsTitle"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardEvents"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="50dp"
+				android:background="#3F1b2600"
+			    android:text="@string/dashboard_events_title"
+			    android:textColor="#fff" />
+			
+			<!-- Messages -->
+			<TextView
+			    android:id="@+id/txtDashboardMessages"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:layout_marginTop="40dp"
+			    android:layout_below="@id/txtDashboardEventsTitle"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="10dp"
+				android:background="#AF1D0600"
+			    android:text="@string/dashboard_messages"
+			    android:textColor="#fff" />
+			
+			<TextView
+			    android:id="@+id/txtDashboardMessagesTitle"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardMessages"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="50dp"
+				android:background="#3F1b2600"
+			    android:text="@string/dashboard_messages_title"
+			    android:textColor="#fff" />
+			
+		</RelativeLayout>
+	
+	</ScrollView>
+	
 </RelativeLayout>

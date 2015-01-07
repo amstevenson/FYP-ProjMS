@@ -14,6 +14,7 @@
     <string name="main_btn_register">Sign up</string>
 
     <!-- Register activity -->
+    <string name="title_activity_register_account">Register A New Account</string>
     <string name="lbl_register_description">To create an account, there is some information that is 
         required, please fill in the boxes below and press the \'submit\' button.</string>
     <string name="register_lbl_forename">Forename</string>
@@ -29,7 +30,30 @@
     <string name="register_lbl_repeat_password">Repeat Password</string>
     <string name="register_edit_repeat_password">Repeat Password</string>
     <string name="register_btn_account">Register your account</string>
-    <string name="title_activity_register_account">Register Account</string>
-    <string name="title_activity_user_dashboard">UserDashboard</string>
+
+    <!-- Dashboard activity -->
+    <string name="title_activity_user_dashboard">Your Dashboard</string>
+    <string name="dashboard_projects">Projects</string>
+    <string name="dashboard_projects_title">Tile of project</string>
+    <string name="dashboard_tasks">Tasks</string>
+    <string name="dashboard_tasks_title">Title of tasks</string>
+    <string name="dashboard_events">Events</string>
+    <string name="dashboard_events_title">Title of events</string>
+    <string name="dashboard_messages">Messages</string>
+    <string name="dashboard_messages_title">Title of messages</string>
+
+    <!-- Projects activity -->
+    <string name="title_activity_projects">Your Projects</string>
+    <string name="projects_create">New Project</string>
+    <string name="projects_edit">Edit Project</string>
+    <string name="lbl_projects_none">You currently do not have any projects allocated to your account, 
+        please accept an invitiation from your messages, or press the "create project" button above.</string>
+
+    <!-- Contacts activity -->
+    <string name="title_activity_user_contacts">UserContactsActivity</string>
+    <string name="contacts_tab">Contacts</string>
+    <string name="contacts_messages_tab">Messages</string>
+    <string name="title_activity_user_contacts_fragment">UserContactsFragment</string>
+    <string name="title_activity_user_contacts_messages_fragment">UserContactsMessagesFragment</string>
 
 </resources>

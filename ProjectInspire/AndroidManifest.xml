@@ -27,12 +27,44 @@
             android:label="@string/title_activity_register_account" >
         </activity>
         <activity
-            android:name="com.projectinspire.activities.UserDashboard"
+            android:name=".activities.UserDashboardActivity"
             android:label="@string/title_activity_user_dashboard"
             android:parentActivityName=".activities.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.projectinspire.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".activities.UserProjects"
+            android:label="@string/title_activity_projects"
+            android:parentActivityName=".activities.UserDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".activities.UserContactsActivity"
+            android:label="@string/title_activity_user_contacts"
+            android:parentActivityName=".activities.UserDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".fragments.UserContactsFragment"
+            android:label="@string/title_activity_user_contacts_fragment"
+            android:parentActivityName=".activities.UserDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserDashboardActivity" />
+        </activity>
+        <activity
+            android:name="com.projectinspire.fragments.UserContactsMessagesFragment"
+            android:label="@string/title_activity_user_contacts_messages_fragment"
+            android:parentActivityName=".activities.UserDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserDashboardActivity" />
         </activity>
     </application>
 

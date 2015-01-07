@@ -63,25 +63,41 @@ public final class R {
         public static final int style_tab_unselected_pressed=0x7f020026;
     }
     public static final class id {
-        public static final int action_settings=0x7f080019;
-        public static final int btnRegisterSpace=0x7f080015;
+        public static final int action_settings=0x7f080029;
+        public static final int btnMainLogin=0x7f080004;
+        public static final int btnProjectCreate=0x7f080025;
+        public static final int btnProjectEdit=0x7f080026;
         public static final int btnRegisterSubmit=0x7f080014;
+        public static final int contactsFragmentContainer=0x7f080016;
         public static final int container=0x7f080000;
-        public static final int dashboard_drawer_frame_container=0x7f080017;
-        public static final int dashboard_drawer_menu_listview=0x7f080018;
-        public static final int dashboard_drawer_nav_layout=0x7f080016;
+        public static final int dashboard_drawer_frame_container=0x7f080018;
+        public static final int dashboard_drawer_menu_listview=0x7f080019;
+        public static final int dashboard_drawer_nav_layout=0x7f080017;
+        public static final int editMainEmail=0x7f080002;
+        public static final int editMainPassword=0x7f080003;
         public static final int editRegisterEmail=0x7f080011;
         public static final int editRegisterForename=0x7f080009;
         public static final int editRegisterPassword=0x7f08000d;
         public static final int editRegisterRepeatEmail=0x7f080013;
         public static final int editRegisterRepeatPassword=0x7f08000f;
         public static final int editRegisterSurname=0x7f08000b;
-        public static final int mainBtnLogin=0x7f080004;
-        public static final int mainEditEmail=0x7f080002;
-        public static final int mainEditPassword=0x7f080003;
-        public static final int mainTxtForgotPassword=0x7f080006;
-        public static final int mainTxtRegister=0x7f080005;
-        public static final int projectInspireIconImage=0x7f080001;
+        public static final int iconMainImage=0x7f080001;
+        public static final int listProjectsAll=0x7f080023;
+        public static final int scrollViewDashboard=0x7f08001a;
+        public static final int spaceRegisterButton=0x7f080015;
+        public static final int txtDashboardEvents=0x7f08001f;
+        public static final int txtDashboardEventsTitle=0x7f080020;
+        public static final int txtDashboardMessages=0x7f080021;
+        public static final int txtDashboardMessagesTitle=0x7f080022;
+        public static final int txtDashboardProjects=0x7f08001b;
+        public static final int txtDashboardProjectsTitle=0x7f08001c;
+        public static final int txtDashboardTasks=0x7f08001d;
+        public static final int txtDashboardTasksTitle=0x7f08001e;
+        public static final int txtFragContactsTitle=0x7f080027;
+        public static final int txtFragMessagesTitle=0x7f080028;
+        public static final int txtMainForgotPassword=0x7f080006;
+        public static final int txtMainRegister=0x7f080005;
+        public static final int txtProjectsNone=0x7f080024;
         public static final int txtRegisterDescription=0x7f080007;
         public static final int txtRegisterEmail=0x7f080010;
         public static final int txtRegisterForename=0x7f080008;
@@ -93,20 +109,36 @@ public final class R {
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_register_account=0x7f030001;
-        public static final int activity_user_dashboard=0x7f030002;
+        public static final int activity_user_contacts=0x7f030002;
+        public static final int activity_user_dashboard=0x7f030003;
+        public static final int activity_user_projects=0x7f030004;
+        public static final int fragment_user_contacts=0x7f030005;
+        public static final int fragment_user_contacts_messages=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f070000;
-        public static final int register_account=0x7f070001;
-        public static final int user_dashboard=0x7f070002;
+        public static final int projects=0x7f070001;
+        public static final int register_account=0x7f070002;
+        public static final int user_contacts=0x7f070003;
+        public static final int user_contacts_messages=0x7f070004;
+        public static final int user_dashboard=0x7f070005;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
+        public static final int contacts_messages_tab=0x7f050027;
+        public static final int contacts_tab=0x7f050026;
+        public static final int dashboard_events=0x7f05001d;
+        public static final int dashboard_events_title=0x7f05001e;
+        public static final int dashboard_messages=0x7f05001f;
+        public static final int dashboard_messages_title=0x7f050020;
+        public static final int dashboard_projects=0x7f050019;
+        public static final int dashboard_projects_title=0x7f05001a;
+        public static final int dashboard_tasks=0x7f05001b;
+        public static final int dashboard_tasks_title=0x7f05001c;
         public static final int hello_world=0x7f050001;
-        /**  Register activity 
-         */
-        public static final int lbl_register_description=0x7f050009;
+        public static final int lbl_projects_none=0x7f050024;
+        public static final int lbl_register_description=0x7f05000a;
         public static final int main_btn_login=0x7f050007;
         public static final int main_btn_register=0x7f050008;
         public static final int main_edit_email_address=0x7f050004;
@@ -115,20 +147,34 @@ public final class R {
         /**  Main activity 
          */
         public static final int main_txt_register=0x7f050003;
-        public static final int register_btn_account=0x7f050016;
-        public static final int register_edit_email=0x7f05000f;
-        public static final int register_edit_forename=0x7f05000b;
-        public static final int register_edit_password=0x7f050013;
-        public static final int register_edit_repeat_email=0x7f050011;
-        public static final int register_edit_repeat_password=0x7f050015;
-        public static final int register_edit_surname=0x7f05000d;
-        public static final int register_lbl_email=0x7f05000e;
-        public static final int register_lbl_forename=0x7f05000a;
-        public static final int register_lbl_password=0x7f050012;
-        public static final int register_lbl_repeat_email=0x7f050010;
-        public static final int register_lbl_repeat_password=0x7f050014;
-        public static final int register_lbl_surname=0x7f05000c;
-        public static final int title_activity_register_account=0x7f050017;
+        public static final int projects_create=0x7f050022;
+        public static final int projects_edit=0x7f050023;
+        public static final int register_btn_account=0x7f050017;
+        public static final int register_edit_email=0x7f050010;
+        public static final int register_edit_forename=0x7f05000c;
+        public static final int register_edit_password=0x7f050014;
+        public static final int register_edit_repeat_email=0x7f050012;
+        public static final int register_edit_repeat_password=0x7f050016;
+        public static final int register_edit_surname=0x7f05000e;
+        public static final int register_lbl_email=0x7f05000f;
+        public static final int register_lbl_forename=0x7f05000b;
+        public static final int register_lbl_password=0x7f050013;
+        public static final int register_lbl_repeat_email=0x7f050011;
+        public static final int register_lbl_repeat_password=0x7f050015;
+        public static final int register_lbl_surname=0x7f05000d;
+        /**  Projects activity 
+         */
+        public static final int title_activity_projects=0x7f050021;
+        /**  Register activity 
+         */
+        public static final int title_activity_register_account=0x7f050009;
+        /**  Contacts activity 
+         */
+        public static final int title_activity_user_contacts=0x7f050025;
+        public static final int title_activity_user_contacts_fragment=0x7f050028;
+        public static final int title_activity_user_contacts_messages_fragment=0x7f050029;
+        /**  Dashboard activity 
+         */
         public static final int title_activity_user_dashboard=0x7f050018;
     }
     public static final class style {

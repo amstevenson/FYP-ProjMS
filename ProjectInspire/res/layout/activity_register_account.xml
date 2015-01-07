@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
-	<!-- @author Adam Stevenson  -->
     
 	<RelativeLayout 
     android:layout_width="match_parent"
@@ -12,6 +11,7 @@
     android:paddingRight="10dp"
     android:background="@drawable/style_activity_background_gradient" >
     
+	    <!--  Description -->
 		<TextView
 		    android:id="@+id/txtRegisterDescription"
 		    android:paddingBottom="50dp"
@@ -232,7 +232,7 @@
 	   	 
 	   	 <!-- Create space that appears below the button; aesthetics  -->
 	   	 <Space
-	   	     android:id="@+id/btnRegisterSpace"
+	   	     android:id="@+id/spaceRegisterButton"
 	   	     android:layout_width="match_parent"
 	   	     android:layout_height="30dp"
 	   	     android:layout_below="@id/btnRegisterSubmit" />

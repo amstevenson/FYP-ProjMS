@@ -25,8 +25,8 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		// Get the identifiers for the objects that will be used as links to other activities
-		TextView registerIntent = (TextView)this.findViewById(R.id.mainTxtRegister);
-		TextView loginIntent    = (TextView)this.findViewById(R.id.mainBtnLogin);
+		TextView registerIntent = (TextView)this.findViewById(R.id.txtMainRegister);
+		TextView loginIntent    = (TextView)this.findViewById(R.id.btnMainLogin);
 		
 		// Provide the implementation for each on click listener
 		// In most cases this will be used to simply go to another form
@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				Intent sendToDashboard = new Intent(getApplicationContext(), UserDashboard.class);
+				Intent sendToDashboard = new Intent(getApplicationContext(), UserDashboardActivity.class);
 				startActivity(sendToDashboard);
 				
 			}
