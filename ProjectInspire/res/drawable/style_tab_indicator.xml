@@ -34,4 +34,5 @@
     <!--    Focused states -->
     <item android:state_focused="true" android:state_selected="false" android:state_pressed="true" android:drawable="@drawable/style_ab_stacked_solid" />
     <item android:state_focused="true" android:state_selected="true"  android:state_pressed="true" android:drawable="@drawable/style_cab_background_top" />
+
 </selector>

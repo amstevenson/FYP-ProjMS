@@ -228,7 +228,8 @@
 	      	 android:layout_centerHorizontal="true"
 	         android:background="#0c4661"
 	      	 android:text="@string/register_btn_account"
-	         android:textSize="16sp" />
+	         android:textSize="16sp"
+	         android:textColor="#fff" />
 	   	 
 	   	 <!-- Create space that appears below the button; aesthetics  -->
 	   	 <Space

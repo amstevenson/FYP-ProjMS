@@ -5,6 +5,7 @@ import com.projectinspire.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -42,10 +44,13 @@ public class UserDashboardActivity extends Activity {
 		//
 		// Determine the views
 		//
-		TextView projectSummary = (TextView) this.findViewById(R.id.txtDashboardProjects);
-		TextView projectTitle   = (TextView) this.findViewById(R.id.txtDashboardProjectsTitle);
-		TextView messagesSummary = (TextView) this.findViewById(R.id.txtDashboardMessages);
-		TextView messagesTitle  =  (TextView)this.findViewById(R.id.txtDashboardMessagesTitle);
+		TextView  projectSummary  = (TextView) this.findViewById(R.id.txtDashboardProjects);
+		TextView  projectTitle    = (TextView) this.findViewById(R.id.txtDashboardProjectsTitle);
+		TextView  messagesSummary = (TextView) this.findViewById(R.id.txtDashboardMessages);
+		TextView  messagesTitle   = (TextView) this.findViewById(R.id.txtDashboardMessagesTitle);
+		TextView  eventsSummary   = (TextView) this.findViewById(R.id.txtDashboardEvents);
+		TextView  eventsTitle     = (TextView) this.findViewById(R.id.txtDashboardEventsTitle);
+		ImageView userImage       = (ImageView) this.findViewById(R.id.imgviewDashboardUser);
 		
 		//
 		// Set the on click listeners for the activity
@@ -55,7 +60,7 @@ public class UserDashboardActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				Intent allProjects = new Intent(getApplicationContext(),UserProjects.class);
+				Intent allProjects = new Intent(getApplicationContext(),UserListAllProjectsActivity.class);
 				startActivity(allProjects);
 			}
 		});
@@ -65,7 +70,7 @@ public class UserDashboardActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				Intent allProjects = new Intent(getApplicationContext(),UserProjects.class);
+				Intent allProjects = new Intent(getApplicationContext(),UserListAllProjectsActivity.class);
 				startActivity(allProjects);
 			}
 		});
@@ -92,13 +97,46 @@ public class UserDashboardActivity extends Activity {
 			}
 		});
 		
+		eventsSummary.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent allEvents = new Intent(getApplicationContext(), UserListAllEventsActivity.class);
+				startActivity(allEvents);
+				
+			}
+		});
+		
+		eventsTitle.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent allEvents = new Intent(getApplicationContext(), UserListAllEventsActivity.class);
+				startActivity(allEvents);
+				
+			}
+		});
+		
 		
 		//
 		// Create the navigation menu
 		//
 		createNavigationMenu();
 		
-		
+		//*******************************************************************************************//
+		//									Create user image										 //
+		//*******************************************************************************************//
+        //
+		// If we do not have a image stored for the user, create the default user image drawable
+		//
+        Drawable addUserImage = getResources().getDrawable(R.drawable.icon_test_user);
+
+        //
+    	// Assign the drawable to the ImageView
+        //
+    	userImage.setImageDrawable(addUserImage);
 		
 	}
 	

@@ -43,14 +43,49 @@
 		    android:background="@drawable/style_activity_background_gradient"
 		    android:scrollbars="vertical" >
 	    
-		    <!--  Projects -->
+		    <!--  User Information -->
+			<ImageView
+			    android:id="@+id/imgviewDashboardUser"
+			    android:layout_marginTop="10dp"
+			    android:layout_width="60dp"
+			    android:layout_height="60dp"
+			    android:layout_alignLeft="@+id/txtDashboardProjects"
+			    android:layout_alignTop="@+id/txtDashboardUsername"
+			    android:contentDescription="@string/dashboard_user_image" />
+			
+			<TextView
+			    android:id="@+id/txtDashboardUsername"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignRight="@+id/txtDashboardProjects"
+			    android:layout_marginTop="10dp"
+			    android:layout_toRightOf="@+id/imgviewDashboardUser"
+			    android:paddingBottom="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingTop="10dp"
+			    android:text="@string/dashboard_user_name"
+			    android:textColor="#fff" />
+		
+			<TextView
+			    android:id="@+id/txtDashboardUserEmail"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignLeft="@+id/txtDashboardUsername"
+			    android:layout_alignRight="@+id/txtDashboardProjects"
+			    android:layout_below="@id/txtDashboardUsername"
+			    android:paddingBottom="50dp"
+			    android:paddingLeft="10dp"
+			    android:text="@string/dashboard_user_email_address"
+			    android:textColor="#fff" />
+		    
+		    <!-- Projects -->
 			<TextView
 			    android:id="@+id/txtDashboardProjects"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_marginLeft="15dp"
 			    android:layout_marginRight="15dp"
-			    android:layout_marginTop="40dp"
+			    android:layout_marginTop="90dp"
 			    android:paddingBottom="10dp"
 			    android:paddingTop="10dp"
 			    android:paddingLeft="10dp"
@@ -71,7 +106,7 @@
 				android:background="#3F1b2600"
 			    android:text="@string/dashboard_projects_title"
 			    android:textColor="#fff" />
-			
+		    
 			<!--  Tasks -->
 			<TextView
 			    android:id="@+id/txtDashboardTasks"
@@ -161,6 +196,7 @@
 				android:background="#3F1b2600"
 			    android:text="@string/dashboard_messages_title"
 			    android:textColor="#fff" />
+
 			
 		</RelativeLayout>
 	

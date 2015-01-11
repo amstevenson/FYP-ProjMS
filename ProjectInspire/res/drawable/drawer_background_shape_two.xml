@@ -4,4 +4,6 @@
   android:startColor="#260a32" 
   android:endColor="#1e1e42" 
   android:angle="45"/> 
+  
+  <!--  gradient - 260a32 - 1e1e42 -->
 </shape>

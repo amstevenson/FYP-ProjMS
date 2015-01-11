@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    
+	<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:background="@drawable/style_activity_background_gradient" >
+    
+	    <!--  Description -->
+		<TextView
+		    android:id="@+id/txtCreateTaskUserHelp"
+		    android:paddingBottom="50dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="5dp"
+		    android:text="@string/create_task_lbl_userhelp"
+		    android:textSize="16sp" 
+		    android:textColor="#FFF"/>
+	
+		<!-- Task Name -->
+	    <TextView
+	        android:id="@+id/txtCreateTaskName"
+	        android:layout_below="@id/txtCreateTaskUserHelp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="5dp"
+	        android:text="@string/create_task_txt_name"
+	        android:textSize="14sp" 
+	        android:textColor="#fff" />
+		
+	     <EditText
+	         android:id="@+id/editCreateTaskName"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateTaskName"
+	         android:layout_alignBottom="@+id/txtCreateTaskName"
+	         android:layout_alignRight="@+id/txtCreateTaskUserHelp"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_task_edit_name"
+	         android:inputType="textPersonName"
+	         android:maxLength="30"
+	         android:layout_marginRight="5dp"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	
+	    <!--  assigned to -->
+	    <TextView
+	        android:id="@+id/txtCreateTaskAssigned"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateTaskName"
+	        android:layout_below="@id/txtCreateTaskName"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_task_txt_assigned"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	
+	     <EditText
+	         android:id="@+id/editCreateTaskAssigned"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateTaskAssigned"
+	         android:layout_alignBottom="@+id/txtCreateTaskAssigned"
+	         android:layout_alignLeft="@+id/editCreateTaskName"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_task_edit_assigned"
+	         android:inputType="date"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+
+	    <!-- category spinner -->
+	    <TextView
+	        android:id="@+id/txtCreateTaskCategory"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateTaskAssigned"
+	        android:layout_below="@id/txtCreateTaskAssigned"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginTop="40dp"
+	        android:text="@string/create_task_txt_category"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	     
+	     <EditText
+	         android:id="@+id/editCreateTaskCategory"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateTaskCategory"
+	         android:layout_alignBottom="@+id/txtCreateTaskCategory"
+	         android:layout_alignLeft="@+id/editCreateTaskAssigned"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_task_spinner_category"
+	         android:inputType="date"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	    
+	    <!--  Start date -->
+	    <TextView
+	        android:id="@+id/txtCreateTaskStartDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateTaskCategory"
+	        android:layout_below="@id/txtCreateTaskCategory"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_task_txt_start_date"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	    
+	     <EditText
+	         android:id="@+id/editCreateTaskStartDate"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateTaskStartDate"
+	         android:layout_alignBottom="@+id/txtCreateTaskStartDate"
+	         android:layout_alignLeft="@+id/editCreateTaskCategory"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_project_edit_responsible"
+	         android:inputType="date"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	    <!-- End date -->
+	    <TextView
+	        android:id="@+id/txtCreateTaskEndDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateTaskStartDate"
+	        android:layout_below="@id/txtCreateTaskStartDate"
+	        android:layout_marginLeft="15dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_task_txt_end_date"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	    
+	     <EditText
+	         android:id="@+id/editCreateTaskEndDate"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateTaskEndDate"
+	         android:layout_alignBottom="@+id/txtCreateTaskEndDate"
+	         android:layout_alignLeft="@+id/editCreateTaskStartDate"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_task_edit_end_date"
+	         android:inputType="date"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	     <!--  Priority -->
+	    <TextView
+	        android:id="@+id/txtCreateTaskPriority"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateTaskEndDate"
+	        android:layout_below="@id/txtCreateTaskEndDate"
+	        android:layout_marginLeft="15dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_task_txt_priority"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	    
+	     <EditText
+	         android:id="@+id/editCreateTaskPriority"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateTaskPriority"
+	         android:layout_alignBottom="@+id/txtCreateTaskPriority"
+	         android:layout_alignLeft="@+id/editCreateTaskEndDate"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/register_edit_repeat_email"
+	         android:inputType="text"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	     <!--  Decription -->
+	    <TextView
+	        android:id="@+id/txtCreateTaskDescription"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateTaskPriority"
+	        android:layout_below="@id/txtCreateTaskPriority"
+	        android:layout_marginLeft="15dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_task_txt_description"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	    
+	     <EditText
+	         android:id="@+id/editCreateTaskDescription"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateTaskDescription"
+	         android:layout_alignBottom="@+id/txtCreateTaskDescription"
+	         android:layout_alignLeft="@+id/editCreateTaskPriority"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_task_edit_description"
+	         android:inputType="text"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	     <!--  Create a new task  -->
+	   	 <Button
+	       	 android:id="@+id/btnCreateTask"
+	       	 android:layout_width="200dp"
+	       	 android:layout_height="wrap_content"
+	       	 android:layout_marginTop="670dp"
+	      	 android:layout_centerHorizontal="true"
+	         android:background="#0c4661"
+	      	 android:text="@string/create_task_btn"
+	         android:textSize="16sp" 
+	         android:textColor="#fff"/>
+	   	 
+	   	 <!-- Create space that appears below the button; aesthetics  -->
+	   	 <Space
+	   	     android:id="@+id/spaceCreateTaskButton"
+	   	     android:layout_width="match_parent"
+	   	     android:layout_height="30dp"
+	   	     android:layout_below="@id/btnCreateTask" />
+	    
+	</RelativeLayout>
+</ScrollView>
+

@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="21" />
 
     <application
         android:allowBackup="true"
@@ -35,7 +35,7 @@
                 android:value="com.projectinspire.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".activities.UserProjects"
+            android:name=".activities.UserListAllProjectsActivity"
             android:label="@string/title_activity_projects"
             android:parentActivityName=".activities.UserDashboardActivity" >
             <meta-data
@@ -59,12 +59,84 @@
                 android:value="com.projectinspire.activities.UserDashboardActivity" />
         </activity>
         <activity
-            android:name="com.projectinspire.fragments.UserContactsMessagesFragment"
+            android:name=".fragments.UserContactsMessagesFragment"
             android:label="@string/title_activity_user_contacts_messages_fragment"
             android:parentActivityName=".activities.UserDashboardActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.projectinspire.activities.UserDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".activities.UserSelectedProjectActivity"
+            android:label="@string/title_activity_user_selected_project"
+            android:parentActivityName=".activities.UserListAllProjects" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserListAllProjects" />
+        </activity>
+        <activity
+            android:name=".fragments.UserSelectedProjectTasksFragment"
+            android:label="@string/title_activity_user_selected_project_tasks"
+            android:parentActivityName=".activities.UserListAllProjects" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserListAllProjects" />
+        </activity>
+        <activity
+            android:name=".fragments.UserSelectedProjectAllFilesFragment"
+            android:label="@string/title_activity_user_selected_project_all_files_fragment"
+            android:parentActivityName=".activities.UserListAllProjects" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserListAllProjects" />
+        </activity>
+        <activity
+            android:name=".activities.CreateOrEditProjectActivity"
+            android:label="@string/title_activity_create_or_edit_project"
+            android:parentActivityName=".activities.UserListAllProjects" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserListAllProjects" />
+        </activity>
+        <activity
+            android:name=".activities.CreateOrEditTaskActivity"
+            android:label="@string/title_activity_create_or_edit_task"
+            android:parentActivityName=".activities.UserSelectedProjectActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserSelectedProjectActivity" />
+        </activity>
+        <activity
+            android:name=".activities.UserListAllEventsActivity"
+            android:label="@string/title_activity_user_list_all_events"
+            android:parentActivityName=".activities.UserDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".activities.CreateOrEditEventActivity"
+            android:label="@string/title_activity_create_or_edit_event"
+            android:parentActivityName=".activities.UserDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserDashboardActivity" />
+        </activity>
+        <activity
+            android:name=".activities.ForgotPasswordActivity"
+            android:label="@string/title_activity_forgot_password"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.projectinspire.activities.ForgotPasswordResetActivity"
+            android:label="@string/title_activity_forgot_password_reset"
+            android:parentActivityName=".activities.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.MainActivity" />
         </activity>
     </application>
 

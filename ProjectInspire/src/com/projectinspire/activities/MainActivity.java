@@ -24,14 +24,19 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		// Get the identifiers for the objects that will be used as links to other activities
-		TextView registerIntent = (TextView)this.findViewById(R.id.txtMainRegister);
-		TextView loginIntent    = (TextView)this.findViewById(R.id.btnMainLogin);
+		//
+		// View variables
+		//
+		TextView registerAccount    = (TextView)this.findViewById(R.id.txtMainRegister);
+		TextView userLogin          = (TextView)this.findViewById(R.id.btnMainLogin);
+		TextView userForgotPassword = (TextView)this.findViewById(R.id.txtMainForgotPassword);
 		
+		//
 		// Provide the implementation for each on click listener
 		// In most cases this will be used to simply go to another form
 		// Although some will have networking functionalities attached.
-		registerIntent.setOnClickListener(new OnClickListener() {
+		//
+		registerAccount.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
 
@@ -41,13 +46,24 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		loginIntent.setOnClickListener(new OnClickListener() {
+		userLogin.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 
 				Intent sendToDashboard = new Intent(getApplicationContext(), UserDashboardActivity.class);
 				startActivity(sendToDashboard);
+				
+			}
+		});
+		
+		userForgotPassword.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent sendToForgotPassword = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
+				startActivity(sendToForgotPassword);
 				
 			}
 		});

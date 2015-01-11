@@ -9,11 +9,49 @@
     tools:context="com.projectinspire.fragments.UserContactsFragment" 
     android:background="@drawable/style_activity_background_gradient">
 
-    <TextView
-        android:id="@+id/txtFragContactsTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contacts_tab"
-        android:textColor="#fff" />
+    <!--  List view for all of the contacts -->
+   <ListView
+	    android:id="@+id/listContactsAll"
+	    android:layout_marginTop="60dp"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="start"
+	    android:choiceMode="singleChoice"
+	    android:divider="#FFF"
+	    android:dividerHeight="0dp"        
+	    android:listSelector="@drawable/drawer_list_selector"/>
+    
+	<!-- search files -->
+	<EditText
+	    android:id="@+id/editSearchContacts"
+	    android:layout_width="200dp"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/imageViewCreateContact"
+	    android:layout_alignLeft="@+id/listContactsAll"
+	    android:layout_marginRight="10dp"
+	    android:layout_toLeftOf="@+id/imageViewCreateContact"
+	    android:background="#FFF"
+	    android:drawableLeft="@drawable/icon_search_48dp_black"
+	    android:ems="10"
+	    android:gravity="center"
+	    android:imeOptions="actionSearch"
+	    android:hint="@string/search_contacts"
+	    android:inputType="text"
+	    android:maxLength="30"
+	    android:paddingBottom="15dp"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp"
+	    android:paddingTop="15dp"
+	    android:textColor="#000"
+	    android:textSize="13sp" />
+   
+    <!--  Create a new contact -->
+    <ImageView
+        android:id="@+id/imageViewCreateContact"
+        android:layout_alignRight="@id/listContactsAll"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textSize="16sp" 
+        android:contentDescription="@string/contact_create" />
 
 </RelativeLayout>

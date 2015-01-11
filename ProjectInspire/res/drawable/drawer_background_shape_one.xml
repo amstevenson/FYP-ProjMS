@@ -12,6 +12,8 @@
     <item android:drawable="@drawable/style_cab_background_top" android:state_activated="true"/>
 
 	</selector>
+	
+  <!--  Gradient - 18283f - 0f384c -->
 </shape>
 
 

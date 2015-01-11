@@ -33,6 +33,11 @@ public class UserContactsActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_contacts);
 		
+		//*******************************************************************************************//
+		//									Create the fragment tabs								 //
+		//*******************************************************************************************//
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
 		//
 		// Create the ActionBar and set the navigation mode
 		//
@@ -42,8 +47,8 @@ public class UserContactsActivity extends Activity {
 		//
 		// Create the ActionBar tabs for both all contacts and all messages
 		//
-		ActionBar.Tab allContactsTab = actionBar.newTab().setText(getString(R.string.contacts_tab));
-		ActionBar.Tab allMessagesTab  = actionBar.newTab().setText(getString(R.string.contacts_messages_tab));
+		ActionBar.Tab allContactsTab = actionBar.newTab().setText(getString(R.string.tab_contacts));
+		ActionBar.Tab allMessagesTab  = actionBar.newTab().setText(getString(R.string.tab_contacts_messages));
 		
 		//
 		// Create the fragments; allocate a class to each fragment specified.
@@ -76,6 +81,7 @@ public class UserContactsActivity extends Activity {
 		//
 		actionBar.addTab(allContactsTab);
 		actionBar.addTab(allMessagesTab);
+		
 	}
 
 	@Override

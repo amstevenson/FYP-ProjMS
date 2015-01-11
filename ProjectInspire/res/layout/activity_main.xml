@@ -67,6 +67,7 @@
 	    android:layout_centerHorizontal="true"
 	    android:background="#0c4661"
 	    android:text="@string/main_btn_login"
+	    android:textColor="#fff"
 	    android:textSize="16sp" />
 	
 	<!--  Register and forgot account password -->

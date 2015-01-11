@@ -7,9 +7,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/style_activity_background_gradient" 
-    tools:context="com.projectinspire.activities.UserProjects">
+    tools:context="com.projectinspire.activities.UserListAllProjectsActivity">
 
-    <!--  List view that contains all of the projects that are specific to one person -->
+    <!--  List view that contains all of the projects that are specific to one person
+    	  When clicked on, sends them to the tasks page that is relevent to the specific project -->
     <ListView
 	    android:id="@+id/listProjectsAll"
 	    android:layout_marginTop="60dp"
@@ -32,26 +33,52 @@
 		android:text="@string/lbl_projects_none"
 		android:textSize="16sp" 
 		android:textColor="#FFF"/>
-    
+   
+	<!--  Search projects -->
+	<EditText
+	    android:id="@+id/editSearchProjects"
+	    android:layout_width="200dp"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/imageViewProjectCreate"
+	    android:layout_alignLeft="@+id/listProjectsAll"
+	    android:layout_marginRight="10dp"
+	    android:layout_toLeftOf="@+id/imageViewProjectCreate"
+	    android:background="#FFF"
+	    android:drawableLeft="@drawable/icon_search_48dp_black"
+	    android:ems="10"
+	    android:gravity="center"
+	    android:imeOptions="actionSearch"
+	    android:hint="@string/search_project"
+	    android:inputType="text"
+	    android:maxLength="30"
+	    android:paddingBottom="15dp"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp"
+	    android:paddingTop="15dp"
+	    android:textColor="#000"
+	    android:textSize="13sp" />
+	
     <!--  Create a new project -->
-    <Button
-        android:id="@+id/btnProjectCreate"
+    <ImageView
+        android:id="@+id/imageViewProjectCreate"
         android:layout_alignRight="@id/listProjectsAll"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="#0c4661"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:textSize="16sp" 
-        android:text="@string/projects_create" />
+        android:contentDescription="@string/projects_create" />
     
     <!--  Might want to create an adapter that creates an edit button that is clickable
-    		instead of having this -->
-    <Button
+    		instead of having this
+    		
+    		Also, might be better to have an edit button on each listview row - which would make more sense -->
+   <!--<Button
         android:id="@+id/btnProjectEdit"
         android:layout_alignLeft="@id/listProjectsAll"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:background="#0c4661"
         android:textSize="16sp" 
-        android:text="@string/projects_edit" />
+        android:text="@string/projects_edit"
+        android:textColor="#fff" /> -->
 
 </RelativeLayout>

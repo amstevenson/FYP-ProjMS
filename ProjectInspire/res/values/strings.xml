@@ -33,6 +33,9 @@
 
     <!-- Dashboard activity -->
     <string name="title_activity_user_dashboard">Your Dashboard</string>
+    <string name="dashboard_user_name">Adam Stevenson</string>
+    <string name="dashboard_user_email_address">Addstevenson@hotmail.com</string>
+    <string name="dashboard_user_image">User image</string>
     <string name="dashboard_projects">Projects</string>
     <string name="dashboard_projects_title">Tile of project</string>
     <string name="dashboard_tasks">Tasks</string>
@@ -49,11 +52,97 @@
     <string name="lbl_projects_none">You currently do not have any projects allocated to your account, 
         please accept an invitiation from your messages, or press the "create project" button above.</string>
 
-    <!-- Contacts activity -->
+    <!-- Contacts activity/fragments -->
     <string name="title_activity_user_contacts">UserContactsActivity</string>
-    <string name="contacts_tab">Contacts</string>
-    <string name="contacts_messages_tab">Messages</string>
+    <string name="tab_contacts">Contacts</string>
+    <string name="tab_contacts_messages">Messages</string>
     <string name="title_activity_user_contacts_fragment">UserContactsFragment</string>
     <string name="title_activity_user_contacts_messages_fragment">UserContactsMessagesFragment</string>
+
+    <!-- Tasks activity/fragments -->
+    <string name="title_activity_user_selected_project">Selected Project</string>
+    <string name="title_activity_user_selected_project_tasks">Selected Project</string>
+    <string name="title_activity_user_selected_project_all_files_fragment">Selected Project</string>
+    <string name="tab_all_tasks">Tasks</string>
+    <string name="tab_all_files">Files</string>
+    <string name="tab_all_events">Events</string>
+
+    <!-- Create or Edit project -->
+    <string name="create_project_lbl_userhelp">To create a project, please enter in the following information and press the \'create\' button</string>
+    <string name="title_activity_create_or_edit_project">CreateOrEditProject</string>
+    <string name="create_project_lbl_name">Project Name</string>
+    <string name="create_project_edit_name">Enter Name</string>
+    <string name="create_project_lbl_start_date">Start Date</string>
+    <string name="create_project_edit_start_date_hint">Enter Start Date</string>
+    <string name="create_project_lbl_finish_date">End Date</string>
+    <string name="create_project_edit_finish_date_hint">Enter End Date</string>
+    <string name="create_project_lbl_responsible">Assign To</string>
+    <string name="create_project_edit_responsible">Assign</string>
+    <!-- Going to be a picker probably -->
+    <string name="create_project_lbl_type">Type</string>
+    <string name="create_project_edit_type">Enter Type</string>
+    <!-- Going to be a picker probably -->
+    <string name="create_project_lbl_description">Additional Notes</string>
+    <string name="create_project_edit_description">Enter Notes</string>
+    <string name="create_project_btn">Create Project</string>
+    <string name="search_project">Search Projects</string>
+
+    <!-- Create or Edit Task Activity -->
+    <string name="title_activity_create_or_edit_task">CreateOrEditTaskActivity</string>
+    <string name="task_create">New Task</string>
+    <string name="create_task_lbl_userhelp">To create a task, please enter in the following information and press the \'create\' button</string>
+    <string name="create_task_txt_name">Task Name</string>
+    <string name="create_task_edit_name">Enter Task Name</string>
+    <string name="create_task_txt_assigned">Assigned To</string>
+    <string name="create_task_edit_assigned">Assign</string>
+    <string name="create_task_txt_category">Category</string>
+    <string name="create_task_spinner_category">Select Category</string>
+    <string name="create_task_txt_start_date">Start Date</string>
+    <string name="create_task_edit_start_date">Enter Start Date</string>
+    <string name="create_task_txt_end_date">End Date</string>
+    <string name="create_task_edit_end_date">Enter End Date</string>
+    <string name="create_task_txt_priority">Priority</string>
+    <string name="create_task_edit_priority">Enter Priority</string>
+    <string name="create_task_txt_description">Description</string>
+    <string name="create_task_edit_description">Enter Description</string>
+    <string name="create_task_btn">Create Task</string>
+    <string name="search_task">Search Tasks</string>
+
+    <!-- Create or Edit event Activity -->
+    <string name="title_activity_create_or_edit_event">CreateOrEditEventActivity</string>
+    <string name="title_activity_user_list_all_events">Your Events</string>
+    <string name="event_create">New Event</string>
+    <string name="lbl_events_none">You currently do not have any events allocated to your account.</string>
+    <string name="search_events">Search Events</string>
+
+    <!-- New interaction / new contact interaction Activity -->
+	<string name="search_contacts">Search Contacts</string>
+	<string name="search_messages">Search Messages</string>
+	<string name="contact_create">New Contact</string>
+	<string name="message_create">New Message</string>
+
+    <!-- Create or Edit files Activity -->
+	<string name="file_create">New File</string>
+	<string name="search_files">Search Files</string>
+
+    <!-- Forgot password Activity -->
+    <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
+    <string name="forgot_password_description">If you have forgotten your password, enter in your email address below. \n Then please enter the security
+         code that is linked to your account.</string>
+    <string name="forgot_password_txt_code">Security Code</string>
+    <string name="forgot_password_edit_code">Enter Code</string>
+    <string name="forgot_password_btn">Submit</string>
+
+    <!--  Reset password Activity -->
+    <string name="title_activity_forgot_password_reset">ForgotPasswordResetActivity</string>
+    <string name="reset_password_description">Please enter your new password below.</string>
+    <string name="reset_password_txt_password">Password</string>
+    <string name="reset_password_edit_password">Enter Password</string>
+    <string name="reset_password_repeat_txt_password">Repeat Password</string>
+    <string name="reset_password_repeat_edit_password">Enter Password</string>
+    <string name="reset_password_btn">Reset Password</string>
+    
+    <!-- View message Activity -->
+	
 
 </resources>
