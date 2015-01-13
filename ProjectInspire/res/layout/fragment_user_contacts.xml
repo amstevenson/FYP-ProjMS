@@ -2,10 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.projectinspire.fragments.UserContactsFragment" 
     android:background="@drawable/style_activity_background_gradient">
 
@@ -22,20 +18,19 @@
 	    android:listSelector="@drawable/drawer_list_selector"/>
     
 	<!-- search files -->
+
 	<EditText
 	    android:id="@+id/editSearchContacts"
 	    android:layout_width="200dp"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBottom="@+id/imageViewCreateContact"
+	    android:layout_height="50dp"
 	    android:layout_alignLeft="@+id/listContactsAll"
-	    android:layout_marginRight="10dp"
 	    android:layout_toLeftOf="@+id/imageViewCreateContact"
 	    android:background="#FFF"
 	    android:drawableLeft="@drawable/icon_search_48dp_black"
 	    android:ems="10"
-	    android:gravity="center"
-	    android:imeOptions="actionSearch"
+	    android:gravity="left"
 	    android:hint="@string/search_contacts"
+	    android:imeOptions="actionSearch"
 	    android:inputType="text"
 	    android:maxLength="30"
 	    android:paddingBottom="15dp"
@@ -46,12 +41,16 @@
 	    android:textSize="13sp" />
    
     <!--  Create a new contact -->
+
     <ImageView
         android:id="@+id/imageViewCreateContact"
-        android:layout_alignRight="@id/listContactsAll"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:textSize="16sp" 
-        android:contentDescription="@string/contact_create" />
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/editSearchContacts"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#fff"
+        android:contentDescription="@string/contact_create"
+        android:textSize="16sp" />
 
 </RelativeLayout>

@@ -1,17 +1,278 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    
+	<RelativeLayout 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.projectinspire.activities.CreateOrEditEventActivity"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     android:background="@drawable/style_activity_background_gradient" >
+    
+	    <!--  Description -->
+		<TextView
+		    android:id="@+id/txtCreateEventUserHelp"
+		    android:paddingBottom="50dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="5dp"
+		    android:text="@string/create_event_summary"
+		    android:textSize="16sp" 
+		    android:textColor="#FFF"/>
+	
+		<!-- Event Name -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+	    <TextView
+	        android:id="@+id/txtCreateEventName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateEventLocation"
+	        android:layout_below="@id/txtCreateEventUserHelp"
+	        android:layout_marginLeft="5dp"
+	        android:text="@string/create_event_txt_name"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+		
+	     <EditText
+	         android:id="@+id/editCreateProjectName"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateEventName"
+	         android:layout_alignBottom="@+id/txtCreateEventName"
+	         android:layout_alignRight="@+id/txtCreateEventUserHelp"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_event_edit_name"
+	         android:inputType="text"
+	         android:maxLength="30"
+	         android:layout_marginRight="5dp"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	
+	    <!--  Location -->
+	    <TextView
+	        android:id="@+id/txtCreateEventLocation"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateEventDescription"
+	        android:layout_below="@id/txtCreateEventName"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_event_txt_location"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	
+	     <EditText
+	         android:id="@+id/editCreateEventLocation"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateEventLocation"
+	         android:layout_alignBottom="@+id/txtCreateEventLocation"
+	         android:layout_alignLeft="@+id/editCreateProjectName"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_event_edit_locatioin"
+	         android:inputType="text"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
 
-</RelativeLayout>
+	    <!-- Event Description -->
+	    <TextView
+	        android:id="@+id/txtCreateEventDescription"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateEventDate"
+	        android:layout_below="@id/txtCreateEventLocation"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_event_txt_description"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	     
+	     <EditText
+	         android:id="@+id/editCreateEventDescription"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateEventDescription"
+	         android:layout_alignBottom="@+id/txtCreateEventDescription"
+	         android:layout_alignLeft="@+id/editCreateEventLocation"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_event_edit_description"
+	         android:inputType="text"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	    
+	    <!--  Event start date -->
+	    <TextView
+	        android:id="@+id/txtCreateEventDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateEventStartTime"
+	        android:layout_below="@id/txtCreateEventDescription"
+	        android:layout_marginLeft="5dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_event_txt_date"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	    
+	     <EditText
+	         android:id="@+id/editCreateEventDate"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateEventDate"
+	         android:layout_alignBottom="@+id/txtCreateEventDate"
+	         android:layout_alignLeft="@+id/editCreateEventDescription"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_project_edit_responsible"
+	         android:inputType="date"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	    <!-- start time -->
+	    <TextView
+	        android:id="@+id/txtCreateEventStartTime"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@id/txtCreateEventDate"
+	        android:layout_marginLeft="15dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_event_txt_start_time"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	    
+	     <EditText
+	         android:id="@+id/editCreateEventStartTime"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateEventStartTime"
+	         android:layout_alignBottom="@+id/txtCreateEventStartTime"
+	         android:layout_alignLeft="@+id/editCreateEventDate"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_project_edit_type"
+	         android:inputType="time"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	     <!--  end time -->
+	    <TextView
+	        android:id="@+id/txtCreateEventEndTime"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateEventStartTime"
+	        android:layout_below="@id/txtCreateEventStartTime"
+	        android:layout_marginLeft="15dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_event_txt_end_time"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	    
+	     <EditText
+	         android:id="@+id/editCreateEventEndTime"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateEventEndTime"
+	         android:layout_alignBottom="@+id/txtCreateEventEndTime"
+	         android:layout_alignLeft="@+id/editCreateEventStartTime"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_event_edit_end_time"
+	         android:inputType="time"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	     <!--  visibility -->
+
+	    <TextView
+	        android:id="@+id/txtCreateEventVisibility"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtCreateEventEndTime"
+	        android:layout_below="@id/txtCreateEventEndTime"
+	        android:layout_marginLeft="15dp"
+	        android:layout_marginTop="60dp"
+	        android:text="@string/create_event_txt_visibility"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	    
+	     <EditText
+	         android:id="@+id/editCreateEventVisibility"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateEventVisibility"
+	         android:layout_alignBottom="@+id/txtCreateEventVisibility"
+	         android:layout_alignLeft="@+id/editCreateEventEndTime"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_event_edit_visibility"
+	         android:inputType="text"
+	         android:maxLength="30"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	     <!--  Create event  -->
+	   	 <Button
+	       	 android:id="@+id/btnCreateEvent"
+	       	 android:layout_width="200dp"
+	       	 android:layout_height="wrap_content"
+	       	 android:layout_marginTop="640dp"
+	      	 android:layout_centerHorizontal="true"
+	         android:background="#0c4661"
+	      	 android:text="@string/create_event_btn"
+	         android:textSize="16sp" 
+	         android:textColor="#fff"/>
+	   	 
+	   	 <!-- Create space that appears below the button; aesthetics  -->
+	   	 <Space
+	   	     android:id="@+id/spaceCreateEventButton"
+	   	     android:layout_width="match_parent"
+	   	     android:layout_height="30dp"
+	   	     android:layout_below="@id/btnCreateEvent" />
+	    
+	</RelativeLayout>
+</ScrollView>
+

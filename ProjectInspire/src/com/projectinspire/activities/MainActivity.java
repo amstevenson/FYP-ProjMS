@@ -2,11 +2,13 @@ package com.projectinspire.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.projectinspire.R;
@@ -27,9 +29,10 @@ public class MainActivity extends Activity {
 		//
 		// View variables
 		//
-		TextView registerAccount    = (TextView)this.findViewById(R.id.txtMainRegister);
-		TextView userLogin          = (TextView)this.findViewById(R.id.btnMainLogin);
-		TextView userForgotPassword = (TextView)this.findViewById(R.id.txtMainForgotPassword);
+		TextView registerAccount    = (TextView) this.findViewById(R.id.txtMainRegister);
+		TextView userLogin          = (TextView) this.findViewById(R.id.btnMainLogin);
+		TextView userForgotPassword = (TextView) this.findViewById(R.id.txtMainForgotPassword);
+		ImageView imageBook         = (ImageView)this.findViewById(R.id.iconMainImage);
 		
 		//
 		// Provide the implementation for each on click listener
@@ -67,6 +70,19 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+		
+		//*******************************************************************************************//
+		//									Create and assign the images							 //
+		//*******************************************************************************************//
+        //
+		// If we do not have a image stored for the user, create the default user image drawable
+		//
+        Drawable iconBook = getResources().getDrawable(R.drawable.icon_book_reading_white_48dp);
+
+        //
+    	// Assign the drawable to the ImageView
+        //
+    	imageBook.setImageDrawable(iconBook);
 	}
 
 	

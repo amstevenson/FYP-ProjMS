@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingTop="20dp"
+	    android:paddingLeft="10dp"
+	    android:paddingRight="10dp"
+	    android:background="@drawable/style_activity_background_gradient" >
+    
+	    <!--  Summary -->
+		<TextView
+		    android:id="@+id/txtCreateContactsUserHelp"
+		    android:paddingBottom="50dp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:paddingLeft="5dp"
+		    android:text="@string/create_contact_summary"
+		    android:textSize="16sp" 
+		    android:textColor="#FFF"/>
+	
+		<!-- contact name -->
+	    <TextView
+	        android:id="@+id/txtCreateContactName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/txtCreateContactsUserHelp"
+	        android:layout_below="@id/txtCreateContactsUserHelp"
+	        android:layout_marginRight="10dp"
+	        android:text="@string/create_contact_txt_name"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+		
+	     <EditText
+	         android:id="@+id/editCreateContactName"
+	         android:layout_width="200dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateContactName"
+	         android:layout_alignBottom="@+id/txtCreateContactName"
+	         android:layout_alignRight="@+id/txtCreateContactsUserHelp"
+	         android:layout_marginRight="5dp"
+	         android:layout_toRightOf="@+id/txtCreateContactName"
+	         android:background="#FFF"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_project_edit_name"
+	         android:inputType="text"
+	         android:maxLength="40"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	
+	    <!--  Email -->
+
+	    <TextView
+	        android:id="@+id/txtCreateContactEmail"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/txtCreateContactName"
+	        android:layout_below="@id/txtCreateContactName"
+	        android:layout_marginTop="60dp"
+	        android:layout_toLeftOf="@+id/editCreateContactName"
+	        android:text="@string/create_contact_txt_email"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+	
+	     <EditText
+	         android:id="@+id/editCreateContactEmail"
+	         android:layout_width="50dp"
+	         android:layout_height="wrap_content"
+	         android:layout_alignBaseline="@+id/txtCreateContactEmail"
+	         android:layout_alignBottom="@+id/txtCreateContactEmail"
+	         android:layout_alignLeft="@+id/editCreateContactName"
+	         android:layout_alignRight="@+id/editCreateContactName"
+	         android:background="#FFF"
+	         android:singleLine="false"
+	         android:maxLines="15"
+	         android:ems="10"
+	         android:gravity="center"
+	         android:hint="@string/create_contact_edit_email"
+	         android:inputType="textEmailAddress"
+	         android:paddingBottom="15dp"
+	         android:paddingLeft="5dp"
+	         android:paddingRight="5dp"
+	         android:paddingTop="15dp"
+	         android:textColor="#000"
+	         android:textSize="13sp" />
+	     
+	    <!--  Notes -->
+	    
+	   	 <TextView
+	   	     android:id="@+id/txtCreateContactNotes"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignLeft="@+id/txtCreateContactEmail"
+	   	     android:layout_below="@+id/editCreateContactEmail"
+	   	     android:layout_marginTop="40dp"
+	   	     android:text="@string/create_contact_txt_notes"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+	   	 
+	   	 <EditText
+	   	     android:id="@+id/editCreateContactNotes"
+	   	     android:layout_width="50dp"
+	   	     android:layout_height="200dp"
+	   	     android:layout_alignLeft="@+id/editCreateContactEmail"
+	   	     android:layout_alignRight="@+id/editCreateContactEmail"
+	   	     android:layout_alignTop="@+id/txtCreateContactNotes"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="center"
+	   	     android:hint="@string/create_contact_edit_notes"
+	   	     android:inputType="text"
+	   	     android:maxLines="15"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="5dp"
+	   	     android:paddingRight="5dp"
+	   	     android:paddingTop="15dp"
+	   	     android:singleLine="false"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+	   	 
+	    <!--  Current projects affiliated with -->
+	   	 <TextView
+	   	     android:id="@+id/txtCreateContactProjectAffiliation"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_below="@+id/editCreateContactNotes"
+	   	     android:layout_marginTop="34dp"
+	   	     android:layout_toLeftOf="@+id/editCreateContactProjectAffiliation"
+	   	     android:text="@string/create_contact_txt_project_affiliation"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateContactProjectAffiliation"
+	   	     android:layout_width="50dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignLeft="@+id/editCreateContactNotes"
+	   	     android:layout_alignRight="@+id/editCreateContactNotes"
+	   	     android:layout_alignTop="@+id/txtCreateContactProjectAffiliation"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="center"
+	   	     android:hint="@string/create_contact_edit_project_affiliation"
+	   	     android:inputType="text"
+	   	     android:maxLines="15"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="5dp"
+	   	     android:paddingRight="5dp"
+	   	     android:paddingTop="15dp"
+	   	     android:singleLine="false"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" >
+
+	   	 </EditText>
+	   	 
+	     <!--  Create contact  -->
+	   	 <Button
+	       	 android:id="@+id/btnCreateContact"
+	       	 android:layout_width="250dp"
+	       	 android:layout_height="wrap_content"
+	       	 android:layout_marginTop="560dp"
+	      	 android:layout_centerHorizontal="true"
+	         android:background="#0c4661"
+	      	 android:text="@string/create_contact_btn"
+	         android:textSize="16sp" 
+	         android:textColor="#fff"/>
+	   	 
+	   	 <!-- Create space that appears below the button; aesthetics  -->
+	   	 <Space
+	   	     android:id="@+id/spaceCreateContactButton"
+	   	     android:layout_width="match_parent"
+	   	     android:layout_alignParentBottom="true"
+	   	     android:layout_height="30dp"
+	   	     android:layout_below="@id/btnCreateContact" />
+	    
+	</RelativeLayout>
+</ScrollView>
+

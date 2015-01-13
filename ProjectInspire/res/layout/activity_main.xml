@@ -81,7 +81,7 @@
         android:gravity="center"
         android:paddingBottom="10dp"
         android:paddingTop="15dp"
-        android:text="@string/main_txt_register"
+        android:text="@string/main_txt_register" 
         android:textColor="#fff"
         android:textSize="13sp" />
 

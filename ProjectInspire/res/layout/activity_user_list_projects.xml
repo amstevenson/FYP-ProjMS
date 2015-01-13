@@ -2,10 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/style_activity_background_gradient" 
     tools:context="com.projectinspire.activities.UserListAllProjectsActivity">
 
@@ -35,20 +31,19 @@
 		android:textColor="#FFF"/>
    
 	<!--  Search projects -->
+
 	<EditText
 	    android:id="@+id/editSearchProjects"
 	    android:layout_width="200dp"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBottom="@+id/imageViewProjectCreate"
+	    android:layout_height="50dp"
 	    android:layout_alignLeft="@+id/listProjectsAll"
-	    android:layout_marginRight="10dp"
 	    android:layout_toLeftOf="@+id/imageViewProjectCreate"
 	    android:background="#FFF"
 	    android:drawableLeft="@drawable/icon_search_48dp_black"
 	    android:ems="10"
-	    android:gravity="center"
-	    android:imeOptions="actionSearch"
+	    android:gravity="left"
 	    android:hint="@string/search_project"
+	    android:imeOptions="actionSearch"
 	    android:inputType="text"
 	    android:maxLength="30"
 	    android:paddingBottom="15dp"
@@ -59,13 +54,17 @@
 	    android:textSize="13sp" />
 	
     <!--  Create a new project -->
+
     <ImageView
         android:id="@+id/imageViewProjectCreate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/editSearchProjects"
+        android:layout_alignParentTop="true"
         android:layout_alignRight="@id/listProjectsAll"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:textSize="16sp" 
-        android:contentDescription="@string/projects_create" />
+        android:background="#fff"
+        android:contentDescription="@string/projects_create"
+        android:textSize="16sp" />
     
     <!--  Might want to create an adapter that creates an edit button that is clickable
     		instead of having this

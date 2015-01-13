@@ -51,7 +51,7 @@ public class UserSelectedProjectTasksFragment extends Fragment {
         //
 		// If we do not have a image stored for the user, create the default user image drawable
 		//
-        Drawable plusImage = getResources().getDrawable(R.drawable.icon_add_48dp_white_circle);
+        Drawable plusImage = getResources().getDrawable(R.drawable.icon_add_48dp_black_circle);
 
         //
     	// Assign the drawable to the ImageView

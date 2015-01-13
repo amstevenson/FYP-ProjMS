@@ -131,7 +131,7 @@ public class UserDashboardActivity extends Activity {
         //
 		// If we do not have a image stored for the user, create the default user image drawable
 		//
-        Drawable addUserImage = getResources().getDrawable(R.drawable.icon_test_user);
+        Drawable addUserImage = getResources().getDrawable(R.drawable.icon_person_test);
 
         //
     	// Assign the drawable to the ImageView

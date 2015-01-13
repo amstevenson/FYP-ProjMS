@@ -85,7 +85,7 @@
     <string name="create_project_lbl_description">Additional Notes</string>
     <string name="create_project_edit_description">Enter Notes</string>
     <string name="create_project_btn">Create Project</string>
-    <string name="search_project">Search Projects</string>
+    <string name="search_project">Search Projects&#8230;</string>
 
     <!-- Create or Edit Task Activity -->
     <string name="title_activity_create_or_edit_task">CreateOrEditTaskActivity</string>
@@ -106,24 +106,40 @@
     <string name="create_task_txt_description">Description</string>
     <string name="create_task_edit_description">Enter Description</string>
     <string name="create_task_btn">Create Task</string>
-    <string name="search_task">Search Tasks</string>
+    <string name="search_task">Search Tasks&#8230;</string>
 
     <!-- Create or Edit event Activity -->
     <string name="title_activity_create_or_edit_event">CreateOrEditEventActivity</string>
     <string name="title_activity_user_list_all_events">Your Events</string>
     <string name="event_create">New Event</string>
     <string name="lbl_events_none">You currently do not have any events allocated to your account.</string>
-    <string name="search_events">Search Events</string>
-
+    <string name="search_events">Search Events&#8230;</string>
+    <string name="create_event_summary">To create an event, please enter in the following information and press the \'create\' button</string>
+	<string name="create_event_txt_name">Name</string>
+	<string name="create_event_edit_name">Enter Event Name</string>
+	<string name="create_event_txt_location">Location</string>
+	<string name="create_event_edit_locatioin">Enter Location</string>
+	<string name="create_event_txt_description">Description</string>
+	<string name="create_event_edit_description">Enter Description</string>
+	<string name="create_event_txt_date">Event Date</string>
+	<string name="create_event_edit_date">Enter Date</string>
+	<string name="create_event_txt_start_time">Start Time</string>
+	<string name="create_event_edit_start_time">Enter Time</string>
+	<string name="create_event_txt_end_time">End Time</string>
+	<string name="create_event_edit_end_time">Enter Time</string>
+	<string name="create_event_txt_visibility">Visible To</string>
+	<string name="create_event_edit_visibility">Select group</string>
+    <string name="create_event_btn">Create Event</string>
+    
     <!-- New interaction / new contact interaction Activity -->
-	<string name="search_contacts">Search Contacts</string>
-	<string name="search_messages">Search Messages</string>
-	<string name="contact_create">New Contact</string>
-	<string name="message_create">New Message</string>
+    <string name="search_contacts">Search Contacts&#8230;</string>
+    <string name="search_messages">Search Messages&#8230;</string>
+    <string name="contact_create">New Contact</string>
+    <string name="message_create">New Message</string>
 
     <!-- Create or Edit files Activity -->
-	<string name="file_create">New File</string>
-	<string name="search_files">Search Files</string>
+    <string name="file_create">New File</string>
+    <string name="search_files">Search Files&#8230;</string>
 
     <!-- Forgot password Activity -->
     <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
@@ -133,7 +149,7 @@
     <string name="forgot_password_edit_code">Enter Code</string>
     <string name="forgot_password_btn">Submit</string>
 
-    <!--  Reset password Activity -->
+    <!-- Reset password Activity -->
     <string name="title_activity_forgot_password_reset">ForgotPasswordResetActivity</string>
     <string name="reset_password_description">Please enter your new password below.</string>
     <string name="reset_password_txt_password">Password</string>
@@ -141,8 +157,29 @@
     <string name="reset_password_repeat_txt_password">Repeat Password</string>
     <string name="reset_password_repeat_edit_password">Enter Password</string>
     <string name="reset_password_btn">Reset Password</string>
-    
-    <!-- View message Activity -->
-	
 
+    <!-- View message Activity -->
+
+    <!--  Create or edit message -->
+    <string name="title_activity_create_or_edit_message">CreateOrEditMessageActivity</string>
+    <string name="create_message_summary">To send a message, please enter in the following information and press the \'send\' button</string>
+    <string name="create_message_txt_recipient">Recipient</string>
+    <string name="create_message_edit_recipient">Enter Email Address</string>
+    <string name="create_message_txt_message_content">Message</string>
+    <string name="create_message_edit_message_conntent">Message Body</string>
+    <string name="create_message_btn">Send Message</string>
+    
+    <!--  Create or edit Contact -->
+    <string name="title_activity_create_or_edit_contact">CreateOrEditContactActivity</string>
+	<string name="create_contact_summary">To send a contact, please enter in the following information and press the \'send\' button</string>
+    <string name="create_contact_txt_name">Contact Name</string>
+    <string name="create_contact_edit_name">Enter Name</string>
+    <string name="create_contact_txt_email">Email Address</string>
+    <string name="create_contact_edit_email">Enter Email Address</string>
+    <string name="create_contact_txt_notes">Notes</string>
+    <string name="create_contact_edit_notes">Enter Notes</string>
+    <string name="create_contact_txt_project_affiliation">Projects Worked On</string>
+    <string name="create_contact_edit_project_affiliation">Enter Projects</string>
+    <string name="create_contact_btn">Create Contact</string>
+	
 </resources>

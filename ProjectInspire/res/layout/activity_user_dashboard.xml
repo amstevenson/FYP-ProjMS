@@ -44,7 +44,7 @@
 		    android:scrollbars="vertical" >
 	    
 		    <!--  User Information -->
-			<ImageView
+			<com.projectinspire.utilities.CircularImageView
 			    android:id="@+id/imgviewDashboardUser"
 			    android:layout_marginTop="10dp"
 			    android:layout_width="60dp"

@@ -1,12 +1,15 @@
 package com.projectinspire.fragments;
 
 import com.projectinspire.R;
+import com.projectinspire.activities.CreateOrEditContactActivity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
 public class UserContactsFragment extends Fragment {
@@ -16,7 +19,7 @@ public class UserContactsFragment extends Fragment {
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		View view = inflater.inflate(R.layout.fragment_user_contacts, container, false);
+		final View view = inflater.inflate(R.layout.fragment_user_contacts, container, false);
 		
 		//*******************************************************************************************//
 		//									View variables											 //
@@ -24,12 +27,32 @@ public class UserContactsFragment extends Fragment {
 		ImageView imageViewCreateContact = (ImageView)view.findViewById(R.id.imageViewCreateContact);
 		
 		//*******************************************************************************************//
+		//									Create view listeners									 //
+		//*******************************************************************************************//
+		//
+		// If we are creating a new task
+		//
+		imageViewCreateContact.setOnClickListener(new OnClickListener() {
+					
+			@Override
+			public void onClick(View v) {
+						
+						
+						
+				Intent createContact = new Intent(view.getContext(), CreateOrEditContactActivity.class);
+				startActivity(createContact);
+						
+			}
+		});
+		
+		
+		//*******************************************************************************************//
 		//									Create and assign the images							 //
 		//*******************************************************************************************//
 	    //
 		// If we do not have a image stored for the user, create the default user image drawable
 		//
-	    Drawable plusImage = getResources().getDrawable(R.drawable.icon_add_48dp_white_circle);
+	    Drawable plusImage = getResources().getDrawable(R.drawable.icon_add_48dp_black_circle);
 
 		//
 		// Assign the drawable to the ImageView
