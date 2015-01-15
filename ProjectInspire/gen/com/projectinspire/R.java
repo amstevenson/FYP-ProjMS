@@ -90,7 +90,7 @@ public final class R {
         public static final int dashboard_drawer_nav_layout=0x7f080061;
         public static final int editCreateContactEmail=0x7f080004;
         public static final int editCreateContactName=0x7f080002;
-        public static final int editCreateContactNotes=0x7f080005;
+        public static final int editCreateContactNotes=0x7f080006;
         public static final int editCreateContactProjectAffiliation=0x7f080008;
         public static final int editCreateEventDate=0x7f080014;
         public static final int editCreateEventDescription=0x7f080012;
@@ -152,7 +152,7 @@ public final class R {
         public static final int spaceRegisterButton=0x7f08005f;
         public static final int txtCreateContactEmail=0x7f080003;
         public static final int txtCreateContactName=0x7f080001;
-        public static final int txtCreateContactNotes=0x7f080006;
+        public static final int txtCreateContactNotes=0x7f080005;
         public static final int txtCreateContactProjectAffiliation=0x7f080007;
         public static final int txtCreateContactsUserHelp=0x7f080000;
         public static final int txtCreateEventDate=0x7f080011;

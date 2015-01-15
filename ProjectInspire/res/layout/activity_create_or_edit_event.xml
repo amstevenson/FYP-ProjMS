@@ -153,6 +153,7 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
+	         android:focusable="false"
 	         android:textSize="13sp" />
 	     
 	    <!-- start time -->
@@ -185,7 +186,8 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
-	         android:textSize="13sp" />
+	         android:textSize="13sp" 
+	         android:focusable="false"/>
 	     
 	     <!--  end time -->
 	    <TextView
@@ -218,7 +220,8 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
-	         android:textSize="13sp" />
+	         android:textSize="13sp"
+	         android:focusable="false" />
 	     
 	     <!--  visibility -->
 

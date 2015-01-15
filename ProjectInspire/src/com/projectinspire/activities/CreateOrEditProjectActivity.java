@@ -1,12 +1,17 @@
 package com.projectinspire.activities;
 
 import com.projectinspire.R;
+import com.projectinspire.utilities.UtilitiesPickers;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
 
 public class CreateOrEditProjectActivity extends Activity {
 
@@ -19,6 +24,53 @@ public class CreateOrEditProjectActivity extends Activity {
 		
 		actionBar.setTitle("Create/Edit project"); // depends on what button is pressed
 												   // Whether from a list or if the create button is pressed
+		
+		//*******************************************************************************************//
+		//									On Click Listeners										 //
+		//*******************************************************************************************//
+		//
+		// Utilities for types of pickers; date and time
+		//
+		final UtilitiesPickers pickers = new UtilitiesPickers();
+				
+		//
+		// Set the start date of the project
+		//
+		final EditText projStartDate = (EditText) findViewById(R.id.editCreateProjectStartDate);
+		projStartDate.setInputType(InputType.TYPE_NULL);
+
+		// on click
+		projStartDate.setOnClickListener(new OnClickListener() {
+					
+			@Override
+			public void onClick(View v) {
+				//
+				// Set date
+				//
+				pickers.showDatePickerDialog(CreateOrEditProjectActivity.this, projStartDate);
+			}
+		});	
+		
+		//
+		// Set the end date of the project
+		//
+		final EditText projEndDate = (EditText) findViewById(R.id.editCreateProjectEndDate);
+		projEndDate.setInputType(InputType.TYPE_NULL);
+		
+		// on click
+		projEndDate.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				//
+				// Set date
+				//
+				pickers.showDatePickerDialog(CreateOrEditProjectActivity.this, projEndDate);
+				
+			}
+		});
+		
+		
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.parse.Parse;
 import com.projectinspire.R;
 
 /*
@@ -25,6 +26,11 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		// Enable Local Datastore.
+		Parse.enableLocalDatastore(this);
+		 
+		Parse.initialize(this, "ZNgAZH0yENfM7Vs6eNX2WGBEgRgTWEwTzhVS3jxG", "g8kgjmKjxBnXEMPqwknl1bJHwkcgwyQELQmjPOyU");
 		
 		//
 		// View variables
@@ -71,6 +77,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		
 		//*******************************************************************************************//
 		//									Create and assign the images							 //
 		//*******************************************************************************************//
@@ -104,6 +111,15 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public void onResume() {
+	    super.onResume();  // Always call the superclass method first
+
+	    //ParseObject testObject = new ParseObject("TestObject");
+	    //testObject.put("foo", "bar");
+	    //testObject.saveInBackground();
 	}
 
 }

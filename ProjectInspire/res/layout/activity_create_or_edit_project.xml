@@ -85,7 +85,8 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
-	         android:textSize="13sp" />
+	         android:textSize="13sp"
+	         android:focusable="false" />
 
 	    <!-- initial end date -->
 	    <TextView
@@ -118,7 +119,8 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
-	         android:textSize="13sp" />
+	         android:textSize="13sp"
+	         android:focusable="false" />
 	    
 	    <!--  Who is responsible -->
 	    <TextView
