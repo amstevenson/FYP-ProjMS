@@ -3,6 +3,7 @@ package com.projectinspire.activities;
 import com.projectinspire.R;
 import com.projectinspire.utilities.UtilitiesPickers;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -19,6 +20,10 @@ public class CreateOrEditEventActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_or_edit_event);
 	
+		ActionBar actionBar = getActionBar();
+		
+		actionBar.setTitle("Events"); // will change dependent on edit or create
+		
 		//*******************************************************************************************//
 		//									On Click Listeners										 //
 		//*******************************************************************************************//

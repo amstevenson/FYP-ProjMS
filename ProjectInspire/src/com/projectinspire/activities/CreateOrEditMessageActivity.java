@@ -1,6 +1,8 @@
 package com.projectinspire.activities;
 
 import com.projectinspire.R;
+
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -17,6 +19,10 @@ public class CreateOrEditMessageActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_or_edit_message);
 	
+		ActionBar actionBar = getActionBar();
+		
+		actionBar.setTitle("Messages"); // will change dependent on edit or create
+		
 		final EditText messageBody = (EditText) findViewById(R.id.editCreateMessageBody);
 		
 		messageBody.setOnKeyListener(new OnKeyListener() {

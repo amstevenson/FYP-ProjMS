@@ -1,5 +1,6 @@
 package com.projectinspire.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -8,10 +9,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.parse.Parse;
+import com.parse.LogInCallback;
+import com.parse.ParseException;
+import com.parse.ParseUser;
 import com.projectinspire.R;
 
 /*
@@ -27,18 +32,20 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		// Enable Local Datastore.
-		Parse.enableLocalDatastore(this);
-		 
-		Parse.initialize(this, "ZNgAZH0yENfM7Vs6eNX2WGBEgRgTWEwTzhVS3jxG", "g8kgjmKjxBnXEMPqwknl1bJHwkcgwyQELQmjPOyU");
+		ActionBar actionBar = getActionBar();
+		
+		actionBar.setTitle("Project Inspire");
 		
 		//
 		// View variables
 		//
-		TextView registerAccount    = (TextView) this.findViewById(R.id.txtMainRegister);
-		TextView userLogin          = (TextView) this.findViewById(R.id.btnMainLogin);
-		TextView userForgotPassword = (TextView) this.findViewById(R.id.txtMainForgotPassword);
-		ImageView imageBook         = (ImageView)this.findViewById(R.id.iconMainImage);
+		TextView registerAccount    = (TextView)  findViewById(R.id.txtMainRegister);
+		TextView userLogin          = (TextView)  findViewById(R.id.btnMainLogin);
+		TextView userForgotPassword = (TextView)  findViewById(R.id.txtMainForgotPassword);
+		ImageView imageBook         = (ImageView) findViewById(R.id.iconMainImage);
+		
+		final EditText userEmail          = (EditText)  findViewById(R.id.editMainEmail);
+		final EditText userPassword       = (EditText)  findViewById(R.id.editMainPassword);
 		
 		//
 		// Provide the implementation for each on click listener
@@ -60,9 +67,52 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				Intent sendToDashboard = new Intent(getApplicationContext(), UserDashboardActivity.class);
-				startActivity(sendToDashboard);
+				String email    = userEmail.getText().toString();
+				String password = userPassword.getText().toString();
 				
+				//
+				// This is for testing purposes - for when I do not want to put in a password etc each time
+				//
+				//Intent sendToDashboard = new Intent(getApplicationContext(), UserDashboardActivity.class);
+				//startActivity(sendToDashboard);
+				
+				//
+				// Log in using Parse Loginbackground
+				//
+				// Send data to Parse.com for verification
+				ParseUser.logInInBackground(email, password,
+						new LogInCallback() {
+							public void done(ParseUser user, ParseException e) {
+								if (user != null) {
+									
+									//
+									// If the user is stored in the database
+									//
+									Intent intent = new Intent(
+											getApplicationContext(),
+											UserDashboardActivity.class);
+									startActivity(intent);
+									
+									//
+									// Notify success with a toast message
+									//
+									Toast.makeText(getApplicationContext(),
+											"You have successfully logged in",
+											Toast.LENGTH_LONG).show();
+									finish();
+									
+								} else {
+									
+									// 
+									// Login has failed, ask user to register
+									//
+									Toast.makeText(
+											getApplicationContext(),
+											"Either the email address or password is incorrect, please try again.",
+											Toast.LENGTH_LONG).show();
+								}
+							}
+				}); // end of LogInBackground
 			}
 		});
 		
@@ -116,10 +166,8 @@ public class MainActivity extends Activity {
 	@Override
 	public void onResume() {
 	    super.onResume();  // Always call the superclass method first
-
-	    //ParseObject testObject = new ParseObject("TestObject");
-	    //testObject.put("foo", "bar");
-	    //testObject.saveInBackground();
+	    
+	    // For if I want to do anything with data, when the activity is resumed
 	}
 
 }

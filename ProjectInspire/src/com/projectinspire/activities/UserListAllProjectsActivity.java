@@ -2,6 +2,7 @@ package com.projectinspire.activities;
 
 import com.projectinspire.R;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -23,6 +24,10 @@ public class UserListAllProjectsActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_list_projects);
+		
+		ActionBar actionBar = getActionBar();
+		
+		actionBar.setTitle("Projects");
 		
 		//
 		// Create view variables

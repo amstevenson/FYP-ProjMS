@@ -22,8 +22,8 @@ public class CreateOrEditProjectActivity extends Activity {
 		
 		ActionBar actionBar = getActionBar();
 		
-		actionBar.setTitle("Create/Edit project"); // depends on what button is pressed
-												   // Whether from a list or if the create button is pressed
+		actionBar.setTitle("Projects"); // depends on what button is pressed
+										// Whether from a list or if the create button is pressed
 		
 		//*******************************************************************************************//
 		//									On Click Listeners										 //
@@ -91,4 +91,5 @@ public class CreateOrEditProjectActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
 }

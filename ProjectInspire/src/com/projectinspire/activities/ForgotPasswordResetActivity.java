@@ -1,6 +1,8 @@
 package com.projectinspire.activities;
 
 import com.projectinspire.R;
+
+import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,6 +14,10 @@ public class ForgotPasswordResetActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forgot_password_reset);
+		
+		ActionBar actionBar = getActionBar();
+		
+		actionBar.setTitle("Reset Password");
 	}
 
 	@Override

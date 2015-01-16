@@ -1,6 +1,8 @@
 package com.projectinspire.activities;
 
 import com.projectinspire.R;
+
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +18,10 @@ public class ForgotPasswordActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forgot_password);
+		
+		ActionBar actionBar = getActionBar();
+		
+		actionBar.setTitle("Forgot Password");
 		
 		//
 		// Set the view variables
