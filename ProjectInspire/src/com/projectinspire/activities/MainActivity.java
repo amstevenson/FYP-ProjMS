@@ -1,5 +1,6 @@
 package com.projectinspire.activities;
 
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
@@ -34,7 +35,7 @@ public class MainActivity extends Activity {
 		
 		ActionBar actionBar = getActionBar();
 		
-		actionBar.setTitle("Project Inspire");
+		actionBar.setTitle("FypMS");
 		
 		//
 		// View variables
@@ -67,8 +68,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				String email    = userEmail.getText().toString();
-				String password = userPassword.getText().toString();
+				final String email    = userEmail.getText().toString();
+				final String password = userPassword.getText().toString();
 				
 				//
 				// This is for testing purposes - for when I do not want to put in a password etc each time
@@ -83,7 +84,7 @@ public class MainActivity extends Activity {
 				ParseUser.logInInBackground(email, password,
 						new LogInCallback() {
 							public void done(ParseUser user, ParseException e) {
-								if (user != null) {
+								if (user != null) { // if we have a user
 									
 									//
 									// If the user is stored in the database
@@ -91,8 +92,10 @@ public class MainActivity extends Activity {
 									Intent intent = new Intent(
 											getApplicationContext(),
 											UserDashboardActivity.class);
-									startActivity(intent);
 									
+									intent.putExtra("userId", user.getObjectId()); // add the email for queries
+									startActivity(intent);
+
 									//
 									// Notify success with a toast message
 									//

@@ -1,5 +1,6 @@
 package com.projectinspire.activities;
 
+import com.parse.ParseUser;
 import com.projectinspire.R;
 
 import android.app.ActionBar;
@@ -10,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,8 +35,9 @@ public class UserDashboardActivity extends Activity {
 	private CharSequence 		  applicationTitle;
 	
 	// ScrollView
-	ScrollView 					  scrollViewDashboard;
+	private ScrollView 			  scrollViewDashboard;
 	
+	private String 		  		  userId = "empty";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +51,15 @@ public class UserDashboardActivity extends Activity {
 		//
 		// Determine the views
 		//
-		TextView  projectSummary  = (TextView) this.findViewById(R.id.txtDashboardProjects);
-		TextView  projectTitle    = (TextView) this.findViewById(R.id.txtDashboardProjectsTitle);
-		TextView  messagesSummary = (TextView) this.findViewById(R.id.txtDashboardMessages);
-		TextView  messagesTitle   = (TextView) this.findViewById(R.id.txtDashboardMessagesTitle);
-		TextView  eventsSummary   = (TextView) this.findViewById(R.id.txtDashboardEvents);
-		TextView  eventsTitle     = (TextView) this.findViewById(R.id.txtDashboardEventsTitle);
-		ImageView userImage       = (ImageView) this.findViewById(R.id.imgviewDashboardUser);
+		TextView dashboardUsername = (TextView) this.findViewById(R.id.txtDashboardUsername);
+		TextView dashboardEmail    = (TextView) this.findViewById(R.id.txtDashboardUserEmail);
+		TextView  projectSummary   = (TextView) this.findViewById(R.id.txtDashboardProjects);
+		TextView  projectTitle     = (TextView) this.findViewById(R.id.txtDashboardProjectsTitle);
+		TextView  messagesSummary  = (TextView) this.findViewById(R.id.txtDashboardMessages);
+		TextView  messagesTitle    = (TextView) this.findViewById(R.id.txtDashboardMessagesTitle);
+		TextView  eventsSummary    = (TextView) this.findViewById(R.id.txtDashboardEvents);
+		TextView  eventsTitle      = (TextView) this.findViewById(R.id.txtDashboardEventsTitle);
+		ImageView userImage        = (ImageView) this.findViewById(R.id.imgviewDashboardUser);
 		
 		//
 		// Set the on click listeners for the activity
@@ -65,6 +70,7 @@ public class UserDashboardActivity extends Activity {
 			public void onClick(View v) {
 				
 				Intent allProjects = new Intent(getApplicationContext(),UserListAllProjectsActivity.class);
+				allProjects.putExtra("userId", userId);
 				startActivity(allProjects);
 			}
 		});
@@ -75,6 +81,7 @@ public class UserDashboardActivity extends Activity {
 			public void onClick(View v) {
 				
 				Intent allProjects = new Intent(getApplicationContext(),UserListAllProjectsActivity.class);
+				allProjects.putExtra("userId", userId);
 				startActivity(allProjects);
 			}
 		});
@@ -142,6 +149,29 @@ public class UserDashboardActivity extends Activity {
         //
     	userImage.setImageDrawable(addUserImage);
 		
+		//*******************************************************************************************//
+		//									retrieve user information								 //
+		//*******************************************************************************************//
+    	//
+    	// Retrieve the user email
+    	//
+    	Intent intent = getIntent();
+    	userId		  = intent.getStringExtra("userId");
+		
+    	Log.d("Dashboard - Id", userId); // for debugging
+    	
+    	ParseUser currentUser = ParseUser.getCurrentUser();
+    	if (currentUser != null) {
+    	  
+    		//
+    		// Set the users information
+    		//
+    		dashboardUsername.setText(currentUser.get("forename").toString() + " " + currentUser.get("surname").toString());
+    		dashboardEmail.setText(currentUser.getEmail());
+    		
+    	} else {
+    	  // show the signup or login screen
+    	}
 	}
 	
 	/***

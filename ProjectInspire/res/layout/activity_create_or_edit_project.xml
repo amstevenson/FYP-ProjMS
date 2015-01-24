@@ -3,243 +3,258 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
     
-	<RelativeLayout 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="20dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:background="@drawable/style_activity_background_gradient" >
-    
-	    <!--  Description -->
-		<TextView
-		    android:id="@+id/txtCreateProjectUserHelp"
-		    android:paddingBottom="50dp"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:paddingLeft="5dp"
-		    android:text="@string/create_project_lbl_userhelp"
-		    android:textSize="16sp" 
-		    android:textColor="#FFF"/>
-	
-		<!-- Project Name -->
-	    <TextView
-	        android:id="@+id/txtCreateProjectName"
-	        android:layout_below="@id/txtCreateProjectUserHelp"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginLeft="5dp"
-	        android:text="@string/create_project_lbl_name"
-	        android:textSize="14sp" 
-	        android:textColor="#fff" />
+<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingTop="20dp"
+	    android:paddingLeft="10dp"
+	    android:paddingRight="10dp"
+	    android:background="@drawable/style_activity_background_gradient" >
+	    
+		    <!--  Description -->
+			<TextView
+			    android:id="@+id/txtCreateProjectUserHelp"
+			    android:paddingBottom="50dp"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:paddingLeft="5dp"
+			    android:text="@string/create_project_lbl_userhelp"
+			    android:textSize="16sp" 
+			    android:textColor="#FFF"/>
 		
-	     <EditText
-	         android:id="@+id/editCreateProjectName"
-	         android:layout_width="200dp"
-	         android:layout_height="wrap_content"
-	         android:layout_alignBaseline="@+id/txtCreateProjectName"
-	         android:layout_alignBottom="@+id/txtCreateProjectName"
-	         android:layout_alignRight="@+id/txtCreateProjectUserHelp"
-	         android:background="#FFF"
-	         android:ems="10"
-	         android:gravity="center"
-	         android:hint="@string/create_project_edit_name"
-	         android:inputType="textPersonName"
-	         android:maxLength="30"
-	         android:layout_marginRight="5dp"
-	         android:paddingBottom="15dp"
-	         android:paddingLeft="5dp"
-	         android:paddingRight="5dp"
-	         android:paddingTop="15dp"
-	         android:textColor="#000"
-	         android:textSize="13sp" />
+			<!-- Project Name -->
+		    <TextView
+		        android:id="@+id/txtCreateProjectName"
+		        android:layout_below="@id/txtCreateProjectUserHelp"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_marginLeft="5dp"
+		        android:text="@string/create_project_lbl_name"
+		        android:textSize="14sp" 
+		        android:textColor="#fff" />
+			
+		     <EditText
+		         android:id="@+id/editCreateProjectName"
+		         android:layout_width="200dp"
+		         android:layout_height="wrap_content"
+		         android:layout_alignBaseline="@+id/txtCreateProjectName"
+		         android:layout_alignBottom="@+id/txtCreateProjectName"
+		         android:layout_alignRight="@+id/txtCreateProjectUserHelp"
+		         android:background="#FFF"
+		         android:ems="10"
+		         android:gravity="center"
+		         android:hint="@string/create_project_edit_name"
+		         android:inputType="textPersonName"
+		         android:maxLength="30"
+		         android:layout_marginRight="5dp"
+		         android:paddingBottom="15dp"
+		         android:paddingLeft="5dp"
+		         android:paddingRight="5dp"
+		         android:paddingTop="15dp"
+		         android:textColor="#000"
+		         android:textSize="13sp" />
+		
+		    <!--  Initial start date -->
+		    <TextView
+		        android:id="@+id/txtCreateProjectStartDate"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignRight="@+id/txtCreateProjectName"
+		        android:layout_below="@id/txtCreateProjectName"
+		        android:layout_marginLeft="5dp"
+		        android:layout_marginTop="60dp"
+		        android:text="@string/create_project_lbl_start_date"
+		        android:textColor="#fff"
+		        android:textSize="14sp" />
+		
+		     <EditText
+		         android:id="@+id/editCreateProjectStartDate"
+		         android:layout_width="200dp"
+		         android:layout_height="wrap_content"
+		         android:layout_alignBaseline="@+id/txtCreateProjectStartDate"
+		         android:layout_alignBottom="@+id/txtCreateProjectStartDate"
+		         android:layout_alignLeft="@+id/editCreateProjectName"
+		         android:background="#FFF"
+		         android:ems="10"
+		         android:gravity="center"
+		         android:hint="@string/create_project_edit_start_date_hint"
+		         android:inputType="date"
+		         android:maxLength="30"
+		         android:paddingBottom="15dp"
+		         android:paddingLeft="5dp"
+		         android:paddingRight="5dp"
+		         android:paddingTop="15dp"
+		         android:textColor="#000"
+		         android:textSize="13sp"
+		         android:focusable="false" />
 	
-	    <!--  Initial start date -->
-	    <TextView
-	        android:id="@+id/txtCreateProjectStartDate"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignRight="@+id/txtCreateProjectName"
-	        android:layout_below="@id/txtCreateProjectName"
-	        android:layout_marginLeft="5dp"
-	        android:layout_marginTop="60dp"
-	        android:text="@string/create_project_lbl_start_date"
-	        android:textColor="#fff"
-	        android:textSize="14sp" />
-	
-	     <EditText
-	         android:id="@+id/editCreateProjectStartDate"
-	         android:layout_width="200dp"
-	         android:layout_height="wrap_content"
-	         android:layout_alignBaseline="@+id/txtCreateProjectStartDate"
-	         android:layout_alignBottom="@+id/txtCreateProjectStartDate"
-	         android:layout_alignLeft="@+id/editCreateProjectName"
-	         android:background="#FFF"
-	         android:ems="10"
-	         android:gravity="center"
-	         android:hint="@string/create_project_edit_start_date_hint"
-	         android:inputType="date"
-	         android:maxLength="30"
-	         android:paddingBottom="15dp"
-	         android:paddingLeft="5dp"
-	         android:paddingRight="5dp"
-	         android:paddingTop="15dp"
-	         android:textColor="#000"
-	         android:textSize="13sp"
-	         android:focusable="false" />
+		    <!-- initial end date -->
+		    <TextView
+		        android:id="@+id/txtCreateProjectEndDate"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignRight="@+id/txtCreateProjectStartDate"
+		        android:layout_below="@id/txtCreateProjectStartDate"
+		        android:layout_marginLeft="5dp"
+		        android:layout_marginTop="60dp"
+		        android:text="@string/create_project_lbl_finish_date"
+		        android:textColor="#fff"
+		        android:textSize="14sp" />
+		     
+		     <EditText
+		         android:id="@+id/editCreateProjectEndDate"
+		         android:layout_width="200dp"
+		         android:layout_height="wrap_content"
+		         android:layout_alignBaseline="@+id/txtCreateProjectEndDate"
+		         android:layout_alignBottom="@+id/txtCreateProjectEndDate"
+		         android:layout_alignLeft="@+id/editCreateProjectStartDate"
+		         android:background="#FFF"
+		         android:ems="10"
+		         android:gravity="center"
+		         android:hint="@string/create_project_edit_finish_date_hint"
+		         android:inputType="date"
+		         android:maxLength="30"
+		         android:paddingBottom="15dp"
+		         android:paddingLeft="5dp"
+		         android:paddingRight="5dp"
+		         android:paddingTop="15dp"
+		         android:textColor="#000"
+		         android:textSize="13sp"
+		         android:focusable="false" />
+		    
+		    <!--  Who is responsible -->
+		    <TextView
+		        android:id="@+id/txtCreateProjectResponsible"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignRight="@+id/txtCreateProjectEndDate"
+		        android:layout_below="@id/txtCreateProjectEndDate"
+		        android:layout_marginLeft="5dp"
+		        android:layout_marginTop="60dp"
+		        android:text="@string/create_project_lbl_responsible"
+		        android:textColor="#fff"
+		        android:textSize="14sp" />
+		    
+		     <EditText
+		         android:id="@+id/editCreateProjectResponsible"
+		         android:layout_width="200dp"
+		         android:layout_height="wrap_content"
+		         android:layout_alignBaseline="@+id/txtCreateProjectResponsible"
+		         android:layout_alignBottom="@+id/txtCreateProjectResponsible"
+		         android:layout_alignLeft="@+id/editCreateProjectEndDate"
+		         android:background="#FFF"
+		         android:ems="10"
+		         android:gravity="center"
+		         android:hint="@string/create_project_edit_responsible"
+		         android:inputType="textPersonName"
+		         android:maxLength="30"
+		         android:paddingBottom="15dp"
+		         android:paddingLeft="5dp"
+		         android:paddingRight="5dp"
+		         android:paddingTop="15dp"
+		         android:textColor="#000"
+		         android:textSize="13sp" />
+		     
+		    <!-- type of project -->
+		    <TextView
+		        android:id="@+id/txtCreateProjectType"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignRight="@+id/txtCreateProjectResponsible"
+		        android:layout_below="@id/txtCreateProjectResponsible"
+		        android:layout_marginLeft="15dp"
+		        android:layout_marginTop="60dp"
+		        android:text="@string/create_project_lbl_type"
+		        android:textColor="#fff"
+		        android:textSize="14sp" />
+		    
+		   	 <Spinner
+		   	     android:id="@+id/editCreateProjectType"
+		   	     android:layout_width="200dp"
+		   	     android:layout_height="wrap_content"
+		   	     android:layout_alignLeft="@+id/editCreateProjectResponsible"
+		   	     android:layout_below="@+id/editCreateProjectResponsible"
+		   	     android:background="#FFF"
+		   	     android:ems="10"
+		   	     android:entries="@array/project_type_array"
+		   	     android:gravity="center"
+		   	     android:hint="@string/create_project_edit_type"
+		   	     android:inputType="text"
+		   	     android:maxLength="30"
+		   	     android:paddingBottom="15dp"
+		   	     android:paddingLeft="5dp"
+		   	     android:paddingRight="5dp"
+		   	     android:paddingTop="15dp"
+		   	     android:layout_marginTop="40dp"
+		   	     android:prompt="@string/project_type_prompt"
+		   	     android:textColor="#000"
+		   	     android:textSize="13sp" />
+		    
+		     <!--  project description -->
+		    <TextView
+		        android:id="@+id/txtCreateProjectDescription"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignRight="@+id/txtCreateProjectType"
+		        android:layout_below="@id/txtCreateProjectType"
+		        android:layout_marginLeft="15dp"
+		        android:layout_marginTop="60dp"
+		        android:text="@string/create_project_lbl_description"
+		        android:textColor="#fff"
+		        android:textSize="14sp" />
+		    
+		     <EditText
+		         android:id="@+id/editCreateProjectDescription"
+		         android:layout_width="200dp"
+		         android:layout_height="wrap_content"
+		         android:layout_alignBaseline="@+id/txtCreateProjectDescription"
+		         android:layout_alignBottom="@+id/txtCreateProjectDescription"
+		         android:layout_alignLeft="@+id/editCreateProjectType"
+		         android:background="#FFF"
+		         android:ems="10"
+		         android:gravity="center"
+		         android:hint="@string/create_project_edit_description"
+		         android:inputType="textMultiLine"
+		         android:paddingBottom="15dp"
+		         android:paddingLeft="5dp"
+		         android:paddingRight="5dp"
+		         android:paddingTop="15dp"
+		         android:textColor="#000"
+		         android:textSize="13sp" />
+		     
+		     <!--  Create project  -->
+		   	 <Button
+		       	 android:id="@+id/btnCreateProject"
+		       	 android:layout_width="200dp"
+		       	 android:layout_height="wrap_content"
+		       	 android:layout_marginTop="580dp"
+		      	 android:layout_centerHorizontal="true"
+		      	 android:layout_marginBottom="20dp"
+		         android:background="#0c4661"
+		      	 android:text="@string/create_project_btn"
+		         android:textSize="16sp" 
+		         android:textColor="#fff"/>
+		   	 
+		   	 <!--  Delete project -->
+		   	 <Button
+		       	 android:id="@+id/btnDeleteProject"
+		       	 android:layout_width="200dp"
+		       	 android:layout_height="wrap_content"
+		       	 android:layout_marginTop="640dp"
+		      	 android:layout_centerHorizontal="true"
+		         android:background="#0c4661"
+		      	 android:text="@string/create_project_delete_button"
+		         android:textSize="16sp" 
+		         android:textColor="#fff"/>
+		   	 
+		   	 <!-- Create space that appears below the button; aesthetics  -->
+		   	 <Space
+		   	     android:id="@+id/spaceCreateProjectButton"
+		   	     android:layout_width="match_parent"
+		   	     android:layout_height="30dp"
+		   	     android:layout_below="@id/btnDeleteProject" />
 
-	    <!-- initial end date -->
-	    <TextView
-	        android:id="@+id/txtCreateProjectEndDate"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignRight="@+id/txtCreateProjectStartDate"
-	        android:layout_below="@id/txtCreateProjectStartDate"
-	        android:layout_marginLeft="5dp"
-	        android:layout_marginTop="60dp"
-	        android:text="@string/create_project_lbl_finish_date"
-	        android:textColor="#fff"
-	        android:textSize="14sp" />
-	     
-	     <EditText
-	         android:id="@+id/editCreateProjectEndDate"
-	         android:layout_width="200dp"
-	         android:layout_height="wrap_content"
-	         android:layout_alignBaseline="@+id/txtCreateProjectEndDate"
-	         android:layout_alignBottom="@+id/txtCreateProjectEndDate"
-	         android:layout_alignLeft="@+id/editCreateProjectStartDate"
-	         android:background="#FFF"
-	         android:ems="10"
-	         android:gravity="center"
-	         android:hint="@string/create_project_edit_finish_date_hint"
-	         android:inputType="date"
-	         android:maxLength="30"
-	         android:paddingBottom="15dp"
-	         android:paddingLeft="5dp"
-	         android:paddingRight="5dp"
-	         android:paddingTop="15dp"
-	         android:textColor="#000"
-	         android:textSize="13sp"
-	         android:focusable="false" />
-	    
-	    <!--  Who is responsible -->
-	    <TextView
-	        android:id="@+id/txtCreateProjectResponsible"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignRight="@+id/txtCreateProjectEndDate"
-	        android:layout_below="@id/txtCreateProjectEndDate"
-	        android:layout_marginLeft="5dp"
-	        android:layout_marginTop="60dp"
-	        android:text="@string/create_project_lbl_responsible"
-	        android:textColor="#fff"
-	        android:textSize="14sp" />
-	    
-	     <EditText
-	         android:id="@+id/editCreateProjectResponsible"
-	         android:layout_width="200dp"
-	         android:layout_height="wrap_content"
-	         android:layout_alignBaseline="@+id/txtCreateProjectResponsible"
-	         android:layout_alignBottom="@+id/txtCreateProjectResponsible"
-	         android:layout_alignLeft="@+id/editCreateProjectEndDate"
-	         android:background="#FFF"
-	         android:ems="10"
-	         android:gravity="center"
-	         android:hint="@string/create_project_edit_responsible"
-	         android:inputType="textPersonName"
-	         android:maxLength="30"
-	         android:paddingBottom="15dp"
-	         android:paddingLeft="5dp"
-	         android:paddingRight="5dp"
-	         android:paddingTop="15dp"
-	         android:textColor="#000"
-	         android:textSize="13sp" />
-	     
-	    <!-- type of project -->
-	    <TextView
-	        android:id="@+id/txtCreateProjectType"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignRight="@+id/txtCreateProjectResponsible"
-	        android:layout_below="@id/txtCreateProjectResponsible"
-	        android:layout_marginLeft="15dp"
-	        android:layout_marginTop="60dp"
-	        android:text="@string/create_project_lbl_type"
-	        android:textColor="#fff"
-	        android:textSize="14sp" />
-	    
-	     <EditText
-	         android:id="@+id/editCreateProjectType"
-	         android:layout_width="200dp"
-	         android:layout_height="wrap_content"
-	         android:layout_alignBaseline="@+id/txtCreateProjectType"
-	         android:layout_alignBottom="@+id/txtCreateProjectType"
-	         android:layout_alignLeft="@+id/editCreateProjectResponsible"
-	         android:background="#FFF"
-	         android:ems="10"
-	         android:gravity="center"
-	         android:hint="@string/create_project_edit_type"
-	         android:inputType="text"
-	         android:maxLength="30"
-	         android:paddingBottom="15dp"
-	         android:paddingLeft="5dp"
-	         android:paddingRight="5dp"
-	         android:paddingTop="15dp"
-	         android:textColor="#000"
-	         android:textSize="13sp" />
-	     
-	     <!--  project description -->
-	    <TextView
-	        android:id="@+id/txtCreateProjectDescription"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignRight="@+id/txtCreateProjectType"
-	        android:layout_below="@id/txtCreateProjectType"
-	        android:layout_marginLeft="15dp"
-	        android:layout_marginTop="60dp"
-	        android:text="@string/create_project_lbl_description"
-	        android:textColor="#fff"
-	        android:textSize="14sp" />
-	    
-	     <EditText
-	         android:id="@+id/editRegisterRepeatEmail"
-	         android:layout_width="200dp"
-	         android:layout_height="wrap_content"
-	         android:layout_alignBaseline="@+id/txtCreateProjectDescription"
-	         android:layout_alignBottom="@+id/txtCreateProjectDescription"
-	         android:layout_alignLeft="@+id/editCreateProjectType"
-	         android:background="#FFF"
-	         android:ems="10"
-	         android:gravity="center"
-	         android:hint="@string/register_edit_repeat_email"
-	         android:inputType="textEmailAddress"
-	         android:maxLength="30"
-	         android:paddingBottom="15dp"
-	         android:paddingLeft="5dp"
-	         android:paddingRight="5dp"
-	         android:paddingTop="15dp"
-	         android:textColor="#000"
-	         android:textSize="13sp" />
-	     
-	     <!--  Create project  -->
-	   	 <Button
-	       	 android:id="@+id/btnCreateProject"
-	       	 android:layout_width="200dp"
-	       	 android:layout_height="wrap_content"
-	       	 android:layout_marginTop="580dp"
-	      	 android:layout_centerHorizontal="true"
-	         android:background="#0c4661"
-	      	 android:text="@string/create_project_btn"
-	         android:textSize="16sp" 
-	         android:textColor="#fff"/>
-	   	 
-	   	 <!-- Create space that appears below the button; aesthetics  -->
-	   	 <Space
-	   	     android:id="@+id/spaceCreateProjectButton"
-	   	     android:layout_width="match_parent"
-	   	     android:layout_height="30dp"
-	   	     android:layout_below="@id/btnCreateProject" />
-	    
+
 	</RelativeLayout>
 </ScrollView>
 

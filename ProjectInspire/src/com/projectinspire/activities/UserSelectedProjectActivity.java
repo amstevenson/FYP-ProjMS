@@ -9,6 +9,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,18 @@ public class UserSelectedProjectActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_selected_project);
+		
+		
+		//*******************************************************************************************//
+		//									retrieve user information								 //
+		//*******************************************************************************************//
+    	//
+    	// Retrieve the user email
+    	//
+		String projectId = "";
+		
+    	Intent intent = getIntent();
+    	projectId		  = intent.getStringExtra("projectId");
 		
 		
 		//*******************************************************************************************//
@@ -39,11 +52,20 @@ public class UserSelectedProjectActivity extends Activity {
 		ActionBar.Tab allFilesTab  = actionBar.newTab().setText(getString(R.string.tab_all_files));
 		
 		//
+		// Add arguments to fragments
+		//
+		Bundle projectBundle = new Bundle();
+		projectBundle.putString("projectId", projectId);
+		
+		//
 		// Create the fragments; allocate a class to each fragment specified.
 		// This will be a class that returns a view that contains information specific to the fragment.
 		//
 		Fragment allTasksFragment 	     = new UserSelectedProjectTasksFragment();
+		allTasksFragment.setArguments(projectBundle);
+		
 		Fragment allFilesFragment		 = new UserSelectedProjectAllFilesFragment();
+		allFilesFragment.setArguments(projectBundle);
 		
 		//
 		// For each fragment we have, create a transaction for each one.

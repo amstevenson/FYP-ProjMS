@@ -48,11 +48,11 @@
     </style>
 
     <style name="PopupMenu" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
-        <item name="android:popupBackground">@drawable/style_menu_dropdown_panel</item>	
+        <!-- <item name="android:popupBackground">@drawable/style_menu_dropdown_panel</item> -->
     </style>
 
     <style name="DropDownListView" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
-        <item name="android:listSelector">@drawable/style_selectable_background</item>
+        <!-- <item name="android:listSelector">@drawable/style_selectable_background</item> -->
     </style>
 
     <style name="ActionBarTabStyle" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">

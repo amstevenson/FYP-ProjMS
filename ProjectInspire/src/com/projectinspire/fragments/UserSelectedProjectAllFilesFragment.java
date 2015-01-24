@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,15 @@ public class UserSelectedProjectAllFilesFragment extends Fragment {
 		
 		final View view = inflater.inflate(R.layout.fragment_user_selected_project_all_files, container, false);
 
+		// retrieve the array containing the elements for the project
+		Bundle projectBundle      = getArguments();
+		Log.d("Files - Project ID", projectBundle.getString("projectId"));
+		
+		//
+		// Get project id 
+		//
+		final String projectId = projectBundle.getString("projectId");
+		
 		//*******************************************************************************************//
 		//									View variables											 //
 		//*******************************************************************************************//
@@ -37,11 +47,10 @@ public class UserSelectedProjectAllFilesFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 						
-						
-						
+								
 				Intent createTask = new Intent(view.getContext(), CreateOrEditTaskActivity.class);
-				startActivity(createTask);
-						
+				createTask.putExtra("projectId", projectId);
+				startActivity(createTask);		
 			}
 		});
 		    	

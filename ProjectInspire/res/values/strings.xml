@@ -66,7 +66,7 @@
     <string name="tab_all_tasks">Tasks</string>
     <string name="tab_all_files">Files</string>
     <string name="tab_all_events">Events</string>
-
+    
     <!-- Create or Edit project -->
     <string name="create_project_lbl_userhelp">To create a project, please enter in the following information and press the \'create\' button</string>
     <string name="title_activity_create_or_edit_project">CreateOrEditProject</string>
@@ -86,7 +86,15 @@
     <string name="create_project_edit_description">Enter Notes</string>
     <string name="create_project_btn">Create Project</string>
     <string name="search_project">Search Projects&#8230;</string>
-
+	<string name="create_project_delete_button">Delete Project</string>
+    <string name="project_type_prompt">Choose a Type</string>
+ 
+    <string-array name="project_type_array">
+        <item>Individual</item>
+        <item>Group</item>
+        <item>Other</item>
+    </string-array>
+    
     <!-- Create or Edit Task Activity -->
     <string name="title_activity_create_or_edit_task">CreateOrEditTaskActivity</string>
     <string name="task_create">New Task</string>
@@ -107,7 +115,16 @@
     <string name="create_task_edit_description">Enter Description</string>
     <string name="create_task_btn">Create Task</string>
     <string name="search_task">Search Tasks&#8230;</string>
-
+    <string name="task_type_prompt">Choose a Type</string>
+ 	<string name="create_task_delete_button">Delete Task</string>
+    
+    <string-array name="task_type_array">
+        <item>Critial</item>
+        <item>Medium</item>
+        <item>Minimal</item>
+        <item>Other</item>
+    </string-array>
+    
     <!-- Create or Edit event Activity -->
     <string name="title_activity_create_or_edit_event">CreateOrEditEventActivity</string>
     <string name="title_activity_user_list_all_events">Your Events</string>
@@ -182,4 +199,29 @@
     <string name="create_contact_edit_project_affiliation">Enter Projects</string>
     <string name="create_contact_btn">Create Contact</string>
 	
+    <!--  all projects - adapter view -->
+    <string name="adapter_project_name">Project Name</string>
+    <string name="adapter_project_start_date">Start Date</string>
+    <string name="adapter_project_end_date">End Date</string>
+    <string name="adapter_project_members">Members: </string>
+    <string name="adapter_project_type">Type</string>
+    <string name="adapter_project_description">Description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+           fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum."</string>
+    <string name="adapter_project_status">Status</string>
+    
+    <!--  all tasks - adapter view -->
+    <string name="adapter_task_name">Task Name</string>
+    <string name="adapter_task_assigned">Assigned To</string>
+    <string name="adapter_task_category">Category</string>
+    <string name="adapter_task_start_date">Start Date</string>
+    <string name="adapter_task_end_date">End Date</string>
+    <string name="adapter_task_priority">Priority</string>
+    <string name="adapter_task_description">Description</string>
+    <string name="adapter_task_status">Status</string>
+    
+    
+    
 </resources>

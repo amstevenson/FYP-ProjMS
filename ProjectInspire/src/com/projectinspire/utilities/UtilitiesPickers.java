@@ -58,7 +58,7 @@ public class UtilitiesPickers extends Activity{
 			// Or in other words, the context/view that created this dialog. 
 			// (Hence the static global declaration of the EditText view).
 			//
-			passedEditText.setText("" + day + " - " + "" + month + " - " + year);
+			passedEditText.setText("" + day + "/" + "" + month + "/" + year);
 		}
 
 	}

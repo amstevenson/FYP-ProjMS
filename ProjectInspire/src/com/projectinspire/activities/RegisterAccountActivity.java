@@ -1,5 +1,6 @@
 package com.projectinspire.activities;
 
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -76,9 +77,9 @@ public class RegisterAccountActivity extends Activity {
 				//
 				Editable forename = registerForename.getText();
 				Editable surname  = registerSurname.getText();
-				Editable password = registerPassword.getText();
+				final Editable password = registerPassword.getText();
 				Editable repeatPassword = registerRepeatPassword.getText();
-				Editable email = registerEmail.getText();
+				final Editable email = registerEmail.getText();
 				Editable repeatEmail = registerRepeatEmail.getText();
 				
 				//
@@ -197,17 +198,39 @@ public class RegisterAccountActivity extends Activity {
 					    registerUser.signUpInBackground(new SignUpCallback() {
 							public void done(ParseException e) {
 								if (e == null) {
-									// Show a simple Toast message upon successful registration
-									Toast.makeText(context,
-											"Successfully Signed up, please log in.",
-											duration)
-											.show();
 									
 									//
-									// Change the screen to the main activity
+									// Log in using Parse Loginbackground
 									//
-									Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
-									startActivity(mainIntent);
+									// Send data to Parse.com for verification
+									ParseUser.logInInBackground(email.toString(), password.toString(),
+											new LogInCallback() {
+												public void done(ParseUser user, ParseException e) {
+													if (user != null) { // if we have a user
+														
+														//
+														// If the user is stored in the database
+														//
+														Intent intent = new Intent(
+																getApplicationContext(),
+																UserDashboardActivity.class);
+														
+														intent.putExtra("userId", user.getObjectId()); // add the email for queries
+														startActivity(intent);
+
+														//
+														// Notify success with a toast message
+														//
+														Toast.makeText(getApplicationContext(),
+																"You have successfully registered your account and have been " +
+																"automatically logged in.",
+																Toast.LENGTH_LONG).show();
+														finish();
+														
+													} else {
+													}
+												}
+									}); // end of LogInBackground
 									
 								} else {
 									Toast.makeText(context,
