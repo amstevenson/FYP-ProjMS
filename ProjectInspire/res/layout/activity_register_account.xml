@@ -219,12 +219,47 @@
 	         android:textColor="#000"
 	         android:textSize="13sp" />
 	     
+	     <!--  User photo -->
+	    <TextView
+	        android:id="@+id/txtRegisterUserImage"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignRight="@+id/txtRegisterRepeatEmail"
+	        android:layout_below="@id/txtRegisterRepeatEmail"
+	        android:layout_marginLeft="15dp"
+	        android:layout_marginTop="40dp"
+	        android:text="@string/register_lbl_picture"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+
+	   	 <com.projectinspire.utilities.CircularImageView
+	   	     android:id="@+id/imgviewUserImage"
+	   	     android:layout_width="60dp"
+	   	     android:layout_height="60dp"
+	   	     android:layout_alignTop="@+id/txtRegisterUserImage"
+	   	     android:layout_centerHorizontal="true"
+	   	     android:contentDescription="@string/dashboard_user_image"
+	   	     android:src="@drawable/icon_person" />
+	   	 
+	   	 <Button
+	       	 android:id="@+id/btnRegisterChangeUserImage"
+	       	 android:layout_width="200dp"
+	       	 android:layout_height="wrap_content"
+	       	 android:layout_below="@id/imgviewUserImage"
+	       	 android:layout_marginTop="30dp"
+	      	 android:layout_centerHorizontal="true"
+	         android:background="#0c4661"
+	      	 android:text="@string/register_btn_picture"
+	         android:textSize="16sp"
+	         android:textColor="#fff" />
+	   	 
 	     <!--  Register account  -->
 	   	 <Button
 	       	 android:id="@+id/btnRegisterSubmit"
 	       	 android:layout_width="200dp"
 	       	 android:layout_height="wrap_content"
-	       	 android:layout_marginTop="590dp"
+	       	 android:layout_below="@id/btnRegisterChangeUserImage"
+	       	 android:layout_marginTop="20dp"
 	      	 android:layout_centerHorizontal="true"
 	         android:background="#0c4661"
 	      	 android:text="@string/register_btn_account"
@@ -237,7 +272,7 @@
 	   	     android:layout_width="match_parent"
 	   	     android:layout_height="30dp"
 	   	     android:layout_below="@id/btnRegisterSubmit" />
-	    
+  
 	</RelativeLayout>
 </ScrollView>
 

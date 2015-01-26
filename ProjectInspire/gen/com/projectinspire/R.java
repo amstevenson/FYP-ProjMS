@@ -83,7 +83,7 @@ public final class R {
         public static final int style_tab_unselected_pressed=0x7f020036;
     }
     public static final class id {
-        public static final int action_settings=0x7f090098;
+        public static final int action_settings=0x7f09009b;
         public static final int btnCreateContact=0x7f090009;
         public static final int btnCreateEvent=0x7f09001a;
         public static final int btnCreateMessage=0x7f090021;
@@ -93,13 +93,14 @@ public final class R {
         public static final int btnDeleteTask=0x7f090041;
         public static final int btnForgotPasswordSubmit=0x7f090046;
         public static final int btnMainLogin=0x7f090051;
-        public static final int btnRegisterSubmit=0x7f090061;
+        public static final int btnRegisterChangeUserImage=0x7f090063;
+        public static final int btnRegisterSubmit=0x7f090064;
         public static final int btnResetPasswordSubmit=0x7f09004c;
-        public static final int contactsFragmentContainer=0x7f090063;
+        public static final int contactsFragmentContainer=0x7f090066;
         public static final int container=0x7f09004d;
-        public static final int dashboard_drawer_frame_container=0x7f090065;
-        public static final int dashboard_drawer_menu_listview=0x7f090066;
-        public static final int dashboard_drawer_nav_layout=0x7f090064;
+        public static final int dashboard_drawer_frame_container=0x7f090068;
+        public static final int dashboard_drawer_menu_listview=0x7f090069;
+        public static final int dashboard_drawer_nav_layout=0x7f090067;
         public static final int editCreateContactEmail=0x7f090004;
         public static final int editCreateContactName=0x7f090002;
         public static final int editCreateContactNotes=0x7f090006;
@@ -136,49 +137,50 @@ public final class R {
         public static final int editRegisterSurname=0x7f090058;
         public static final int editResetPasswordPassword=0x7f090049;
         public static final int editResetPasswordRepeatPassword=0x7f09004b;
-        public static final int editSearchContacts=0x7f09008d;
-        public static final int editSearchEvents=0x7f090075;
-        public static final int editSearchFiles=0x7f090093;
-        public static final int editSearchMessages=0x7f090090;
-        public static final int editSearchProjects=0x7f090079;
-        public static final int editSearchTasks=0x7f090096;
+        public static final int editSearchContacts=0x7f090090;
+        public static final int editSearchEvents=0x7f090078;
+        public static final int editSearchFiles=0x7f090096;
+        public static final int editSearchMessages=0x7f090093;
+        public static final int editSearchProjects=0x7f09007c;
+        public static final int editSearchTasks=0x7f090099;
         public static final int iconMainImage=0x7f09004e;
-        public static final int imageViewCreateContact=0x7f09008e;
-        public static final int imageViewCreateFile=0x7f090094;
-        public static final int imageViewCreateMessage=0x7f090091;
-        public static final int imageViewCreateTask=0x7f090097;
-        public static final int imageViewEventCreate=0x7f090076;
-        public static final int imageViewProjectCreate=0x7f09007a;
-        public static final int imgviewDashboardUser=0x7f090068;
-        public static final int listContactsAll=0x7f09008c;
-        public static final int listEventsAll=0x7f090073;
-        public static final int listFilesAll=0x7f090092;
-        public static final int listMessagesAll=0x7f09008f;
-        public static final int listProjectsAll=0x7f090077;
-        public static final int listTasksAll=0x7f090095;
-        public static final int projectDescription=0x7f09007d;
-        public static final int projectEdit=0x7f090081;
-        public static final int projectEndDate=0x7f090080;
-        public static final int projectMembers=0x7f09007e;
-        public static final int projectName=0x7f09007c;
-        public static final int projectStartDate=0x7f09007f;
-        public static final int projectStatus=0x7f090082;
-        public static final int scrollViewDashboard=0x7f090067;
-        public static final int selectedProjectFragmentContainer=0x7f09007b;
+        public static final int imageViewCreateContact=0x7f090091;
+        public static final int imageViewCreateFile=0x7f090097;
+        public static final int imageViewCreateMessage=0x7f090094;
+        public static final int imageViewCreateTask=0x7f09009a;
+        public static final int imageViewEventCreate=0x7f090079;
+        public static final int imageViewProjectCreate=0x7f09007d;
+        public static final int imgviewDashboardUser=0x7f09006b;
+        public static final int imgviewUserImage=0x7f090062;
+        public static final int listContactsAll=0x7f09008f;
+        public static final int listEventsAll=0x7f090076;
+        public static final int listFilesAll=0x7f090095;
+        public static final int listMessagesAll=0x7f090092;
+        public static final int listProjectsAll=0x7f09007a;
+        public static final int listTasksAll=0x7f090098;
+        public static final int projectDescription=0x7f090080;
+        public static final int projectEdit=0x7f090084;
+        public static final int projectEndDate=0x7f090083;
+        public static final int projectMembers=0x7f090081;
+        public static final int projectName=0x7f09007f;
+        public static final int projectStartDate=0x7f090082;
+        public static final int projectStatus=0x7f090085;
+        public static final int scrollViewDashboard=0x7f09006a;
+        public static final int selectedProjectFragmentContainer=0x7f09007e;
         public static final int spaceCreateContactButton=0x7f09000a;
         public static final int spaceCreateEventButton=0x7f09001b;
         public static final int spaceCreateProjectButton=0x7f090022;
         public static final int spaceCreateTaskButton=0x7f090042;
-        public static final int spaceRegisterButton=0x7f090062;
-        public static final int taskAssignedTo=0x7f090087;
-        public static final int taskCategory=0x7f090086;
-        public static final int taskDescription=0x7f090084;
-        public static final int taskEdit=0x7f09008a;
-        public static final int taskEndDate=0x7f090089;
-        public static final int taskName=0x7f090083;
-        public static final int taskPriority=0x7f09008b;
-        public static final int taskStartDate=0x7f090088;
-        public static final int taskStatus=0x7f090085;
+        public static final int spaceRegisterButton=0x7f090065;
+        public static final int taskAssignedTo=0x7f09008a;
+        public static final int taskCategory=0x7f090089;
+        public static final int taskDescription=0x7f090087;
+        public static final int taskEdit=0x7f09008d;
+        public static final int taskEndDate=0x7f09008c;
+        public static final int taskName=0x7f090086;
+        public static final int taskPriority=0x7f09008e;
+        public static final int taskStartDate=0x7f09008b;
+        public static final int taskStatus=0x7f090088;
         public static final int txtCreateContactEmail=0x7f090003;
         public static final int txtCreateContactName=0x7f090001;
         public static final int txtCreateContactNotes=0x7f090005;
@@ -210,22 +212,22 @@ public final class R {
         public static final int txtCreateTaskPriority=0x7f09003c;
         public static final int txtCreateTaskStartDate=0x7f090038;
         public static final int txtCreateTaskUserHelp=0x7f090031;
-        public static final int txtDashboardEvents=0x7f09006f;
-        public static final int txtDashboardEventsTitle=0x7f090070;
-        public static final int txtDashboardMessages=0x7f090071;
-        public static final int txtDashboardMessagesTitle=0x7f090072;
-        public static final int txtDashboardProjects=0x7f090069;
-        public static final int txtDashboardProjectsTitle=0x7f09006c;
-        public static final int txtDashboardTasks=0x7f09006d;
-        public static final int txtDashboardTasksTitle=0x7f09006e;
-        public static final int txtDashboardUserEmail=0x7f09006b;
-        public static final int txtDashboardUsername=0x7f09006a;
-        public static final int txtEventNone=0x7f090074;
+        public static final int txtDashboardEvents=0x7f090072;
+        public static final int txtDashboardEventsTitle=0x7f090073;
+        public static final int txtDashboardMessages=0x7f090074;
+        public static final int txtDashboardMessagesTitle=0x7f090075;
+        public static final int txtDashboardProjects=0x7f09006c;
+        public static final int txtDashboardProjectsTitle=0x7f09006f;
+        public static final int txtDashboardTasks=0x7f090070;
+        public static final int txtDashboardTasksTitle=0x7f090071;
+        public static final int txtDashboardUserEmail=0x7f09006e;
+        public static final int txtDashboardUsername=0x7f09006d;
+        public static final int txtEventNone=0x7f090077;
         public static final int txtForgotPasswordCode=0x7f090044;
         public static final int txtForgotPasswordDescription=0x7f090043;
         public static final int txtMainForgotPassword=0x7f090053;
         public static final int txtMainRegister=0x7f090052;
-        public static final int txtProjectsNone=0x7f090078;
+        public static final int txtProjectsNone=0x7f09007b;
         public static final int txtRegisterDescription=0x7f090054;
         public static final int txtRegisterEmail=0x7f09005d;
         public static final int txtRegisterForename=0x7f090055;
@@ -233,6 +235,7 @@ public final class R {
         public static final int txtRegisterRepeatEmail=0x7f09005f;
         public static final int txtRegisterRepeatPassword=0x7f09005b;
         public static final int txtRegisterSurname=0x7f090057;
+        public static final int txtRegisterUserImage=0x7f090061;
         public static final int txtResetPasswordDescription=0x7f090047;
         public static final int txtResetPasswordPassword=0x7f090048;
         public static final int txtResetPasswordRepeatPassword=0x7f09004a;
@@ -280,119 +283,119 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
-        public static final int adapter_project_description=0x7f050098;
-        public static final int adapter_project_end_date=0x7f050095;
-        public static final int adapter_project_members=0x7f050096;
+        public static final int adapter_project_description=0x7f05009b;
+        public static final int adapter_project_end_date=0x7f050098;
+        public static final int adapter_project_members=0x7f050099;
         /**   all projects - adapter view 
          */
-        public static final int adapter_project_name=0x7f050093;
-        public static final int adapter_project_start_date=0x7f050094;
-        public static final int adapter_project_status=0x7f050099;
-        public static final int adapter_project_type=0x7f050097;
-        public static final int adapter_task_assigned=0x7f05009b;
-        public static final int adapter_task_category=0x7f05009c;
-        public static final int adapter_task_description=0x7f0500a0;
-        public static final int adapter_task_end_date=0x7f05009e;
+        public static final int adapter_project_name=0x7f050096;
+        public static final int adapter_project_start_date=0x7f050097;
+        public static final int adapter_project_status=0x7f05009c;
+        public static final int adapter_project_type=0x7f05009a;
+        public static final int adapter_task_assigned=0x7f05009e;
+        public static final int adapter_task_category=0x7f05009f;
+        public static final int adapter_task_description=0x7f0500a3;
+        public static final int adapter_task_end_date=0x7f0500a1;
         /**   all tasks - adapter view 
          */
-        public static final int adapter_task_name=0x7f05009a;
-        public static final int adapter_task_priority=0x7f05009f;
-        public static final int adapter_task_start_date=0x7f05009d;
-        public static final int adapter_task_status=0x7f0500a1;
+        public static final int adapter_task_name=0x7f05009d;
+        public static final int adapter_task_priority=0x7f0500a2;
+        public static final int adapter_task_start_date=0x7f0500a0;
+        public static final int adapter_task_status=0x7f0500a4;
         public static final int app_name=0x7f050000;
-        public static final int contact_create=0x7f050071;
-        public static final int create_contact_btn=0x7f050092;
-        public static final int create_contact_edit_email=0x7f05008d;
-        public static final int create_contact_edit_name=0x7f05008b;
-        public static final int create_contact_edit_notes=0x7f05008f;
-        public static final int create_contact_edit_project_affiliation=0x7f050091;
-        public static final int create_contact_summary=0x7f050089;
-        public static final int create_contact_txt_email=0x7f05008c;
-        public static final int create_contact_txt_name=0x7f05008a;
-        public static final int create_contact_txt_notes=0x7f05008e;
-        public static final int create_contact_txt_project_affiliation=0x7f050090;
-        public static final int create_event_btn=0x7f05006e;
-        public static final int create_event_edit_date=0x7f050067;
-        public static final int create_event_edit_description=0x7f050065;
-        public static final int create_event_edit_end_time=0x7f05006b;
-        public static final int create_event_edit_locatioin=0x7f050063;
-        public static final int create_event_edit_name=0x7f050061;
-        public static final int create_event_edit_start_time=0x7f050069;
-        public static final int create_event_edit_visibility=0x7f05006d;
-        public static final int create_event_summary=0x7f05005f;
-        public static final int create_event_txt_date=0x7f050066;
-        public static final int create_event_txt_description=0x7f050064;
-        public static final int create_event_txt_end_time=0x7f05006a;
-        public static final int create_event_txt_location=0x7f050062;
-        public static final int create_event_txt_name=0x7f050060;
-        public static final int create_event_txt_start_time=0x7f050068;
-        public static final int create_event_txt_visibility=0x7f05006c;
-        public static final int create_message_btn=0x7f050087;
-        public static final int create_message_edit_message_conntent=0x7f050086;
-        public static final int create_message_edit_recipient=0x7f050084;
-        public static final int create_message_summary=0x7f050082;
-        public static final int create_message_txt_message_content=0x7f050085;
-        public static final int create_message_txt_recipient=0x7f050083;
-        public static final int create_project_btn=0x7f050041;
-        public static final int create_project_delete_button=0x7f050043;
-        public static final int create_project_edit_description=0x7f050040;
-        public static final int create_project_edit_finish_date_hint=0x7f05003a;
-        public static final int create_project_edit_name=0x7f050036;
-        public static final int create_project_edit_responsible=0x7f05003c;
-        public static final int create_project_edit_start_date_hint=0x7f050038;
-        public static final int create_project_edit_type=0x7f05003e;
+        public static final int contact_create=0x7f050074;
+        public static final int create_contact_btn=0x7f050095;
+        public static final int create_contact_edit_email=0x7f050090;
+        public static final int create_contact_edit_name=0x7f05008e;
+        public static final int create_contact_edit_notes=0x7f050092;
+        public static final int create_contact_edit_project_affiliation=0x7f050094;
+        public static final int create_contact_summary=0x7f05008c;
+        public static final int create_contact_txt_email=0x7f05008f;
+        public static final int create_contact_txt_name=0x7f05008d;
+        public static final int create_contact_txt_notes=0x7f050091;
+        public static final int create_contact_txt_project_affiliation=0x7f050093;
+        public static final int create_event_btn=0x7f050071;
+        public static final int create_event_edit_date=0x7f05006a;
+        public static final int create_event_edit_description=0x7f050068;
+        public static final int create_event_edit_end_time=0x7f05006e;
+        public static final int create_event_edit_locatioin=0x7f050066;
+        public static final int create_event_edit_name=0x7f050064;
+        public static final int create_event_edit_start_time=0x7f05006c;
+        public static final int create_event_edit_visibility=0x7f050070;
+        public static final int create_event_summary=0x7f050062;
+        public static final int create_event_txt_date=0x7f050069;
+        public static final int create_event_txt_description=0x7f050067;
+        public static final int create_event_txt_end_time=0x7f05006d;
+        public static final int create_event_txt_location=0x7f050065;
+        public static final int create_event_txt_name=0x7f050063;
+        public static final int create_event_txt_start_time=0x7f05006b;
+        public static final int create_event_txt_visibility=0x7f05006f;
+        public static final int create_message_btn=0x7f05008a;
+        public static final int create_message_edit_message_conntent=0x7f050089;
+        public static final int create_message_edit_recipient=0x7f050087;
+        public static final int create_message_summary=0x7f050085;
+        public static final int create_message_txt_message_content=0x7f050088;
+        public static final int create_message_txt_recipient=0x7f050086;
+        public static final int create_project_btn=0x7f050044;
+        public static final int create_project_delete_button=0x7f050046;
+        public static final int create_project_edit_description=0x7f050043;
+        public static final int create_project_edit_finish_date_hint=0x7f05003d;
+        public static final int create_project_edit_name=0x7f050039;
+        public static final int create_project_edit_responsible=0x7f05003f;
+        public static final int create_project_edit_start_date_hint=0x7f05003b;
+        public static final int create_project_edit_type=0x7f050041;
         /**  Going to be a picker probably 
          */
-        public static final int create_project_lbl_description=0x7f05003f;
-        public static final int create_project_lbl_finish_date=0x7f050039;
-        public static final int create_project_lbl_name=0x7f050035;
-        public static final int create_project_lbl_responsible=0x7f05003b;
-        public static final int create_project_lbl_start_date=0x7f050037;
+        public static final int create_project_lbl_description=0x7f050042;
+        public static final int create_project_lbl_finish_date=0x7f05003c;
+        public static final int create_project_lbl_name=0x7f050038;
+        public static final int create_project_lbl_responsible=0x7f05003e;
+        public static final int create_project_lbl_start_date=0x7f05003a;
         /**  Going to be a picker probably 
          */
-        public static final int create_project_lbl_type=0x7f05003d;
+        public static final int create_project_lbl_type=0x7f050040;
         /**  Create or Edit project 
          */
-        public static final int create_project_lbl_userhelp=0x7f050033;
-        public static final int create_task_btn=0x7f050056;
-        public static final int create_task_delete_button=0x7f050059;
-        public static final int create_task_edit_assigned=0x7f05004b;
-        public static final int create_task_edit_description=0x7f050055;
-        public static final int create_task_edit_end_date=0x7f050051;
-        public static final int create_task_edit_name=0x7f050049;
-        public static final int create_task_edit_priority=0x7f050053;
-        public static final int create_task_edit_start_date=0x7f05004f;
-        public static final int create_task_lbl_userhelp=0x7f050047;
-        public static final int create_task_spinner_category=0x7f05004d;
-        public static final int create_task_txt_assigned=0x7f05004a;
-        public static final int create_task_txt_category=0x7f05004c;
-        public static final int create_task_txt_description=0x7f050054;
-        public static final int create_task_txt_end_date=0x7f050050;
-        public static final int create_task_txt_name=0x7f050048;
-        public static final int create_task_txt_priority=0x7f050052;
-        public static final int create_task_txt_start_date=0x7f05004e;
-        public static final int dashboard_events=0x7f050020;
-        public static final int dashboard_events_title=0x7f050021;
-        public static final int dashboard_messages=0x7f050022;
-        public static final int dashboard_messages_title=0x7f050023;
-        public static final int dashboard_projects=0x7f05001c;
-        public static final int dashboard_projects_title=0x7f05001d;
-        public static final int dashboard_tasks=0x7f05001e;
-        public static final int dashboard_tasks_title=0x7f05001f;
-        public static final int dashboard_user_email_address=0x7f05001a;
-        public static final int dashboard_user_image=0x7f05001b;
-        public static final int dashboard_user_name=0x7f050019;
-        public static final int event_create=0x7f05005c;
+        public static final int create_project_lbl_userhelp=0x7f050036;
+        public static final int create_task_btn=0x7f050059;
+        public static final int create_task_delete_button=0x7f05005c;
+        public static final int create_task_edit_assigned=0x7f05004e;
+        public static final int create_task_edit_description=0x7f050058;
+        public static final int create_task_edit_end_date=0x7f050054;
+        public static final int create_task_edit_name=0x7f05004c;
+        public static final int create_task_edit_priority=0x7f050056;
+        public static final int create_task_edit_start_date=0x7f050052;
+        public static final int create_task_lbl_userhelp=0x7f05004a;
+        public static final int create_task_spinner_category=0x7f050050;
+        public static final int create_task_txt_assigned=0x7f05004d;
+        public static final int create_task_txt_category=0x7f05004f;
+        public static final int create_task_txt_description=0x7f050057;
+        public static final int create_task_txt_end_date=0x7f050053;
+        public static final int create_task_txt_name=0x7f05004b;
+        public static final int create_task_txt_priority=0x7f050055;
+        public static final int create_task_txt_start_date=0x7f050051;
+        public static final int dashboard_events=0x7f050023;
+        public static final int dashboard_events_title=0x7f050024;
+        public static final int dashboard_messages=0x7f050025;
+        public static final int dashboard_messages_title=0x7f050026;
+        public static final int dashboard_projects=0x7f05001f;
+        public static final int dashboard_projects_title=0x7f050020;
+        public static final int dashboard_tasks=0x7f050021;
+        public static final int dashboard_tasks_title=0x7f050022;
+        public static final int dashboard_user_email_address=0x7f05001d;
+        public static final int dashboard_user_image=0x7f05001e;
+        public static final int dashboard_user_name=0x7f05001c;
+        public static final int event_create=0x7f05005f;
         /**  Create or Edit files Activity 
          */
-        public static final int file_create=0x7f050073;
-        public static final int forgot_password_btn=0x7f050079;
-        public static final int forgot_password_description=0x7f050076;
-        public static final int forgot_password_edit_code=0x7f050078;
-        public static final int forgot_password_txt_code=0x7f050077;
+        public static final int file_create=0x7f050076;
+        public static final int forgot_password_btn=0x7f05007c;
+        public static final int forgot_password_description=0x7f050079;
+        public static final int forgot_password_edit_code=0x7f05007b;
+        public static final int forgot_password_txt_code=0x7f05007a;
         public static final int hello_world=0x7f050001;
-        public static final int lbl_events_none=0x7f05005d;
-        public static final int lbl_projects_none=0x7f050027;
+        public static final int lbl_events_none=0x7f050060;
+        public static final int lbl_projects_none=0x7f05002a;
         public static final int lbl_register_description=0x7f05000a;
         public static final int main_btn_login=0x7f050007;
         public static final int main_btn_register=0x7f050008;
@@ -402,84 +405,87 @@ public final class R {
         /**  Main activity 
          */
         public static final int main_txt_register=0x7f050003;
-        public static final int message_create=0x7f050072;
-        public static final int project_type_prompt=0x7f050044;
-        public static final int projects_create=0x7f050025;
-        public static final int projects_edit=0x7f050026;
+        public static final int message_create=0x7f050075;
+        public static final int project_type_prompt=0x7f050047;
+        public static final int projects_create=0x7f050028;
+        public static final int projects_edit=0x7f050029;
         public static final int register_btn_account=0x7f050017;
+        public static final int register_btn_picture=0x7f050019;
         public static final int register_edit_email=0x7f050010;
         public static final int register_edit_forename=0x7f05000c;
         public static final int register_edit_password=0x7f050014;
         public static final int register_edit_repeat_email=0x7f050012;
         public static final int register_edit_repeat_password=0x7f050016;
         public static final int register_edit_surname=0x7f05000e;
+        public static final int register_img_picture=0x7f05001a;
         public static final int register_lbl_email=0x7f05000f;
         public static final int register_lbl_forename=0x7f05000b;
         public static final int register_lbl_password=0x7f050013;
+        public static final int register_lbl_picture=0x7f050018;
         public static final int register_lbl_repeat_email=0x7f050011;
         public static final int register_lbl_repeat_password=0x7f050015;
         public static final int register_lbl_surname=0x7f05000d;
-        public static final int reset_password_btn=0x7f050080;
-        public static final int reset_password_description=0x7f05007b;
-        public static final int reset_password_edit_password=0x7f05007d;
-        public static final int reset_password_repeat_edit_password=0x7f05007f;
-        public static final int reset_password_repeat_txt_password=0x7f05007e;
-        public static final int reset_password_txt_password=0x7f05007c;
+        public static final int reset_password_btn=0x7f050083;
+        public static final int reset_password_description=0x7f05007e;
+        public static final int reset_password_edit_password=0x7f050080;
+        public static final int reset_password_repeat_edit_password=0x7f050082;
+        public static final int reset_password_repeat_txt_password=0x7f050081;
+        public static final int reset_password_txt_password=0x7f05007f;
         /**  New interaction / new contact interaction Activity 
          */
-        public static final int search_contacts=0x7f05006f;
-        public static final int search_events=0x7f05005e;
-        public static final int search_files=0x7f050074;
-        public static final int search_messages=0x7f050070;
-        public static final int search_project=0x7f050042;
-        public static final int search_task=0x7f050057;
-        public static final int tab_all_events=0x7f050032;
-        public static final int tab_all_files=0x7f050031;
-        public static final int tab_all_tasks=0x7f050030;
-        public static final int tab_contacts=0x7f050029;
-        public static final int tab_contacts_messages=0x7f05002a;
-        public static final int task_create=0x7f050046;
-        public static final int task_type_prompt=0x7f050058;
+        public static final int search_contacts=0x7f050072;
+        public static final int search_events=0x7f050061;
+        public static final int search_files=0x7f050077;
+        public static final int search_messages=0x7f050073;
+        public static final int search_project=0x7f050045;
+        public static final int search_task=0x7f05005a;
+        public static final int tab_all_events=0x7f050035;
+        public static final int tab_all_files=0x7f050034;
+        public static final int tab_all_tasks=0x7f050033;
+        public static final int tab_contacts=0x7f05002c;
+        public static final int tab_contacts_messages=0x7f05002d;
+        public static final int task_create=0x7f050049;
+        public static final int task_type_prompt=0x7f05005b;
         /**   Create or edit Contact 
          */
-        public static final int title_activity_create_or_edit_contact=0x7f050088;
+        public static final int title_activity_create_or_edit_contact=0x7f05008b;
         /**  Create or Edit event Activity 
          */
-        public static final int title_activity_create_or_edit_event=0x7f05005a;
+        public static final int title_activity_create_or_edit_event=0x7f05005d;
         /**  View message Activity 
   Create or edit message 
          */
-        public static final int title_activity_create_or_edit_message=0x7f050081;
-        public static final int title_activity_create_or_edit_project=0x7f050034;
+        public static final int title_activity_create_or_edit_message=0x7f050084;
+        public static final int title_activity_create_or_edit_project=0x7f050037;
         /**  Create or Edit Task Activity 
          */
-        public static final int title_activity_create_or_edit_task=0x7f050045;
+        public static final int title_activity_create_or_edit_task=0x7f050048;
         /**  Forgot password Activity 
          */
-        public static final int title_activity_forgot_password=0x7f050075;
+        public static final int title_activity_forgot_password=0x7f050078;
         /**  Reset password Activity 
          */
-        public static final int title_activity_forgot_password_reset=0x7f05007a;
+        public static final int title_activity_forgot_password_reset=0x7f05007d;
         /**  Projects activity 
          */
-        public static final int title_activity_projects=0x7f050024;
+        public static final int title_activity_projects=0x7f050027;
         /**  Register activity 
          */
         public static final int title_activity_register_account=0x7f050009;
         /**  Contacts activity/fragments 
          */
-        public static final int title_activity_user_contacts=0x7f050028;
-        public static final int title_activity_user_contacts_fragment=0x7f05002b;
-        public static final int title_activity_user_contacts_messages_fragment=0x7f05002c;
+        public static final int title_activity_user_contacts=0x7f05002b;
+        public static final int title_activity_user_contacts_fragment=0x7f05002e;
+        public static final int title_activity_user_contacts_messages_fragment=0x7f05002f;
         /**  Dashboard activity 
          */
-        public static final int title_activity_user_dashboard=0x7f050018;
-        public static final int title_activity_user_list_all_events=0x7f05005b;
+        public static final int title_activity_user_dashboard=0x7f05001b;
+        public static final int title_activity_user_list_all_events=0x7f05005e;
         /**  Tasks activity/fragments 
          */
-        public static final int title_activity_user_selected_project=0x7f05002d;
-        public static final int title_activity_user_selected_project_all_files_fragment=0x7f05002f;
-        public static final int title_activity_user_selected_project_tasks=0x7f05002e;
+        public static final int title_activity_user_selected_project=0x7f050030;
+        public static final int title_activity_user_selected_project_all_files_fragment=0x7f050032;
+        public static final int title_activity_user_selected_project_tasks=0x7f050031;
     }
     public static final class style {
         public static final int ActionBar_Solid=0x7f070001;

@@ -1,11 +1,19 @@
 package com.projectinspire.activities;
 
+import java.util.List;
+
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.projectinspire.R;
 import com.projectinspire.utilities.UtilitiesPickers;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
@@ -13,10 +21,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.Space;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CreateOrEditTaskActivity extends Activity {
@@ -50,13 +62,15 @@ public class CreateOrEditTaskActivity extends Activity {
 		//*******************************************************************************************//
 		//											Views											 //
 		//*******************************************************************************************//
-		final EditText taskStartDate = (EditText) findViewById(R.id.editCreateTaskStartDate);
+		final TextView taskLabel  = (TextView) findViewById(R.id.txtCreateTaskUserHelp);
+    	final EditText taskStartDate = (EditText) findViewById(R.id.editCreateTaskStartDate);
 		final EditText taskEndDate = (EditText) findViewById(R.id.editCreateTaskEndDate);
 		final EditText taskName = (EditText) findViewById(R.id.editCreateTaskName);
 		final EditText taskAssignedTo = (EditText) findViewById(R.id.editCreateTaskAssigned);
 		final EditText taskCategory = (EditText) findViewById(R.id.editCreateTaskCategory);
 		final Spinner taskPriority = (Spinner) findViewById(R.id.editCreateTaskPriority);
 		final EditText taskDescription = (EditText) findViewById(R.id.editCreateTaskDescription);
+		final Space    taskSpace   = (Space) findViewById(R.id.spaceCreateTaskButton);
 		
 		//
 		// Button to create or edit a row in the database for a task
@@ -72,13 +86,81 @@ public class CreateOrEditTaskActivity extends Activity {
 		//
 		if(editing)
 		{
+			//
+			// change use user help description
+			//
+			taskLabel.setText("To edit this task, please make all changes and press the 'edit'" +
+					" button below. \n To Delete, press the 'delete' button. ");
+		
+			// retrieve the taskId from the intent
 	    	taskId        = intent.getStringExtra("taskId");
 	    	Log.d("TID - Create Task", taskId); // debug
+	    	
+			//
+			// Get the relative information for the project, and set the information
+			//
+			ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
+			query.whereEqualTo("objectId", taskId);
+			query.findInBackground(new FindCallback<ParseObject>() {
+				public void done(List<ParseObject> task, ParseException e) {
+					
+					if (e == null) {      	
+				    	
+						//
+						// Check that there is a project (or more than one, I guess), and
+						// then change the views so that the old data is shown
+						//
+						if(task.size() > 0)
+						{
+							taskName.setText(task.get(0).getString("taskName"));
+							taskStartDate.setText(task.get(0).getString("taskStartDate"));
+							taskEndDate.setText(task.get(0).getString("taskEndDate"));
+							taskAssignedTo.setText(task.get(0).getString("taskAssignedTo"));
+							
+							String priority = task.get(0).getString("taskPriority");
+							
+							if     (priority.equals("Critical")) taskPriority.setSelection(0);
+							else if(priority.equals("Medium"))   taskPriority.setSelection(1);
+							else if(priority.equals("Low"))      taskPriority.setSelection(2);
+							else if(priority.equals("Other"))	 taskPriority.setSelection(3);
+							
+							taskCategory.setText(task.get(0).getString("taskCategory"));
+							taskDescription.setText(task.get(0).getString("taskDescription"));
+						}
+				    	        		             	
+			    	} else Log.d("score", "Error: " + e.getMessage());
+			    }
+			});
+			
+			//
+			// Change the text for the button (boolean determines on click function, but text needs to be changed
+			// either way
+			//
+			createTask.setText("Update Project");
+			
 		} 
+		//*******************************************************************************************//
+		//									If NOT Editing/deleting									 //
+		//*******************************************************************************************//
 		else if(!editing)
 		{
 	    	projectId	  = intent.getStringExtra("projectId");
 	    	Log.d("PID - Create Task", projectId); // debug
+	    	
+			//
+			// Position the space view for layout purposes
+			//
+			RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+			        ViewGroup.LayoutParams.WRAP_CONTENT);
+
+			p.addRule(RelativeLayout.BELOW, R.id.btnCreateTask);
+
+			taskSpace.setLayoutParams(p);
+			
+			//
+			// Make delete button invisible
+			//
+			deleteTask.setVisibility(View.GONE);
 		}
 		
 		//*******************************************************************************************//
@@ -132,58 +214,125 @@ public class CreateOrEditTaskActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				//
-				// Check validation on fields; make sure none are null
-				// (and possibly others in the future if required changes are needed)
-				//
-				if(taskName.getText().toString().equals("") || taskAssignedTo.getText().toString().equals("")
-						|| taskCategory.getText().toString().equals("") || taskStartDate.getText().toString().equals("")
-						|| taskEndDate.getText().toString().equals("") || taskPriority.getSelectedItem().toString().equals("")
-						|| taskDescription.getText().toString().equals(""))
+				if(!editing)
 				{
-					Toast toast = Toast.makeText(getApplicationContext(), 
-							"One or more fields are empty, please revise and try again", Toast.LENGTH_LONG);
-					toast.show();
+					//
+					// Check validation on fields; make sure none are null
+					// (and possibly others in the future if required changes are needed)
+					//
+					if(taskName.getText().toString().equals("") || taskAssignedTo.getText().toString().equals("")
+							|| taskCategory.getText().toString().equals("") || taskStartDate.getText().toString().equals("")
+							|| taskEndDate.getText().toString().equals("") || taskPriority.getSelectedItem().toString().equals("")
+							|| taskDescription.getText().toString().equals(""))
+					{
+						Toast toast = Toast.makeText(getApplicationContext(), 
+								"One or more fields are empty, please revise and try again", Toast.LENGTH_LONG);
+						toast.show();
+					}
+					else
+					{
+						//
+						// Create a new Parse Object and add it to database
+						//
+						ParseObject newTask = new ParseObject("Task");
+						newTask.put("projectId", projectId);
+						newTask.put("taskName", taskName.getText().toString());
+						newTask.put("taskAssignedTo", taskAssignedTo.getText().toString());
+						newTask.put("taskCategory", taskCategory.getText().toString());
+						newTask.put("taskStartDate", taskStartDate.getText().toString());
+						newTask.put("taskEndDate", taskEndDate.getText().toString());
+						newTask.put("taskPriority", taskPriority.getSelectedItem().toString());
+						newTask.put("taskStatus", "Active"); // others are: on hold, dropped, completed
+						newTask.put("taskDescription", taskDescription.getText().toString()); 
+						newTask.saveInBackground();
+						
+						Toast toast = Toast.makeText(getApplicationContext(), "Task: '"
+								+ taskName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
+						toast.show();
+						
+						finish(); // go back to the previous screen
+								  // which will invoke the "onResume" method.
+						
+					}
 				}
-				else
+				if(editing)
 				{
-					Log.d("goes into on click", "goesi n here");
-					
-					//
-					// Create a new Parse Object and add it to database
-					//
-					ParseObject newProject = new ParseObject("Task");
-					newProject.put("projectId", projectId);
-					newProject.put("taskName", taskName.getText().toString());
-					newProject.put("taskAssignedTo", taskAssignedTo.getText().toString());
-					newProject.put("taskCategory", taskCategory.getText().toString());
-					newProject.put("taskStartDate", taskStartDate.getText().toString());
-					newProject.put("taskEndDate", taskEndDate.getText().toString());
-					newProject.put("taskPriority", taskPriority.getSelectedItem().toString());
-					newProject.put("taskStatus", "Active"); // others are: on hold, dropped, completed
-					newProject.put("taskDescription", taskDescription.getText().toString()); // others are: on hold, dropped, completed
-					newProject.saveInBackground();
-					
-					Toast toast = Toast.makeText(getApplicationContext(), "Task: '"
-							+ taskName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
-					toast.show();
-					
-					//
-					// Show all projects class
-					//
-					//Intent intent = new Intent(getApplicationContext(), UserListAllProjectsActivity.class);
-					//intent.putExtra("projectId", projectId);
-					//startActivity(intent);
-					
-					finish(); // go back to the previous screen
-							  // which will invoke the "onResume" method.
-					
+					ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
+					 
+					// Retrieve the object by id
+					query.getInBackground(taskId, new GetCallback<ParseObject>() {
+					  public void done(ParseObject task, ParseException e) {
+					    if (e == null) {
+					      
+					    	//
+					    	// Update data
+					    	//
+					    	task.put("taskName", taskName.getText().toString());
+					    	task.put("taskStartDate", taskStartDate.getText().toString());
+					    	task.put("taskEndDate", taskEndDate.getText().toString());
+					    	task.put("taskPriority", taskPriority.getSelectedItem().toString());
+							task.put("taskCategory", taskCategory.getText().toString());
+					    	task.put("taskAssignedTo", taskAssignedTo.getText().toString());
+							task.put("taskDescription", taskDescription.getText().toString()); // others are: on hold, dropped, completed
+					    	task.saveInBackground();
+					    	
+					    	Toast toast = Toast.makeText(getApplicationContext(), "Task '"
+									+ taskName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
+							toast.show();
+							
+							//
+							// Show all projects class
+							//
+							finish();
+					    }
+					  }
+					});
 				}
+				
 				
 			}
 		});
 		
-		
+		//
+		// If the delete button is clicked
+		//
+		deleteTask.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				//
+				// Create dialog button for confirmation for deleting the task
+				//
+			    new AlertDialog.Builder(v.getContext())
+			     .setIcon(android.R.drawable.ic_dialog_alert)
+			     .setTitle("Delete Task")
+			     .setMessage("Are you sure you want to delete this task? This change will be permanent.")
+			     .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+
+		            @Override
+		            public void onClick(DialogInterface dialog, int which) {
+
+						//
+						// Delete task
+						//
+						ParseObject.createWithoutData("Task", taskId).deleteInBackground();
+							
+				    	Toast toast = Toast.makeText(getApplicationContext(), "Task '"
+								+ taskName.getText().toString() + "' has been deleted." , Toast.LENGTH_LONG);
+						toast.show();
+							
+						//
+						// Return to list all tasks
+						//
+						finish();
+		            }
+
+			     })
+			     .setNegativeButton("Cancel", null)
+			     .show();
+			}
+		});
 		
 	}
 

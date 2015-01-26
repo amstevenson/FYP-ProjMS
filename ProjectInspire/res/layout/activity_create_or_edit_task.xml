@@ -279,7 +279,6 @@
 		    android:background="#0c4661"
 	        android:text="@string/create_task_delete_button"
 		    android:textSize="16sp" 
-		    android:layout_marginBottom="20dp"
 		    android:textColor="#fff"/>
 		 
 	   	 <!-- Create space that appears below the button; aesthetics  -->
@@ -287,7 +286,7 @@
 	   	     android:id="@+id/spaceCreateTaskButton"
 	   	     android:layout_width="match_parent"
 	   	     android:layout_height="30dp"
-	   	     android:layout_below="@id/btnCreateTask" />
+	   	     android:layout_below="@id/btnDeleteTask" />
 	    
 	</RelativeLayout>
 </ScrollView>

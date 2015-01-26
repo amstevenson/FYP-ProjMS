@@ -74,10 +74,6 @@ public class UserListAllProjectsActivity extends Activity {
 		//									Click listener for the list                     		 //
     	//								For selecting a specific project 				   			 //
 		//*******************************************************************************************//
-    	
-    	createAndSetProjectAdapter(); // for if the onResume() does not activate. 
-    								  // THIS MAY NEED REVISING LATER ON
-    		
     	// on selecting single product, send the user
     	// to the screen that deals with listing more
     	// detailed information

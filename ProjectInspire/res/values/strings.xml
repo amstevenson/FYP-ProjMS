@@ -30,7 +30,10 @@
     <string name="register_lbl_repeat_password">Repeat Password</string>
     <string name="register_edit_repeat_password">Repeat Password</string>
     <string name="register_btn_account">Register your account</string>
-
+	<string name="register_lbl_picture">User Picture</string>
+	<string name="register_btn_picture">Change Profile Image</string>
+	<string name="register_img_picture">User image photo</string>
+    
     <!-- Dashboard activity -->
     <string name="title_activity_user_dashboard">Your Dashboard</string>
     <string name="dashboard_user_name">Adam Stevenson</string>
@@ -119,7 +122,7 @@
  	<string name="create_task_delete_button">Delete Task</string>
     
     <string-array name="task_type_array">
-        <item>Critial</item>
+        <item>Critical</item>
         <item>Medium</item>
         <item>Minimal</item>
         <item>Other</item>

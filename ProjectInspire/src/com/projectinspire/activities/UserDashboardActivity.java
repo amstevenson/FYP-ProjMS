@@ -1,5 +1,8 @@
 package com.projectinspire.activities;
 
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.projectinspire.R;
 
@@ -7,6 +10,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -59,7 +64,7 @@ public class UserDashboardActivity extends Activity {
 		TextView  messagesTitle    = (TextView) this.findViewById(R.id.txtDashboardMessagesTitle);
 		TextView  eventsSummary    = (TextView) this.findViewById(R.id.txtDashboardEvents);
 		TextView  eventsTitle      = (TextView) this.findViewById(R.id.txtDashboardEventsTitle);
-		ImageView userImage        = (ImageView) this.findViewById(R.id.imgviewDashboardUser);
+		final ImageView userImage        = (ImageView) this.findViewById(R.id.imgviewDashboardUser);
 		
 		//
 		// Set the on click listeners for the activity
@@ -168,6 +173,29 @@ public class UserDashboardActivity extends Activity {
     		//
     		dashboardUsername.setText(currentUser.get("forename").toString() + " " + currentUser.get("surname").toString());
     		dashboardEmail.setText(currentUser.getEmail());
+    		
+    		ParseFile fileObject = (ParseFile) currentUser.get("userImageFile");
+            fileObject.getDataInBackground(new GetDataCallback() {
+                        public void done(byte[] data,
+                                ParseException e) {
+                            if (e == null)
+                            {
+                                //
+                            	// The bitmap will be constructed using the image file column
+                            	// that is stored in the Parse database.
+                            	//
+                                Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+                                
+                                //
+                                // Set the image bitmap after constructing it from the byte array
+                                // 
+                                userImage.setImageBitmap(bmp);
+                                
+                            } else {
+                                Log.d("Error: Code: " + e.getCode(), "Message: " + e.getMessage());
+                            }
+                        }
+             });
     		
     	} else {
     	  // show the signup or login screen

@@ -142,6 +142,9 @@ public class CreateOrEditProjectActivity extends Activity {
 			btnCreateProject.setText("Update Project");
 		
 		}
+		//*******************************************************************************************//
+		//									If NOT Editing/deleting									 //
+		//*******************************************************************************************//
 		else if(!editing)
 		{
 			//
@@ -290,7 +293,6 @@ public class CreateOrEditProjectActivity extends Activity {
 		//
 		// If the delete button is clicked
 		//
-		//ParseObject.createWithoutData("invFriend", "efgh").deleteEventually();
 		btnDeleteProject.setOnClickListener(new OnClickListener() {
 			
 			@Override
