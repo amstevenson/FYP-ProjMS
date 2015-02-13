@@ -10,6 +10,7 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -34,6 +35,17 @@ public class UserContactsActivity extends Activity {
 		setContentView(R.layout.activity_user_contacts);
 		
 		//*******************************************************************************************//
+		//									retrieve user information								 //
+		//*******************************************************************************************//
+    	//
+    	// Retrieve the user email
+    	//
+		String userId = "";
+		
+    	Intent intent = getIntent();
+    	userId		  = intent.getStringExtra("userId");
+		
+		//*******************************************************************************************//
 		//									Create the fragment tabs								 //
 		//*******************************************************************************************//
 		getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -43,6 +55,12 @@ public class UserContactsActivity extends Activity {
 		//
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		
+		//
+		// Add arguments to fragments
+		//
+		Bundle userBundle = new Bundle();
+		userBundle.putString("userId", userId);
 		
 		//
 		// Create the ActionBar tabs for both all contacts and all messages
@@ -55,7 +73,10 @@ public class UserContactsActivity extends Activity {
 		// This will be a class that returns a view that contains information specific to the fragment.
 		//
 		Fragment allContactsFrag 	     = new UserContactsFragment();
+		allContactsFrag.setArguments(userBundle);
+		
 		Fragment allContactsMessagesFrag = new UserContactsMessagesFragment();
+		allContactsFrag.setArguments(userBundle);
 		
 		//
 		// For each fragment we have, create a transaction for each one.

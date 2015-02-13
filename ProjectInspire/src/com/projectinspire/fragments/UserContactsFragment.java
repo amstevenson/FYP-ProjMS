@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,12 +15,23 @@ import android.widget.ImageView;
 
 public class UserContactsFragment extends Fragment {
 
+	
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		final View view = inflater.inflate(R.layout.fragment_user_contacts, container, false);
+		
+		// retrieve the array containing the elements for the project
+		Bundle contactBundle      = getArguments();
+		Log.d("contacts - User ID", contactBundle.getString("userId"));
+				
+		//
+		// Get user id 
+		//
+		final String userId = contactBundle.getString("userId");
 		
 		//*******************************************************************************************//
 		//									View variables											 //
@@ -36,12 +48,11 @@ public class UserContactsFragment extends Fragment {
 					
 			@Override
 			public void onClick(View v) {
-						
-						
-						
+							
 				Intent createContact = new Intent(view.getContext(), CreateOrEditContactActivity.class);
-				startActivity(createContact);
-						
+				createContact.putExtra("userId", userId);
+				createContact.putExtra("editing", false);
+				startActivity(createContact);		
 			}
 		});
 		

@@ -97,6 +97,7 @@ public class UserDashboardActivity extends Activity {
 			public void onClick(View v) {
 				
 				Intent allMessages = new Intent(getApplicationContext(), UserContactsActivity.class);
+				allMessages.putExtra("userId", userId);
 				startActivity(allMessages);
 				
 			}
@@ -108,6 +109,7 @@ public class UserDashboardActivity extends Activity {
 			public void onClick(View v) {
 
 				Intent allMessages = new Intent(getApplicationContext(), UserContactsActivity.class);
+				allMessages.putExtra("userId", userId);
 				startActivity(allMessages);
 				
 			}
@@ -119,6 +121,7 @@ public class UserDashboardActivity extends Activity {
 			public void onClick(View v) {
 				
 				Intent allEvents = new Intent(getApplicationContext(), UserListAllEventsActivity.class);
+				allEvents.putExtra("userId", userId);
 				startActivity(allEvents);
 				
 			}
@@ -130,6 +133,7 @@ public class UserDashboardActivity extends Activity {
 			public void onClick(View v) {
 				
 				Intent allEvents = new Intent(getApplicationContext(), UserListAllEventsActivity.class);
+				allEvents.putExtra("userId", userId);
 				startActivity(allEvents);
 				
 			}

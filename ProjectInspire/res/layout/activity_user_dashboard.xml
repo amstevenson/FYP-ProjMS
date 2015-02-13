@@ -197,6 +197,11 @@
 			    android:text="@string/dashboard_messages_title"
 			    android:textColor="#fff" />
 
+		   	 <Space
+		   	     android:id="@+id/spaceDashboard"
+		   	     android:layout_width="match_parent"
+		   	     android:layout_height="30dp"
+		   	     android:layout_below="@id/txtDashboardMessagesTitle" />
 			
 		</RelativeLayout>
 	

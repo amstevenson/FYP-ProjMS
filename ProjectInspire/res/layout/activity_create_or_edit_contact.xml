@@ -57,7 +57,6 @@
 	         android:textSize="13sp" />
 	
 	    <!--  Email -->
-
 	    <TextView
 	        android:id="@+id/txtCreateContactEmail"
 	        android:layout_width="wrap_content"
@@ -93,7 +92,6 @@
 	         android:textSize="13sp" />
 	     
 	    <!--  Notes -->
-	    
 	   	 <TextView
 	   	     android:id="@+id/txtCreateContactNotes"
 	   	     android:layout_width="wrap_content"
@@ -126,61 +124,40 @@
 	   	     android:textColor="#000"
 	   	     android:textSize="13sp" />
 	   	 
-	    <!--  Current projects affiliated with -->
-	   	 <TextView
-	   	     android:id="@+id/txtCreateContactProjectAffiliation"
-	   	     android:layout_width="wrap_content"
-	   	     android:layout_height="wrap_content"
-	   	     android:layout_below="@+id/editCreateContactNotes"
-	   	     android:layout_marginTop="34dp"
-	   	     android:layout_toLeftOf="@+id/editCreateContactProjectAffiliation"
-	   	     android:text="@string/create_contact_txt_project_affiliation"
-	   	     android:textColor="#fff"
-	   	     android:textSize="14sp" />
-
-	   	 <EditText
-	   	     android:id="@+id/editCreateContactProjectAffiliation"
-	   	     android:layout_width="50dp"
-	   	     android:layout_height="wrap_content"
-	   	     android:layout_alignLeft="@+id/editCreateContactNotes"
-	   	     android:layout_alignRight="@+id/editCreateContactNotes"
-	   	     android:layout_alignTop="@+id/txtCreateContactProjectAffiliation"
-	   	     android:background="#FFF"
-	   	     android:ems="10"
-	   	     android:gravity="center"
-	   	     android:hint="@string/create_contact_edit_project_affiliation"
-	   	     android:inputType="text"
-	   	     android:maxLines="15"
-	   	     android:paddingBottom="15dp"
-	   	     android:paddingLeft="5dp"
-	   	     android:paddingRight="5dp"
-	   	     android:paddingTop="15dp"
-	   	     android:singleLine="false"
-	   	     android:textColor="#000"
-	   	     android:textSize="13sp" >
-
-	   	 </EditText>
-	   	 
 	     <!--  Create contact  -->
 	   	 <Button
-	       	 android:id="@+id/btnCreateContact"
-	       	 android:layout_width="250dp"
-	       	 android:layout_height="wrap_content"
-	       	 android:layout_marginTop="560dp"
-	      	 android:layout_centerHorizontal="true"
-	         android:background="#0c4661"
-	      	 android:text="@string/create_contact_btn"
-	         android:textSize="16sp" 
-	         android:textColor="#fff"/>
+	   	     android:id="@+id/btnCreateContact"
+	   	     android:layout_width="250dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_below="@+id/editCreateContactNotes"
+	   	     android:layout_centerHorizontal="true"
+	   	     android:layout_marginTop="42dp"
+	   	     android:background="#0c4661"
+	   	     android:text="@string/create_contact_btn"
+	   	     android:textColor="#fff"
+	   	     android:textSize="16sp" />
+	   	 
+		 <!--  Delete contact -->
+	   	 <Button
+	   	     android:id="@+id/btnDeleteContact"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignLeft="@+id/btnCreateContact"
+	   	     android:layout_alignRight="@+id/btnCreateContact"
+	   	     android:layout_below="@+id/btnCreateContact"
+	   	     android:layout_marginTop="19dp"
+	   	     android:background="#0c4661"
+	   	     android:text="@string/create_contact_delete_button"
+	   	     android:textColor="#fff"
+	   	     android:textSize="16sp" />
 	   	 
 	   	 <!-- Create space that appears below the button; aesthetics  -->
 	   	 <Space
 	   	     android:id="@+id/spaceCreateContactButton"
 	   	     android:layout_width="match_parent"
-	   	     android:layout_alignParentBottom="true"
 	   	     android:layout_height="30dp"
-	   	     android:layout_below="@id/btnCreateContact" />
-	    
+	   	     android:layout_below="@id/btnDeleteContact" />
+
 	</RelativeLayout>
 </ScrollView>
 

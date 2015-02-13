@@ -150,6 +150,14 @@
 	<string name="create_event_txt_visibility">Visible To</string>
 	<string name="create_event_edit_visibility">Select group</string>
     <string name="create_event_btn">Create Event</string>
+    <string name="event_type_prompt">Choose an Event</string>
+	<string name="create_event_delete_button">Delete Event</string>
+    
+    <string-array name="event_type_array">
+        <item>Everyone</item>
+        <item>Select Group</item>
+        <item>Myself</item>
+    </string-array>
     
     <!-- New interaction / new contact interaction Activity -->
     <string name="search_contacts">Search Contacts&#8230;</string>
@@ -201,7 +209,8 @@
     <string name="create_contact_txt_project_affiliation">Projects Worked On</string>
     <string name="create_contact_edit_project_affiliation">Enter Projects</string>
     <string name="create_contact_btn">Create Contact</string>
-	
+	<string name="create_contact_delete_button">Delete Contact</string>
+    
     <!--  all projects - adapter view -->
     <string name="adapter_project_name">Project Name</string>
     <string name="adapter_project_start_date">Start Date</string>
@@ -225,6 +234,15 @@
     <string name="adapter_task_description">Description</string>
     <string name="adapter_task_status">Status</string>
     
-    
+    <!--  all contacts - adapter view -->
+    <string name="adapter_contact_name">Contact Name</string>
+    <string name="adapter_contact_email">Contact Email</string>
+    <string name="adapter_contact_notes">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+           fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</string>
+    <string name="adapter_contact_image">Image</string>
+    <string name="adapter_contact_space"></string>
     
 </resources>

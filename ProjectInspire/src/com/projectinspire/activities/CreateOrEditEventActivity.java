@@ -1,19 +1,38 @@
 package com.projectinspire.activities;
 
+import java.util.List;
+
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.projectinspire.R;
 import com.projectinspire.utilities.UtilitiesPickers;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateOrEditEventActivity extends Activity {
+	
+	private String  userId    = "empty";
+	private String  eventId = "empty";
+	private boolean editing   = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +44,109 @@ public class CreateOrEditEventActivity extends Activity {
 		actionBar.setTitle("Events"); // will change dependent on edit or create
 		
 		//*******************************************************************************************//
+		//									retrieve user information								 //
+		//*******************************************************************************************//
+    	//
+    	// Retrieve the user Id
+    	//
+    	Intent intent = getIntent();
+    	
+    	// retrieve the boolean that determines if we are creating or editing
+    	editing       = intent.getBooleanExtra("editing", editing);
+    	
+    	if(!editing) userId		  = intent.getStringExtra("userId");
+    		
+    	Log.d("Create Event - User Id", userId); // for debugging
+    	Log.d("Editing ", String.valueOf(editing));
+    	
+    	//*******************************************************************************************//
+    	//											Views											 //
+    	//*******************************************************************************************//
+    	final TextView eventLabel       = (TextView) findViewById(R.id.txtCreateEventUserHelp);
+    	final EditText eventName        = (EditText) findViewById(R.id.editCreateEventName);
+    	final EditText eventLocation    = (EditText) findViewById(R.id.editCreateEventLocation);
+    	final EditText eventDescription = (EditText) findViewById(R.id.editCreateEventDescription);
+    	final EditText eventDate        = (EditText) findViewById(R.id.editCreateEventDate);
+    	final EditText eventStartTime   = (EditText) findViewById(R.id.editCreateEventStartTime);
+    	final EditText eventEndTime     = (EditText) findViewById(R.id.editCreateEventEndTime);
+    	final Spinner  eventVisibility  = (Spinner)  findViewById(R.id.editCreateEventVisibility);
+    	
+    	final Button   eventCreateEvent = (Button)   findViewById(R.id.btnCreateEvent);
+    	final Button   eventDeleteEvent = (Button)   findViewById(R.id.btnDeleteEvent);
+    	
+    	//*******************************************************************************************//
+    	//									If Editing/deleting										 //
+    	//*******************************************************************************************//
+    	//
+    	// Set text for user help if editing or deleting
+    	//
+    	if(editing)
+    	{
+    		//
+    		// change use user help description
+    		//
+    		eventLabel.setText("To edit this project, please make all changes and press the 'edit'" +
+    				" button below. \n To Delete, press the 'delete' button. ");
+    			
+    		// retrieve the projectId from the intent
+    		eventId = intent.getStringExtra("eventId");
+    				
+    		Log.d("Create event - event ID", eventId); // for debugging
+    				
+    		//
+    		// Get the relative information for the project, and set the information
+    		//
+    		ParseQuery<ParseObject> query = ParseQuery.getQuery("Event");
+    			query.whereEqualTo("objectId", eventId);
+    			query.findInBackground(new FindCallback<ParseObject>() {
+    				public void done(List<ParseObject> project, ParseException e) {
+    						
+    					if (e == null) {      	
+    					    	
+	    					//
+	    					// Check that there is a project (or more than one, I guess), and
+	    					// then change the views so that the old data is shown
+	    					//
+	    					if(project.size() > 0)
+	    					{
+	    						eventName.setText(project.get(0).getString("eventName"));
+	    						eventLocation.setText(project.get(0).getString("eventLocation"));
+	    						eventDescription.setText(project.get(0).getString("eventDescription"));
+	    						eventDate.setText(project.get(0).getString("eventDate"));
+	    						eventStartTime.setText(project.get(0).getString("eventStartTime"));	
+	    						eventEndTime.setText(project.get(0).getString("eventEndTime"));
+	    						
+	    						String visibility = project.get(0).getString("eventVisibility");
+	    								
+	    						if     (visibility.equals("Everyone"))     eventVisibility.setSelection(0);
+	    						else if(visibility.equals("Select Group")) eventVisibility.setSelection(1);
+	    						else if(visibility.equals("Myself"))       eventVisibility.setSelection(2);
+	    								
+	    					}   
+	    					
+    					} else Log.d("score", "Event error: " + e.getMessage());
+    			}
+    		});
+    			
+    		//
+    		// Change the text for the button (boolean determines on click function, but text needs to be changed
+    		// either way
+    		//
+    		eventCreateEvent.setText("Update Event");
+    			
+    	}
+    	//*******************************************************************************************//
+    	//									If NOT Editing/deleting									 //
+    	//*******************************************************************************************//
+    	else if(!editing)
+    	{
+    		//
+    		// Make delete button invisible
+    		//
+    		eventDeleteEvent.setVisibility(View.GONE);			
+    	}
+    	
+		//*******************************************************************************************//
 		//									On Click Listeners										 //
 		//*******************************************************************************************//
 		//
@@ -35,24 +157,22 @@ public class CreateOrEditEventActivity extends Activity {
 		//
 		// Set the date of the event
 		//
-		final EditText setDate = (EditText) findViewById(R.id.editCreateEventDate);
-		setDate.setInputType(InputType.TYPE_NULL);
+		eventDate.setInputType(InputType.TYPE_NULL);
 
-		setDate.setOnClickListener(new OnClickListener() {
+		eventDate.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				//
 				// Set date
 				//
-				pickers.showDatePickerDialog(CreateOrEditEventActivity.this, setDate);
+				pickers.showDatePickerDialog(CreateOrEditEventActivity.this, eventDate);
 			}
 		});
 		
 		//
 		// Set the start time
 		//
-		final EditText eventStartTime = (EditText) findViewById(R.id.editCreateEventStartTime);
 		eventStartTime.setInputType(InputType.TYPE_NULL);
 		
 		eventStartTime.setOnClickListener(new OnClickListener() {
@@ -70,7 +190,6 @@ public class CreateOrEditEventActivity extends Activity {
 		//
 		// Set the end time
 		//
-		final EditText eventEndTime = (EditText) findViewById(R.id.editCreateEventEndTime);
 		eventEndTime.setInputType(InputType.TYPE_NULL);
 		
 		eventEndTime.setOnClickListener(new OnClickListener() {
@@ -82,6 +201,134 @@ public class CreateOrEditEventActivity extends Activity {
 				//
 				pickers.showTimePickerDialog(CreateOrEditEventActivity.this, eventEndTime);
 				
+			}
+		});
+		
+		//
+		// Create event
+		//
+		eventCreateEvent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				//
+				// if creating/ not editing
+				// 
+				if(!editing)
+				{
+					//
+					// make sure that no fields are empty
+					//
+					if(eventName.getText().toString().equals("") || eventLocation.getText().toString().equals("")
+							|| eventDescription.getText().toString().equals("") || eventDate.getText().toString().equals("")
+							|| eventStartTime.getText().toString().equals("")
+							|| eventEndTime.getText().toString().equals("") || eventVisibility.getSelectedItem().toString().equals(""))
+					{
+						Toast toast = Toast.makeText(getApplicationContext(), 
+								"One or more fields are empty, please revise and try again", Toast.LENGTH_LONG);
+						toast.show();
+					}
+					else
+					{
+						//
+						// Create a new Parse Object and add it to database
+						//
+						ParseObject newProject = new ParseObject("Event");
+						newProject.put("eventCreatedBy", userId);
+						newProject.put("eventName", eventName.getText().toString());
+						newProject.put("eventDescription", eventDescription.getText().toString());
+						newProject.put("eventDate", eventDate.getText().toString());
+						newProject.put("eventStartTime", eventStartTime.getText().toString());
+						newProject.put("eventVisibility", eventVisibility.getSelectedItem().toString());
+						newProject.put("eventEndTime", eventEndTime.getText().toString());
+						newProject.put("eventLocation", eventLocation.getText().toString()); // others are: on hold, dropped, completed
+						newProject.saveInBackground();
+						
+						Toast toast = Toast.makeText(getApplicationContext(), "Event: '"
+								+ eventName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
+						toast.show();
+						
+						//
+						// Show all events activity
+						//
+						finish();
+					}
+				}
+				if(editing)
+				{
+					ParseQuery<ParseObject> query = ParseQuery.getQuery("Event");
+						 
+					// Retrieve the object by id
+					query.getInBackground(eventId, new GetCallback<ParseObject>() {
+						public void done(ParseObject event, ParseException e) {
+						    if (e == null) {
+						      
+						    	//
+						    	// Update data
+						    	//
+						    	event.put("eventName", eventName.getText().toString());
+						    	event.put("eventLocation", eventLocation.getText().toString());
+						    	event.put("eventDescription", eventDescription.getText().toString());
+						    	event.put("eventDate", eventDate.getText().toString());
+						    	event.put("eventVisibility", eventVisibility.getSelectedItem().toString());
+						    	event.put("eventStartTime", eventStartTime.getText().toString());
+						    	event.put("eventEndTime", eventEndTime.getText().toString());
+						    	event.saveInBackground();
+						    	
+						    	Toast toast = Toast.makeText(getApplicationContext(), "Event '"
+										+ eventName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
+								toast.show();
+								
+								//
+								// Show all projects class
+								//
+								finish();
+						    }
+						}
+					});
+				}
+			}
+		});
+		
+		//
+		// If the delete button is clicked
+		//
+		eventDeleteEvent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				//
+				// Create dialog button for confirmation for deleting the project
+				//
+			    new AlertDialog.Builder(v.getContext())
+			     .setIcon(android.R.drawable.ic_dialog_alert)
+			     .setTitle("Delete Event")
+			     .setMessage("Are you sure you want to delete this event? This change will be permanent.")
+			     .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+
+		            @Override
+		            public void onClick(DialogInterface dialog, int which) {
+
+						//
+						// Delete project
+						//
+						ParseObject.createWithoutData("Event", eventId).deleteInBackground();
+							
+				    	Toast toast = Toast.makeText(getApplicationContext(), "Event '"
+								+ eventName.getText().toString() + "' has been deleted." , Toast.LENGTH_LONG);
+						toast.show();
+							
+						//
+						// Return to list all projects
+						//
+						finish();
+		            }
+
+			     })
+			     .setNegativeButton("Cancel", null)
+			     .show();
 			}
 		});
 		

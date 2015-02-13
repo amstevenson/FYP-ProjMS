@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/style_activity_background_gradient"  >
+    
+	<TextView 
+	    android:id="@+id/eventName"
+	    android:layout_height="wrap_content"
+	    android:layout_width="match_parent"
+	    android:textColor="#fff"
+	    android:text="@string/create_event_txt_name"
+	    android:paddingLeft="10dp"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginTop="10dp"
+	    android:layout_marginRight="10dp"
+	    android:paddingTop="10dp"
+	    android:paddingBottom="10dp"
+	    android:background="#AF1D0600"/>
+	
+	<TextView
+	    android:id="@+id/eventDescription"
+	    android:layout_width="match_parent"
+	    android:layout_height="144dp"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginTop="48dp"
+	    android:background="#3F1b2600"
+	    android:maxLines="3"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="75dp"
+	    android:text="@string/adapter_project_description"
+	    android:textColor="#fff" />
+    
+	<TextView 
+	    android:id="@+id/eventLocation"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:textColor="#fff"
+	    android:text="@string/create_event_txt_location"
+	    android:paddingLeft="10dp"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:paddingTop="10dp"
+	    android:layout_marginTop="82dp"
+		android:maxLines="2" />
+	
+	<TextView 
+	    android:id="@+id/eventDate"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:textColor="#fff"
+	    android:text="@string/create_event_txt_date"
+	    android:paddingLeft="10dp"
+	    android:layout_marginLeft="220dp"
+	    android:layout_marginRight="10dp"
+	    android:paddingTop="10dp"
+	    android:layout_marginTop="82dp"
+		android:maxLines="2" />
+	
+	<TextView 
+	    android:id="@+id/eventStartTime"
+	    android:layout_height="wrap_content"
+	    android:layout_width="wrap_content"
+	    android:textColor="#fff"
+	    android:text="@string/create_event_txt_start_time"
+	    android:layout_marginTop="47dp"
+	    android:layout_marginLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp" />
+	
+	<TextView 
+	    android:id="@+id/eventEndTime"
+	    android:layout_height="wrap_content"
+	    android:layout_width="wrap_content"
+	    android:textColor="#fff"
+	    android:text="@string/create_event_txt_end_time"
+	    android:layout_marginTop="47dp"
+	    android:layout_marginLeft="220dp"
+	    android:paddingTop="10dp"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp" />
+
+	<ImageView
+	    android:id="@+id/eventEdit"
+	    android:layout_width="25dp"
+	    android:layout_height="25dp"
+	    android:layout_alignBottom="@+id/eventName"
+	    android:layout_alignRight="@id/eventEndTime"
+	    android:background="@drawable/edit_icon"
+	    android:contentDescription="@string/event_type_prompt"
+	    android:layout_marginBottom="5dp"
+	    android:textSize="12sp" />
+
+	<!--  <TextView
+	    android:id="@+id/projectStatus"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignTop="@+id/eventName"
+	    android:layout_alignLeft="@+id/eventEndTime"
+	    android:background="@drawable/rounded_border_green"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginTop="5dp"
+	    android:paddingBottom="5dp"
+	    android:paddingLeft="10dp"
+	    android:paddingRight="10dp"
+	    android:paddingTop="5dp"
+	    android:text="@string/adapter_project_status"
+	    android:textColor="#000" /> -->
+	
+</RelativeLayout>

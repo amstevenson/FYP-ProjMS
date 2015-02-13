@@ -1,12 +1,22 @@
 package com.projectinspire.activities;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.projectinspire.R;
+import com.projectinspire.adapters.ListAllEventsAdapter;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +27,11 @@ import android.widget.TextView;
 
 public class UserListAllEventsActivity extends Activity {
 
+	private String  userId    = "empty";
+    private ArrayList<HashMap<String, String>> userEvents;
+    private ListView listEventsAll;
+    private TextView txtEventsNone;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -27,10 +42,27 @@ public class UserListAllEventsActivity extends Activity {
 		actionBar.setTitle("Events");
 		
 		//
-		// Create view variables
+		// Initiate HashMap of events
 		//
-		TextView txtEventsNone = (TextView)findViewById(R.id.txtEventNone);
-		ListView listEventsAll = (ListView)findViewById(R.id.listEventsAll);
+		userEvents = new ArrayList<HashMap<String, String>>();
+		
+		//*******************************************************************************************//
+		//									retrieve user information								 //
+		//*******************************************************************************************//
+    	//
+    	// Retrieve the user Id
+    	//
+    	Intent intent = getIntent();
+    	
+    	userId		  = intent.getStringExtra("userId");
+		
+    	Log.d("List all events - User Id", userId); // for debugging
+		
+    	//*******************************************************************************************//
+    	//											Views								 		     //
+    	//*******************************************************************************************//	
+		txtEventsNone = (TextView)findViewById(R.id.txtEventNone);
+		listEventsAll = (ListView)findViewById(R.id.listEventsAll);
 		ImageView imageViewCreateEvent = (ImageView)findViewById(R.id.imageViewEventCreate);
 		
 		//
@@ -49,8 +81,12 @@ public class UserListAllEventsActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				Intent createProject = new Intent(getApplicationContext(), CreateOrEditEventActivity.class);
-				startActivity(createProject);
+				boolean editing = false;
+				
+				Intent createEvent = new Intent(getApplicationContext(), CreateOrEditEventActivity.class);
+				createEvent.putExtra("editing", editing);
+				createEvent.putExtra("userId", userId);
+				startActivity(createEvent);
 				
 			}
 		});
@@ -87,5 +123,90 @@ public class UserListAllEventsActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public void onResume() {
+	    super.onResume();  // Always call the superclass method first
+	    
+	    //
+	    // If this fragment is the main focus, once it has been put to the backstack, then we would
+	    // need to adopt a way of refreshing the ListView that contains all of the tasks.
+	    // This can be thought of as an observer pattern of sorts (although it isnt) - although in essence
+	    // the observer pattern is just invoking a method to refresh lists, so it is similar.
+	    //
+	    // However, calling this method again when the main focus is turned back to this fragment, means that
+	    // I can control what gets refreshed. 
+	    //
+	    // Note: Refreshes should be implemented this way 
+	    //		 (well, there are other workarounds for refreshing lists,
+	    // 		 but this is the least 'cost heavy', 
+	    // 		 For example, removing and adding the fragments again would suffice, but then all of the above would have to
+	    // 		 be called again (on create etc), which wouldn't be that great).  
+	    //
+	    // Note 2: This is also called once when the fragment is created, so the call to the createAndAssignAdapter method
+	    // does not need to be included in onCreate.
+	    //
+	    createAndSetEventAdapter();
+	}
+	
+	public void createAndSetEventAdapter()
+	{
+		userEvents.clear(); // refresh the HashMap ArrayList
+		
+		//*******************************************************************************************//
+		//									create the list view									 //
+		//*******************************************************************************************//
+		//
+		// Get all of the events assigned to a user
+		//
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Event");
+		query.whereEqualTo("eventCreatedBy", userId);
+		query.findInBackground(new FindCallback<ParseObject>() {
+		 public void done(List<ParseObject> eventList, ParseException e) {
+			 if (e == null) {
+		    	        	
+			     //
+			     // add all items to the array list of HashMaps
+			     //
+				 for(int i = 0; i < eventList.size(); i++)
+		    	 {
+					 //
+		    	     // For each of the projects, create a HashMap and add it to the arrayList that will contain all of them
+		    	     //
+		    	     HashMap<String,String> userEvent = new HashMap<String, String>();
+		    	        		
+		    	     userEvent.put("eventId",           (String) eventList.get(i).getObjectId());
+		    	     userEvent.put("eventName",        (String) eventList.get(i).get("eventName").toString());
+		    	     userEvent.put("eventLocation",   (String) eventList.get(i).get("eventLocation").toString());
+		    	     userEvent.put("eventDescription",     (String) eventList.get(i).get("eventDescription").toString());
+		    	     userEvent.put("eventDate",      (String) eventList.get(i).get("eventDate").toString());
+		    	     userEvent.put("eventStartTime",     (String) eventList.get(i).get("eventStartTime").toString());
+		    	     userEvent.put("eventEndTime", (String) eventList.get(i).get("eventEndTime").toString());
+		    	     userEvent.put("eventVisibility", (String) eventList.get(i).get("eventVisibility").toString());
+		    	     
+		    	     userEvents.add(userEvent);
+		    	 }
+		    	        	
+		    	 if(userEvents.size() > 0)
+		    	 {
+		    		 ListAllEventsAdapter allProjectsAdapter = new ListAllEventsAdapter(getApplicationContext(), userEvents);
+		    	     listEventsAll.setAdapter(allProjectsAdapter);
+		    	 }
+		    	        	
+		    	 //
+		    	 // If we have no items, show this to the user
+		    	 // Chances are it will be the first time they have used the service too, so I
+		    	 // May want to add more user information than what is there currently.
+		    	 //
+		    	 if(listEventsAll.getCount() == 0) txtEventsNone.setVisibility(View.VISIBLE);
+		    	 else 								txtEventsNone.setVisibility(View.GONE);
+		    	        	
+		    	 // Log.d("score", "Project Name " + userProjects.get(0).get("projectEndDate") + " scores"); // debug
+		    	 } else Log.d("Events adapter error", "Error: " + e.getMessage());
+		    	        
+			}
+
+		});		
 	}
 }

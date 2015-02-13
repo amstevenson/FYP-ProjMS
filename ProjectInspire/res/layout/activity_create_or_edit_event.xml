@@ -23,7 +23,6 @@
 		    android:textColor="#FFF"/>
 	
 		<!-- Event Name -->
-
 	    <TextView
 	        android:id="@+id/txtCreateEventName"
 	        android:layout_width="wrap_content"
@@ -36,7 +35,7 @@
 	        android:textSize="14sp" />
 		
 	     <EditText
-	         android:id="@+id/editCreateProjectName"
+	         android:id="@+id/editCreateEventName"
 	         android:layout_width="200dp"
 	         android:layout_height="wrap_content"
 	         android:layout_alignBaseline="@+id/txtCreateEventName"
@@ -56,8 +55,7 @@
 	         android:textColor="#000"
 	         android:textSize="13sp" />
 	
-	    <!--  Location -->
-	    <TextView
+	    <!--  Location -->	    <TextView
 	        android:id="@+id/txtCreateEventLocation"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -75,7 +73,7 @@
 	         android:layout_height="wrap_content"
 	         android:layout_alignBaseline="@+id/txtCreateEventLocation"
 	         android:layout_alignBottom="@+id/txtCreateEventLocation"
-	         android:layout_alignLeft="@+id/editCreateProjectName"
+	         android:layout_alignLeft="@+id/editCreateEventName"
 	         android:background="#FFF"
 	         android:ems="10"
 	         android:gravity="center"
@@ -89,8 +87,7 @@
 	         android:textColor="#000"
 	         android:textSize="13sp" />
 
-	    <!-- Event Description -->
-	    <TextView
+	    <!-- Event Description -->	    <TextView
 	        android:id="@+id/txtCreateEventDescription"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -122,8 +119,7 @@
 	         android:textColor="#000"
 	         android:textSize="13sp" />
 	    
-	    <!--  Event start date -->
-	    <TextView
+	    <!--  Event start date -->	    <TextView
 	        android:id="@+id/txtCreateEventDate"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -156,8 +152,7 @@
 	         android:focusable="false"
 	         android:textSize="13sp" />
 	     
-	    <!-- start time -->
-	    <TextView
+	    <!-- start time -->	    <TextView
 	        android:id="@+id/txtCreateEventStartTime"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -189,8 +184,7 @@
 	         android:textSize="13sp" 
 	         android:focusable="false"/>
 	     
-	     <!--  end time -->
-	    <TextView
+	     <!--  end time -->	    <TextView
 	        android:id="@+id/txtCreateEventEndTime"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
@@ -237,7 +231,7 @@
 	        android:textColor="#fff"
 	        android:textSize="14sp" />
 	    
-	     <EditText
+	     <Spinner
 	         android:id="@+id/editCreateEventVisibility"
 	         android:layout_width="200dp"
 	         android:layout_height="wrap_content"
@@ -255,7 +249,9 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
-	         android:textSize="13sp" />
+	         android:textSize="13sp"
+	         android:entries="@array/event_type_array"
+	         android:prompt="@string/event_type_prompt" />
 	     
 	     <!--  Create event  -->
 	   	 <Button
@@ -269,12 +265,24 @@
 	         android:textSize="16sp" 
 	         android:textColor="#fff"/>
 	   	 
+		 <!--  Delete project -->
+		 <Button
+		     android:id="@+id/btnDeleteEvent"
+		     android:layout_width="200dp"
+		     android:layout_height="wrap_content"
+		     android:layout_marginTop="710dp"
+		     android:layout_centerHorizontal="true"
+		     android:background="#0c4661"
+		     android:text="@string/create_event_delete_button"
+		     android:textSize="16sp" 
+		     android:textColor="#fff" />
+	   	 
 	   	 <!-- Create space that appears below the button; aesthetics  -->
 	   	 <Space
 	   	     android:id="@+id/spaceCreateEventButton"
 	   	     android:layout_width="match_parent"
 	   	     android:layout_height="30dp"
-	   	     android:layout_below="@id/btnCreateEvent" />
+	   	     android:layout_below="@id/btnDeleteEvent" />
 	    
 	</RelativeLayout>
 </ScrollView>
