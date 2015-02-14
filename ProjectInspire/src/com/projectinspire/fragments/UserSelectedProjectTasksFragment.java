@@ -194,16 +194,11 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 			    	        	
 			    	// Log.d("score", "Project Name " + userProjects.get(0).get("projectEndDate") + " scores"); // debug
 			    	
-		    	} else Log.d("score", "Error: " + e.getMessage());
+		    	} else Log.d("Tasks create listview Error", "Error: " + e.getMessage());
 		    	        
 		    }
 
 		});
-		
-		// 
-		// Assign it to the ListView
-		//
-		
 		
 	}
 }

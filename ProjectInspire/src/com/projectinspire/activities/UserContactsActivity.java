@@ -44,7 +44,8 @@ public class UserContactsActivity extends Activity {
 		
     	Intent intent = getIntent();
     	userId		  = intent.getStringExtra("userId");
-		
+		String userEmail  = intent.getStringExtra("userEmail");
+    	
 		//*******************************************************************************************//
 		//									Create the fragment tabs								 //
 		//*******************************************************************************************//
@@ -61,6 +62,7 @@ public class UserContactsActivity extends Activity {
 		//
 		Bundle userBundle = new Bundle();
 		userBundle.putString("userId", userId);
+		userBundle.putString("userEmail", userEmail);
 		
 		//
 		// Create the ActionBar tabs for both all contacts and all messages
@@ -76,7 +78,7 @@ public class UserContactsActivity extends Activity {
 		allContactsFrag.setArguments(userBundle);
 		
 		Fragment allContactsMessagesFrag = new UserContactsMessagesFragment();
-		allContactsFrag.setArguments(userBundle);
+		allContactsMessagesFrag.setArguments(userBundle);
 		
 		//
 		// For each fragment we have, create a transaction for each one.

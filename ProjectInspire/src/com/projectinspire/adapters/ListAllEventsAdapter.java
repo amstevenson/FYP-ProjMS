@@ -24,7 +24,7 @@ public class ListAllEventsAdapter extends BaseAdapter{
 	private LayoutInflater 					   mInflater;
 	
 	//
-    // JSON/key Node names that will be used for all of the project tags 
+    // JSON/key Node names that will be used for all of the event tags 
 	//
 	private static final String TAG_EVENTNAME        = "eventName";
     private static final String TAG_EVENTLOCATION    = "eventLocation";

@@ -5,7 +5,8 @@ import com.parse.Parse;
 /***
  * 
  * This class is used to initialise Parse.
- * If this is not done here, it would need to be done on each activity/fragment. 
+ * If the datastore is not enabled here, it would need to be replicated in every class
+ *  (activity/fragment/adapter etc) that makes use of the API; this does it all in one go. 
  * 
  * @author Adam Stevenson
  *

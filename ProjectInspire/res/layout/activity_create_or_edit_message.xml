@@ -74,18 +74,18 @@
 	     <EditText
 	         android:id="@+id/editCreateMessageBody"
 	         android:layout_width="50dp"
-	         android:layout_height="wrap_content"
+	         android:layout_height="200dp"
 	         android:layout_alignBaseline="@+id/txtCreateMessageBody"
 	         android:layout_alignBottom="@+id/txtCreateMessageBody"
 	         android:layout_alignLeft="@+id/editCreateMessageRecipient"
 	         android:layout_alignRight="@+id/editCreateMessageRecipient"
 	         android:background="#FFF"
 	         android:singleLine="false"
-	         android:maxLines="20"
+	   	     android:inputType="textMultiLine"
+	   	     android:maxLines="15"
 	         android:ems="10"
 	         android:gravity="top|left"
 	         android:hint="@string/create_message_txt_message_content"
-	         android:inputType="textMultiLine"
 	         android:paddingBottom="15dp"
 	         android:paddingLeft="5dp"
 	         android:paddingRight="5dp"
@@ -93,12 +93,13 @@
 	         android:textColor="#000"
 	         android:textSize="13sp" />
 
-	     <!--  Create project  -->
+	     <!--  Create message  -->
 	   	 <Button
 	       	 android:id="@+id/btnCreateMessage"
 	       	 android:layout_width="250dp"
 	       	 android:layout_height="wrap_content"
-	       	 android:layout_marginTop="500dp"
+	       	 android:layout_marginTop="420dp"
+	       	 android:layout_marginBottom="60dp"
 	      	 android:layout_centerHorizontal="true"
 	         android:background="#0c4661"
 	      	 android:text="@string/create_message_btn"

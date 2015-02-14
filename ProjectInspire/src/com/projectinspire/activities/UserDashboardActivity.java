@@ -66,6 +66,53 @@ public class UserDashboardActivity extends Activity {
 		TextView  eventsTitle      = (TextView) this.findViewById(R.id.txtDashboardEventsTitle);
 		final ImageView userImage        = (ImageView) this.findViewById(R.id.imgviewDashboardUser);
 		
+		//*******************************************************************************************//
+		//									retrieve user information								 //
+		//*******************************************************************************************//
+		//
+		// Retrieve the user email
+		//
+		Intent intent = getIntent();
+		userId		  = intent.getStringExtra("userId");
+				
+		Log.d("Dashboard - Id", userId); // for debugging
+		    	
+		final ParseUser currentUser = ParseUser.getCurrentUser();
+		if (currentUser != null) 
+		{	  
+			//
+		    // Set the users information
+		    //
+		    dashboardUsername.setText(currentUser.get("forename").toString() + " " + currentUser.get("surname").toString());
+		    dashboardEmail.setText(currentUser.getEmail());
+		    		
+		    ParseFile fileObject = (ParseFile) currentUser.get("userImageFile");
+		    fileObject.getDataInBackground(new GetDataCallback() {
+		    	public void done(byte[] data, ParseException e) {
+		    		if (e == null)
+		            {
+		    			//
+		                // The bitmap will be constructed using the image file column
+		                // that is stored in the Parse database.
+		                //
+		                Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
+		                                
+		                //
+		                // Set the image bitmap after constructing it from the byte array
+		                // 
+		                userImage.setImageBitmap(bmp);
+		                                
+		                } else {
+		                	Log.d("Error: Code: " + e.getCode(), "Message: " + e.getMessage());
+		                }
+		            }
+		        });
+		    		
+		} else 
+		{
+		    	  // show the signup or login screen
+		}
+		
 		//
 		// Set the on click listeners for the activity
 		//
@@ -98,6 +145,7 @@ public class UserDashboardActivity extends Activity {
 				
 				Intent allMessages = new Intent(getApplicationContext(), UserContactsActivity.class);
 				allMessages.putExtra("userId", userId);
+				allMessages.putExtra("userEmail", currentUser.getEmail());
 				startActivity(allMessages);
 				
 			}
@@ -110,6 +158,7 @@ public class UserDashboardActivity extends Activity {
 
 				Intent allMessages = new Intent(getApplicationContext(), UserContactsActivity.class);
 				allMessages.putExtra("userId", userId);
+				allMessages.putExtra("userEmail", currentUser.getEmail());
 				startActivity(allMessages);
 				
 			}
@@ -158,52 +207,6 @@ public class UserDashboardActivity extends Activity {
         //
     	userImage.setImageDrawable(addUserImage);
 		
-		//*******************************************************************************************//
-		//									retrieve user information								 //
-		//*******************************************************************************************//
-    	//
-    	// Retrieve the user email
-    	//
-    	Intent intent = getIntent();
-    	userId		  = intent.getStringExtra("userId");
-		
-    	Log.d("Dashboard - Id", userId); // for debugging
-    	
-    	ParseUser currentUser = ParseUser.getCurrentUser();
-    	if (currentUser != null) {
-    	  
-    		//
-    		// Set the users information
-    		//
-    		dashboardUsername.setText(currentUser.get("forename").toString() + " " + currentUser.get("surname").toString());
-    		dashboardEmail.setText(currentUser.getEmail());
-    		
-    		ParseFile fileObject = (ParseFile) currentUser.get("userImageFile");
-            fileObject.getDataInBackground(new GetDataCallback() {
-                        public void done(byte[] data,
-                                ParseException e) {
-                            if (e == null)
-                            {
-                                //
-                            	// The bitmap will be constructed using the image file column
-                            	// that is stored in the Parse database.
-                            	//
-                                Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
-                                
-                                //
-                                // Set the image bitmap after constructing it from the byte array
-                                // 
-                                userImage.setImageBitmap(bmp);
-                                
-                            } else {
-                                Log.d("Error: Code: " + e.getCode(), "Message: " + e.getMessage());
-                            }
-                        }
-             });
-    		
-    	} else {
-    	  // show the signup or login screen
-    	}
 	}
 	
 	/***

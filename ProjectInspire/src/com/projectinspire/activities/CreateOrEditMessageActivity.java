@@ -1,19 +1,31 @@
 package com.projectinspire.activities;
 
+import java.util.List;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.projectinspire.R;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnKeyListener;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class CreateOrEditMessageActivity extends Activity {
 
+	private String userId, userEmail = "empty";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,24 +35,116 @@ public class CreateOrEditMessageActivity extends Activity {
 		
 		actionBar.setTitle("Messages"); // will change dependent on edit or create
 		
-		final EditText messageBody = (EditText) findViewById(R.id.editCreateMessageBody);
-		
-		messageBody.setOnKeyListener(new OnKeyListener() {
+		//*******************************************************************************************//
+		//									retrieve user information								 //
+		//*******************************************************************************************//
+    	//
+    	// Retrieve the user Id
+    	//
+    	Intent intent = getIntent();
+    	
+    	// retrieve the boolean that determines if we are creating or editing
+    	userId		  = intent.getStringExtra("userId");
+		userEmail     = intent.getStringExtra("userEmail");
+    	
+    	//*******************************************************************************************//
+    	//											Views											 //
+    	//*******************************************************************************************//
+    	final EditText editMessageTo   = (EditText) findViewById(R.id.editCreateMessageRecipient);
+    	final EditText editMessageBody = (EditText) findViewById(R.id.editCreateMessageBody);
+
+    	final Button   btnCreateMessage = (Button)   findViewById(R.id.btnCreateMessage);
+    	
+    	//*******************************************************************************************//
+    	//									Sending a new message     								 //
+    	//*******************************************************************************************//
+    	btnCreateMessage.setOnClickListener(new OnClickListener() {
 			
 			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-				if(event.getAction() == KeyEvent.ACTION_UP)
+			public void onClick(View v) {
+				
+				//
+				// if creating/ not editing
+				// 
+				//
+				// make sure that no fields are empty
+				//
+				if(editMessageTo.getText().toString().equals("") || 
+						editMessageBody.getText().toString().equals(""))
 				{
-
-					
+					Toast toast = Toast.makeText(getApplicationContext(), 
+							"Please check that there is a valid recipient and that the message is not empty.", Toast.LENGTH_LONG);
+					toast.show();
 				}
-				
-				
-				return false;
+				else
+				{
+					//
+					// Get the relative information for the project, and set the information
+					//
+					@SuppressWarnings("deprecation")
+					ParseQuery<ParseUser> query = ParseUser.getQuery();
+					query.whereEqualTo("email", editMessageTo.getText().toString()); // get email and find userId
+					query.findInBackground(new FindCallback<ParseUser>() {
+						public void done(List<ParseUser> userContact, ParseException e) {
+								
+							if (e == null) {      	
+							    	
+								//
+								// Check that there is a project (or more than one, I guess), and
+								// then change the views so that the old data is shown
+								//
+								if(userContact.size() > 0)
+								{
+									Log.d("Create message - Email", editMessageTo.getText().toString());
+									Log.d("create message - User", userContact.get(0).getObjectId());
+										
+										
+									if(userId.equals(userContact.get(0).getObjectId()))
+									{
+										Toast toast = Toast.makeText(getApplicationContext(), 
+												"You cannot send a message to yourself, please try again.", Toast.LENGTH_LONG);
+										toast.show();
+									}
+									else
+									{
+										//
+										// Create a new Parse Object and add it to database
+										//
+										ParseObject newContact = new ParseObject("Message");
+										newContact.put("messageFromID", userId);
+										newContact.put("messageToID",    userContact.get(0).getObjectId());
+										newContact.put("messageBody",    editMessageBody.getText().toString());
+										newContact.put("messageFromEmail", userEmail);	
+										newContact.saveInBackground();
+										
+										Toast toast = Toast.makeText(getApplicationContext(), "Message to: '"
+												+ editMessageTo.getText().toString() + "' has been sent successfully." , Toast.LENGTH_LONG);
+										toast.show();
+											
+										//
+										// Show all messages activity
+										//
+										finish();
+									}
+								}
+								else
+								{
+									//
+									// Error message informing that email is not valid
+									// Might want to change this so it still makes the contact...for privacy purposes? Not too sure.
+									//
+									Toast toast = Toast.makeText(getApplicationContext(), 
+											"Error finding user, please try again.", Toast.LENGTH_LONG);
+									toast.show();
+								}
+							    	        		             	
+						    } else Log.d("score", "Error: " + e.getMessage());
+						    }
+						});
+				}
 			}
 		});
-		
+
 	}
 
 	@Override

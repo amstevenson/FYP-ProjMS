@@ -6,7 +6,7 @@
     android:background="@drawable/style_activity_background_gradient"  >
     
 	<TextView 
-	    android:id="@+id/adapter_contact_name"
+	    android:id="@+id/adapter_message_name"
 	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
 	    android:textColor="#fff"
@@ -33,39 +33,33 @@
 	    android:text="@string/adapter_contact_space"
 	    android:textColor="#fff" />
 	
-	<TextView 
-	    android:id="@+id/adapter_contact_notes"
+	<TextView
+	    android:id="@+id/adapter_message_body"
+	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:layout_width="200dp"
-	    android:maxLines="5"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_contact_notes"
+	    android:layout_alignRight="@+id/adapter_contact_space"
+	    android:layout_marginLeft="20dp"
 	    android:layout_marginTop="47dp"
-	    android:layout_marginLeft="100dp"
-	    android:paddingRight="10dp"
-	    android:paddingTop="10dp"
+	    android:maxLines="5"
+	    android:gravity="left"
+	    android:layout_marginRight="10dp"
 	    android:paddingBottom="10dp"
-	    android:paddingLeft="10dp" />
+	    android:paddingLeft="10dp"
+	    android:paddingRight="20dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_contact_notes"
+	    android:textColor="#fff" />
 	
 	<ImageView
 	    android:id="@+id/contactEdit"
 	    android:layout_width="25dp"
 	    android:layout_height="25dp"
-	    android:layout_alignBottom="@+id/adapter_contact_name"
-	    android:layout_alignRight="@id/adapter_contact_notes"
-	    android:background="@drawable/edit_icon"
+	    android:layout_marginTop="5dp"
+	    android:layout_alignRight="@id/adapter_message_body"
+	    android:layout_alignTop="@id/adapter_message_name"
+	    android:background="@drawable/ic_remove_circle_white_48dp"
 	    android:contentDescription="@string/event_type_prompt"
 	    android:layout_marginBottom="5dp"
 	    android:textSize="12sp" />
-
-	<ImageView
-	    android:id="@+id/adapter_contact_image"
-	    android:layout_width="80dp"
-	    android:layout_height="80dp"
-	    android:layout_alignLeft="@+id/adapter_contact_space"
-	    android:layout_alignTop="@+id/adapter_contact_space"
-	    android:layout_marginTop="14dp"
-	    android:contentDescription="@string/adapter_contact_image"
-	    android:layout_marginLeft="10dp" />
 	
 </RelativeLayout>
