@@ -1,8 +1,8 @@
 package com.projectinspire.activities;
 
-
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -28,6 +28,9 @@ import com.projectinspire.R;
  */
 public class MainActivity extends Activity {
 
+	private EditText userEmail;
+	private EditText userPassword;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,8 +48,8 @@ public class MainActivity extends Activity {
 		TextView userForgotPassword = (TextView)  findViewById(R.id.txtMainForgotPassword);
 		ImageView imageBook         = (ImageView) findViewById(R.id.iconMainImage);
 		
-		final EditText userEmail          = (EditText)  findViewById(R.id.editMainEmail);
-		final EditText userPassword       = (EditText)  findViewById(R.id.editMainPassword);
+		userEmail          = (EditText)  findViewById(R.id.editMainEmail);
+		userPassword       = (EditText)  findViewById(R.id.editMainPassword);
 		
 		//
 		// Provide the implementation for each on click listener
@@ -77,6 +80,16 @@ public class MainActivity extends Activity {
 				//Intent sendToDashboard = new Intent(getApplicationContext(), UserDashboardActivity.class);
 				//startActivity(sendToDashboard);
 				
+				
+			    // Progress Dialog
+			    final ProgressDialog pDialog;
+	            pDialog = new ProgressDialog(MainActivity.this);
+	            pDialog.setMessage("Currently logging you in, please wait...");
+	            pDialog.setIndeterminate(false);
+	            pDialog.setCancelable(true);
+	            pDialog.show();
+			    
+			    
 				//
 				// Log in using Parse Loginbackground
 				//
@@ -94,21 +107,29 @@ public class MainActivity extends Activity {
 											UserDashboardActivity.class);
 									
 									intent.putExtra("userId", user.getObjectId()); // add the email for queries
-									startActivity(intent);
+									intent.putExtra("justRegistered", false);
+									//startActivity(intent);
 
 									//
 									// Notify success with a toast message
 									//
-									Toast.makeText(getApplicationContext(),
-											"You have successfully logged in",
-											Toast.LENGTH_LONG).show();
-									finish();
+									//Toast.makeText(getApplicationContext(),
+									//		"You have successfully logged in",
+									//		Toast.LENGTH_LONG).show();
+									//finish();
+									
+									if(pDialog.isShowing()) pDialog.dismiss();
+									
+									startActivity(intent);
 									
 								} else {
 									
 									// 
 									// Login has failed, ask user to register
 									//
+									
+									if(pDialog.isShowing()) pDialog.dismiss();
+									
 									Toast.makeText(
 											getApplicationContext(),
 											"Either the email address or password is incorrect, please try again.",
@@ -116,7 +137,8 @@ public class MainActivity extends Activity {
 								}
 							}
 				}); // end of LogInBackground
-			}
+				
+			}	
 		});
 		
 		userForgotPassword.setOnClickListener(new OnClickListener() {
@@ -170,7 +192,12 @@ public class MainActivity extends Activity {
 	public void onResume() {
 	    super.onResume();  // Always call the superclass method first
 	    
-	    // For if I want to do anything with data, when the activity is resumed
+	    //
+	    // Set the text to nothing, so a back press on the keypad doesn't reveal any 
+	    // Sensitive information.
+	    //
+	    userEmail.setText("");
+	    userPassword.setText("");
 	}
 
 }

@@ -16,6 +16,7 @@ import com.projectinspire.utilities.RegularExpressions;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -137,7 +138,7 @@ public class RegisterAccountActivity extends Activity {
 				//
 				boolean passwordValidation = false;
 				boolean emailValidation    = false;
-				
+								
 				//********************************************************************//
 				//							Create account   			      		  //
 				//********************************************************************//
@@ -262,6 +263,14 @@ public class RegisterAccountActivity extends Activity {
 							
 						}
 						
+						// Progress Dialog
+					    final ProgressDialog pDialog;
+			            pDialog = new ProgressDialog(RegisterAccountActivity.this);
+			            pDialog.setMessage("We are registering your account, you will be logged in automatically once this is completed.");
+			            pDialog.setIndeterminate(false);
+			            pDialog.setCancelable(true);
+			            pDialog.show();
+						
 						//
 						// Upload the image into Parse Cloud
 						//
@@ -322,15 +331,11 @@ public class RegisterAccountActivity extends Activity {
 																			UserDashboardActivity.class);
 																	
 																	intent.putExtra("userId", user.getObjectId()); // add the email for queries
+																	intent.putExtra("justRegistered", true);
+																	
+																	if(pDialog.isShowing()) pDialog.dismiss();
+																	
 																	startActivity(intent);
-
-																	//
-																	// Notify success with a toast message
-																	//
-																	Toast.makeText(getApplicationContext(),
-																			"You have successfully registered your account and have been " +
-																			"automatically logged in.",
-																			Toast.LENGTH_LONG).show();
 																	finish();
 																	
 																} else {
@@ -339,6 +344,9 @@ public class RegisterAccountActivity extends Activity {
 												}); // end of LogInBackground
 												
 											} else {
+												
+												if(pDialog.isShowing()) pDialog.dismiss();
+												
 												Toast.makeText(context,
 														"Error saving object :" + e.getMessage(), duration)
 														.show();
@@ -348,12 +356,18 @@ public class RegisterAccountActivity extends Activity {
 								}
 								else
 								{
+									if(pDialog.isShowing()) pDialog.dismiss();
+									
 									Toast.makeText(context,
 											"Error saving image file :" + e.getMessage(), duration)
 											.show();
 								}
+								
+								
 							}
 						});
+						
+						
 					}
 				} 
 			} 

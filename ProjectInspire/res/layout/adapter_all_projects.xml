@@ -22,18 +22,18 @@
 	<TextView
 	    android:id="@+id/projectDescription"
 	    android:layout_width="match_parent"
-	    android:layout_height="144dp"
+	    android:layout_height="114dp"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
 	    android:layout_marginTop="48dp"
 	    android:background="#3F1b2600"
 	    android:maxLines="3"
 	    android:paddingLeft="10dp"
-	    android:paddingTop="75dp"
+	    android:paddingTop="45dp"
 	    android:text="@string/adapter_project_description"
 	    android:textColor="#fff" />
     
-	<TextView 
+	<!--  <TextView 
 	    android:id="@+id/projectMembers"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
 	    android:layout_marginRight="10dp"
 	    android:paddingTop="10dp"
 	    android:layout_marginTop="82dp"
-		android:maxLines="2" />
+		android:maxLines="2" /> -->
 	
 	<TextView 
 	    android:id="@+id/projectStartDate"
@@ -64,9 +64,9 @@
 	    android:layout_width="wrap_content"
 	    android:textColor="#fff"
 	    android:text="@string/adapter_project_end_date"
-	    android:layout_marginTop="47dp"
+	    android:layout_marginTop="7dp"
 	    android:layout_marginLeft="220dp"
-	    android:paddingTop="10dp"
+	    android:paddingTop="50dp"
 	    android:paddingBottom="10dp"
 	    android:paddingLeft="10dp" />
 

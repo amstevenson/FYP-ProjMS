@@ -141,6 +141,7 @@ public class UserContactsMessagesFragment extends Fragment {
 		//
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Message");
 		query.whereEqualTo("messageToID", userId);
+		query.orderByDescending("createdAt");
 		query.findInBackground(new FindCallback<ParseObject>() {
 			public void done(List<ParseObject> messageList, ParseException e) {
 				if (e == null) {      	
@@ -164,7 +165,7 @@ public class UserContactsMessagesFragment extends Fragment {
 			    	//
 			    	// Create adapter and assign to ListView
 			    	//
-			    	if(userMessages.size() > 0)
+			    	if(userMessages.size() >= 0)
 			    	{
 			    		ListAllMessagesAdapter allMessagesAdapter = new ListAllMessagesAdapter(view.getContext(), userMessages);
 			    	    listMessagesAll.setAdapter(allMessagesAdapter);

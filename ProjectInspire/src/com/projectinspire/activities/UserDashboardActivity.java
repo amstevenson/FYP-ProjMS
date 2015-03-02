@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UserDashboardActivity extends Activity {
 
@@ -74,7 +75,23 @@ public class UserDashboardActivity extends Activity {
 		//
 		Intent intent = getIntent();
 		userId		  = intent.getStringExtra("userId");
-				
+		
+		//
+		// If the user has just registered
+		//
+		Boolean justRegistered = intent.getBooleanExtra("justRegistered", false);
+		
+		if(justRegistered == true)
+		{
+			//
+			// Notify Registration success with a toast message
+			//
+			Toast.makeText(getApplicationContext(),
+					"You have successfully registered your account and have been " +
+					"automatically logged in.",
+					Toast.LENGTH_LONG).show();
+		}
+		
 		Log.d("Dashboard - Id", userId); // for debugging
 		    	
 		final ParseUser currentUser = ParseUser.getCurrentUser();

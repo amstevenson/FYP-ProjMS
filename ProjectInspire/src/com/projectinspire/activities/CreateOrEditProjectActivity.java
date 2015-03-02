@@ -13,9 +13,11 @@ import com.projectinspire.utilities.UtilitiesPickers;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -71,7 +73,7 @@ public class CreateOrEditProjectActivity extends Activity {
 		final EditText projName      = (EditText) findViewById(R.id.editCreateProjectName);
 		final EditText projDescription = (EditText) findViewById(R.id.editCreateProjectDescription);
 		final Spinner  projType        = (Spinner) findViewById(R.id.editCreateProjectType);
-		final EditText projMembers     = (EditText) findViewById(R.id.editCreateProjectResponsible);
+		//final EditText projMembers     = (EditText) findViewById(R.id.editCreateProjectResponsible);
 		final EditText projStartDate = (EditText) findViewById(R.id.editCreateProjectStartDate);
 		final EditText projEndDate = (EditText) findViewById(R.id.editCreateProjectEndDate);
 		final Space    projSpace   = (Space) findViewById(R.id.spaceCreateProjectButton);
@@ -120,7 +122,7 @@ public class CreateOrEditProjectActivity extends Activity {
 							projName.setText(project.get(0).getString("projectName"));
 							projStartDate.setText(project.get(0).getString("projectStartDate"));
 							projEndDate.setText(project.get(0).getString("projectEndDate"));
-							projMembers.setText(project.get(0).getString("projectMembers"));
+							//projMembers.setText(project.get(0).getString("projectMembers"));
 							
 							String type = project.get(0).getString("projectType");
 							
@@ -218,11 +220,13 @@ public class CreateOrEditProjectActivity extends Activity {
 				// 
 				if(!editing)
 				{
+					
 					//
 					// make sure that no fields are empty
 					//
 					if(projDescription.getText().toString().equals("") || projEndDate.getText().toString().equals("")
-							|| projMembers.getText().toString().equals("") || projName.getText().toString().equals("")
+							//|| projMembers.getText().toString().equals("") 
+							|| projName.getText().toString().equals("")
 							|| projStartDate.getText().toString().equals("") || projType.getSelectedItem().toString().equals(""))
 					{
 						Toast toast = Toast.makeText(getApplicationContext(), 
@@ -231,6 +235,15 @@ public class CreateOrEditProjectActivity extends Activity {
 					}
 					else
 					{
+					    // Progress Dialog
+					    final ProgressDialog pDialog;
+			            pDialog = new ProgressDialog(CreateOrEditProjectActivity.this);
+			            
+			            pDialog.setMessage("Creating the project: " + projName.getText().toString() + "...");
+			            pDialog.setIndeterminate(false);
+			            pDialog.setCancelable(true);
+			            pDialog.show();
+						
 						//
 						// Create a new Parse Object and add it to database
 						//
@@ -239,24 +252,48 @@ public class CreateOrEditProjectActivity extends Activity {
 						newProject.put("projectName", projName.getText().toString());
 						newProject.put("projectStartDate", projStartDate.getText().toString());
 						newProject.put("projectEndDate", projEndDate.getText().toString());
-						newProject.put("projectMembers", projMembers.getText().toString());
+						//newProject.put("projectMembers", projMembers.getText().toString());
 						newProject.put("projectType", projType.getSelectedItem().toString());
 						newProject.put("projectDescription", projDescription.getText().toString());
 						newProject.put("projectStatus", "Active"); // others are: on hold, dropped, completed
 						newProject.saveInBackground();
+											
+						final Handler handler = new Handler();
+						handler.postDelayed(new Runnable() {
+						    @Override
+						    public void run() {
+						        
+						    	
+						    	//
+						    	// Finish the updating process
+						    	//
+						    	if(pDialog.isShowing()) pDialog.dismiss();
+						    	
+						    	Toast toast = Toast.makeText(getApplicationContext(), "Project '"
+										+ projName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
+								toast.show();
+								
+								//
+								// Show all projects class
+								//
+								Intent allProjects = new Intent(getApplicationContext(),UserListAllProjectsActivity.class);
+								allProjects.putExtra("userId", userId);
+								startActivity(allProjects);
+						    }
+						}, 2000);
 						
-						Toast toast = Toast.makeText(getApplicationContext(), "Project '"
-								+ projName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
-						toast.show();
-						
-						//
-						// Show all projects class
-						//
-						finish();
 					}
 				}
 				if(editing)
 				{
+				    // Progress Dialog
+				    final ProgressDialog pDialog;
+		            pDialog = new ProgressDialog(CreateOrEditProjectActivity.this);
+		            pDialog.setMessage("Updating the details for: " + projName.getText().toString() + "...");
+		            pDialog.setIndeterminate(false);
+		            pDialog.setCancelable(true);
+		            pDialog.show();
+					
 					ParseQuery<ParseObject> query = ParseQuery.getQuery("Project");
 					 
 					// Retrieve the object by id
@@ -270,19 +307,30 @@ public class CreateOrEditProjectActivity extends Activity {
 					    	project.put("projectName", projName.getText().toString());
 							project.put("projectStartDate", projStartDate.getText().toString());
 							project.put("projectEndDate", projEndDate.getText().toString());
-							project.put("projectMembers", projMembers.getText().toString());
+							//project.put("projectMembers", projMembers.getText().toString());
 							project.put("projectType", projType.getSelectedItem().toString());
 							project.put("projectDescription", projDescription.getText().toString());
 					    	project.saveInBackground();
 					    	
-					    	Toast toast = Toast.makeText(getApplicationContext(), "Project '"
-									+ projName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
-							toast.show();
+							final Handler handler = new Handler();
+							handler.postDelayed(new Runnable() {
+							    @Override
+							    public void run() {
+							        
+							    	
+							    	//
+							    	// Finish the updating process
+							    	//
+							    	if(pDialog.isShowing()) pDialog.dismiss();
+							    	
+							    	Toast toast = Toast.makeText(getApplicationContext(), "Project '"
+											+ projName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
+									toast.show();
+									
+							    	finish();
+							    }
+							}, 2000);
 							
-							//
-							// Show all projects class
-							//
-							finish();
 					    }
 					  }
 					});
@@ -310,19 +358,37 @@ public class CreateOrEditProjectActivity extends Activity {
 		            @Override
 		            public void onClick(DialogInterface dialog, int which) {
 
+					    // Progress Dialog
+					    final ProgressDialog pDialog;
+			            pDialog = new ProgressDialog(CreateOrEditProjectActivity.this);
+			            pDialog.setMessage("Deleting project: " + projName.getText().toString() + ", please be patient.");
+			            pDialog.setIndeterminate(false);
+			            pDialog.setCancelable(true);
+			            pDialog.show();
+		            	
 						//
 						// Delete project
 						//
 						ParseObject.createWithoutData("Project", projectId).deleteInBackground();
-							
-				    	Toast toast = Toast.makeText(getApplicationContext(), "Project '"
-								+ projName.getText().toString() + "' has been deleted." , Toast.LENGTH_LONG);
-						toast.show();
-							
-						//
-						// Return to list all projects
-						//
-						finish();
+
+						final Handler handler = new Handler();
+						handler.postDelayed(new Runnable() {
+						    @Override
+						    public void run() {
+						        
+						    	
+						    	//
+						    	// Finish the updating process
+						    	//
+						    	if(pDialog.isShowing()) pDialog.dismiss();
+						    	
+						    	Toast toast = Toast.makeText(getApplicationContext(), "Project '"
+										+ projName.getText().toString() + "' has been deleted." , Toast.LENGTH_LONG);
+								toast.show();
+								
+								finish();
+						    }
+						}, 2000);
 		            }
 
 			     })

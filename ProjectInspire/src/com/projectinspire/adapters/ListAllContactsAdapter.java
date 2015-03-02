@@ -65,6 +65,7 @@ public class ListAllContactsAdapter extends BaseAdapter{
             convertView = mInflater.inflate(R.layout.adapter_all_contacts , parent, false);
         }
 		
+		TextView    txtContactSpace  = (TextView)     convertView.findViewById(R.id.adapter_contact_space);
 		TextView txtContactName   = (TextView ) convertView.findViewById(R.id.adapter_contact_name);
 		TextView txtContactNotes  = (TextView ) convertView.findViewById(R.id.adapter_contact_notes);
 		ImageView imgEdit		  = (ImageView) convertView.findViewById(R.id.contactEdit);
@@ -96,6 +97,37 @@ public class ListAllContactsAdapter extends BaseAdapter{
 			}
 		});
 		
+		txtContactSpace.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				boolean editing = true; // set the editing tag to true
+				
+				Intent intent = new Intent(v.getContext(), CreateOrEditContactActivity.class);
+				intent.putExtra("editing", editing);
+				intent.putExtra("contactId", userContacts.get(innerPosition).get("contactId"));
+				intent.setFlags(268435456); 
+				v.getContext().startActivity(intent);
+				
+			}
+		});
+		
+		txtContactName.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				boolean editing = true; // set the editing tag to true
+				
+				Intent intent = new Intent(v.getContext(), CreateOrEditContactActivity.class);
+				intent.putExtra("editing", editing);
+				intent.putExtra("contactId", userContacts.get(innerPosition).get("contactId"));
+				intent.setFlags(268435456); 
+				v.getContext().startActivity(intent);
+				
+			}
+		});
 		
 		return convertView;
 	}

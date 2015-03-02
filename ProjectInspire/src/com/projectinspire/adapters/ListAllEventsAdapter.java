@@ -107,6 +107,38 @@ public class ListAllEventsAdapter extends BaseAdapter{
 			}
 		});
 		
+		txtEventDescription.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				boolean editing = true; // set the editing tag to true
+				
+				Intent intent = new Intent(v.getContext(), CreateOrEditEventActivity.class);
+				intent.putExtra("editing", editing);
+				intent.putExtra("eventId", userEvents.get(innerPosition).get("eventId"));
+				intent.setFlags(268435456); // set new task flag - puts it on the back stack, why the long number I wonder...
+				v.getContext().startActivity(intent);
+				
+			}
+		});
+		
+		txtEventName.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				boolean editing = true; // set the editing tag to true
+				
+				Intent intent = new Intent(v.getContext(), CreateOrEditEventActivity.class);
+				intent.putExtra("editing", editing);
+				intent.putExtra("eventId", userEvents.get(innerPosition).get("eventId"));
+				intent.setFlags(268435456); // set new task flag - puts it on the back stack, why the long number I wonder...
+				v.getContext().startActivity(intent);
+				
+			}
+		});
+		
 		return convertView;
 	}
 

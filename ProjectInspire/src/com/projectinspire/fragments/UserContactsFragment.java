@@ -136,6 +136,7 @@ public class UserContactsFragment extends Fragment {
 		//
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Contact");
 		query.whereEqualTo("userId", userId);
+		query.orderByAscending("contactName");
 		query.findInBackground(new FindCallback<ParseObject>() {
 			public void done(List<ParseObject> contactList, ParseException e) {
 				if (e == null) {      	
@@ -160,7 +161,7 @@ public class UserContactsFragment extends Fragment {
 			    	//
 			    	// Create adapter and assign to ListView
 			    	//
-			    	if(userContacts.size() > 0)
+			    	if(userContacts.size() >= 0)
 			    	{
 			    		ListAllContactsAdapter allProjectsAdapter = new ListAllContactsAdapter(view.getContext(), userContacts);
 			    	    listContactsAll.setAdapter(allProjectsAdapter);

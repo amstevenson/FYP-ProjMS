@@ -30,7 +30,7 @@ public class ListAllProjectsAdapter extends BaseAdapter {
     private static final String TAG_PROJECTSTARTDATE   = "projectStartDate";
     private static final String TAG_PROJECTENDDATE     = "projectEndDate";
     private static final String TAG_PROJECTSTATUS      = "projectStatus";
-    private static final String TAG_PROJECTMEMBERS     = "projectMembers";
+    //private static final String TAG_PROJECTMEMBERS     = "projectMembers";
     private static final String TAG_PROJECTDESCRIPTION = "projectDescription";
 	
     //
@@ -71,7 +71,7 @@ public class ListAllProjectsAdapter extends BaseAdapter {
 		TextView txtProjectStartDate   = (TextView ) convertView.findViewById(R.id.projectStartDate);
 		TextView txtProjectEndDate     = (TextView ) convertView.findViewById(R.id.projectEndDate);
 		TextView txtProjectStatus      = (TextView ) convertView.findViewById(R.id.projectStatus);
-		TextView txtProjectMembers     = (TextView ) convertView.findViewById(R.id.projectMembers);
+		//TextView txtProjectMembers     = (TextView ) convertView.findViewById(R.id.projectMembers);
 		TextView txtProjectDescription = (TextView ) convertView.findViewById(R.id.projectDescription);
 		ImageView imgEdit			   = (ImageView) convertView.findViewById(R.id.projectEdit);
 		
@@ -79,7 +79,7 @@ public class ListAllProjectsAdapter extends BaseAdapter {
 		txtProjectStartDate.setText("Started: " + userProjects.get(position).get(TAG_PROJECTSTARTDATE));
 		txtProjectEndDate.setText("Ends: " + userProjects.get(position).get(TAG_PROJECTENDDATE));
 		txtProjectStatus.setText(userProjects.get(position).get(TAG_PROJECTSTATUS).toString());
-		txtProjectMembers.setText("Members: " + userProjects.get(position).get(TAG_PROJECTMEMBERS).toString());
+		//txtProjectMembers.setText("Members: " + userProjects.get(position).get(TAG_PROJECTMEMBERS).toString());
 		txtProjectDescription.setText("Description: " + userProjects.get(position).get(TAG_PROJECTDESCRIPTION).toString());
 
 		final int innerPosition = position;
@@ -92,18 +92,40 @@ public class ListAllProjectsAdapter extends BaseAdapter {
 			@Override
 			public void onClick(View v) {
 				
-				boolean editing = true; // set the editing tag to true
+				sendToProjectActivity(v, innerPosition);
+			}
+		});
+		
+		txtProjectStatus.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
 				
-				Intent intent = new Intent(v.getContext(), CreateOrEditProjectActivity.class);
-				intent.putExtra("editing", editing);
-				intent.putExtra("projectId", userProjects.get(innerPosition).get("projectId"));
-				intent.setFlags(268435456); // set new task flag - puts it on the back stack, why the long number I wonder...
-				v.getContext().startActivity(intent);
+				sendToProjectActivity(v, innerPosition);
+			}
+		});
+		
+		txtProjectEndDate.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
 				
+				sendToProjectActivity(v, innerPosition);
 			}
 		});
 		
 		return convertView;
+	}
+	
+	public void sendToProjectActivity(View v, int innerPosition)
+	{
+		boolean editing = true; // set the editing tag to true
+		
+		Intent intent = new Intent(v.getContext(), CreateOrEditProjectActivity.class);
+		intent.putExtra("editing", editing);
+		intent.putExtra("projectId", userProjects.get(innerPosition).get("projectId"));
+		intent.setFlags(268435456); // set new task flag - puts it on the back stack, why the long number I wonder...
+		v.getContext().startActivity(intent);
 	}
 
 }

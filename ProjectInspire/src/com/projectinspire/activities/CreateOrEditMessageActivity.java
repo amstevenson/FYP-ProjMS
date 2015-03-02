@@ -11,8 +11,10 @@ import com.projectinspire.R;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -116,15 +118,32 @@ public class CreateOrEditMessageActivity extends Activity {
 										newContact.put("messageBody",    editMessageBody.getText().toString());
 										newContact.put("messageFromEmail", userEmail);	
 										newContact.saveInBackground();
-										
-										Toast toast = Toast.makeText(getApplicationContext(), "Message to: '"
-												+ editMessageTo.getText().toString() + "' has been sent successfully." , Toast.LENGTH_LONG);
-										toast.show();
 											
-										//
-										// Show all messages activity
-										//
-										finish();
+										// Progress Dialog
+									    final ProgressDialog pDialog;
+							            pDialog = new ProgressDialog(CreateOrEditMessageActivity.this);
+							            pDialog.setMessage("Sending the message to: " + editMessageTo.getText().toString());
+							            pDialog.setIndeterminate(false);
+							            pDialog.setCancelable(true);
+							            pDialog.show();
+						            	
+										final Handler handler = new Handler();
+										handler.postDelayed(new Runnable() {
+										    @Override
+										    public void run() {
+										        
+										    	//
+										    	// Finish the updating process
+										    	//
+										    	if(pDialog.isShowing()) pDialog.dismiss();
+										    	
+												Toast toast = Toast.makeText(getApplicationContext(), "Message to: '"
+														+ editMessageTo.getText().toString() + "' has been sent successfully." , Toast.LENGTH_LONG);
+												toast.show();
+												
+												finish();
+										    }
+										}, 2000);
 									}
 								}
 								else

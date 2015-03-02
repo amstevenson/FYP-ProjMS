@@ -87,6 +87,7 @@
 	    android:id="@+id/eventEdit"
 	    android:layout_width="25dp"
 	    android:layout_height="25dp"
+	    android:layout_marginLeft="20dp"
 	    android:layout_alignBottom="@+id/eventName"
 	    android:layout_alignRight="@id/eventEndTime"
 	    android:background="@drawable/edit_icon"

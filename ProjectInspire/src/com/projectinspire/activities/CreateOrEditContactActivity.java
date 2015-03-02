@@ -13,9 +13,11 @@ import com.projectinspire.R;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -208,14 +210,32 @@ public class CreateOrEditContactActivity extends Activity {
 												newContact.put("contactNotes", createContactNotes.getText().toString());
 											newContact.saveInBackground();
 											
-											Toast toast = Toast.makeText(getApplicationContext(), "Contact: '"
-													+ createContactName.getText().toString() + "' has been added." , Toast.LENGTH_LONG);
-											toast.show();
-											
-											//
-											// Show all contacts activity
-											//
-											finish();
+											// Progress Dialog
+										    final ProgressDialog pDialog;
+								            pDialog = new ProgressDialog(CreateOrEditContactActivity.this);
+								            pDialog.setMessage("Adding " + createContactName.getText().toString() + "to your contact list");
+								            pDialog.setIndeterminate(false);
+								            pDialog.setCancelable(true);
+								            pDialog.show();
+							            	
+											final Handler handler = new Handler();
+											handler.postDelayed(new Runnable() {
+											    @Override
+											    public void run() {
+											        
+											    	
+											    	//
+											    	// Finish the updating process
+											    	//
+											    	if(pDialog.isShowing()) pDialog.dismiss();
+											    	
+													Toast toast = Toast.makeText(getApplicationContext(), "Contact: '"
+															+ createContactName.getText().toString() + "' has been added." , Toast.LENGTH_LONG);
+													toast.show();
+													
+													finish();
+											    }
+											}, 2000);
 										}
 									}
 									else
@@ -251,14 +271,31 @@ public class CreateOrEditContactActivity extends Activity {
 						    	contact.put("contactNotes", createContactNotes.getText().toString());
 						    	contact.saveInBackground();
 						    	
-						    	Toast toast = Toast.makeText(getApplicationContext(), "Contact '"
-										+ createContactName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
-								toast.show();
-								
-								//
-								// Show all contacts class
-								//
-								finish();
+								// Progress Dialog
+							    final ProgressDialog pDialog;
+					            pDialog = new ProgressDialog(CreateOrEditContactActivity.this);
+					            pDialog.setMessage("Editing the details of " + createContactName.getText().toString());
+					            pDialog.setIndeterminate(false);
+					            pDialog.setCancelable(true);
+					            pDialog.show();
+				            	
+								final Handler handler = new Handler();
+								handler.postDelayed(new Runnable() {
+								    @Override
+								    public void run() {
+								        
+								    	//
+								    	// Finish the updating process
+								    	//
+								    	if(pDialog.isShowing()) pDialog.dismiss();
+								    	
+								    	Toast toast = Toast.makeText(getApplicationContext(), "Contact '"
+												+ createContactName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
+										toast.show();
+										
+										finish();
+								    }
+								}, 2000);
 						    }
 						}
 					});
@@ -292,14 +329,31 @@ public class CreateOrEditContactActivity extends Activity {
 						//
 						ParseObject.createWithoutData("Contact", contactId).deleteInBackground();
 							
-				    	Toast toast = Toast.makeText(getApplicationContext(), "'"
-								+ createContactName.getText().toString() + "' has been removed from the contacts list." , Toast.LENGTH_LONG);
-						toast.show();
-							
-						//
-						// Return to list all contacts
-						//
-						finish();
+						// Progress Dialog
+					    final ProgressDialog pDialog;
+			            pDialog = new ProgressDialog(CreateOrEditContactActivity.this);
+			            pDialog.setMessage("Removing " + createContactName.getText().toString() + "from your contact list");
+			            pDialog.setIndeterminate(false);
+			            pDialog.setCancelable(true);
+			            pDialog.show();
+		            	
+						final Handler handler = new Handler();
+						handler.postDelayed(new Runnable() {
+						    @Override
+						    public void run() {
+						        
+						    	//
+						    	// Finish the updating process
+						    	//
+						    	if(pDialog.isShowing()) pDialog.dismiss();
+						    	
+						    	Toast toast = Toast.makeText(getApplicationContext(), "'"
+										+ createContactName.getText().toString() + "' has been removed from the contact list." , Toast.LENGTH_LONG);
+								toast.show();
+								
+								finish();
+						    }
+						}, 2000);
 		            }
 
 			     })

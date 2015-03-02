@@ -133,10 +133,13 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 	    // does not need to be included in onCreate.
 	    //
 	    createAndAssignAdapter();
+	    
+	    Log.d("Tasks resume", "Tasks resume"); // debug
 	}
 	
 	public void createAndAssignAdapter()
 	{
+		
 		//
 		// First, clear the arrayList of HashMaps, so that we do not get duplicates of any tasks
 		//
@@ -148,6 +151,7 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 		//
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Task");
 		query.whereEqualTo("projectId", projectId);
+		query.orderByDescending("createdAt");
 		query.findInBackground(new FindCallback<ParseObject>() {
 			public void done(List<ParseObject> taskList, ParseException e) {
 				if (e == null) {      	
@@ -174,14 +178,18 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 			    	    
 			    	    userTasks.add(userTask);
 			    	}
-			    	       
+			    	
+			    	Log.d("Tasks size", String.valueOf(userTasks.size())); // debug
+			    	
 			    	//
 			    	// Create adapter and assign to ListView
 			    	//
-			    	if(userTasks.size() > 0)
+			    	if(userTasks.size() >= 0) // more than or equal to...because of course it starts at 0...
 			    	{
 			    		ListAllTasksAdapter allProjectsAdapter = new ListAllTasksAdapter(view.getContext(), userTasks);
-			    	    listTasksAll.setAdapter(allProjectsAdapter);
+			    		listTasksAll.setAdapter(allProjectsAdapter);
+			    		
+			    		//allProjectsAdapter.notifyDataSetChanged();
 			    	}
 			    	        	
 			    	//
@@ -194,11 +202,11 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 			    	        	
 			    	// Log.d("score", "Project Name " + userProjects.get(0).get("projectEndDate") + " scores"); // debug
 			    	
-		    	} else Log.d("Tasks create listview Error", "Error: " + e.getMessage());
+		    	} else Log.d("Tasks listview Error", "Error: " + e.getMessage());
 		    	        
 		    }
 
 		});
-		
 	}
+	
 }

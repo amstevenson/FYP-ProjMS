@@ -13,9 +13,11 @@ import com.projectinspire.utilities.UtilitiesPickers;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -245,14 +247,31 @@ public class CreateOrEditEventActivity extends Activity {
 						newProject.put("eventLocation", eventLocation.getText().toString()); // others are: on hold, dropped, completed
 						newProject.saveInBackground();
 						
-						Toast toast = Toast.makeText(getApplicationContext(), "Event: '"
-								+ eventName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
-						toast.show();
-						
-						//
-						// Show all events activity
-						//
-						finish();
+						// Progress Dialog
+					    final ProgressDialog pDialog;
+			            pDialog = new ProgressDialog(CreateOrEditEventActivity.this);
+			            pDialog.setMessage("Creating the event: " + eventName.getText().toString());
+			            pDialog.setIndeterminate(false);
+			            pDialog.setCancelable(true);
+			            pDialog.show();
+		            	
+						final Handler handler = new Handler();
+						handler.postDelayed(new Runnable() {
+						    @Override
+						    public void run() {
+						        
+						    	//
+						    	// Finish the updating process
+						    	//
+						    	if(pDialog.isShowing()) pDialog.dismiss();
+						    	
+								Toast toast = Toast.makeText(getApplicationContext(), "Event: '"
+										+ eventName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
+								toast.show();
+								
+								finish();
+						    }
+						}, 2000);
 					}
 				}
 				if(editing)
@@ -276,14 +295,31 @@ public class CreateOrEditEventActivity extends Activity {
 						    	event.put("eventEndTime", eventEndTime.getText().toString());
 						    	event.saveInBackground();
 						    	
-						    	Toast toast = Toast.makeText(getApplicationContext(), "Event '"
-										+ eventName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
-								toast.show();
-								
-								//
-								// Show all projects class
-								//
-								finish();
+								// Progress Dialog
+							    final ProgressDialog pDialog;
+					            pDialog = new ProgressDialog(CreateOrEditEventActivity.this);
+					            pDialog.setMessage("Updating the details for the event: " + eventName.getText().toString());
+					            pDialog.setIndeterminate(false);
+					            pDialog.setCancelable(true);
+					            pDialog.show();
+				            	
+								final Handler handler = new Handler();
+								handler.postDelayed(new Runnable() {
+								    @Override
+								    public void run() {
+								        
+								    	//
+								    	// Finish the updating process
+								    	//
+								    	if(pDialog.isShowing()) pDialog.dismiss();
+								    	
+								    	Toast toast = Toast.makeText(getApplicationContext(), "Event '"
+												+ eventName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
+										toast.show();
+										
+										finish();
+								    }
+								}, 2000);
 						    }
 						}
 					});
@@ -316,14 +352,31 @@ public class CreateOrEditEventActivity extends Activity {
 						//
 						ParseObject.createWithoutData("Event", eventId).deleteInBackground();
 							
-				    	Toast toast = Toast.makeText(getApplicationContext(), "Event '"
-								+ eventName.getText().toString() + "' has been deleted." , Toast.LENGTH_LONG);
-						toast.show();
-							
-						//
-						// Return to list all projects
-						//
-						finish();
+						// Progress Dialog
+					    final ProgressDialog pDialog;
+			            pDialog = new ProgressDialog(CreateOrEditEventActivity.this);
+			            pDialog.setMessage("Deleting the event: " + eventName.getText().toString());
+			            pDialog.setIndeterminate(false);
+			            pDialog.setCancelable(true);
+			            pDialog.show();
+		            	
+						final Handler handler = new Handler();
+						handler.postDelayed(new Runnable() {
+						    @Override
+						    public void run() {
+						        
+						    	//
+						    	// Finish the updating process
+						    	//
+						    	if(pDialog.isShowing()) pDialog.dismiss();
+						    	
+						    	Toast toast = Toast.makeText(getApplicationContext(), "Event '"
+										+ eventName.getText().toString() + "' has been deleted." , Toast.LENGTH_LONG);
+								toast.show();
+								
+								finish();
+						    }
+						}, 2000);
 		            }
 
 			     })

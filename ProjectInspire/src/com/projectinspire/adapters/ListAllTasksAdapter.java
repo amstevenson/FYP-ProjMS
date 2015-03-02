@@ -109,6 +109,38 @@ public class ListAllTasksAdapter extends BaseAdapter {
 			}
 		});
 		
+		txtTaskDescription.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				boolean editing = true; // set the editing tag to true
+				
+				Intent intent = new Intent(v.getContext(), CreateOrEditTaskActivity.class);
+				intent.putExtra("editing", editing);
+				intent.putExtra("taskId", userTasks.get(innerPosition).get("taskId"));
+				intent.setFlags(268435456); // set new task flag - puts it on the back stack, why the long number I wonder...
+				v.getContext().startActivity(intent);
+				
+			}
+		});
+		
+		txtTaskName.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				boolean editing = true; // set the editing tag to true
+				
+				Intent intent = new Intent(v.getContext(), CreateOrEditTaskActivity.class);
+				intent.putExtra("editing", editing);
+				intent.putExtra("taskId", userTasks.get(innerPosition).get("taskId"));
+				intent.setFlags(268435456); // set new task flag - puts it on the back stack, why the long number I wonder...
+				v.getContext().startActivity(intent);
+				
+			}
+		});
+		
 		return convertView;
 	}
 

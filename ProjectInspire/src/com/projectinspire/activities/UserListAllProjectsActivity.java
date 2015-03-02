@@ -144,6 +144,7 @@ public class UserListAllProjectsActivity extends Activity {
 				createProject.putExtra("userId", userId);
 				startActivity(createProject);
 				
+				finish();
 			}
 		});
 		
@@ -176,6 +177,10 @@ public class UserListAllProjectsActivity extends Activity {
         //
     	imageViewCreateProject.setImageDrawable(plusImage);
     	
+    	//
+    	// Set the project adapter
+    	//
+    	//createAndSetProjectAdapter();
 	}
 
 	public void createAndSetProjectAdapter()
@@ -190,6 +195,7 @@ public class UserListAllProjectsActivity extends Activity {
 		//
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Project");
 		query.whereEqualTo("projectCreatedBy", userId);
+		query.orderByDescending("createdAt");
 		query.findInBackground(new FindCallback<ParseObject>() {
 		 public void done(List<ParseObject> projectList, ParseException e) {
 			 if (e == null) {
@@ -209,13 +215,13 @@ public class UserListAllProjectsActivity extends Activity {
 		    	     userProject.put("projectStartDate",   (String) projectList.get(i).get("projectStartDate").toString());
 		    	     userProject.put("projectEndDate",     (String) projectList.get(i).get("projectEndDate").toString());
 		    	     userProject.put("projectStatus",      (String) projectList.get(i).get("projectStatus").toString());
-		    	     userProject.put("projectMembers",     (String) projectList.get(i).get("projectMembers").toString());
+		    	     //userProject.put("projectMembers",     (String) projectList.get(i).get("projectMembers").toString());
 		    	     userProject.put("projectDescription", (String) projectList.get(i).get("projectDescription").toString());
 		    	        		
 		    	     userProjects.add(userProject);
 		    	 }
 		    	        	
-		    	 if(userProjects.size() > 0)
+		    	 if(userProjects.size() >= 0)
 		    	 {
 		    		 ListAllProjectsAdapter allProjectsAdapter = new ListAllProjectsAdapter(getApplicationContext(), userProjects);
 		    	     listProjectsAll.setAdapter(allProjectsAdapter);
@@ -267,6 +273,8 @@ public class UserListAllProjectsActivity extends Activity {
 	    // does not need to be included in onCreate.
 	    //
 	    createAndSetProjectAdapter();
+	    
+	    Log.d("List projects is now resumed", "List projects resumed");
 	}
 	
 	@Override

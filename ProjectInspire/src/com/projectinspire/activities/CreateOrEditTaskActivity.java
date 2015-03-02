@@ -13,9 +13,11 @@ import com.projectinspire.utilities.UtilitiesPickers;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
@@ -246,13 +248,32 @@ public class CreateOrEditTaskActivity extends Activity {
 						newTask.put("taskDescription", taskDescription.getText().toString()); 
 						newTask.saveInBackground();
 						
-						Toast toast = Toast.makeText(getApplicationContext(), "Task: '"
-								+ taskName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
-						toast.show();
-						
-						finish(); // go back to the previous screen
-								  // which will invoke the "onResume" method.
-						
+						// Progress Dialog
+					    final ProgressDialog pDialog;
+			            pDialog = new ProgressDialog(CreateOrEditTaskActivity.this);
+			            pDialog.setMessage("Creating the new task: " + taskName.getText().toString() + ", please be patient.");
+			            pDialog.setIndeterminate(false);
+			            pDialog.setCancelable(true);
+			            pDialog.show();
+		            	
+						final Handler handler = new Handler();
+						handler.postDelayed(new Runnable() {
+						    @Override
+						    public void run() {
+						        
+						    	
+						    	//
+						    	// Finish the updating process
+						    	//
+						    	if(pDialog.isShowing()) pDialog.dismiss();
+						    	
+								Toast toast = Toast.makeText(getApplicationContext(), "Task: '"
+										+ taskName.getText().toString() + "' has been created." , Toast.LENGTH_LONG);
+								toast.show();
+								
+								finish();
+						    }
+						}, 2000);
 					}
 				}
 				if(editing)
@@ -276,14 +297,32 @@ public class CreateOrEditTaskActivity extends Activity {
 							task.put("taskDescription", taskDescription.getText().toString()); // others are: on hold, dropped, completed
 					    	task.saveInBackground();
 					    	
-					    	Toast toast = Toast.makeText(getApplicationContext(), "Task '"
-									+ taskName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
-							toast.show();
-							
-							//
-							// Show all projects class
-							//
-							finish();
+							// Progress Dialog
+						    final ProgressDialog pDialog;
+				            pDialog = new ProgressDialog(CreateOrEditTaskActivity.this);
+				            pDialog.setMessage("Updating the details of the task: " + taskName.getText().toString() + "...");
+				            pDialog.setIndeterminate(false);
+				            pDialog.setCancelable(true);
+				            pDialog.show();
+			            	
+							final Handler handler = new Handler();
+							handler.postDelayed(new Runnable() {
+							    @Override
+							    public void run() {
+							        
+							    	
+							    	//
+							    	// Finish the updating process
+							    	//
+							    	if(pDialog.isShowing()) pDialog.dismiss();
+							    	
+							    	Toast toast = Toast.makeText(getApplicationContext(), "Task '"
+											+ taskName.getText().toString() + "' has been updated." , Toast.LENGTH_LONG);
+									toast.show();
+									
+									finish();
+							    }
+							}, 2000);
 					    }
 					  }
 					});
@@ -317,15 +356,33 @@ public class CreateOrEditTaskActivity extends Activity {
 						// Delete task
 						//
 						ParseObject.createWithoutData("Task", taskId).deleteInBackground();
-							
-				    	Toast toast = Toast.makeText(getApplicationContext(), "Task '"
-								+ taskName.getText().toString() + "' has been deleted." , Toast.LENGTH_LONG);
-						toast.show();
-							
-						//
-						// Return to list all tasks
-						//
-						finish();
+								
+						// Progress Dialog
+					    final ProgressDialog pDialog;
+			            pDialog = new ProgressDialog(CreateOrEditTaskActivity.this);
+			            pDialog.setMessage("Deleting the task: " + taskName.getText().toString() + "...");
+			            pDialog.setIndeterminate(false);
+			            pDialog.setCancelable(true);
+			            pDialog.show();
+		            	
+						final Handler handler = new Handler();
+						handler.postDelayed(new Runnable() {
+						    @Override
+						    public void run() {
+						        
+						    	
+						    	//
+						    	// Finish the updating process
+						    	//
+						    	if(pDialog.isShowing()) pDialog.dismiss();
+						    	
+						    	Toast toast = Toast.makeText(getApplicationContext(), "Task '"
+										+ taskName.getText().toString() + "' has been deleted." , Toast.LENGTH_LONG);
+								toast.show();
+								
+								finish();
+						    }
+						}, 2000);
 		            }
 
 			     })

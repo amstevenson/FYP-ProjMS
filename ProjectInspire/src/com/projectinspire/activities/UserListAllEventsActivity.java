@@ -162,6 +162,7 @@ public class UserListAllEventsActivity extends Activity {
 		//
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Event");
 		query.whereEqualTo("eventCreatedBy", userId);
+		query.orderByDescending("createdAt");
 		query.findInBackground(new FindCallback<ParseObject>() {
 		 public void done(List<ParseObject> eventList, ParseException e) {
 			 if (e == null) {
@@ -188,7 +189,7 @@ public class UserListAllEventsActivity extends Activity {
 		    	     userEvents.add(userEvent);
 		    	 }
 		    	        	
-		    	 if(userEvents.size() > 0)
+		    	 if(userEvents.size() >= 0)
 		    	 {
 		    		 ListAllEventsAdapter allProjectsAdapter = new ListAllEventsAdapter(getApplicationContext(), userEvents);
 		    	     listEventsAll.setAdapter(allProjectsAdapter);
