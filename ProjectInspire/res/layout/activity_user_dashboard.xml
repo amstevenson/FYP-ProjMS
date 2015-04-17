@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/style_activity_background_gradient"
-    tools:context="com.projectinspire.activities.UserDashboardActivity" >
+    tools:context=".activities.MainActivity" >
 
  	<!--  Navigation panel -->
 	<android.support.v4.widget.DrawerLayout
@@ -28,7 +28,7 @@
 	        android:divider="#FFF"
 	        android:dividerHeight="0dp"        
 	        android:listSelector="@drawable/drawer_list_selector"
-	        android:background="@drawable/drawer_background_shape_two"/>
+	        android:background="@drawable/style_activity_background_gradient"/>
 	</android.support.v4.widget.DrawerLayout>
 	
 	<!--  create a scrollview to contain the rest of the layout -->
@@ -91,7 +91,8 @@
 			    android:paddingLeft="10dp"
 				android:background="#AF1D0600"
 			    android:text="@string/dashboard_projects"
-			    android:textColor="#fff" />
+			    android:textSize="16sp"
+			    android:textColor="#66CCFF" />
 		
 			<TextView
 			    android:id="@+id/txtDashboardProjectsTitle"
@@ -108,20 +109,22 @@
 			    android:textColor="#fff" />
 		    
 			<!--  Tasks -->
+
 			<TextView
 			    android:id="@+id/txtDashboardTasks"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardProjectsTitle"
 			    android:layout_marginLeft="15dp"
 			    android:layout_marginRight="15dp"
 			    android:layout_marginTop="40dp"
-			    android:layout_below="@id/txtDashboardProjectsTitle"
+			    android:background="#AF1D0600"
 			    android:paddingBottom="10dp"
-			    android:paddingTop="10dp"
 			    android:paddingLeft="10dp"
-				android:background="#AF1D0600"
-			    android:text="@string/dashboard_tasks"
-			    android:textColor="#fff" />
+			    android:paddingTop="10dp"
+			    android:text="@string/dashboard_groups"
+			    android:textColor="#66CCFF"
+			    android:textSize="16sp" />
 			
 			<TextView
 			    android:id="@+id/txtDashboardTasksTitle"
@@ -151,7 +154,8 @@
 			    android:paddingLeft="10dp"
 				android:background="#AF1D0600"
 			    android:text="@string/dashboard_events"
-			    android:textColor="#fff" />
+			    android:textSize="16sp"
+			    android:textColor="#66CCFF" />
 			
 			<TextView
 			    android:id="@+id/txtDashboardEventsTitle"
@@ -181,7 +185,8 @@
 			    android:paddingBottom="10dp"
 				android:background="#AF1D0600"
 			    android:text="@string/dashboard_messages"
-			    android:textColor="#fff" />
+			    android:textSize="16sp"
+			    android:textColor="#66CCFF" />
 			
 			<TextView
 			    android:id="@+id/txtDashboardMessagesTitle"

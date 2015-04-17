@@ -19,6 +19,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.projectinspire.R;
+import com.projectinspire.utilities.NetworkStateOperations;
 
 /*
  * The main class for the application. Allows the user to progress to either
@@ -71,74 +72,61 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 
-				final String email    = userEmail.getText().toString();
-				final String password = userPassword.getText().toString();
-				
-				//
-				// This is for testing purposes - for when I do not want to put in a password etc each time
-				//
-				//Intent sendToDashboard = new Intent(getApplicationContext(), UserDashboardActivity.class);
-				//startActivity(sendToDashboard);
-				
-				
-			    // Progress Dialog
-			    final ProgressDialog pDialog;
-	            pDialog = new ProgressDialog(MainActivity.this);
-	            pDialog.setMessage("Currently logging you in, please wait...");
-	            pDialog.setIndeterminate(false);
-	            pDialog.setCancelable(true);
-	            pDialog.show();
-			    
-			    
-				//
-				// Log in using Parse Loginbackground
-				//
-				// Send data to Parse.com for verification
-				ParseUser.logInInBackground(email, password,
-						new LogInCallback() {
-							public void done(ParseUser user, ParseException e) {
-								if (user != null) { // if we have a user
-									
-									//
-									// If the user is stored in the database
-									//
-									Intent intent = new Intent(
-											getApplicationContext(),
-											UserDashboardActivity.class);
-									
-									intent.putExtra("userId", user.getObjectId()); // add the email for queries
-									intent.putExtra("justRegistered", false);
-									//startActivity(intent);
-
-									//
-									// Notify success with a toast message
-									//
-									//Toast.makeText(getApplicationContext(),
-									//		"You have successfully logged in",
-									//		Toast.LENGTH_LONG).show();
-									//finish();
-									
-									if(pDialog.isShowing()) pDialog.dismiss();
-									
-									startActivity(intent);
-									
-								} else {
-									
-									// 
-									// Login has failed, ask user to register
-									//
-									
-									if(pDialog.isShowing()) pDialog.dismiss();
-									
-									Toast.makeText(
-											getApplicationContext(),
-											"Either the email address or password is incorrect, please try again.",
-											Toast.LENGTH_LONG).show();
+				if(NetworkStateOperations.testNetworkConnection(getApplicationContext()))
+				{
+					final String email    = userEmail.getText().toString();
+					final String password = userPassword.getText().toString();
+										
+				    // Progress Dialog
+				    final ProgressDialog pDialog;
+		            pDialog = new ProgressDialog(MainActivity.this);
+		            pDialog.setMessage("Currently logging you in, please wait...");
+		            pDialog.setIndeterminate(false);
+		            pDialog.setCancelable(true);
+		            pDialog.show();
+				    
+					//
+					// Log in using Parse LogInInbackground
+					//
+					// Send data to Parse.com for verification
+					ParseUser.logInInBackground(email, password,
+							new LogInCallback() {
+								public void done(ParseUser user, ParseException e) {
+									if (user != null) { // if we have a user
+										
+										//
+										// If the user is stored in the database
+										//
+										Intent intent = new Intent(
+												getApplicationContext(),
+												UserDashboardActivity.class);
+										
+										// Intent extras
+										intent.putExtra("userId", user.getObjectId());
+										intent.putExtra("justRegistered", false);
+										
+										// Close progress dialog
+										if(pDialog.isShowing()) pDialog.dismiss();     
+										
+										// Proceed to dashboard
+										startActivity(intent);
+										
+									} else {
+										
+										// 
+										// Login has failed, ask user to register
+										//
+										if(pDialog.isShowing()) pDialog.dismiss();
+										
+										Toast.makeText(
+												getApplicationContext(),
+												"Either the email address or password is incorrect, please try again.",
+												Toast.LENGTH_LONG).show();
+									}
 								}
-							}
-				}); // end of LogInBackground
-				
-			}	
+					}); // end of LogInBackground	
+				}// end of network test
+			}
 		});
 		
 		userForgotPassword.setOnClickListener(new OnClickListener() {

@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/style_activity_background_gradient" 
-    tools:context="com.projectinspire.activities.UserListAllProjectsActivity">
+    android:background="@drawable/style_activity_background_gradient"
+    tools:context=".activities.UserDashboardActivity" >
 
     <!--  List view that contains all of the projects that are specific to one person
     	  When clicked on, sends them to the tasks page that is relevent to the specific project -->

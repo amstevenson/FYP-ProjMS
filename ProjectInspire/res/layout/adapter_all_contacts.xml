@@ -5,19 +5,20 @@
     android:orientation="vertical"
     android:background="@drawable/style_activity_background_gradient"  >
     
-	<TextView 
+	<TextView
 	    android:id="@+id/adapter_contact_name"
-	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_contact_name"
-	    android:paddingLeft="10dp"
+	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
-	    android:layout_marginTop="10dp"
 	    android:layout_marginRight="10dp"
-	    android:paddingTop="10dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#AF1D0600"
 	    android:paddingBottom="10dp"
-	    android:background="#AF1D0600"/>
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_contact_name"
+	    android:textColor="#66CCFF"
+	    android:textSize="16sp" />
 	
 	<TextView
 	    android:id="@+id/adapter_contact_space"
@@ -33,19 +34,19 @@
 	    android:text="@string/adapter_contact_space"
 	    android:textColor="#fff" />
 	
-	<TextView 
+	<TextView
 	    android:id="@+id/adapter_contact_notes"
-	    android:layout_height="wrap_content"
 	    android:layout_width="200dp"
-	    android:maxLines="5"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_contact_notes"
-	    android:layout_marginTop="47dp"
+	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="100dp"
+	    android:layout_marginTop="47dp"
+	    android:maxLines="5"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
 	    android:paddingRight="10dp"
 	    android:paddingTop="10dp"
-	    android:paddingBottom="10dp"
-	    android:paddingLeft="10dp" />
+	    android:text="@string/adapter_contact_notes"
+	    android:textColor="#fff" />
 	
 	<ImageView
 	    android:id="@+id/contactEdit"

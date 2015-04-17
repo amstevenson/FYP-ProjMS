@@ -138,7 +138,7 @@ public class CreateOrEditTaskActivity extends Activity {
 			// Change the text for the button (boolean determines on click function, but text needs to be changed
 			// either way
 			//
-			createTask.setText("Update Project");
+			createTask.setText("Update Task");
 			
 		} 
 		//*******************************************************************************************//
@@ -407,6 +407,11 @@ public class CreateOrEditTaskActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			return true;
+		}
+		if(id == android.R.id.home)
+		{
+			finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

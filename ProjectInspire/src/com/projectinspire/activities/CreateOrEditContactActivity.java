@@ -9,6 +9,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.projectinspire.R;
+import com.projectinspire.utilities.NetworkStateOperations;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -312,6 +313,7 @@ public class CreateOrEditContactActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
+				if(NetworkStateOperations.testNetworkConnection(getApplicationContext()))
 				//
 				// Create dialog button for confirmation for deleting the project
 				//
@@ -359,6 +361,7 @@ public class CreateOrEditContactActivity extends Activity {
 			     })
 			     .setNegativeButton("Cancel", null)
 			     .show();
+			    
 			}
 		});
 	}
@@ -377,6 +380,11 @@ public class CreateOrEditContactActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			return true;
+		}
+		if(id == android.R.id.home)
+		{
+			finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

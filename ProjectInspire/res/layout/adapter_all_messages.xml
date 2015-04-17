@@ -5,19 +5,20 @@
     android:orientation="vertical"
     android:background="@drawable/style_activity_background_gradient"  >
     
-	<TextView 
+	<TextView
 	    android:id="@+id/adapter_message_name"
-	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_contact_name"
-	    android:paddingLeft="10dp"
+	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
-	    android:layout_marginTop="10dp"
 	    android:layout_marginRight="10dp"
-	    android:paddingTop="10dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#AF1D0600"
 	    android:paddingBottom="10dp"
-	    android:background="#AF1D0600"/>
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_contact_name"
+	    android:textColor="#66CCFF"
+	    android:textSize="16sp" />
 	
 	<TextView
 	    android:id="@+id/adapter_contact_space"
@@ -39,12 +40,12 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignRight="@+id/adapter_contact_space"
 	    android:layout_marginLeft="20dp"
-	    android:layout_marginTop="47dp"
-	    android:maxLines="5"
-	    android:gravity="left"
 	    android:layout_marginRight="10dp"
+	    android:layout_marginTop="47dp"
+	    android:gravity="left"
+	    android:maxLines="5"
 	    android:paddingBottom="10dp"
-	    android:paddingLeft="10dp"
+	    android:paddingLeft="25dp"
 	    android:paddingRight="20dp"
 	    android:paddingTop="10dp"
 	    android:text="@string/adapter_contact_notes"

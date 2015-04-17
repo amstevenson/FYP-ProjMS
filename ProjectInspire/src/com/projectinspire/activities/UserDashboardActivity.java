@@ -1,15 +1,21 @@
 package com.projectinspire.activities;
 
+import java.util.ArrayList;
+
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.projectinspire.R;
+import com.projectinspire.navslider.adapter.NavigationDrawerListAdapter;
+import com.projectinspire.navslider.model.NavigationDrawerItem;
+import com.projectinspire.navslider.model.NavigationDrawerProfileItem;
 
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -21,6 +27,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -29,21 +37,40 @@ import android.widget.Toast;
 
 public class UserDashboardActivity extends Activity {
 
-    // Navigation menu variables
+    // Navigation XML Menu variables
 	private DrawerLayout 		  navigationMenuLayout;
 	private ListView 			  navigationMenuList;
 	private ActionBarDrawerToggle navigationMenuToggle;
+	
+    // Navigation tab lists to store values.
+	// -- These are used to store all of the information
+	// -- that relates to the navigation tabs.
+	private ArrayList<NavigationDrawerItem> 		navDrawerItems;
+	private ArrayList<NavigationDrawerProfileItem> navDrawerProfileItem;
+	private NavigationDrawerListAdapter 			navMenuAdapter;
+	
+	// Individual Navigation list item variables.
+	// -- For each tab we have, if it is user information
+	// -- use the background image, profile image etc.
+	// -- Else use the icon and navigation tab name.
+	private Bitmap 				  profileBackgroundImage;
+	private Bitmap 				  profileImage;
+	private String 				  profileName;
+	private String 				  profileEmail;
+	private String[] 			  navMenuTitles;
+	private TypedArray 			  navMenuIcons;
 	
 	// The title for the navigation menu
 	private CharSequence 		  navigtationMenuTitle;
 	
 	// The title of the application
-	private CharSequence 		  applicationTitle;
+	//private CharSequence 		  applicationTitle;
 	
 	// ScrollView
 	private ScrollView 			  scrollViewDashboard;
 	
-	private String 		  		  userId = "empty";
+	private String 		  		  userId    = "empty";
+	private String				  userEmail = "empty";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +128,8 @@ public class UserDashboardActivity extends Activity {
 		    // Set the users information
 		    //
 		    dashboardUsername.setText(currentUser.get("forename").toString() + " " + currentUser.get("surname").toString());
-		    dashboardEmail.setText(currentUser.getEmail());
+		    userEmail = currentUser.getEmail();
+		    dashboardEmail.setText(userEmail);
 		    		
 		    ParseFile fileObject = (ParseFile) currentUser.get("userImageFile");
 		    fileObject.getDataInBackground(new GetDataCallback() {
@@ -127,7 +155,10 @@ public class UserDashboardActivity extends Activity {
 		    		
 		} else 
 		{
-		    	  // show the signup or login screen
+		    // show the signup or login screen.
+			// Although this functionality being invoked would imply
+			// that the logic regarding validation for the main login
+			// activity has failed.
 		}
 		
 		//
@@ -162,7 +193,7 @@ public class UserDashboardActivity extends Activity {
 				
 				Intent allMessages = new Intent(getApplicationContext(), UserContactsActivity.class);
 				allMessages.putExtra("userId", userId);
-				allMessages.putExtra("userEmail", currentUser.getEmail());
+				allMessages.putExtra("userEmail", userEmail);
 				startActivity(allMessages);
 				
 			}
@@ -175,7 +206,7 @@ public class UserDashboardActivity extends Activity {
 
 				Intent allMessages = new Intent(getApplicationContext(), UserContactsActivity.class);
 				allMessages.putExtra("userId", userId);
-				allMessages.putExtra("userEmail", currentUser.getEmail());
+				allMessages.putExtra("userEmail", userEmail);
 				startActivity(allMessages);
 				
 			}
@@ -243,6 +274,46 @@ public class UserDashboardActivity extends Activity {
 		navigationMenuList   = (ListView)     findViewById(R.id.dashboard_drawer_menu_listview);
 		scrollViewDashboard  = (ScrollView) findViewById(R.id.scrollViewDashboard);
 		
+		// load slide menu navigation bar
+		// the profile of the user: 
+		profileBackgroundImage = BitmapFactory.decodeResource(getResources(),R.drawable.drawer_list_shape_one);
+		profileImage 		   = BitmapFactory.decodeResource(getResources(),R.drawable.icon_person_white_48dp);
+		profileName 		   = "test";
+		profileEmail 		   = "test";
+				
+		// Name of the navigation function followed by the icon
+		navMenuTitles = getResources().getStringArray(R.array.navigation_drawer_items);
+		navMenuIcons  = getResources().obtainTypedArray(R.array.navigation_drawer_icons);
+					
+		// navigation user profile
+		navDrawerProfileItem = new ArrayList<NavigationDrawerProfileItem>();
+		navDrawerProfileItem.add(new NavigationDrawerProfileItem(profileBackgroundImage, profileImage, profileName, profileEmail));
+				
+		// navigation function items
+		navDrawerItems = new ArrayList<NavigationDrawerItem>();
+		// Empty space container (else the first item will stack on top of the user profile)
+		navDrawerItems.add(new NavigationDrawerItem());
+		// Home
+		navDrawerItems.add(new NavigationDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+		// Properties
+		navDrawerItems.add(new NavigationDrawerItem(navMenuTitles[1], navMenuIcons.getResourceId(1, -1)));
+		navDrawerItems.add(new NavigationDrawerItem(navMenuTitles[2], navMenuIcons.getResourceId(2, -1)));
+		// Messages
+		navDrawerItems.add(new NavigationDrawerItem(navMenuTitles[3], navMenuIcons.getResourceId(3, -1)));
+		// Payments
+		navDrawerItems.add(new NavigationDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1)));
+		// Log off
+		navDrawerItems.add(new NavigationDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1)));
+				
+		// Recycle typed array 'navmenuicons'
+		navMenuIcons.recycle();
+				
+		// setting the nav drawer list adapter
+		navMenuAdapter = new NavigationDrawerListAdapter(getApplicationContext(), navDrawerProfileItem,
+				navDrawerItems, "Dashboard");
+		navigationMenuList.setAdapter(navMenuAdapter);
+		
+		
 		//
 		// enabling action bar application icon and behaving it as toggle button
 		//
@@ -264,7 +335,7 @@ public class UserDashboardActivity extends Activity {
 				//
 				// set the title of the activity
 				//
-				getActionBar().setTitle(applicationTitle);
+				getActionBar().setTitle("Your Dashboard");
 					
 				//
 				// calling onPrepareOptionsMenu() to show action bar icons
@@ -283,7 +354,7 @@ public class UserDashboardActivity extends Activity {
 				//
 				// set the title
 				//
-				getActionBar().setTitle(navigtationMenuTitle);
+				getActionBar().setTitle("Your Dashboard");
 						
 				//
 				// calling onPrepareOptionsMenu() to hide action bar icons
@@ -296,6 +367,97 @@ public class UserDashboardActivity extends Activity {
 		// set the drawer listener for the navgiation menu
 		//
 		navigationMenuLayout.setDrawerListener(navigationMenuToggle);
+		
+		//
+		// Set the onItemClickListener for the navigation drawer.
+		// This will be used to send the user to the activity that
+		// relates to the tab that they have clicked on.
+		//
+		navigationMenuList.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				
+				// Get the navigation item at the position that has been clicked on.
+				NavigationDrawerItem selectedItem = navDrawerItems.get(position);
+				
+				// Retrieve the title by invoking by the getTitle method.
+				String selectedItemTitle = selectedItem.getTitle();
+				
+				// Based on the title, navigate the user to a different activity
+				switch(selectedItemTitle)
+				{
+					case "My Projects": 
+						
+						Intent projectsIntent = new Intent(getApplicationContext(), UserListAllProjectsActivity.class);
+						
+						// Pass the userId and start the activity
+						projectsIntent.putExtra("userId", userId);
+						projectsIntent.putExtra("userEmail", userEmail);
+						startActivity(projectsIntent);
+						
+						break;
+					
+					case "My Messages": 
+						
+						Intent messageIntent = new Intent(getApplicationContext(), UserContactsActivity.class);
+						
+						// Pass the userId and start the activity
+						messageIntent.putExtra("userId", userId);
+						messageIntent.putExtra("userEmail", userEmail);
+						startActivity(messageIntent);
+						
+						break;
+					
+					case "My Events": 
+						
+						Intent eventIntent = new Intent(getApplicationContext(), UserListAllEventsActivity.class);
+						
+						// Pass the userId and start the activity
+						eventIntent.putExtra("userId", userId);
+						eventIntent.putExtra("userEmail", userEmail);
+						startActivity(eventIntent);
+						
+						break;
+					
+					case "My Groups": 
+						
+						/*
+						Intent groupIntent = new Intent(getApplicationContext(), ChangeUserDetailsActivity.class);
+						
+						// Pass the userId and start the activity
+						accountIntent.putExtra("userId", userId);
+						startActivity(accountIntent);
+						*/
+						
+						break;
+					
+					case "Change Account Details":
+					
+						Intent accountIntent = new Intent(getApplicationContext(), ChangeUserDetailsActivity.class);
+						
+						// Pass the userId and start the activity
+						accountIntent.putExtra("userId", userId);
+						startActivity(accountIntent);
+						
+						break;
+					
+					case "Log off": 
+						
+						Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
+						startActivity(mainIntent);
+						
+						// Finish the current activity.
+						finish();
+						
+						break;
+					
+					default: break; // If the top part is clicked on (user information), or something has gone wrong.
+				}
+			}
+		});
+		
 	}
 
 	@Override

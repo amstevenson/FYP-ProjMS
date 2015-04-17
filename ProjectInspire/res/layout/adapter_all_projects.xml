@@ -5,19 +5,20 @@
     android:orientation="vertical"
     android:background="@drawable/style_activity_background_gradient"  >
     
-	<TextView 
+	<TextView
 	    android:id="@+id/projectName"
-	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_project_name"
-	    android:paddingLeft="10dp"
+	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
-	    android:layout_marginTop="10dp"
 	    android:layout_marginRight="10dp"
-	    android:paddingTop="10dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#AF1D0600"
 	    android:paddingBottom="10dp"
-	    android:background="#AF1D0600"/>
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_project_name"
+	    android:textColor="#66CCFF"
+	    android:textSize="16sp" />
 	
 	<TextView
 	    android:id="@+id/projectDescription"
@@ -28,7 +29,7 @@
 	    android:layout_marginTop="48dp"
 	    android:background="#3F1b2600"
 	    android:maxLines="3"
-	    android:paddingLeft="10dp"
+	    android:paddingLeft="25dp"
 	    android:paddingTop="45dp"
 	    android:text="@string/adapter_project_description"
 	    android:textColor="#fff" />
@@ -46,17 +47,17 @@
 	    android:layout_marginTop="82dp"
 		android:maxLines="2" /> -->
 	
-	<TextView 
+	<TextView
 	    android:id="@+id/projectStartDate"
-	    android:layout_height="wrap_content"
 	    android:layout_width="wrap_content"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_project_start_date"
-	    android:layout_marginTop="47dp"
+	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
-	    android:paddingTop="10dp"
+	    android:layout_marginTop="47dp"
 	    android:paddingBottom="10dp"
-	    android:paddingLeft="10dp" />
+	    android:paddingLeft="25dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_project_start_date"
+	    android:textColor="#fff" />
 	
 	<TextView 
 	    android:id="@+id/projectEndDate"

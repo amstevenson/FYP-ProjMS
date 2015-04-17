@@ -11,6 +11,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
 import com.projectinspire.R;
+import com.projectinspire.utilities.NetworkStateOperations;
 import com.projectinspire.utilities.Operations;
 import com.projectinspire.utilities.RegularExpressions;
 
@@ -147,6 +148,8 @@ public class RegisterAccountActivity extends Activity {
 				//
 				RegularExpressions regularExpressions = new RegularExpressions();
 				
+				
+				if(NetworkStateOperations.testNetworkConnection(getApplicationContext()))
 				//
 				// Check if password contains at least one number and letter
 				// 
@@ -474,7 +477,9 @@ public class RegisterAccountActivity extends Activity {
 						"Please select a smaller file, the current one is too large.", duration)
 						.show();
             }
+            
         }
+        
     }
     
 	@Override
@@ -492,6 +497,11 @@ public class RegisterAccountActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			return true;
+		}
+		if(id == android.R.id.home)
+		{
+			finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

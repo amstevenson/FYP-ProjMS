@@ -4,37 +4,44 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="21" />
+        android:targetSdkVersion="22" />
 
     <application
+        android:name=".application.App"
         android:allowBackup="true"
-        android:name="com.projectinspire.application.App"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/ProjectInspire.theme" >
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.RegisterAccountActivity"
-            android:label="@string/title_activity_register_account" 
+            android:label="@string/title_activity_register_account"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.MainActivity" />
         </activity>
         <activity
             android:name=".activities.UserDashboardActivity"
             android:label="@string/title_activity_user_dashboard"
             android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -44,6 +51,7 @@
             android:name=".activities.UserListAllProjectsActivity"
             android:label="@string/title_activity_projects"
             android:parentActivityName=".activities.UserDashboardActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -53,6 +61,7 @@
             android:name=".activities.UserContactsActivity"
             android:label="@string/title_activity_user_contacts"
             android:parentActivityName=".activities.UserDashboardActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -62,6 +71,7 @@
             android:name=".fragments.UserContactsFragment"
             android:label="@string/title_activity_user_contacts_fragment"
             android:parentActivityName=".activities.UserDashboardActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -71,6 +81,7 @@
             android:name=".fragments.UserContactsMessagesFragment"
             android:label="@string/title_activity_user_contacts_messages_fragment"
             android:parentActivityName=".activities.UserDashboardActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -80,6 +91,7 @@
             android:name=".activities.UserSelectedProjectActivity"
             android:label="@string/title_activity_user_selected_project"
             android:parentActivityName=".activities.UserListAllProjectsActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -89,6 +101,7 @@
             android:name=".fragments.UserSelectedProjectTasksFragment"
             android:label="@string/title_activity_user_selected_project_tasks"
             android:parentActivityName=".activities.UserListAllProjectsActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -98,6 +111,7 @@
             android:name=".fragments.UserSelectedProjectAllFilesFragment"
             android:label="@string/title_activity_user_selected_project_all_files_fragment"
             android:parentActivityName=".activities.UserListAllProjectsActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -107,6 +121,7 @@
             android:name=".activities.CreateOrEditProjectActivity"
             android:label="@string/title_activity_create_or_edit_project"
             android:parentActivityName=".activities.UserListAllProjectsActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -116,6 +131,7 @@
             android:name=".activities.CreateOrEditTaskActivity"
             android:label="@string/title_activity_create_or_edit_task"
             android:parentActivityName=".activities.UserSelectedProjectActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -125,6 +141,7 @@
             android:name=".activities.UserListAllEventsActivity"
             android:label="@string/title_activity_user_list_all_events"
             android:parentActivityName=".activities.UserDashboardActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -134,6 +151,7 @@
             android:name=".activities.CreateOrEditEventActivity"
             android:label="@string/title_activity_create_or_edit_event"
             android:parentActivityName=".activities.UserDashboardActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -143,6 +161,7 @@
             android:name=".activities.ForgotPasswordActivity"
             android:label="@string/title_activity_forgot_password"
             android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -152,6 +171,7 @@
             android:name=".activities.ForgotPasswordResetActivity"
             android:label="@string/title_activity_forgot_password_reset"
             android:parentActivityName=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -161,19 +181,29 @@
             android:name=".activities.CreateOrEditContactActivity"
             android:label="@string/title_activity_create_or_edit_contact"
             android:parentActivityName=".activities.UserContactsActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.projectinspire.activities.UserContactsActivity" />
         </activity>
         <activity
-            android:name="com.projectinspire.activities.CreateOrEditMessageActivity"
+            android:name=".activities.CreateOrEditMessageActivity"
             android:label="@string/title_activity_create_or_edit_message"
             android:parentActivityName=".activities.UserContactsActivity"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.projectinspire.activities.UserContactsActivity" />
+        </activity>
+        <activity
+            android:name="com.projectinspire.activities.ChangeUserDetailsActivity"
+            android:label="@string/title_activity_change_user_details"
+            android:parentActivityName=".activities.UserDashboardActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.projectinspire.activities.UserDashboardActivity" />
         </activity>
     </application>
 

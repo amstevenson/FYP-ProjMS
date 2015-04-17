@@ -1,6 +1,10 @@
 package com.projectinspire.utilities;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
@@ -9,12 +13,16 @@ import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 public class UtilitiesPickers extends Activity{
 
 	static EditText passedEditText; // the view where the date will be shown
+	static int count = 0;			// for toast popups - focus/click counts as two, so for toasts
+									// it would make two instead of one
 	
 	//*******************************************************************************************//
 	//									DATE PICKER												 //
@@ -52,13 +60,61 @@ public class UtilitiesPickers extends Activity{
 		public void onDateSet(android.widget.DatePicker view, int year, int month, int day) {
 			
 			month += 1; // So we have an accurate month date...as 0 is not a month (as far as I know).
+
 			//
-			// Set the date.
-			// The view needs to belong to the context that invoked the date picker
-			// Or in other words, the context/view that created this dialog. 
-			// (Hence the static global declaration of the EditText view).
+			// Check chosen date to make sure it isnt before todays date
 			//
-			passedEditText.setText("" + day + "/" + "" + month + "/" + year);
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy", Locale.getDefault());
+			String dateInString = "" + day + "/" + "" + month + "/" + year;
+
+			Date checkedDate;
+			boolean validDate = false;
+			
+			try {
+				checkedDate = sdf.parse(dateInString);
+
+			
+			//long todaysDate  = Calendar.getInstance().get(Calendar.MILLISECOND);
+			long todaysDate  = Calendar.getInstance().getTime().getTime();
+			long toCheckDate = checkedDate.getTime();
+			
+			// checking - debug purposes
+			Log.d("Todays Date(ms)",      "" + todaysDate);
+			Log.d("The checked date(ms)", "" + toCheckDate);
+			
+			if(toCheckDate >= todaysDate) validDate = true;
+			else validDate = false;
+			
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			if(validDate == true)
+				//
+				// If everything is fine, then set the date.
+				//
+				// The view needs to belong to the context that invoked the date picker
+				// Or in other words, the context/view that created this dialog. 
+				// (Hence the static global declaration of the EditText view).
+				//
+				passedEditText.setText("" + day + "/" + "" + month + "/" + year);
+			else
+			{
+				// to only make it appear once...the focus and click event of the
+				// object that invokes this class, each have a seperate instance of this
+				if(count == -1)
+				{
+					Toast toast = Toast.makeText(getActivity(), 
+							"Invalid date: Start/end date seems to be before today.", Toast.LENGTH_LONG);
+					toast.show();
+					
+					passedEditText.setText("");
+				}
+			}
+			
+			
 		}
 
 	}
@@ -107,4 +163,39 @@ public class UtilitiesPickers extends Activity{
 		}
 
 	}
+	
+	/*
+	 * 
+	 * @return true if the first date is less than the second.
+	 * @return false if the first date proceeds the second 
+	 */
+	public boolean compareDateTimes (String firstDate, String secondDate) throws Exception
+	{
+		boolean firstBeforeSecond = false;
+		
+		//
+		// Get dates
+		// 
+		// First string + start Date
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy", Locale.getDefault());
+		
+		Date startDate = sdf.parse(firstDate);
+		
+		//
+		// Second string + end date
+		//
+		Date endDate = sdf.parse(secondDate);
+		
+		//
+		// Compare the two, and determine if the first is before the second
+		//
+		long longOfStartDate = startDate.getTime();
+ 		long longOfEndDate   = endDate.getTime();
+		
+ 		if(longOfStartDate < longOfEndDate) firstBeforeSecond = true;
+ 		else 								firstBeforeSecond = false;
+ 		
+		return firstBeforeSecond;
+	}
+
 }

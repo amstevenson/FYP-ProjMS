@@ -38,6 +38,8 @@ public class CreateOrEditProjectActivity extends Activity {
 	private String  userId    = "empty";
 	private String  projectId = "empty";
 	private boolean editing   = false;
+	//private boolean checkStartDate = false;
+	//private boolean checkEndDate   = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -201,14 +203,15 @@ public class CreateOrEditProjectActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				
 				//
 				// Set date
 				//
 				pickers.showDatePickerDialog(CreateOrEditProjectActivity.this, projEndDate);
-				
+				//pickers.setCount();
 			}
 		});
-		
+				
 		// on click
 		btnCreateProject.setOnClickListener(new OnClickListener() {
 			
@@ -216,11 +219,30 @@ public class CreateOrEditProjectActivity extends Activity {
 			public void onClick(View v) {
 				
 				//
-				// if creating/ not editing
+				// Date validation to determine if the start date is before or after the end date.
 				// 
-				if(!editing)
+				boolean startDateBeforeEndDate = false;
+				
+				try {
+					startDateBeforeEndDate = 
+							pickers.compareDateTimes(projStartDate.getText().toString(), projEndDate.getText().toString());
+				
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				if(!startDateBeforeEndDate)
+					Toast.makeText(getApplicationContext(), 
+							"The start date is ahead of the end date please, revise and try again", 
+							Toast.LENGTH_LONG)
+							.show();
+				
+				//
+				// if creating/ not editing, then create a new project
+				// 
+				if(!editing && startDateBeforeEndDate)
 				{
-					
 					//
 					// make sure that no fields are empty
 					//
@@ -284,7 +306,8 @@ public class CreateOrEditProjectActivity extends Activity {
 						
 					}
 				}
-				if(editing)
+				// For updating
+				if(editing && startDateBeforeEndDate)
 				{
 				    // Progress Dialog
 				    final ProgressDialog pDialog;
@@ -413,6 +436,11 @@ public class CreateOrEditProjectActivity extends Activity {
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			return true;
+		}
+		if(id == android.R.id.home)
+		{
+			finish();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);

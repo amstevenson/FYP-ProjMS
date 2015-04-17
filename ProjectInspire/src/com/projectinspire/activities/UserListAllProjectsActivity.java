@@ -181,6 +181,8 @@ public class UserListAllProjectsActivity extends Activity {
     	// Set the project adapter
     	//
     	//createAndSetProjectAdapter();
+    	
+    	getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	public void createAndSetProjectAdapter()
@@ -286,6 +288,34 @@ public class UserListAllProjectsActivity extends Activity {
 		if (id == R.id.action_settings) {
 			return true;
 		}
+		if(id == android.R.id.home)
+		{
+			finish();
+			
+			Log.d("on back pressed", "in items selected");
+
+			
+			return true;
+		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	/*
+	@Override
+    public void onBackPressed() {
+        super.onBackPressed();   
+        
+        Intent intent = new Intent(
+				getApplicationContext(),
+				UserDashboardActivity.class);
+		
+		intent.putExtra("userId", userId); // add the email for queries
+		
+		startActivity(intent);
+		
+		Log.d("on back pressed", "in on back pressed");
+
+    }
+    
+    */
 }

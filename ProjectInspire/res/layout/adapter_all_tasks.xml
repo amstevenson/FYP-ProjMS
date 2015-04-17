@@ -5,19 +5,20 @@
     android:orientation="vertical"
     android:background="@drawable/style_activity_background_gradient"  >
     
-	<TextView 
+	<TextView
 	    android:id="@+id/taskName"
-	    android:layout_height="wrap_content"
 	    android:layout_width="match_parent"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_task_name"
-	    android:paddingLeft="10dp"
+	    android:layout_height="wrap_content"
 	    android:layout_marginLeft="10dp"
-	    android:layout_marginTop="10dp"
 	    android:layout_marginRight="10dp"
-	    android:paddingTop="10dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#AF1D0600"
 	    android:paddingBottom="10dp"
-	    android:background="#AF1D0600"/>
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_task_name"
+	    android:textColor="#66CCFF"
+	    android:textSize="16sp" />
 	
 	<TextView
 	    android:id="@+id/taskDescription"
@@ -28,36 +29,25 @@
 	    android:layout_marginTop="48dp"
 	    android:background="#3F1b2600"
 	    android:maxLines="3"
-	    android:paddingLeft="10dp"
+	    android:paddingLeft="25dp"
 	    android:paddingTop="125dp"
 	    android:text="@string/adapter_task_description"
 	    android:textColor="#fff" />
-	
-	<TextView
-	    android:id="@+id/taskStatus"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_marginLeft="10dp"
-	    android:layout_marginRight="10dp"
-	    android:layout_marginTop="132dp"
-	    android:maxLines="3"
-	    android:paddingLeft="10dp"
-	    android:text="@string/adapter_task_status"
-	    android:textColor="#fff" />
     
 	<!--  category/assigned to - different from projects -->
-	<TextView 
+
+	<TextView
 	    android:id="@+id/taskCategory"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_task_category"
-	    android:paddingLeft="10dp"
 	    android:layout_marginLeft="10dp"
 	    android:layout_marginRight="10dp"
-	    android:paddingTop="10dp"
 	    android:layout_marginTop="82dp"
-		android:maxLines="2" />
+	    android:maxLines="2"
+	    android:paddingLeft="25dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_task_category"
+	    android:textColor="#fff" />
 	
 	<TextView 
 	    android:id="@+id/taskAssignedTo"
@@ -71,18 +61,6 @@
 	    android:paddingTop="10dp"
 	    android:layout_marginTop="82dp"
 		android:maxLines="2" />
-	
-	<TextView 
-	    android:id="@+id/taskStartDate"
-	    android:layout_height="wrap_content"
-	    android:layout_width="wrap_content"
-	    android:textColor="#fff"
-	    android:text="@string/adapter_task_start_date"
-	    android:layout_marginTop="47dp"
-	    android:layout_marginLeft="10dp"
-	    android:paddingTop="10dp"
-	    android:paddingBottom="10dp"
-	    android:paddingLeft="10dp" />
 	
 	<TextView 
 	    android:id="@+id/taskEndDate"
@@ -121,5 +99,31 @@
 	    android:paddingTop="5dp"
 	    android:text="@string/adapter_task_priority"
 	    android:textColor="#000" />
+
+	<TextView
+	    android:id="@+id/taskStartDate"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBaseline="@+id/taskEndDate"
+	    android:layout_alignBottom="@+id/taskEndDate"
+	    android:layout_alignLeft="@+id/taskName"
+	    android:layout_marginLeft="18dp"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="8dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_task_start_date"
+	    android:textColor="#fff" />
+
+	<TextView
+	    android:id="@+id/taskStatus"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/taskStartDate"
+	    android:layout_below="@+id/taskCategory"
+	    android:layout_marginTop="22dp"
+	    android:maxLines="3"
+	    android:paddingLeft="8dp"
+	    android:text="@string/adapter_task_status"
+	    android:textColor="#fff" />
 	
 </RelativeLayout>

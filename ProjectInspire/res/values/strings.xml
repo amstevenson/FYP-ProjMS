@@ -30,10 +30,10 @@
     <string name="register_lbl_repeat_password">Repeat Password</string>
     <string name="register_edit_repeat_password">Repeat Password</string>
     <string name="register_btn_account">Register your account</string>
-	<string name="register_lbl_picture">User Picture</string>
-	<string name="register_btn_picture">Change Profile Image</string>
-	<string name="register_img_picture">User image photo</string>
-    
+    <string name="register_lbl_picture">User Picture</string>
+    <string name="register_btn_picture">Change Profile Image</string>
+    <string name="register_img_picture">User image photo</string>
+
     <!-- Dashboard activity -->
     <string name="title_activity_user_dashboard">Your Dashboard</string>
     <string name="dashboard_user_name">Adam Stevenson</string>
@@ -63,13 +63,13 @@
     <string name="title_activity_user_contacts_messages_fragment">UserContactsMessagesFragment</string>
 
     <!-- Tasks activity/fragments -->
-    <string name="title_activity_user_selected_project">Selected Project</string>
-    <string name="title_activity_user_selected_project_tasks">Selected Project</string>
-    <string name="title_activity_user_selected_project_all_files_fragment">Selected Project</string>
+    <string name="title_activity_user_selected_project">Tasks</string>
+    <string name="title_activity_user_selected_project_tasks">Tasks</string>
+    <string name="title_activity_user_selected_project_all_files_fragment">Tasks</string>
     <string name="tab_all_tasks">Tasks</string>
     <string name="tab_all_files">Files</string>
     <string name="tab_all_events">Events</string>
-    
+
     <!-- Create or Edit project -->
     <string name="create_project_lbl_userhelp">To create a project, please enter in the following information and press the \'create\' button</string>
     <string name="title_activity_create_or_edit_project">CreateOrEditProject</string>
@@ -89,15 +89,15 @@
     <string name="create_project_edit_description">Enter Notes</string>
     <string name="create_project_btn">Create Project</string>
     <string name="search_project">Search Projects&#8230;</string>
-	<string name="create_project_delete_button">Delete Project</string>
+    <string name="create_project_delete_button">Delete Project</string>
     <string name="project_type_prompt">Choose a Type</string>
- 
+
     <string-array name="project_type_array">
         <item>Individual</item>
         <item>Group</item>
         <item>Other</item>
     </string-array>
-    
+
     <!-- Create or Edit Task Activity -->
     <string name="title_activity_create_or_edit_task">CreateOrEditTaskActivity</string>
     <string name="task_create">New Task</string>
@@ -119,14 +119,41 @@
     <string name="create_task_btn">Create Task</string>
     <string name="search_task">Search Tasks&#8230;</string>
     <string name="task_type_prompt">Choose a Type</string>
- 	<string name="create_task_delete_button">Delete Task</string>
-    
+    <string name="create_task_delete_button">Delete Task</string>
+
     <string-array name="task_type_array">
         <item>Critical</item>
         <item>Medium</item>
         <item>Minimal</item>
         <item>Other</item>
     </string-array>
+
+    <!-- Navigation drawer items -->
+    <string-array name="navigation_drawer_items">
+        <item>My Projects</item>
+        <item>My Messages</item>
+        <item>My Events</item>
+        <item>My Groups</item>
+        <item>Change Account Details</item>
+        <item>Log off</item>
+    </string-array>
+
+    <!-- Navigation Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="navigation_drawer_icons">
+        <item>@drawable/navigation_projects</item>
+        <item>@drawable/navigation_messages</item>
+        <item>@drawable/navigation_events</item>
+        <item>@drawable/navigation_groups</item>
+        <item>@drawable/navigation_user_details</item>
+        <item>@drawable/navigation_logout</item>
+    </array>
+
+    <!-- Nav Drawer Profile Test Items -->
+    <!-- profile image -->
+    <array name="navigation_drawer_profile_image">
+        <item>@drawable/icon_person_white_48dp</item>
+    </array>
     
     <!-- Create or Edit event Activity -->
     <string name="title_activity_create_or_edit_event">CreateOrEditEventActivity</string>
@@ -135,30 +162,30 @@
     <string name="lbl_events_none">You currently do not have any events allocated to your account.</string>
     <string name="search_events">Search Events&#8230;</string>
     <string name="create_event_summary">To create an event, please enter in the following information and press the \'create\' button</string>
-	<string name="create_event_txt_name">Name</string>
-	<string name="create_event_edit_name">Enter Event Name</string>
-	<string name="create_event_txt_location">Location</string>
-	<string name="create_event_edit_locatioin">Enter Location</string>
-	<string name="create_event_txt_description">Description</string>
-	<string name="create_event_edit_description">Enter Description</string>
-	<string name="create_event_txt_date">Event Date</string>
-	<string name="create_event_edit_date">Enter Date</string>
-	<string name="create_event_txt_start_time">Start Time</string>
-	<string name="create_event_edit_start_time">Enter Time</string>
-	<string name="create_event_txt_end_time">End Time</string>
-	<string name="create_event_edit_end_time">Enter Time</string>
-	<string name="create_event_txt_visibility">Visible To</string>
-	<string name="create_event_edit_visibility">Select group</string>
+    <string name="create_event_txt_name">Name</string>
+    <string name="create_event_edit_name">Enter Event Name</string>
+    <string name="create_event_txt_location">Location</string>
+    <string name="create_event_edit_locatioin">Enter Location</string>
+    <string name="create_event_txt_description">Description</string>
+    <string name="create_event_edit_description">Enter Description</string>
+    <string name="create_event_txt_date">Event Date</string>
+    <string name="create_event_edit_date">Enter Date</string>
+    <string name="create_event_txt_start_time">Start Time</string>
+    <string name="create_event_edit_start_time">Enter Time</string>
+    <string name="create_event_txt_end_time">End Time</string>
+    <string name="create_event_edit_end_time">Enter Time</string>
+    <string name="create_event_txt_visibility">Visible To</string>
+    <string name="create_event_edit_visibility">Select group</string>
     <string name="create_event_btn">Create Event</string>
     <string name="event_type_prompt">Choose an Event</string>
-	<string name="create_event_delete_button">Delete Event</string>
-    
+    <string name="create_event_delete_button">Delete Event</string>
+
     <string-array name="event_type_array">
         <item>Everyone</item>
         <item>Select Group</item>
         <item>Myself</item>
     </string-array>
-    
+
     <!-- New interaction / new contact interaction Activity -->
     <string name="search_contacts">Search Contacts&#8230;</string>
     <string name="search_messages">Search Messages&#8230;</string>
@@ -188,7 +215,8 @@
 
     <!-- View message Activity -->
 
-    <!--  Create or edit message -->
+
+    <!-- Create or edit message -->
     <string name="title_activity_create_or_edit_message">CreateOrEditMessageActivity</string>
     <string name="create_message_summary">To send a message, please enter in the following information and press the \'send\' button</string>
     <string name="create_message_txt_recipient">Recipient</string>
@@ -196,10 +224,10 @@
     <string name="create_message_txt_message_content">Message</string>
     <string name="create_message_edit_message_conntent">Message Body</string>
     <string name="create_message_btn">Send Message</string>
-    
-    <!--  Create or edit Contact -->
+
+    <!-- Create or edit Contact -->
     <string name="title_activity_create_or_edit_contact">CreateOrEditContactActivity</string>
-	<string name="create_contact_summary">To send a contact, please enter in the following information and press the \'send\' button</string>
+    <string name="create_contact_summary">To send a contact, please enter in the following information and press the \'send\' button</string>
     <string name="create_contact_txt_name">Contact Name</string>
     <string name="create_contact_edit_name">Enter Name</string>
     <string name="create_contact_txt_email">Email Address</string>
@@ -209,9 +237,9 @@
     <string name="create_contact_txt_project_affiliation">Projects Worked On</string>
     <string name="create_contact_edit_project_affiliation">Enter Projects</string>
     <string name="create_contact_btn">Create Contact</string>
-	<string name="create_contact_delete_button">Delete Contact</string>
-    
-    <!--  all projects - adapter view -->
+    <string name="create_contact_delete_button">Delete Contact</string>
+
+    <!-- all projects - adapter view -->
     <string name="adapter_project_name">Project Name</string>
     <string name="adapter_project_start_date">Start Date</string>
     <string name="adapter_project_end_date">End Date</string>
@@ -223,8 +251,8 @@
            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum."</string>
     <string name="adapter_project_status">Status</string>
-    
-    <!--  all tasks - adapter view -->
+
+    <!-- all tasks - adapter view -->
     <string name="adapter_task_name">Task Name</string>
     <string name="adapter_task_assigned">Assigned To</string>
     <string name="adapter_task_category">Category</string>
@@ -233,8 +261,8 @@
     <string name="adapter_task_priority">Priority</string>
     <string name="adapter_task_description">Description</string>
     <string name="adapter_task_status">Status</string>
-    
-    <!--  all contacts - adapter view -->
+
+    <!-- all contacts - adapter view -->
     <string name="adapter_contact_name">Contact Name</string>
     <string name="adapter_contact_email">Contact Email</string>
     <string name="adapter_contact_notes">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -244,5 +272,9 @@
             anim id est laborum.</string>
     <string name="adapter_contact_image">Image</string>
     <string name="adapter_contact_space"></string>
-    
+    <string name="title_activity_change_user_details">ChangeUserDetailsActivity</string>
+    <string name="btn_change_user_details">Change Details</string><string name="desc_list_item_icon">Item Icon</string>
+    <string name="change_user_details_description">Information relating to your account that can be changed is shown below. To change the email address used, please contact \'AddStevenson@hotmail.com\'.</string>
+    <string name="dashboard_groups">Groups</string>
+
 </resources>

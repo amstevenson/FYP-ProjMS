@@ -74,6 +74,7 @@ public class ListAllEventsAdapter extends BaseAdapter{
 		TextView txtEventDate        = (TextView ) convertView.findViewById(R.id.eventDate);
 		TextView txtEventStartTime   = (TextView ) convertView.findViewById(R.id.eventStartTime);
 		TextView txtEventEndTime     = (TextView ) convertView.findViewById(R.id.eventEndTime);
+		ImageView imgGoogleMap       = (ImageView) convertView.findViewById(R.id.eventMap);
 		ImageView imgEdit			 = (ImageView) convertView.findViewById(R.id.eventEdit);
 		
 		//
@@ -103,6 +104,19 @@ public class ListAllEventsAdapter extends BaseAdapter{
 				intent.putExtra("eventId", userEvents.get(innerPosition).get("eventId"));
 				intent.setFlags(268435456); // set new task flag - puts it on the back stack, why the long number I wonder...
 				v.getContext().startActivity(intent);
+				
+			}
+		});
+		
+		//
+		// If the google images map is selected, transfer the location information to the
+		// google maps object class
+		//
+		imgGoogleMap.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
 				
 			}
 		});
