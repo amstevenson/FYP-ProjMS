@@ -67,6 +67,7 @@ public class CreateOrEditEventActivity extends Activity {
     	final TextView eventLabel       = (TextView) findViewById(R.id.txtCreateEventUserHelp);
     	final EditText eventName        = (EditText) findViewById(R.id.editCreateEventName);
     	final EditText eventLocation    = (EditText) findViewById(R.id.editCreateEventLocation);
+    	final EditText eventPostcode    = (EditText) findViewById(R.id.editCreateEventPostcode);
     	final EditText eventDescription = (EditText) findViewById(R.id.editCreateEventDescription);
     	final EditText eventDate        = (EditText) findViewById(R.id.editCreateEventDate);
     	final EditText eventStartTime   = (EditText) findViewById(R.id.editCreateEventStartTime);
@@ -101,7 +102,7 @@ public class CreateOrEditEventActivity extends Activity {
     		ParseQuery<ParseObject> query = ParseQuery.getQuery("Event");
     			query.whereEqualTo("objectId", eventId);
     			query.findInBackground(new FindCallback<ParseObject>() {
-    				public void done(List<ParseObject> project, ParseException e) {
+    				public void done(List<ParseObject> event, ParseException e) {
     						
     					if (e == null) {      	
     					    	
@@ -109,16 +110,17 @@ public class CreateOrEditEventActivity extends Activity {
 	    					// Check that there is a project (or more than one, I guess), and
 	    					// then change the views so that the old data is shown
 	    					//
-	    					if(project.size() > 0)
+	    					if(event.size() > 0)
 	    					{
-	    						eventName.setText(project.get(0).getString("eventName"));
-	    						eventLocation.setText(project.get(0).getString("eventLocation"));
-	    						eventDescription.setText(project.get(0).getString("eventDescription"));
-	    						eventDate.setText(project.get(0).getString("eventDate"));
-	    						eventStartTime.setText(project.get(0).getString("eventStartTime"));	
-	    						eventEndTime.setText(project.get(0).getString("eventEndTime"));
+	    						eventName.setText(event.get(0).getString("eventName"));
+	    						eventLocation.setText(event.get(0).getString("eventLocation"));
+	    						eventPostcode.setText(event.get(0).getString("eventPostcode"));
+	    						eventDescription.setText(event.get(0).getString("eventDescription"));
+	    						eventDate.setText(event.get(0).getString("eventDate"));
+	    						eventStartTime.setText(event.get(0).getString("eventStartTime"));	
+	    						eventEndTime.setText(event.get(0).getString("eventEndTime"));
 	    						
-	    						String visibility = project.get(0).getString("eventVisibility");
+	    						String visibility = event.get(0).getString("eventVisibility");
 	    								
 	    						if     (visibility.equals("Everyone"))     eventVisibility.setSelection(0);
 	    						else if(visibility.equals("Select Group")) eventVisibility.setSelection(1);
@@ -236,16 +238,17 @@ public class CreateOrEditEventActivity extends Activity {
 						//
 						// Create a new Parse Object and add it to database
 						//
-						ParseObject newProject = new ParseObject("Event");
-						newProject.put("eventCreatedBy", userId);
-						newProject.put("eventName", eventName.getText().toString());
-						newProject.put("eventDescription", eventDescription.getText().toString());
-						newProject.put("eventDate", eventDate.getText().toString());
-						newProject.put("eventStartTime", eventStartTime.getText().toString());
-						newProject.put("eventVisibility", eventVisibility.getSelectedItem().toString());
-						newProject.put("eventEndTime", eventEndTime.getText().toString());
-						newProject.put("eventLocation", eventLocation.getText().toString()); // others are: on hold, dropped, completed
-						newProject.saveInBackground();
+						ParseObject newEvent = new ParseObject("Event");
+						newEvent.put("eventCreatedBy", userId);
+						newEvent.put("eventName", eventName.getText().toString());
+						newEvent.put("eventDescription", eventDescription.getText().toString());
+						newEvent.put("eventDate", eventDate.getText().toString());
+						newEvent.put("eventStartTime", eventStartTime.getText().toString());
+						newEvent.put("eventVisibility", eventVisibility.getSelectedItem().toString());
+						newEvent.put("eventEndTime", eventEndTime.getText().toString());
+						newEvent.put("eventLocation", eventLocation.getText().toString()); // others are: on hold, dropped, completed
+						newEvent.put("eventPostcode", eventPostcode.getText().toString());
+						newEvent.saveInBackground();
 						
 						// Progress Dialog
 					    final ProgressDialog pDialog;
@@ -288,6 +291,7 @@ public class CreateOrEditEventActivity extends Activity {
 						    	//
 						    	event.put("eventName", eventName.getText().toString());
 						    	event.put("eventLocation", eventLocation.getText().toString());
+						    	event.put("eventPostcode", eventPostcode.getText().toString());
 						    	event.put("eventDescription", eventDescription.getText().toString());
 						    	event.put("eventDate", eventDate.getText().toString());
 						    	event.put("eventVisibility", eventVisibility.getSelectedItem().toString());

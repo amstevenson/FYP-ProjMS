@@ -185,6 +185,7 @@ public class UserListAllEventsActivity extends Activity {
 		    	     userEvent.put("eventId",           (String) eventList.get(i).getObjectId());
 		    	     userEvent.put("eventName",        (String) eventList.get(i).get("eventName").toString());
 		    	     userEvent.put("eventLocation",   (String) eventList.get(i).get("eventLocation").toString());
+		    	     userEvent.put("eventPostcode",    (String) eventList.get(i).get("eventPostcode").toString());
 		    	     userEvent.put("eventDescription",     (String) eventList.get(i).get("eventDescription").toString());
 		    	     userEvent.put("eventDate",      (String) eventList.get(i).get("eventDate").toString());
 		    	     userEvent.put("eventStartTime",     (String) eventList.get(i).get("eventStartTime").toString());

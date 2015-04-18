@@ -22,6 +22,8 @@
 		    android:textSize="16sp" 
 		    android:textColor="#FFF"/>
 	
+		
+		
 		<!-- Event Name -->
 	    <TextView
 	        android:id="@+id/txtCreateEventName"
@@ -87,37 +89,70 @@
 	         android:textColor="#000"
 	         android:textSize="13sp" />
 
-	    <!-- Event Description -->	    <TextView
-	        android:id="@+id/txtCreateEventDescription"
+		<!-- Event Postcode -->
+	    <TextView
+	        android:id="@+id/txtCreateEventPostcode"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignRight="@+id/txtCreateEventDate"
 	        android:layout_below="@id/txtCreateEventLocation"
 	        android:layout_marginLeft="5dp"
 	        android:layout_marginTop="60dp"
-	        android:text="@string/create_event_txt_description"
+	        android:text="@string/create_event_txt_postcode"
 	        android:textColor="#fff"
 	        android:textSize="14sp" />
 	     
-	     <EditText
-	         android:id="@+id/editCreateEventDescription"
-	         android:layout_width="200dp"
-	         android:layout_height="wrap_content"
-	         android:layout_alignBaseline="@+id/txtCreateEventDescription"
-	         android:layout_alignBottom="@+id/txtCreateEventDescription"
-	         android:layout_alignLeft="@+id/editCreateEventLocation"
-	         android:background="#FFF"
-	         android:ems="10"
-	         android:gravity="center"
-	         android:hint="@string/create_event_edit_description"
-	         android:inputType="text"
-	         android:maxLength="30"
-	         android:paddingBottom="15dp"
-	         android:paddingLeft="5dp"
-	         android:paddingRight="5dp"
-	         android:paddingTop="15dp"
-	         android:textColor="#000"
-	         android:textSize="13sp" />
+	    <EditText
+	   	     android:id="@+id/editCreateEventPostcode"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignBaseline="@+id/txtCreateEventPostcode"
+	   	     android:layout_alignBottom="@+id/txtCreateEventPostcode"
+	   	     android:layout_alignLeft="@+id/editCreateEventLocation"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="center"
+	   	     android:hint="@string/create_event_edit_postcode"
+	   	     android:inputType="text"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="5dp"
+	   	     android:paddingRight="5dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+	    
+	    <!-- Event Description -->
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventDescription"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignLeft="@+id/txtCreateEventStartTime"
+	   	     android:layout_below="@+id/txtCreateEventPostcode"
+	   	     android:layout_marginTop="63dp"
+	   	     android:text="@string/create_event_txt_description"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateEventDescription"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignBaseline="@+id/txtCreateEventDescription"
+	   	     android:layout_alignBottom="@+id/txtCreateEventDescription"
+	   	     android:layout_alignLeft="@+id/editCreateEventPostcode"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="center"
+	   	     android:hint="@string/create_event_edit_description"
+	   	     android:inputType="text"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="5dp"
+	   	     android:paddingRight="5dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
 	    
 	    <!--  Event start date -->	    <TextView
 	        android:id="@+id/txtCreateEventDate"
@@ -140,8 +175,9 @@
 	         android:layout_alignLeft="@+id/editCreateEventDescription"
 	         android:background="#FFF"
 	         android:ems="10"
+	         android:focusable="false"
 	         android:gravity="center"
-	         android:hint="@string/create_project_edit_responsible"
+	         android:hint="@string/create_event_edit_date"
 	         android:inputType="date"
 	         android:maxLength="30"
 	         android:paddingBottom="15dp"
@@ -149,7 +185,6 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
-	         android:focusable="false"
 	         android:textSize="13sp" />
 	     
 	    <!-- start time -->	    <TextView
@@ -172,8 +207,9 @@
 	         android:layout_alignLeft="@+id/editCreateEventDate"
 	         android:background="#FFF"
 	         android:ems="10"
+	         android:focusable="false"
 	         android:gravity="center"
-	         android:hint="@string/create_project_edit_type"
+	         android:hint="@string/create_event_edit_start_time"
 	         android:inputType="time"
 	         android:maxLength="30"
 	         android:paddingBottom="15dp"
@@ -181,8 +217,7 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
-	         android:textSize="13sp" 
-	         android:focusable="false"/>
+	         android:textSize="13sp" />
 	     
 	     <!--  end time -->	    <TextView
 	        android:id="@+id/txtCreateEventEndTime"
@@ -205,6 +240,7 @@
 	         android:layout_alignLeft="@+id/editCreateEventStartTime"
 	         android:background="#FFF"
 	         android:ems="10"
+	         android:focusable="false"
 	         android:gravity="center"
 	         android:hint="@string/create_event_edit_end_time"
 	         android:inputType="time"
@@ -214,11 +250,9 @@
 	         android:paddingRight="5dp"
 	         android:paddingTop="15dp"
 	         android:textColor="#000"
-	         android:textSize="13sp"
-	         android:focusable="false" />
+	         android:textSize="13sp" />
 	     
 	     <!--  visibility -->
-
 	    <TextView
 	        android:id="@+id/txtCreateEventVisibility"
 	        android:layout_width="wrap_content"
@@ -258,19 +292,19 @@
 	       	 android:id="@+id/btnCreateEvent"
 	       	 android:layout_width="200dp"
 	       	 android:layout_height="wrap_content"
-	       	 android:layout_marginTop="640dp"
+	       	 android:layout_marginTop="740dp"
 	      	 android:layout_centerHorizontal="true"
 	         android:background="#0c4661"
 	      	 android:text="@string/create_event_btn"
 	         android:textSize="16sp" 
 	         android:textColor="#fff"/>
 	   	 
-		 <!--  Delete project -->
+		 <!--  Delete event -->
 		 <Button
 		     android:id="@+id/btnDeleteEvent"
 		     android:layout_width="200dp"
 		     android:layout_height="wrap_content"
-		     android:layout_marginTop="710dp"
+		     android:layout_marginTop="810dp"
 		     android:layout_centerHorizontal="true"
 		     android:background="#0c4661"
 		     android:text="@string/create_event_delete_button"
@@ -283,6 +317,8 @@
 	   	     android:layout_width="match_parent"
 	   	     android:layout_height="30dp"
 	   	     android:layout_below="@id/btnDeleteEvent" />
+
+
 	    
 	</RelativeLayout>
 </ScrollView>

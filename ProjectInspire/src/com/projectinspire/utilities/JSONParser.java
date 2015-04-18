@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -53,9 +54,11 @@ public class JSONParser {
         try {
  
             // check for request method
-            if(method == "POST"){
-                // request method is POST
-                // defaultHttpClient
+            if(method.toUpperCase(Locale.ENGLISH) == "POST"){
+            	
+            	//
+            	// If  the method is POST
+            	//
                 DefaultHttpClient httpClient = new DefaultHttpClient();
                 HttpPost httpPost = new HttpPost(url);
                 httpPost.setEntity(new UrlEncodedFormEntity(params));
@@ -63,20 +66,37 @@ public class JSONParser {
                 HttpResponse httpResponse = httpClient.execute(httpPost);
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();
+                
+                //
+                // Debugging: 
+                //
+                // Log.d("Url is this:", url);
+                //
+                // for(int i = 0; i < params.size(); i++)
+                //	Log.d("Key", params.get(i).getValue());
  
-            }else if(method == "GET"){
-                // request method is GET
-                DefaultHttpClient httpClient = new DefaultHttpClient();
+            }else if(method.toUpperCase(Locale.ENGLISH) == "GET"){
+                
+            	//
+            	// if method is GET
+                //
+            	DefaultHttpClient httpClient = new DefaultHttpClient();
                 String paramString = URLEncodedUtils.format(params, "utf-8");
                 url += "?" + paramString;
-                
-                Log.d("Url is this:", url);
                 
                 HttpGet httpGet = new HttpGet(url);
  
                 HttpResponse httpResponse = httpClient.execute(httpGet);
                 HttpEntity httpEntity = httpResponse.getEntity();
                 is = httpEntity.getContent();
+                
+                //
+                // Debugging: 
+                //
+                // Log.d("Url is this:", url);
+                //
+                // for(int i = 0; i < params.size(); i++)
+                //	Log.d("Key", params.get(i).getValue());
             }           
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
