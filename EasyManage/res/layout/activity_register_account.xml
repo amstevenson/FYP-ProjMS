@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+    
+	<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:background="@drawable/style_activity_background_gradient" >
+    
+	    <!--  Description -->
+
+		<TextView
+		    android:id="@+id/txtRegisterDescription"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginRight="10dp"
+		    android:paddingBottom="50dp"
+		    android:paddingLeft="5dp"
+		    android:text="@string/lbl_register_description"
+		    android:textColor="#FFF"
+		    android:textSize="16sp" />
+	
+		<!-- Forename -->
+	
+	    <!--  Initial surname -->
+
+	    <!-- initial password -->
+	    
+	    <!--  Repeat password -->
+	     
+	    <!-- Initial email address -->
+	     
+	     <!--  Repeat email address -->
+	     
+	     <!--  User photo -->
+	   	 
+	     <!--  Register account  -->
+
+	   	 <Button
+	   	     android:id="@+id/btnRegisterSubmit"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/btnRegisterChangeUserImage"
+	   	     android:layout_marginTop="20dp"
+	   	     android:background="#8bc425"
+	   	     android:minHeight="60dp"
+	   	     android:text="@string/register_btn_account"
+	   	     android:textColor="#fff"
+	   	     android:textSize="16sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtRegisterUserImage"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignTop="@+id/imgviewUserImage"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="14dp"
+	   	     android:text="@string/register_lbl_picture"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editRegisterRepeatEmail"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtRegisterRepeatEmail"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/register_edit_repeat_email"
+	   	     android:inputType="textEmailAddress"
+	   	     android:maxLength="50"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" >
+
+	   	 </EditText>
+
+	   	 <EditText
+	   	     android:id="@+id/editRegisterPassword"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtRegisterPassword"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/register_edit_password"
+	   	     android:inputType="textPassword"
+	   	     android:maxLength="20"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp"
+	   	     android:typeface="normal" />
+
+	   	 <EditText
+	   	     android:id="@+id/editRegisterSurname"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtRegisterSurname"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/register_edit_surname"
+	   	     android:inputType="textPersonName"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editRegisterForename"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtRegisterForename"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/register_edit_forename"
+	   	     android:inputType="textPersonName"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp"
+	   	     android:typeface="normal" />
+
+	   	 <EditText
+	   	     android:id="@+id/editRegisterRepeatPassword"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtRegisterRepeatPassword"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/register_edit_repeat_password"
+	   	     android:inputType="textPassword"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editRegisterEmail"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtRegisterEmail"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/register_edit_email"
+	   	     android:inputType="textEmailAddress"
+	   	     android:maxLength="50"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtRegisterEmail"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editRegisterRepeatPassword"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="16dp"
+	   	     android:text="@string/register_lbl_email"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtRegisterRepeatEmail"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editRegisterEmail"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="19dp"
+	   	     android:text="@string/register_lbl_repeat_email"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtRegisterForename"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignBottom="@+id/txtRegisterDescription"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:text="@string/register_lbl_forename"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtRegisterSurname"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editRegisterForename"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="14dp"
+	   	     android:text="@string/register_lbl_surname"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtRegisterPassword"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editRegisterSurname"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="15dp"
+	   	     android:text="@string/register_lbl_password"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtRegisterRepeatPassword"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editRegisterPassword"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="14dp"
+	   	     android:text="@string/register_lbl_repeat_password"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <Button
+	   	     android:id="@+id/btnRegisterChangeUserImage"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignRight="@+id/editRegisterRepeatEmail"
+	   	     android:layout_alignTop="@+id/imgviewUserImage"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_toRightOf="@+id/imgviewUserImage"
+	   	     android:background="#044878"
+	   	     android:minHeight="60dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:text="@string/register_btn_picture"
+	   	     android:textColor="#fff"
+	   	     android:textSize="16sp" />
+
+	   	 <com.easymanage.utilities.CircularImageView
+	   	     android:id="@+id/imgviewUserImage"
+	   	     android:layout_width="60dp"
+	   	     android:layout_height="60dp"
+	   	     android:layout_below="@+id/editRegisterRepeatEmail"
+	   	     android:layout_marginTop="30dp"
+	   	     android:layout_toRightOf="@+id/txtRegisterRepeatPassword"
+	   	     android:contentDescription="@string/dashboard_user_image"
+	   	     android:src="@drawable/icon_person" />
+  
+	</RelativeLayout>
+</ScrollView>
+

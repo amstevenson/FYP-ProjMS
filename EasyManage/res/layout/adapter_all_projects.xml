@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/style_activity_background_gradient"  >
+    
+	<TextView
+	    android:id="@+id/projectName"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#2b2b2b"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_project_name"
+	    android:textColor="#ededed"
+	    android:textSize="16sp" />
+	
+	<TextView
+	    android:id="@+id/projectDescription"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/projectStartDate"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:background="#194574"
+	    android:maxLines="3"
+	    android:padding="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingRight="10dp"
+	    android:paddingTop="15dp"
+	    android:text="@string/adapter_project_description"
+	    android:textColor="#fff" />
+    
+	<!--  <TextView 
+	    android:id="@+id/projectMembers"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:textColor="#fff"
+	    android:text="@string/adapter_project_members"
+	    android:paddingLeft="10dp"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:paddingTop="10dp"
+	    android:layout_marginTop="82dp"
+		android:maxLines="2" /> -->
+	
+	<TextView
+	    android:id="@+id/projectStartDate"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignRight="@+id/projectName"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginTop="47dp"
+	    android:background="#234e81"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_project_start_date"
+	    android:textColor="#fff" />
+
+	<TextView
+	    android:id="@+id/projectEndDate"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/projectStartDate"
+	    android:layout_alignRight="@+id/projectDescription"
+	    android:layout_below="@+id/projectName"
+	    android:layout_marginRight="23dp"
+	    android:layout_marginTop="-2dp"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_project_end_date"
+	    android:textColor="#fff" />
+
+	<TextView
+	    android:id="@+id/projectStatus"
+	    android:layout_width="20dp"
+	    android:layout_height="20dp"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignTop="@+id/projectName"
+	    android:layout_marginRight="20dp"
+	    android:layout_marginTop="8dp"
+	    android:background="@drawable/circle_green"
+	    android:paddingBottom="5dp"
+	    android:paddingLeft="10dp"
+	    android:paddingRight="10dp"
+	    android:paddingTop="5dp"
+	    android:textColor="#000" />
+
+	<TextView
+	    android:id="@+id/projectEdit"
+	    android:layout_width="wrap_content"
+	    android:layout_height="25dp"
+	    android:layout_alignTop="@+id/projectStatus"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginTop="-3dp"
+	    android:layout_toLeftOf="@+id/projectStatus"
+	    android:background="@drawable/rounded_border_grey"
+	    android:contentDescription="@string/project_type_prompt"
+	    android:paddingBottom="5dp"
+	    android:paddingLeft="15dp"
+	    android:paddingRight="15dp"
+	    android:paddingTop="5dp"
+	    android:text="@string/button_edit"
+	    android:textColor="#fff"
+	    android:textSize="12sp" />
+	
+</RelativeLayout>

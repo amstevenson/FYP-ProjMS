@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    
+	<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:background="@drawable/style_activity_background_gradient" >
+    
+	    <!--  Description -->
+
+		<TextView
+		    android:id="@+id/txtCreateEventUserHelp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginRight="10dp"
+		    android:paddingBottom="50dp"
+		    android:paddingLeft="5dp"
+		    android:text="@string/create_event_summary"
+		    android:textColor="#FFF"
+		    android:textSize="16sp" />
+		
+		<!-- Event Name -->
+	
+	    <!--  Location -->
+
+		<!-- Event Postcode -->
+	    
+	    <!-- Event Description -->
+	    
+	    <!--  Event start date -->
+	     
+	    <!-- start time -->
+	     
+	     <!--  end time -->
+	     
+	     <!--  visibility -->
+	     
+	     <!--  Create event  -->
+	   	 
+		 <!--  Delete event -->
+	   	 
+	   	 <Spinner
+	   	     android:id="@+id/editCreateEventVisibility"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtCreateEventVisibility"
+	   	     android:layout_marginBottom="30dp"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:entries="@array/event_type_array"
+	   	     android:gravity="center"
+	   	     android:hint="@string/create_event_edit_visibility"
+	   	     android:inputType="text"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:prompt="@string/event_type_prompt"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateEventEndTime"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignLeft="@+id/txtCreateEventEndTime"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtCreateEventEndTime"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:focusable="false"
+	   	     android:gravity="left"
+	   	     android:hint="@string/create_event_edit_end_time"
+	   	     android:inputType="time"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" >
+
+	   	     <requestFocus />
+	   	 </EditText>
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateEventName"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignLeft="@+id/txtCreateEventName"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_alignTop="@+id/txtCreateEventName"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="23dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/create_event_edit_name"
+	   	     android:inputType="text"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventVisibility"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editCreateEventEndTime"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="17dp"
+	   	     android:text="@string/create_event_txt_visibility"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventEndTime"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editCreateEventStartTime"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="16dp"
+	   	     android:text="@string/create_event_txt_end_time"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateEventStartTime"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtCreateEventStartTime"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:focusable="false"
+	   	     android:gravity="left"
+	   	     android:hint="@string/create_event_edit_start_time"
+	   	     android:inputType="time"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventStartTime"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_below="@+id/editCreateEventDate"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="17dp"
+	   	     android:text="@string/create_event_txt_start_time"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateEventDate"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtCreateEventDate"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:focusable="false"
+	   	     android:gravity="left"
+	   	     android:hint="@string/create_event_edit_date"
+	   	     android:inputType="date"
+	   	     android:maxLength="10"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateEventDescription"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtCreateEventDescription"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/create_event_edit_description"
+	   	     android:inputType="text"
+	   	     android:maxLength="10"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventDescription"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editCreateEventPostcode"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="20dp"
+	   	     android:text="@string/create_event_txt_description"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateEventPostcode"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtCreateEventPostcode"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/create_event_edit_postcode"
+	   	     android:inputType="text"
+	   	     android:maxLength="10"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventPostcode"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editCreateEventLocation"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="17dp"
+	   	     android:text="@string/create_event_txt_postcode"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateEventLocation"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtCreateEventLocation"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="left"
+	   	     android:hint="@string/create_event_edit_locatioin"
+	   	     android:inputType="text"
+	   	     android:maxLength="30"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventName"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignBottom="@+id/txtCreateEventUserHelp"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_marginBottom="23dp"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:text="@string/create_event_txt_name"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <Button
+	   	     android:id="@+id/btnCreateEvent"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/editCreateEventVisibility"
+	   	     android:background="#8bc425"
+	   	     android:minHeight="60dp"
+	   	     android:text="@string/button_create"
+	   	     android:textColor="#fff"
+	   	     android:textSize="16sp" />
+
+	   	 <Button
+	   	     android:id="@+id/btnDeleteEvent"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/btnCreateEvent"
+	   	     android:background="#cb293c"
+	   	     android:minHeight="60dp"
+	   	     android:text="@string/button_delete"
+	   	     android:textColor="#fff"
+	   	     android:textSize="16sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventDate"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editCreateEventDescription"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="14dp"
+	   	     android:text="@string/create_event_txt_date"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateEventLocation"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignLeft="@+id/editCreateEventLocation"
+	   	     android:layout_below="@+id/editCreateEventName"
+	   	     android:layout_marginTop="18dp"
+	   	     android:text="@string/create_event_txt_location"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+	    
+	</RelativeLayout>
+</ScrollView>
+

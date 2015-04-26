@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+	<RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+
+    android:background="@drawable/style_activity_background_gradient" >
+    
+	    <!--  Description -->
+
+		<TextView
+		    android:id="@+id/txtCreateMessageUserHelp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:layout_marginRight="10dp"
+		    android:paddingBottom="50dp"
+		    android:paddingLeft="5dp"
+		    android:text="@string/create_message_summary"
+		    android:textColor="#FFF"
+		    android:textSize="16sp" />
+	
+		<!-- Message Recipient -->
+	
+	    <!--  Message -->
+
+	     <!--  Create message  -->
+	   	 
+	   	 <!-- Create space that appears below the button; aesthetics  -->
+
+	   	 <Button
+	   	     android:id="@+id/btnCreateMessage"
+	   	     android:layout_width="250dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/editCreateMessageBody"
+	   	     android:layout_marginTop="60dp"
+	   	     android:background="#8bc425"
+	   	     android:minHeight="60dp"
+	   	     android:text="@string/create_message_btn"
+	   	     android:textColor="#fff"
+	   	     android:textSize="16sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateMessageBody"
+	   	     android:layout_width="50dp"
+	   	     android:layout_height="200dp"
+	   	     android:layout_alignLeft="@+id/txtCreateMessageBody"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_below="@+id/txtCreateMessageBody"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="top|left"
+	   	     android:hint="@string/create_message_edit_message_conntent"
+	   	     android:inputType="textMultiLine"
+	   	     android:maxLines="15"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:singleLine="false"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateMessageBody"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_below="@+id/editCreateMessageRecipient"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="14dp"
+	   	     android:maxLength="150"
+	   	     android:maxLines="6"
+	   	     android:text="@string/create_message_txt_message_content"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <TextView
+	   	     android:id="@+id/txtCreateMessageRecipient"
+	   	     android:layout_width="wrap_content"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignBottom="@+id/txtCreateMessageUserHelp"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_marginBottom="16dp"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginTop="5dp"
+	   	     android:text="@string/create_message_txt_recipient"
+	   	     android:textColor="#fff"
+	   	     android:textSize="14sp" />
+
+	   	 <EditText
+	   	     android:id="@+id/editCreateMessageRecipient"
+	   	     android:layout_width="200dp"
+	   	     android:layout_height="wrap_content"
+	   	     android:layout_alignParentLeft="true"
+	   	     android:layout_alignParentRight="true"
+	   	     android:layout_alignTop="@+id/txtCreateMessageRecipient"
+	   	     android:layout_marginLeft="10dp"
+	   	     android:layout_marginRight="10dp"
+	   	     android:layout_marginTop="23dp"
+	   	     android:background="#FFF"
+	   	     android:ems="10"
+	   	     android:gravity="top|left"
+	   	     android:hint="@string/create_project_edit_name"
+	   	     android:inputType="text"
+	   	     android:maxLength="50"
+	   	     android:paddingBottom="15dp"
+	   	     android:paddingLeft="10dp"
+	   	     android:paddingRight="10dp"
+	   	     android:paddingTop="15dp"
+	   	     android:textColor="#000"
+	   	     android:textSize="13sp" >
+
+	   	     <requestFocus />
+	   	 </EditText>
+	    
+	</RelativeLayout>
+</ScrollView>
+

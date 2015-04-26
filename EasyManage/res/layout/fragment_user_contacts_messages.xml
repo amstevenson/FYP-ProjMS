@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.easymanage.fragments.UserContactsMessagesFragment" 
+    android:background="@drawable/style_activity_background_gradient">
+
+    <!--  List view for all of the messages -->
+   <ListView
+	    android:id="@+id/listMessagesAll"
+	    android:layout_marginTop="60dp"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="start"
+	    android:choiceMode="singleChoice"
+	    android:divider="#FFF"
+	    android:dividerHeight="0dp"        
+	    android:listSelector="@drawable/drawer_list_selector"/>
+   
+	<!-- search messages -->
+
+	<EditText
+	    android:id="@+id/editSearchMessages"
+	    android:layout_width="200dp"
+	    android:layout_height="50dp"
+	    android:layout_alignLeft="@+id/listMessagesAll"
+	    android:layout_toLeftOf="@+id/imageViewCreateMessage"
+	    android:background="#FFF"
+	    android:drawableLeft="@drawable/icon_search_48dp_black"
+	    android:ems="10"
+	    android:gravity="left"
+	    android:hint="@string/search_messages"
+	    android:imeOptions="actionSearch"
+	    android:inputType="text"
+	    android:maxLength="30"
+	    android:paddingBottom="15dp"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp"
+	    android:paddingTop="15dp"
+	    android:textColor="#000"
+	    android:textSize="13sp" />
+    
+    <!--  Create a new message -->
+
+    <ImageView
+        android:id="@+id/imageViewCreateMessage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/editSearchMessages"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@id/listMessagesAll"
+        android:contentDescription="@string/message_create"
+        android:background="#fff"
+        android:textSize="16sp" />
+
+</RelativeLayout>

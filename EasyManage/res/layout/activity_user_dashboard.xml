@@ -1,0 +1,215 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/style_activity_background_gradient"
+    tools:context=".activities.MainActivity" >
+
+ 	<!--  Navigation panel -->
+	<android.support.v4.widget.DrawerLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/dashboard_drawer_nav_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	
+	    <!-- Framelayout to display Fragments -->
+	    <FrameLayout
+	        android:id="@+id/dashboard_drawer_frame_container"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" />
+	
+	    <!-- Listview to display slider menu -->
+	    <ListView
+	        android:id="@+id/dashboard_drawer_menu_listview"
+	        android:layout_width="240dp"
+	        android:layout_height="match_parent"
+	        android:layout_gravity="start"
+	        android:choiceMode="singleChoice"
+	        android:divider="#FFF"
+	        android:dividerHeight="0dp"        
+	        android:listSelector="@drawable/drawer_list_selector"
+	        android:background="@drawable/style_activity_background_gradient"/>
+	</android.support.v4.widget.DrawerLayout>
+	
+	<!--  create a scrollview to contain the rest of the layout -->
+	<ScrollView
+	    android:id="@+id/scrollViewDashboard"
+	    android:layout_width="fill_parent"
+	    android:layout_height="match_parent">
+	
+		<RelativeLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="@drawable/style_activity_background_gradient"
+		    android:scrollbars="vertical" >
+	    
+		    <!--  User Information -->
+			<com.easymanage.utilities.CircularImageView
+			    android:id="@+id/imgviewDashboardUser"
+			    android:layout_marginTop="10dp"
+			    android:layout_width="60dp"
+			    android:layout_height="60dp"
+			    android:layout_alignLeft="@+id/txtDashboardProjects"
+			    android:layout_alignTop="@+id/txtDashboardUsername"
+			    android:contentDescription="@string/dashboard_user_image" />
+			
+			<TextView
+			    android:id="@+id/txtDashboardUsername"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignRight="@+id/txtDashboardProjects"
+			    android:layout_marginTop="10dp"
+			    android:layout_toRightOf="@+id/imgviewDashboardUser"
+			    android:paddingBottom="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingTop="10dp"
+			    android:text="@string/dashboard_user_name"
+			    android:textColor="#fff" />
+		
+			<TextView
+			    android:id="@+id/txtDashboardUserEmail"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_alignLeft="@+id/txtDashboardUsername"
+			    android:layout_alignRight="@+id/txtDashboardProjects"
+			    android:layout_below="@id/txtDashboardUsername"
+			    android:paddingBottom="50dp"
+			    android:paddingLeft="10dp"
+			    android:text="@string/dashboard_user_email_address"
+			    android:textColor="#fff" />
+		    
+		    <!-- Projects -->
+			<TextView
+			    android:id="@+id/txtDashboardProjects"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:layout_marginTop="90dp"
+			    android:paddingBottom="10dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+				android:background="#AF1D0600"
+			    android:text="@string/dashboard_projects"
+			    android:textSize="16sp"
+			    android:textColor="#66CCFF" />
+		
+			<TextView
+			    android:id="@+id/txtDashboardProjectsTitle"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardProjects"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="50dp"
+				android:background="#3F1b2600"
+			    android:text="@string/dashboard_projects_title"
+			    android:textColor="#fff" />
+		    
+			<!--  Tasks -->
+
+			<TextView
+			    android:id="@+id/txtDashboardGroups"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardProjectsTitle"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:layout_marginTop="40dp"
+			    android:background="#AF1D0600"
+			    android:paddingBottom="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingTop="10dp"
+			    android:text="@string/dashboard_groups"
+			    android:textColor="#66CCFF"
+			    android:textSize="16sp" />
+			
+			<TextView
+			    android:id="@+id/txtDashboardTasksTitle"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardGroups"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="50dp"
+				android:background="#3F1b2600"
+			    android:text="@string/dashboard_tasks_title"
+			    android:textColor="#fff" />
+			
+			<!-- Events  -->
+			<TextView
+			    android:id="@+id/txtDashboardEvents"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:layout_marginTop="40dp"
+			    android:layout_below="@id/txtDashboardTasksTitle"
+			    android:paddingBottom="10dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+				android:background="#AF1D0600"
+			    android:text="@string/dashboard_events"
+			    android:textSize="16sp"
+			    android:textColor="#66CCFF" />
+			
+			<TextView
+			    android:id="@+id/txtDashboardEventsTitle"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardEvents"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="50dp"
+				android:background="#3F1b2600"
+			    android:text="@string/dashboard_events_title"
+			    android:textColor="#fff" />
+			
+			<!-- Messages -->
+			<TextView
+			    android:id="@+id/txtDashboardMessages"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:layout_marginTop="40dp"
+			    android:layout_below="@id/txtDashboardEventsTitle"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="10dp"
+				android:background="#AF1D0600"
+			    android:text="@string/dashboard_messages"
+			    android:textSize="16sp"
+			    android:textColor="#66CCFF" />
+			
+			<TextView
+			    android:id="@+id/txtDashboardMessagesTitle"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_below="@id/txtDashboardMessages"
+			    android:layout_marginLeft="15dp"
+			    android:layout_marginRight="15dp"
+			    android:paddingTop="10dp"
+			    android:paddingLeft="10dp"
+			    android:paddingBottom="50dp"
+				android:background="#3F1b2600"
+			    android:text="@string/dashboard_messages_title"
+			    android:textColor="#fff" />
+
+		   	 <Space
+		   	     android:id="@+id/spaceDashboard"
+		   	     android:layout_width="match_parent"
+		   	     android:layout_height="30dp"
+		   	     android:layout_below="@id/txtDashboardMessagesTitle" />
+			
+		</RelativeLayout>
+	
+	</ScrollView>
+	
+</RelativeLayout>

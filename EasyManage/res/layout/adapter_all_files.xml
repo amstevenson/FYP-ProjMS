@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/style_activity_background_gradient"  >
+    
+	<TextView
+	    android:id="@+id/filesName"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#2b2b2b"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_files_name"
+	    android:textColor="#ededed"
+	    android:textSize="16sp" />
+    
+	<TextView
+	    android:id="@+id/filesStartDate"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignRight="@+id/filesName"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginTop="47dp"
+	    android:background="#234e81"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_files_created"
+	    android:textColor="#fff" />
+
+	<ImageView
+	    android:id="@+id/filesImageType"
+	    android:layout_width="20dp"
+	    android:layout_height="20dp"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignTop="@+id/filesName"
+	    android:layout_marginRight="20dp"
+	    android:layout_marginTop="8dp"
+	    android:contentDescription="@string/adapter_files_image"
+	    android:paddingBottom="5dp"
+	    android:paddingLeft="10dp"
+	    android:paddingRight="10dp"
+	    android:paddingTop="5dp"
+	    android:textColor="#000" />
+
+	<TextView
+	    android:id="@+id/filesDelete"
+	    android:layout_width="wrap_content"
+	    android:layout_height="25dp"
+	    android:layout_alignTop="@+id/filesImageType"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginTop="-3dp"
+	    android:layout_toLeftOf="@+id/filesImageType"
+	    android:background="@drawable/rounded_border_grey"
+	    android:contentDescription="@string/project_type_prompt"
+	    android:paddingBottom="5dp"
+	    android:paddingLeft="15dp"
+	    android:paddingRight="15dp"
+	    android:paddingTop="5dp"
+	    android:text="@string/button_list_delete"
+	    android:textColor="#fff"
+	    android:textSize="12sp" />
+
+	<TextView
+	    android:id="@+id/filesSize"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/filesDelete"
+	    android:layout_below="@+id/filesName"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="0dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_files_size"
+	    android:textColor="#fff" />
+	
+</RelativeLayout>
