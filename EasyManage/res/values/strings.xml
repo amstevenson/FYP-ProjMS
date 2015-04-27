@@ -40,13 +40,15 @@
     <string name="dashboard_user_email_address">Addstevenson@hotmail.com</string>
     <string name="dashboard_user_image">User image</string>
     <string name="dashboard_projects">Projects</string>
-    <string name="dashboard_projects_title">Tile of project</string>
+    <string name="dashboard_projects_title">Number of projects:</string>
     <string name="dashboard_tasks">Tasks</string>
-    <string name="dashboard_tasks_title">Title of tasks</string>
+    <string name="dashboard_groups_title">Number of groups:</string>
     <string name="dashboard_events">Events</string>
-    <string name="dashboard_events_title">Title of events</string>
+    <string name="dashboard_events_title">Number of events:</string>
     <string name="dashboard_messages">Messages</string>
-    <string name="dashboard_messages_title">Title of messages</string>
+    <string name="dashboard_messages_title">Number of messages:</string>
+    <string name="dashboard_projects_most_recent">Most recent: </string>
+    <string name="dashboard_most_recently_added">Most recently added:</string>
 
     <!-- Projects activity -->
     <string name="title_activity_projects">Your Projects</string>
@@ -228,7 +230,7 @@
 
     <!-- Create or edit Contact -->
     <string name="title_activity_create_or_edit_contact">CreateOrEditContactActivity</string>
-    <string name="create_contact_summary">To send a contact, please enter in the following information and press the \'send\' button</string>
+    <string name="create_contact_summary">To create a contact, please enter in the following information and press the \'create\' button</string>
     <string name="create_contact_txt_name">Contact Name</string>
     <string name="create_contact_edit_name">Enter Name</string>
     <string name="create_contact_txt_email">Email Address</string>
@@ -239,6 +241,32 @@
     <string name="create_contact_edit_project_affiliation">Enter Projects</string>
     <string name="create_contact_btn">CREATE</string>
     <string name="create_contact_delete_button">DELETE</string>
+
+    <!-- Create or edit Group -->
+    <string name="create_group_summary">To create a group, please enter in the following information and press the \'create\' button</string>
+    <string name="create_group_edit_name">Enter name&#8230;</string>
+    <string name="create_group_txt_description">Description</string>
+    <string name="create_group_delete_group">DELETE</string>
+    <string name="create_group_btn">CREATE</string>
+    <string name="create_group_edit_description">Enter description&#8230;</string>
+    <string name="create_group_txt_name">Group name</string>
+    <string name="adapter_group_name">Name</string>
+    <string name="adapter_group_description">Description</string>
+
+    <!-- Selected group -->
+    <string name="tab_all_group_projects">Group Projects</string>
+    <string name="tab_all_group_members">Group Members</string>
+
+    <!-- Group Projects -->
+    <string name="title_activity_user_selected_group_projects">Group Projects</string>
+    <string name="search_group_projects">Search Group Projects&#8230;</string>
+    <string name="lbl_group_projects_none">There are currently no projects that have been added to this group. </string>
+	<string name="empty_projects">Your account has no projects, please create one and try again.</string>
+    
+    <!-- Group Members -->
+    <string name="title_activity_user_selected_group_members">Group Members</string>
+    <string name="search_group_members">Search Group Members&#8230;</string>
+    <string name="lbl_group_members_none">There are currently no members that have been added to this group. </string>
 
     <!-- all projects - adapter view -->
     <string name="adapter_project_name">Project Name</string>
@@ -285,12 +313,17 @@
     <string name="title_activity_user_selected_group">UserSelectedGroupActivity</string>
     <string name="title_activity_create_or_edit_group">CreateOrEditGroupActivity</string>
 
-    <!--  All files -->
+    <!-- Groups -->
+    <string name="search_groups">Search Groups&#8230;</string>
+    <string name="lbl_groups_none">There are currently no groups allocated to your account, please create one
+         by clicking on the plus button above. </string>
+
+    <!-- All files -->
     <string name="adapter_files_name">Name</string>
     <string name="adapter_files_size">Size</string>
     <string name="adapter_files_created">Created at</string>
     <string name="adapter_files_image">Image</string>
-    
+
     <!-- Buttons -->
     <string name="button_create">CREATE</string>
     <string name="button_update">UPDATE</string>
@@ -298,5 +331,6 @@
     <string name="button_edit">Edit</string>
     <string name="button_list_delete">Delete</string>
     <string name="title_activity_choose_file">ChooseFile</string>
+    <string name="title_activity_choose_group_project">ChooseGroupProjectActivity</string>
 
 </resources>

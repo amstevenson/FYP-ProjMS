@@ -9,8 +9,6 @@
 	    android:background="@drawable/style_activity_background_gradient"
 	    android:paddingTop="20dp" >
 	
-		    <!-- Description -->
-		
 		    <TextView
 		        android:id="@+id/txtCreateProjectUserHelp"
 		        android:layout_width="wrap_content"
@@ -22,18 +20,6 @@
 		        android:text="@string/create_project_lbl_userhelp"
 		        android:textColor="#FFF"
 		        android:textSize="16sp" />
-		
-		    <!-- Project Name -->
-		
-		    <!-- Initial start date -->
-		
-		    <!-- initial end date -->
-		
-		    <!-- type of project -->
-		
-		    <!-- project description -->
-		
-		    <!-- Create project -->
 		
 		    <Button
 		        android:id="@+id/btnCreateProject"
@@ -50,8 +36,6 @@
 		
 		    <!-- Delete project -->
 		
-		    <!-- Create space that appears below the button; aesthetics -->
-	
 		    <Button
 		        android:id="@+id/btnDeleteProject"
 		        android:layout_width="200dp"

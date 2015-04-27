@@ -24,6 +24,13 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+/**
+ * 
+ * Lists all of the contacts that have been added by the User. 
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class UserContactsFragment extends Fragment {
 
 	private String userId = "empty";

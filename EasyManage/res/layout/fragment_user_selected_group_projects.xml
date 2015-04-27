@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.easymanage.fragments.UserSelectedGroupMembersProjects"
+    android:background="@drawable/style_activity_background_gradient" >
+
+    <!--  List view that contains all of the group projects that are specific to one person
+    	  When clicked on, sends them to the tasks page that is relevent to the specific project -->
+    <ListView
+	    android:id="@+id/listGroupProjectsAll"
+	    android:layout_marginTop="60dp"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="start"
+	    android:choiceMode="singleChoice"
+	    android:divider="#FFF"
+	    android:dividerHeight="0dp"        
+	    android:listSelector="@drawable/drawer_list_selector"/>
+    
+    <!--  If there are no group projects, display a textivew saying so -->
+	<TextView
+		android:id="@+id/txtGroupProjectsNone"
+		android:paddingBottom="50dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingLeft="5dp"
+		android:layout_marginTop="60dp"
+		android:text="@string/lbl_group_projects_none"
+		android:textSize="16sp" 
+		android:textColor="#FFF"/>
+	
+	<!-- search group projects -->
+
+	<EditText
+	    android:id="@+id/editSearchGroupProjects"
+	    android:layout_width="200dp"
+	    android:layout_height="50dp"
+	    android:layout_alignLeft="@+id/listGroupProjectsAll"
+	    android:layout_toLeftOf="@+id/imageViewGroupProjectCreate"
+	    android:background="#FFF"
+	    android:drawableLeft="@drawable/icon_search_48dp_black"
+	    android:ems="10"
+	    android:gravity="left"
+	    android:hint="@string/search_group_projects"
+	    android:imeOptions="actionSearch"
+	    android:inputType="text"
+	    android:maxLength="30"
+	    android:paddingBottom="15dp"
+	    android:paddingLeft="5dp"
+	    android:paddingRight="5dp"
+	    android:paddingTop="15dp"
+	    android:textColor="#000"
+	    android:textSize="13sp" />
+    
+    <!--  Create a new group project -->
+
+    <ImageView
+        android:id="@+id/imageViewGroupProjectCreate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBottom="@+id/editSearchGroupProjects"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#fff"
+        android:contentDescription="@string/event_create"
+        android:textSize="16sp" />
+
+</RelativeLayout>

@@ -18,7 +18,7 @@
 	    android:listSelector="@drawable/drawer_list_selector"
 	    android:layout_marginBottom="10dp"/>
     
-	<!-- search files -->
+	<!-- search contacts -->
 
 	<EditText
 	    android:id="@+id/editSearchContacts"

@@ -8,8 +8,6 @@
     android:layout_height="wrap_content"
     android:paddingTop="20dp"
     android:background="@drawable/style_activity_background_gradient" >
-    
-	    <!--  Description -->
 
 		<TextView
 		    android:id="@+id/txtCreateTaskUserHelp"
@@ -23,24 +21,6 @@
 		    android:textColor="#FFF"
 		    android:textSize="16sp" />
 	
-		<!-- Task Name -->
-	
-	    <!--  assigned to -->
-
-	    <!-- category spinner -->
-	    
-	    <!--  Start date -->
-	     
-	    <!-- End date -->
-	     
-	     <!--  Priority -->
-	     
-	     <!--  Decription -->
-	     
-	     <!--  Create a new task  -->
-	   	 
-		 <!--  Delete project -->
-		 
 	   	 <Button
 	   	     android:id="@+id/btnDeleteTask"
 	   	     android:layout_width="200dp"

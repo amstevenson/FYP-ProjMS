@@ -26,7 +26,7 @@ import android.widget.ListView;
 
 /***
  * 
- * 
+ * This activity lists all of the tasks that have been created by the user.
  * 
  * @see createAndAssignAdapter for allocating tasks to the ListView in this fragment
  * 
@@ -48,7 +48,7 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 		view = inflater.inflate(R.layout.fragment_user_selected_project_tasks, container, false);
 		
 		//
-		// retrieve the array containing the elements for the project
+		// retrieve the array containing the elements for the task
 		//
 		Bundle projectBundle      = getArguments();
 		projectId = projectBundle.getString("projectId");
@@ -102,11 +102,6 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 		return view;
 	}
 
-	public void setText(String item) {
-		//TextView view = (TextView) getView().findViewById(R.id.txtProjectAllTasks);
-		//view.setText(item);
-	}
-	
 	@Override
 	public void onResume() {
 	    super.onResume();  // Always call the superclass method first
@@ -159,7 +154,7 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 			    	for(int i = 0; i < taskList.size(); i++)
 			    	{
 			    		//
-			    	    // For each of the projects, create a HashMap and add it to the arrayList that will contain all of them
+			    	    // For each of the tasks, create a HashMap and add it to the arrayList that will contain all of them
 			    	    //
 			    	    HashMap<String,String> userTask = new HashMap<String, String>();
 			    	        		
@@ -183,8 +178,8 @@ public class UserSelectedProjectTasksFragment extends Fragment {
 			    	//
 			    	if(userTasks.size() >= 0) // more than or equal to...because of course it starts at 0...
 			    	{
-			    		ListAllTasksAdapter allProjectsAdapter = new ListAllTasksAdapter(view.getContext(), userTasks);
-			    		listTasksAll.setAdapter(allProjectsAdapter);
+			    		ListAllTasksAdapter alltasksAdapter = new ListAllTasksAdapter(view.getContext(), userTasks);
+			    		listTasksAll.setAdapter(alltasksAdapter);
 			    		
 			    	}
 			    	        	

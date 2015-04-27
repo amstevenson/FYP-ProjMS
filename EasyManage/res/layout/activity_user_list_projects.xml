@@ -67,18 +67,5 @@
         android:contentDescription="@string/projects_create"
         android:textSize="16sp" />
     
-    <!--  Might want to create an adapter that creates an edit button that is clickable
-    		instead of having this
-    		
-    		Also, might be better to have an edit button on each listview row - which would make more sense -->
-   <!--<Button
-        android:id="@+id/btnProjectEdit"
-        android:layout_alignLeft="@id/listProjectsAll"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="#0c4661"
-        android:textSize="16sp" 
-        android:text="@string/projects_edit"
-        android:textColor="#fff" /> -->
 
 </RelativeLayout>

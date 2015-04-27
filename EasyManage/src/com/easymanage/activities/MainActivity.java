@@ -20,7 +20,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.easymanage.R;
 
-/*
+/**
  * The main class for the application. Allows the user to progress to either
  * registering an account, or logging in to their dashboard. 
  * 

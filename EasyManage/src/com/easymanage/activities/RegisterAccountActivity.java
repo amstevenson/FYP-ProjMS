@@ -37,7 +37,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-/*
+/**
+ * 
+ * The activity responsible for creating new user accounts.
+ * 
  * @author Adam Stevenson
  */
 public class RegisterAccountActivity extends Activity {
@@ -89,7 +92,7 @@ public class RegisterAccountActivity extends Activity {
 		final EditText registerEmail          = (EditText) findViewById(R.id.editRegisterEmail);
 		final EditText registerRepeatEmail    = (EditText) findViewById(R.id.editRegisterRepeatEmail);
  		
-		Button submitRegistration = (Button) findViewById(R.id.btnRegisterSubmit);
+		Button submitRegistration = (Button) findViewById(R.id.btnRegisterDetails);
 		Button submitChangeImage  = (Button) findViewById(R.id.btnRegisterChangeUserImage);
 		
 		//****************************************************************************//

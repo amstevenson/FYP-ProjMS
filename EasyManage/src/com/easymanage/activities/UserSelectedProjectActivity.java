@@ -14,6 +14,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * 
+ * When a project has been selected, two navigation tabs are created and appear
+ * towards the top of the phone/emulator. This allows the user to navigate
+ * between different tasks and files. All of which are listed accordingly.
+ * Fragments both have different views. 
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class UserSelectedProjectActivity extends Activity {
 
 	@Override

@@ -25,6 +25,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * 
+ * This activity lists all of the events that a user has created.
+ * This uses a custom built adapter. 
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class UserListAllEventsActivity extends Activity {
 
 	private String  userId    = "empty";
@@ -197,8 +205,8 @@ public class UserListAllEventsActivity extends Activity {
 		    	        	
 		    	 if(userEvents.size() >= 0)
 		    	 {
-		    		 ListAllEventsAdapter allProjectsAdapter = new ListAllEventsAdapter(getApplicationContext(), userEvents);
-		    	     listEventsAll.setAdapter(allProjectsAdapter);
+		    		 ListAllEventsAdapter allEventsAdapter = new ListAllEventsAdapter(getApplicationContext(), userEvents);
+		    	     listEventsAll.setAdapter(allEventsAdapter);
 		    	 }
 		    	        	
 		    	 //

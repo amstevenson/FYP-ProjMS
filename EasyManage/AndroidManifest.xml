@@ -229,6 +229,26 @@
             android:label="@string/title_activity_user_selected_group" >
         </activity>
         <activity
+            android:name=".fragments.UserSelectedGroupMembersFragment"
+            android:label="@string/title_activity_user_selected_group_members"
+            android:parentActivityName=".activities.UserListAllGroupsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.easymanage.activities.UserListAllGroupsActivity" />
+        </activity>
+        <activity
+            android:name=".fragments.UserSelectedGroupProjectsFragment"
+            android:label="@string/title_activity_user_selected_group_projects"
+            android:parentActivityName=".activities.UserListAllGroupsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.easymanage.activities.UserListAllGroupsActivity" />
+        </activity>
+        <activity
             android:name=".activities.CreateOrEditGroupActivity"
             android:label="@string/title_activity_create_or_edit_group" >
         </activity>
@@ -241,8 +261,12 @@
             android:value="AIzaSyB9x8s2MzJcHLUiW4cMJFyUtEiRDa0n5DE" />
 
         <activity
-            android:name="com.easymanage.activities.ChooseFileActivity"
+            android:name=".activities.ChooseFileActivity"
             android:label="@string/title_activity_choose_file" >
+        </activity>
+        <activity
+            android:name="com.easymanage.activities.ChooseGroupProjectActivity"
+            android:label="@string/title_activity_choose_group_project" >
         </activity>
     </application>
 

@@ -12,6 +12,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/**
+ * 
+ * This activity requires that a code is submitted before the user
+ * is allowed to change his/her password.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class ForgotPasswordActivity extends Activity {
 
 	@Override

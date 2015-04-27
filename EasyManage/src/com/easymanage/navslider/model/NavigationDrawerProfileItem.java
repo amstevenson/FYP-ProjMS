@@ -2,6 +2,14 @@ package com.easymanage.navslider.model;
 
 import android.graphics.Bitmap;
 
+/**
+ * 
+ * This class is used to create a user profile picture, that appears at the top
+ * of a navigation drawer. 
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class NavigationDrawerProfileItem {
 
 	private Bitmap profileBackgroundImage;

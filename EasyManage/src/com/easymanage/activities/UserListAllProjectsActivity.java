@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.easymanage.adapters.ListAllProjectsAdapter;
+import com.easymanage.utilities.NetworkStateOperations;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -30,6 +31,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+/**
+ * 
+ * This activity lists all of the projects that have been 
+ * created by the user. 
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class UserListAllProjectsActivity extends Activity {
 
 	private String userId = "";
@@ -195,54 +204,57 @@ public class UserListAllProjectsActivity extends Activity {
 		//
 		// Get all of the projects assigned to a user
 		//
-		ParseQuery<ParseObject> query = ParseQuery.getQuery("Project");
-		query.whereEqualTo("projectCreatedBy", userId);
-		query.orderByDescending("createdAt");
-		query.findInBackground(new FindCallback<ParseObject>() {
-		 public void done(List<ParseObject> projectList, ParseException e) {
-			 if (e == null) {
-		    	        	
-			     //
-			     // add all items to the array list of HashMaps
-			     //
-				 for(int i = 0; i < projectList.size(); i++)
-		    	 {
-					 //
-		    	     // For each of the projects, create a HashMap and add it to the arrayList that will contain all of them
-		    	     //
-		    	     HashMap<String,String> userProject = new HashMap<String, String>();
-		    	        		
-		    	     userProject.put("projectId",           (String) projectList.get(i).getObjectId());
-		    	     userProject.put("projectName",        (String) projectList.get(i).get("projectName").toString());
-		    	     userProject.put("projectStartDate",   (String) projectList.get(i).get("projectStartDate").toString());
-		    	     userProject.put("projectEndDate",     (String) projectList.get(i).get("projectEndDate").toString());
-		    	     userProject.put("projectStatus",      (String) projectList.get(i).get("projectStatus").toString());
-		    	     //userProject.put("projectMembers",     (String) projectList.get(i).get("projectMembers").toString());
-		    	     userProject.put("projectDescription", (String) projectList.get(i).get("projectDescription").toString());
-		    	        		
-		    	     userProjects.add(userProject);
-		    	 }
-		    	        	
-		    	 if(userProjects.size() >= 0)
-		    	 {
-		    		 ListAllProjectsAdapter allProjectsAdapter = new ListAllProjectsAdapter(getApplicationContext(), userProjects);
-		    	     listProjectsAll.setAdapter(allProjectsAdapter);
-		    	 }
-		    	        	
-		    	 //
-		    	 // If we have no items, show this to the user
-		    	 // Chances are it will be the first time they have used the service too, so I
-		    	 // May want to add more user information than what is there currently.
-		    	 //
-		    	 if(listProjectsAll.getCount() == 0) txtProjectsNone.setVisibility(View.VISIBLE);
-		    	 else 								txtProjectsNone.setVisibility(View.GONE);
-		    	        	
-		    	 // Log.d("score", "Project Name " + userProjects.get(0).get("projectEndDate") + " scores"); // debug
-		    	 } else Log.d("score", "Error: " + e.getMessage());
-		    	        
-			}
-
-		});		
+		if(NetworkStateOperations.testNetworkConnection(getApplicationContext()))
+		{
+			ParseQuery<ParseObject> query = ParseQuery.getQuery("Project");
+			query.whereEqualTo("projectCreatedBy", userId);
+			query.orderByDescending("createdAt");
+			query.findInBackground(new FindCallback<ParseObject>() {
+			 public void done(List<ParseObject> projectList, ParseException e) {
+				 if (e == null) {
+			    	        	
+				     //
+				     // add all items to the array list of HashMaps
+				     //
+					 for(int i = 0; i < projectList.size(); i++)
+			    	 {
+						 //
+			    	     // For each of the projects, create a HashMap and add it to the arrayList that will contain all of them
+			    	     //
+			    	     HashMap<String,String> userProject = new HashMap<String, String>();
+			    	        		
+			    	     userProject.put("projectId",           (String) projectList.get(i).getObjectId());
+			    	     userProject.put("projectName",        (String) projectList.get(i).get("projectName").toString());
+			    	     userProject.put("projectStartDate",   (String) projectList.get(i).get("projectStartDate").toString());
+			    	     userProject.put("projectEndDate",     (String) projectList.get(i).get("projectEndDate").toString());
+			    	     userProject.put("projectStatus",      (String) projectList.get(i).get("projectStatus").toString());
+			    	     //userProject.put("projectMembers",     (String) projectList.get(i).get("projectMembers").toString());
+			    	     userProject.put("projectDescription", (String) projectList.get(i).get("projectDescription").toString());
+			    	        		
+			    	     userProjects.add(userProject);
+			    	 }
+			    	        	
+			    	 if(userProjects.size() >= 0)
+			    	 {
+			    		 ListAllProjectsAdapter allProjectsAdapter = new ListAllProjectsAdapter(getApplicationContext(), userProjects);
+			    	     listProjectsAll.setAdapter(allProjectsAdapter);
+			    	 }
+			    	        	
+			    	 //
+			    	 // If we have no items, show this to the user
+			    	 // Chances are it will be the first time they have used the service too, so I
+			    	 // May want to add more user information than what is there currently.
+			    	 //
+			    	 if(listProjectsAll.getCount() == 0) txtProjectsNone.setVisibility(View.VISIBLE);
+			    	 else 								txtProjectsNone.setVisibility(View.GONE);
+			    	        	
+			    	 // Log.d("score", "Project Name " + userProjects.get(0).get("projectEndDate") + " scores"); // debug
+			    	 } else Log.d("score", "Error: " + e.getMessage());
+			    	        
+				}
+	
+			});		
+		}
 	}
 	
 	@Override
@@ -299,23 +311,5 @@ public class UserListAllProjectsActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
-	/*
-	@Override
-    public void onBackPressed() {
-        super.onBackPressed();   
-        
-        Intent intent = new Intent(
-				getApplicationContext(),
-				UserDashboardActivity.class);
-		
-		intent.putExtra("userId", userId); // add the email for queries
-		
-		startActivity(intent);
-		
-		Log.d("on back pressed", "in on back pressed");
 
-    }
-    
-    */
 }

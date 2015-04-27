@@ -35,6 +35,14 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * The dashboard allows the user to navigate to every place available in the application.
+ * The main points of interest are: projects, groups, events and contacts.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class UserDashboardActivity extends Activity {
 
     // Navigation XML Menu variables
@@ -81,17 +89,21 @@ public class UserDashboardActivity extends Activity {
 		//
 		// Determine the views
 		//
-		TextView dashboardUsername = (TextView) this.findViewById(R.id.txtDashboardUsername);
-		TextView dashboardEmail    = (TextView) this.findViewById(R.id.txtDashboardUserEmail);
-		TextView  projectSummary   = (TextView) this.findViewById(R.id.txtDashboardProjects);
-		TextView  projectTitle     = (TextView) this.findViewById(R.id.txtDashboardProjectsTitle);
-		TextView  groupsSummary    = (TextView) this.findViewById(R.id.txtDashboardGroups);
-		TextView  groupsTitle      = (TextView) this.findViewById(R.id.txtDashboardTasksTitle);
-		TextView  messagesSummary  = (TextView) this.findViewById(R.id.txtDashboardMessages);
-		TextView  messagesTitle    = (TextView) this.findViewById(R.id.txtDashboardMessagesTitle);
-		TextView  eventsSummary    = (TextView) this.findViewById(R.id.txtDashboardEvents);
-		TextView  eventsTitle      = (TextView) this.findViewById(R.id.txtDashboardEventsTitle);
-		final ImageView userImage        = (ImageView) this.findViewById(R.id.imgviewDashboardUser);
+		TextView dashboardUsername   = (TextView) this.findViewById(R.id.txtDashboardUsername);
+		TextView dashboardEmail      = (TextView) this.findViewById(R.id.txtDashboardUserEmail);
+		TextView  projectSummary     = (TextView) this.findViewById(R.id.txtDashboardProjects);
+		TextView  projectTitle       = (TextView) this.findViewById(R.id.txtDashboardProjectsTitle);
+		TextView  projectMostRecent  = (TextView) this.findViewById(R.id.txtDashboardProjectMostRecentAdded);
+		TextView  groupsSummary      = (TextView) this.findViewById(R.id.txtDashboardGroups);
+		TextView  groupsTitle        = (TextView) this.findViewById(R.id.txtDashboardTasksTitle);
+		TextView  groupsMostRecent   = (TextView) this.findViewById(R.id.txtDashboardMostRecentGroups);
+		TextView  messagesSummary    = (TextView) this.findViewById(R.id.txtDashboardMessages);
+		TextView  messagesTitle      = (TextView) this.findViewById(R.id.txtDashboardMessagesTitle);
+		TextView  messagesMostRecent = (TextView) this.findViewById(R.id.txtDashboardMostRecentMessages);
+		TextView  eventsSummary      = (TextView) this.findViewById(R.id.txtDashboardEvents);
+		TextView  eventsTitle        = (TextView) this.findViewById(R.id.txtDashboardEventsTitle);
+		TextView  eventsMostRecent   = (TextView) this.findViewById(R.id.txtDashboardMostRecentEvents);
+		final ImageView userImage    = (ImageView) this.findViewById(R.id.imgviewDashboardUser);
 		
 		//*******************************************************************************************//
 		//									retrieve user information								 //
@@ -185,6 +197,17 @@ public class UserDashboardActivity extends Activity {
 			}
 		});
 		
+		projectMostRecent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent allProjects = new Intent(getApplicationContext(),UserListAllProjectsActivity.class);
+				allProjects.putExtra("userId", userId);
+				startActivity(allProjects);
+			}
+		});
+		
 		groupsSummary.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -198,6 +221,18 @@ public class UserDashboardActivity extends Activity {
 		});
 		
 		groupsTitle.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent allGroups = new Intent(getApplicationContext(), UserListAllGroupsActivity.class);
+				allGroups.putExtra("userId", userId);
+				startActivity(allGroups);
+				
+			}
+		});
+		
+		groupsMostRecent.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -235,6 +270,19 @@ public class UserDashboardActivity extends Activity {
 			}
 		});
 		
+		messagesMostRecent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent allMessages = new Intent(getApplicationContext(), UserContactsActivity.class);
+				allMessages.putExtra("userId", userId);
+				allMessages.putExtra("userEmail", userEmail);
+				startActivity(allMessages);
+				
+			}
+		});
+		
 		eventsSummary.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -259,6 +307,17 @@ public class UserDashboardActivity extends Activity {
 			}
 		});
 		
+		eventsMostRecent.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent allEvents = new Intent(getApplicationContext(), UserListAllEventsActivity.class);
+				allEvents.putExtra("userId", userId);
+				startActivity(allEvents);
+				
+			}
+		});
 		
 		//
 		// Create the navigation menu
@@ -446,13 +505,9 @@ public class UserDashboardActivity extends Activity {
 					
 					case "My Groups": 
 						
-						/*
-						Intent groupIntent = new Intent(getApplicationContext(), ChangeUserDetailsActivity.class);
-						
-						// Pass the userId and start the activity
-						accountIntent.putExtra("userId", userId);
-						startActivity(accountIntent);
-						*/
+						Intent allGroups = new Intent(getApplicationContext(), UserListAllGroupsActivity.class);
+						allGroups.putExtra("userId", userId);
+						startActivity(allGroups);
 						
 						break;
 					
@@ -461,7 +516,7 @@ public class UserDashboardActivity extends Activity {
 						Intent accountIntent = new Intent(getApplicationContext(), ChangeUserDetailsActivity.class);
 						
 						// Pass the userId and start the activity
-						accountIntent.putExtra("userId", userId);
+						accountIntent.putExtra("userEmail", userEmail);
 						startActivity(accountIntent);
 						
 						break;

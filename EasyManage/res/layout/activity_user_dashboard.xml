@@ -79,134 +79,194 @@
 			    android:textColor="#fff" />
 		    
 		    <!-- Projects -->
+
 			<TextView
 			    android:id="@+id/txtDashboardProjects"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:layout_marginLeft="15dp"
-			    android:layout_marginRight="15dp"
+			    android:layout_alignLeft="@+id/txtDashboardProjectsTitle"
+			    android:layout_alignRight="@+id/txtDashboardProjectsTitle"
 			    android:layout_marginTop="90dp"
+			    android:background="#2b2b2b"
 			    android:paddingBottom="10dp"
-			    android:paddingTop="10dp"
 			    android:paddingLeft="10dp"
-				android:background="#AF1D0600"
+			    android:paddingTop="10dp"
 			    android:text="@string/dashboard_projects"
-			    android:textSize="16sp"
-			    android:textColor="#66CCFF" />
+			    android:textColor="#fff"
+			    android:textSize="16sp" />
 		
 			<TextView
 			    android:id="@+id/txtDashboardProjectsTitle"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
+			    android:layout_alignLeft="@+id/txtDashboardProjectMostRecentAdded"
+			    android:layout_alignRight="@+id/txtDashboardProjectMostRecentAdded"
 			    android:layout_below="@id/txtDashboardProjects"
-			    android:layout_marginLeft="15dp"
-			    android:layout_marginRight="15dp"
-			    android:paddingTop="10dp"
+			    android:background="#234e81"
+			    android:paddingBottom="10dp"
 			    android:paddingLeft="10dp"
-			    android:paddingBottom="50dp"
-				android:background="#3F1b2600"
+			    android:paddingRight="10dp"
+			    android:paddingTop="10dp"
 			    android:text="@string/dashboard_projects_title"
 			    android:textColor="#fff" />
 		    
-			<!--  Tasks -->
+		   	 <TextView
+		   	     android:id="@+id/txtDashboardProjectMostRecentAdded"
+		   	     android:layout_width="wrap_content"
+		   	     android:layout_height="wrap_content"
+		   	     android:layout_alignLeft="@+id/txtDashboardGroups"
+		   	     android:layout_alignRight="@+id/txtDashboardGroups"
+		   	     android:layout_below="@+id/txtDashboardProjectsTitle"
+		   	     android:background="#194574"
+		   	     android:paddingBottom="10dp"
+		   	     android:paddingLeft="10dp"
+		   	     android:paddingRight="10dp"
+		   	     android:paddingTop="10dp"
+		   	     android:text="@string/dashboard_most_recently_added"
+		   	     android:textColor="#fff" />
 
-			<TextView
-			    android:id="@+id/txtDashboardGroups"
-			    android:layout_width="match_parent"
-			    android:layout_height="wrap_content"
-			    android:layout_below="@id/txtDashboardProjectsTitle"
-			    android:layout_marginLeft="15dp"
-			    android:layout_marginRight="15dp"
-			    android:layout_marginTop="40dp"
-			    android:background="#AF1D0600"
-			    android:paddingBottom="10dp"
-			    android:paddingLeft="10dp"
-			    android:paddingTop="10dp"
-			    android:text="@string/dashboard_groups"
-			    android:textColor="#66CCFF"
-			    android:textSize="16sp" />
-			
-			<TextView
-			    android:id="@+id/txtDashboardTasksTitle"
-			    android:layout_width="match_parent"
-			    android:layout_height="wrap_content"
-			    android:layout_below="@id/txtDashboardGroups"
-			    android:layout_marginLeft="15dp"
-			    android:layout_marginRight="15dp"
-			    android:paddingTop="10dp"
-			    android:paddingLeft="10dp"
-			    android:paddingBottom="50dp"
-				android:background="#3F1b2600"
-			    android:text="@string/dashboard_tasks_title"
-			    android:textColor="#fff" />
-			
-			<!-- Events  -->
-			<TextView
-			    android:id="@+id/txtDashboardEvents"
-			    android:layout_width="match_parent"
-			    android:layout_height="wrap_content"
-			    android:layout_marginLeft="15dp"
-			    android:layout_marginRight="15dp"
-			    android:layout_marginTop="40dp"
-			    android:layout_below="@id/txtDashboardTasksTitle"
-			    android:paddingBottom="10dp"
-			    android:paddingTop="10dp"
-			    android:paddingLeft="10dp"
-				android:background="#AF1D0600"
-			    android:text="@string/dashboard_events"
-			    android:textSize="16sp"
-			    android:textColor="#66CCFF" />
-			
+		   	 <TextView
+		   	     android:id="@+id/txtDashboardMostRecentGroups"
+		   	     android:layout_width="wrap_content"
+		   	     android:layout_height="wrap_content"
+		   	     android:layout_alignLeft="@+id/txtDashboardTasksTitle"
+		   	     android:layout_alignRight="@+id/txtDashboardTasksTitle"
+		   	     android:layout_below="@+id/txtDashboardTasksTitle"
+		   	     android:background="#194574"
+		   	     android:paddingBottom="10dp"
+		   	     android:paddingLeft="10dp"
+		   	     android:paddingRight="10dp"
+		   	     android:paddingTop="10dp"
+		   	     android:text="@string/dashboard_most_recently_added"
+		   	     android:textColor="#fff" />
+
+		   	 <TextView
+		   	     android:id="@+id/txtDashboardTasksTitle"
+		   	     android:layout_width="match_parent"
+		   	     android:layout_height="wrap_content"
+		   	     android:layout_alignLeft="@+id/txtDashboardEvents"
+		   	     android:layout_alignRight="@+id/txtDashboardEvents"
+		   	     android:layout_below="@+id/txtDashboardGroups"
+		   	     android:background="#234e81"
+		   	     android:paddingBottom="10dp"
+		   	     android:paddingLeft="10dp"
+		   	     android:paddingRight="10dp"
+		   	     android:paddingTop="10dp"
+		   	     android:text="@string/dashboard_groups_title"
+		   	     android:textColor="#fff" />
+
+		   	 <TextView
+		   	     android:id="@+id/txtDashboardEvents"
+		   	     android:layout_width="match_parent"
+		   	     android:layout_height="wrap_content"
+		   	     android:layout_alignLeft="@+id/txtDashboardEventsTitle"
+		   	     android:layout_alignRight="@+id/txtDashboardEventsTitle"
+		   	     android:layout_below="@+id/txtDashboardMostRecentGroups"
+		   	     android:layout_marginTop="30dp"
+		   	     android:background="#2b2b2b"
+		   	     android:paddingBottom="10dp"
+		   	     android:paddingLeft="10dp"
+		   	     android:paddingTop="10dp"
+		   	     android:text="@string/dashboard_events"
+		   	     android:textColor="#fff"
+		   	     android:textSize="16sp" />
+		   	 
 			<TextView
 			    android:id="@+id/txtDashboardEventsTitle"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_below="@id/txtDashboardEvents"
-			    android:layout_marginLeft="15dp"
-			    android:layout_marginRight="15dp"
-			    android:paddingTop="10dp"
+			    android:layout_marginLeft="10dp"
+			    android:layout_marginRight="10dp"
+			    android:background="#234e81"
+			    android:paddingBottom="10dp"
 			    android:paddingLeft="10dp"
-			    android:paddingBottom="50dp"
-				android:background="#3F1b2600"
+			    android:paddingRight="10dp"
+			    android:paddingTop="10dp"
 			    android:text="@string/dashboard_events_title"
-			    android:textColor="#fff" />
-			
-			<!-- Messages -->
+			    android:textColor="#fff" />	
+			    
 			<TextView
 			    android:id="@+id/txtDashboardMessages"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:layout_marginLeft="15dp"
-			    android:layout_marginRight="15dp"
-			    android:layout_marginTop="40dp"
 			    android:layout_below="@id/txtDashboardEventsTitle"
-			    android:paddingTop="10dp"
-			    android:paddingLeft="10dp"
+			    android:layout_marginLeft="10dp"
+			    android:layout_marginRight="10dp"
+			    android:layout_marginTop="70dp"
+			    android:background="#AF1D0600"
 			    android:paddingBottom="10dp"
-				android:background="#AF1D0600"
+			    android:paddingLeft="10dp"
+			    android:paddingTop="10dp"
 			    android:text="@string/dashboard_messages"
-			    android:textSize="16sp"
-			    android:textColor="#66CCFF" />
-			
+			    android:textColor="#fff"
+			    android:textSize="16sp" />
+				  
 			<TextView
 			    android:id="@+id/txtDashboardMessagesTitle"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_below="@id/txtDashboardMessages"
-			    android:layout_marginLeft="15dp"
-			    android:layout_marginRight="15dp"
-			    android:paddingTop="10dp"
+			    android:layout_marginLeft="10dp"
+			    android:layout_marginRight="10dp"
+			    android:background="#234e81"
+			    android:paddingBottom="10dp"
 			    android:paddingLeft="10dp"
-			    android:paddingBottom="50dp"
-				android:background="#3F1b2600"
+			    android:paddingTop="10dp"
 			    android:text="@string/dashboard_messages_title"
 			    android:textColor="#fff" />
-
+				
 		   	 <Space
 		   	     android:id="@+id/spaceDashboard"
 		   	     android:layout_width="match_parent"
 		   	     android:layout_height="30dp"
 		   	     android:layout_below="@id/txtDashboardMessagesTitle" />
+			
+		   	 <TextView
+		   	     android:id="@+id/txtDashboardGroups"
+		   	     android:layout_width="match_parent"
+		   	     android:layout_height="wrap_content"
+		   	     android:layout_alignLeft="@+id/txtDashboardTasksTitle"
+		   	     android:layout_alignRight="@+id/txtDashboardTasksTitle"
+		   	     android:layout_below="@+id/txtDashboardProjectMostRecentAdded"
+		   	     android:layout_marginTop="30dp"
+		   	     android:background="#2b2b2b"
+		   	     android:paddingBottom="10dp"
+		   	     android:paddingLeft="10dp"
+		   	     android:paddingTop="10dp"
+		   	     android:text="@string/dashboard_groups"
+		   	     android:textColor="#fff"
+		   	     android:textSize="16sp" />
+
+		   	 <TextView
+		   	     android:id="@+id/txtDashboardMostRecentEvents"
+		   	     android:layout_width="wrap_content"
+		   	     android:layout_height="wrap_content"
+		   	     android:layout_alignLeft="@+id/txtDashboardMessages"
+		   	     android:layout_alignRight="@+id/txtDashboardMessages"
+		   	     android:layout_below="@+id/txtDashboardEventsTitle"
+		   	     android:background="#194574"
+		   	     android:paddingBottom="10dp"
+		   	     android:paddingLeft="10dp"
+		   	     android:paddingRight="10dp"
+		   	     android:paddingTop="10dp"
+		   	     android:text="@string/dashboard_most_recently_added"
+		   	     android:textColor="#fff" />
+
+		   	 <TextView
+		   	     android:id="@+id/txtDashboardMostRecentMessages"
+		   	     android:layout_width="wrap_content"
+		   	     android:layout_height="wrap_content"
+		   	     android:layout_alignLeft="@+id/txtDashboardMessagesTitle"
+		   	     android:layout_alignRight="@+id/txtDashboardMessagesTitle"
+		   	     android:layout_alignTop="@+id/spaceDashboard"
+		   	     android:background="#194574"
+		   	     android:paddingBottom="10dp"
+		   	     android:paddingLeft="10dp"
+		   	     android:paddingRight="10dp"
+		   	     android:paddingTop="10dp"
+		   	     android:text="@string/dashboard_most_recently_added"
+		   	     android:textColor="#fff" />
 			
 		</RelativeLayout>
 	

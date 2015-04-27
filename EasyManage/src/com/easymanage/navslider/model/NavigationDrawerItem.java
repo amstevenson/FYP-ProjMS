@@ -1,5 +1,13 @@
 package com.easymanage.navslider.model;
 
+/**
+ * 
+ * This class is used to create an object that is used to create and display
+ * elements on the navigation drawer. 
+ * 
+ * @author Android 
+ *
+ */
 public class NavigationDrawerItem {
 	
 	private String title;

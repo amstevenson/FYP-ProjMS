@@ -17,6 +17,14 @@ import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/**
+ * 
+ * A custom built adapter to create, list and manipulate the
+ * information received from an external call to Parse.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class ListAllMessagesAdapter extends BaseAdapter {
 
 	private Context							   context;

@@ -31,6 +31,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * A custom built adapter to create, list and manipulate the
+ * information received from an external call to Parse.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class ListAllEventsAdapter extends BaseAdapter{
 
 	private Context							   context;

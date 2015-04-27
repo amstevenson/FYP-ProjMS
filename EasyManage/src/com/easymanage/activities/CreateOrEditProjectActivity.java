@@ -32,6 +32,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * An activity that allows the user to create or edit an instance
+ * of a project object. 
+ * 
+ * @author Adamst
+ *
+ */
 public class CreateOrEditProjectActivity extends Activity {
 
 	private String  userId    = "empty";

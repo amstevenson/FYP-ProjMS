@@ -18,7 +18,7 @@
 	    android:paddingTop="10dp"
 	    android:text="@string/adapter_files_name"
 	    android:textColor="#ededed"
-	    android:textSize="16sp" />
+	    android:textSize="14sp" />
     
 	<TextView
 	    android:id="@+id/filesStartDate"
@@ -53,10 +53,9 @@
 	    android:id="@+id/filesDelete"
 	    android:layout_width="wrap_content"
 	    android:layout_height="25dp"
+	    android:layout_alignRight="@+id/filesImageType"
 	    android:layout_alignTop="@+id/filesImageType"
-	    android:layout_marginRight="10dp"
 	    android:layout_marginTop="-3dp"
-	    android:layout_toLeftOf="@+id/filesImageType"
 	    android:background="@drawable/rounded_border_grey"
 	    android:contentDescription="@string/project_type_prompt"
 	    android:paddingBottom="5dp"
@@ -71,8 +70,10 @@
 	    android:id="@+id/filesSize"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
+	    android:layout_alignBaseline="@+id/filesStartDate"
+	    android:layout_alignBottom="@+id/filesStartDate"
 	    android:layout_alignLeft="@+id/filesDelete"
-	    android:layout_below="@+id/filesName"
+	    android:layout_alignRight="@+id/filesDelete"
 	    android:paddingBottom="10dp"
 	    android:paddingLeft="0dp"
 	    android:paddingTop="10dp"

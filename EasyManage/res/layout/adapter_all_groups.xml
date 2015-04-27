@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/style_activity_background_gradient"  >
+    
+	<TextView
+	    android:id="@+id/groupName"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginTop="10dp"
+	    android:background="#2b2b2b"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_group_name"
+	    android:textColor="#ededed"
+	    android:textSize="14sp" />
+    
+	<TextView
+	    android:id="@+id/groupDescription"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignRight="@+id/groupName"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginTop="47dp"
+	    android:background="#234e81"
+	    android:paddingBottom="10dp"
+	    android:paddingLeft="10dp"
+	    android:paddingTop="10dp"
+	    android:text="@string/adapter_group_description"
+	    android:textColor="#fff" />
+
+	<TextView
+	    android:id="@+id/groupEdit"
+	    android:layout_width="wrap_content"
+	    android:layout_height="25dp"
+	    android:layout_alignBaseline="@+id/groupName"
+	    android:layout_alignBottom="@+id/groupName"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginRight="20dp"
+	    android:background="@drawable/rounded_border_grey"
+	    android:contentDescription="@string/project_type_prompt"
+	    android:paddingBottom="5dp"
+	    android:paddingLeft="15dp"
+	    android:paddingRight="15dp"
+	    android:paddingTop="5dp"
+	    android:text="@string/button_edit"
+	    android:textColor="#fff"
+	    android:textSize="12sp" />
+	
+</RelativeLayout>

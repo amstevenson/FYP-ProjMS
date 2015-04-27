@@ -8,6 +8,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * 
+ * As a response to entering the correct code, the user is allowed
+ * to change his/her password, which is the premise of this activity. 
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class ForgotPasswordResetActivity extends Activity {
 
 	@Override

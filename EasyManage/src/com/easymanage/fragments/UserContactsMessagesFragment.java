@@ -24,6 +24,13 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+/**
+ * 
+ * Recieve all of the messages that have been sent to the user.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class UserContactsMessagesFragment extends Fragment {
 
 	private String userId, userEmail = "empty";
@@ -38,7 +45,7 @@ public class UserContactsMessagesFragment extends Fragment {
 		
 		view = inflater.inflate(R.layout.fragment_user_contacts_messages, container, false);
 		
-		// retrieve the array containing the elements for the project
+		// retrieve the array containing the elements of the messages
 		Bundle messageBundle      = getArguments();
 		Log.d("Messages - User ID", messageBundle.getString("userId"));
 		Log.d("messages - User Email", messageBundle.getString("userEmail"));
@@ -68,7 +75,7 @@ public class UserContactsMessagesFragment extends Fragment {
 		//									Create view listeners									 //
 		//*******************************************************************************************//
 		//
-		// If we are creating a new task
+		// If we are creating a new message
 		//
 		imageViewCreateMessage.setOnClickListener(new OnClickListener() {
 					
@@ -96,11 +103,6 @@ public class UserContactsMessagesFragment extends Fragment {
 		imageViewCreateMessage.setImageDrawable(plusImage);
 		
 		return view;
-	}
-
-	public void setText(String item) {
-		//TextView view = (TextView) getView().findViewById(R.id.txtFragMessagesTitle);
-		//view.setText(item);
 	}
 	
 	@Override
@@ -137,7 +139,7 @@ public class UserContactsMessagesFragment extends Fragment {
 		
 		//
 		// Get all of the tasks assigned to a user, then create an adapter for the ListView
-		// That will contain all of the tasks, and plug information into it. 
+		// That will contain all of the messages, and plug information into it. 
 		//
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Message");
 		query.whereEqualTo("messageToID", userId);
@@ -152,7 +154,7 @@ public class UserContactsMessagesFragment extends Fragment {
 			    	for(int i = 0; i < messageList.size(); i++)
 			    	{
 			    		//
-			    	    // For each of the projects, create a HashMap and add it to the arrayList that will contain all of them
+			    	    // For each of the messages, create a HashMap and add it to the arrayList that will contain all of them
 			    	    //
 			    	    HashMap<String,String> userMessage = new HashMap<String, String>();
 			    	        		

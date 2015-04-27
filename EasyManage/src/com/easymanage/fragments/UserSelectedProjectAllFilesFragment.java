@@ -25,6 +25,14 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+/**
+ * 
+ * This activity lists all of the files that have been selected and downloaded to the
+ * EasyManage directory, where all of the files are stored.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class UserSelectedProjectAllFilesFragment extends Fragment {
 
     private ArrayList<HashMap<String, String>> userFilesInformation;

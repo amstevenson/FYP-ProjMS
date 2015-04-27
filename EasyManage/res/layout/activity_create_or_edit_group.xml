@@ -1,16 +1,124 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.easymanage.activities.CreateOrEditGroupActivity" >
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/style_activity_background_gradient"
+	    android:paddingTop="20dp" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+	    <TextView
+	        android:id="@+id/txtCreateGroupsUserHelp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:paddingBottom="50dp"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:text="@string/create_group_summary"
+	        android:textColor="#FFF"
+	        android:textSize="16sp" />
 
-</RelativeLayout>
+	    <EditText
+	        android:id="@+id/editCreateGroupName"
+	        android:layout_width="50dp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/txtCreateGroupName"
+	        android:layout_alignRight="@+id/txtCreateGroupsUserHelp"
+	        android:layout_below="@+id/txtCreateGroupName"
+	        android:layout_marginTop="5dp"
+	        android:background="#FFF"
+	        android:ems="10"
+	        android:gravity="left|center"
+	        android:hint="@string/create_group_edit_name"
+	        android:inputType="textEmailAddress"
+	        android:maxLength="50"
+	        android:paddingBottom="15dp"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="20dp"
+	        android:paddingTop="15dp"
+	        android:singleLine="false"
+	        android:textColor="#000"
+	        android:textSize="13sp" />
+
+	    <TextView
+	        android:id="@+id/txtCreateGroupDescription"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/txtCreateGroupName"
+	        android:layout_below="@+id/editCreateGroupName"
+	        android:layout_marginTop="22dp"
+	        android:text="@string/create_group_txt_description"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+
+	    <Button
+	        android:id="@+id/btnCreateGroup"
+	        android:layout_width="250dp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/editCreateGroupNotes"
+	        android:layout_marginTop="112dp"
+	        android:background="#8bc425"
+	        android:minHeight="60dp"
+	        android:text="@string/create_group_btn"
+	        android:textColor="#fff"
+	        android:textSize="16sp" />
+
+	    <EditText
+	        android:id="@+id/editCreateGroupNotes"
+	        android:layout_width="50dp"
+	        android:layout_height="150dp"
+	        android:layout_alignLeft="@+id/txtCreateGroupDescription"
+	        android:layout_alignRight="@+id/editCreateGroupName"
+	        android:layout_below="@+id/txtCreateGroupDescription"
+	        android:layout_marginTop="5dp"
+	        android:background="#FFF"
+	        android:ems="10"
+	        android:gravity="top|center|left"
+	        android:hint="@string/create_group_edit_description"
+	        android:inputType="textMultiLine"
+	        android:maxLength="200"
+	        android:maxLines="15"
+	        android:paddingBottom="15dp"
+	        android:paddingLeft="10dp"
+	        android:paddingRight="10dp"
+	        android:paddingTop="15dp"
+	        android:singleLine="false"
+	        android:textColor="#000"
+	        android:textSize="13sp" />
+
+	    <TextView
+	        android:id="@+id/txtCreateGroupName"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/txtCreateGroupsUserHelp"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="10dp"
+	        android:paddingLeft="0dp"
+	        android:paddingRight="10dp"
+	        android:text="@string/create_group_txt_name"
+	        android:textColor="#fff"
+	        android:textSize="14sp" />
+
+	    <Button
+	        android:id="@+id/btnDeleteGroup"
+	        android:layout_width="200dp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentRight="true"
+	        android:layout_below="@+id/btnCreateGroup"
+	        android:background="#cb293c"
+	        android:minHeight="60dp"
+	        android:text="@string/create_group_delete_group"
+	        android:textColor="#fff"
+	        android:textSize="16sp" />
+
+	</RelativeLayout>
+
+</ScrollView>
+

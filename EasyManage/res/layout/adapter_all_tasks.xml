@@ -20,8 +20,6 @@
 	    android:textColor="#fff"
 	    android:textSize="16sp" />
     
-	<!--  category/assigned to - different from projects -->
-
 	<TextView
 	    android:id="@+id/taskCategory"
 	    android:layout_width="match_parent"

@@ -15,6 +15,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * 
+ * Created using the android tutorial: 
+ * https://developer.android.com/training/implementing-navigation/nav-drawer.html
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class NavigationDrawerListAdapter extends BaseAdapter{
 	
 	private Context context;

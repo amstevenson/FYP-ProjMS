@@ -29,6 +29,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * An activity that allows for the user to add a new contact.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class CreateOrEditContactActivity extends Activity {
 
 	private String  userId    = "empty";

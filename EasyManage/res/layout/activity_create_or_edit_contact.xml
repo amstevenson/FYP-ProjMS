@@ -9,7 +9,6 @@
 	    android:paddingTop="20dp"
 	    android:background="@drawable/style_activity_background_gradient" >
     
-	    <!--  Summary -->
 		<TextView
 		    android:id="@+id/txtCreateContactsUserHelp"
 		    android:paddingLeft="10dp"
@@ -21,16 +20,6 @@
 		    android:textSize="16sp" 
 		    android:textColor="#FFF"/>
 	
-		<!-- contact name -->
-	
-	    <!--  Email -->
-	     
-	    <!--  Notes -->
-	   	 
-	     <!--  Create contact  -->
-	   	 
-		 <!--  Delete contact -->
-
 	   	 <EditText
 	   	     android:id="@+id/editCreateContactEmail"
 	   	     android:layout_width="50dp"

@@ -22,6 +22,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/**
+ * 
+ * A custom built adapter to create, list and manipulate the
+ * information received from an external call to Parse.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class ListAllProjectsAdapter extends BaseAdapter {
 
 	private Context							   context;

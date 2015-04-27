@@ -7,11 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingTop="20dp"
-
     android:background="@drawable/style_activity_background_gradient" >
     
-	    <!--  Description -->
-
 		<TextView
 		    android:id="@+id/txtCreateMessageUserHelp"
 		    android:layout_width="wrap_content"
@@ -24,14 +21,6 @@
 		    android:textColor="#FFF"
 		    android:textSize="16sp" />
 	
-		<!-- Message Recipient -->
-	
-	    <!--  Message -->
-
-	     <!--  Create message  -->
-	   	 
-	   	 <!-- Create space that appears below the button; aesthetics  -->
-
 	   	 <Button
 	   	     android:id="@+id/btnCreateMessage"
 	   	     android:layout_width="250dp"
@@ -39,7 +28,7 @@
 	   	     android:layout_alignParentLeft="true"
 	   	     android:layout_alignParentRight="true"
 	   	     android:layout_below="@+id/editCreateMessageBody"
-	   	     android:layout_marginTop="60dp"
+	   	     android:layout_marginTop="70dp"
 	   	     android:background="#8bc425"
 	   	     android:minHeight="60dp"
 	   	     android:text="@string/create_message_btn"

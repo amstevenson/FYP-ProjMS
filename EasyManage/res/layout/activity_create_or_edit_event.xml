@@ -8,9 +8,7 @@
     android:layout_height="wrap_content"
     android:paddingTop="20dp"
     android:background="@drawable/style_activity_background_gradient" >
-    
-	    <!--  Description -->
-
+ 
 		<TextView
 		    android:id="@+id/txtCreateEventUserHelp"
 		    android:layout_width="wrap_content"
@@ -23,26 +21,6 @@
 		    android:textColor="#FFF"
 		    android:textSize="16sp" />
 		
-		<!-- Event Name -->
-	
-	    <!--  Location -->
-
-		<!-- Event Postcode -->
-	    
-	    <!-- Event Description -->
-	    
-	    <!--  Event start date -->
-	     
-	    <!-- start time -->
-	     
-	     <!--  end time -->
-	     
-	     <!--  visibility -->
-	     
-	     <!--  Create event  -->
-	   	 
-		 <!--  Delete event -->
-	   	 
 	   	 <Spinner
 	   	     android:id="@+id/editCreateEventVisibility"
 	   	     android:layout_width="200dp"
@@ -215,7 +193,7 @@
 	   	     android:gravity="left"
 	   	     android:hint="@string/create_event_edit_description"
 	   	     android:inputType="text"
-	   	     android:maxLength="10"
+	   	     android:maxLength="100"
 	   	     android:paddingBottom="15dp"
 	   	     android:paddingLeft="10dp"
 	   	     android:paddingRight="10dp"

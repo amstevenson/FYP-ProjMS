@@ -30,6 +30,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * An activity that allows the user to create or edit an instance 
+ * of an event object.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class CreateOrEditEventActivity extends Activity {
 	
 	private String  userId    = "empty";

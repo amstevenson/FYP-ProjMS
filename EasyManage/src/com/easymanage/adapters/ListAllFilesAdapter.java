@@ -26,12 +26,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * Adapter for creating a file in a local directory (/data/EasyManage) and then
+ * opening it. THe file needs to be downloaded into the directory before it is opened
+ * or else it will simply fail. There may be a way to open a byte array with a specific mime type
+ * but Android specifies that the file should (and indeed is required to) be downloaded first.
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class ListAllFilesAdapter extends BaseAdapter {
 
 	private Context					      context;
 	private LayoutInflater 				  mInflater;
-	ArrayList<HashMap<String, String>>    userFileInformation;
-	ArrayList<HashMap<String, ParseFile>> userParseFiles;
+	private ArrayList<HashMap<String, String>>    userFileInformation;
+	private ArrayList<HashMap<String, ParseFile>> userParseFiles;
 	
 	//
     // JSON/key Node names that will be used for all of the project tags 

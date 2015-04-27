@@ -24,6 +24,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * 
+ * An activity that allows the user to create and send a message
+ * of a particular type. 
+ * 
+ * @author Adam Stevenson
+ *
+ */
 public class CreateOrEditMessageActivity extends Activity {
 
 	private String userId, userEmail = "empty";
