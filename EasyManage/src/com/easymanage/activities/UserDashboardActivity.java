@@ -77,6 +77,9 @@ public class UserDashboardActivity extends Activity {
 	private String 		  		  userId    = "empty";
 	private String				  userEmail = "empty";
 	
+	// The user retrieved from the main activity
+	private ParseUser currentUser;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -132,7 +135,7 @@ public class UserDashboardActivity extends Activity {
 		
 		Log.d("Dashboard - Id", userId); // for debugging
 		    	
-		final ParseUser currentUser = ParseUser.getCurrentUser();
+		currentUser = ParseUser.getCurrentUser();
 		if (currentUser != null) 
 		{	  
 			//
@@ -524,6 +527,13 @@ public class UserDashboardActivity extends Activity {
 					case "Log off": 
 						
 						Intent mainIntent = new Intent(getApplicationContext(), MainActivity.class);
+						
+						//
+						// Delete the cached information of the user
+						//
+						ParseUser.logOut();
+						
+						// Start the activity
 						startActivity(mainIntent);
 						
 						// Finish the current activity.

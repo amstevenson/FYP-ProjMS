@@ -1,16 +1,21 @@
 package com.easymanage.activities;
 
 import com.easymanage.R;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.RequestPasswordResetCallback;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * 
@@ -29,27 +34,49 @@ public class ForgotPasswordActivity extends Activity {
 		
 		ActionBar actionBar = getActionBar();
 		
-		actionBar.setTitle("Forgot Password");
+		actionBar.setTitle("Reset Password");
 		
 		//
 		// Set the view variables
 		//
-		Button submitCode = (Button) findViewById(R.id.btnForgotPasswordSubmit);
+		Button submitButton = (Button) findViewById(R.id.btnForgotPasswordSubmit);
+		final EditText submitEmail = (EditText) findViewById(R.id.editForgotPasswEmail);
 		
 		//
 		// Set the on click listeners
 		//
-		submitCode.setOnClickListener(new OnClickListener() {
+		submitButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 
-				//
-				// Send to activity
-				//
-				Intent resetPasswordIntent = new Intent(getApplicationContext(), ForgotPasswordResetActivity.class);
-				startActivity(resetPasswordIntent);
-				
+				if(submitEmail.getText().toString() != "")
+				{
+					//
+					// Send an email to the user with instructions of how to reset their password
+					//
+					ParseUser.requestPasswordResetInBackground(submitEmail.getText().toString(),
+                            new RequestPasswordResetCallback() {
+						public void done(ParseException e) {
+								if (e == null) {
+									
+									// Close and inform user with a toast
+									Toast.makeText(getApplicationContext(), "An email has been sent to the submitted acount " +
+											" with details of how to reset your password." , Toast.LENGTH_LONG).show();
+									
+									finish();
+									
+								} else {
+									
+									Log.d("Parse Exception", "Parse exception: " + e.getLocalizedMessage());
+									
+									// Inform user with a toast
+									Toast.makeText(getApplicationContext(), "Error, no account is currently attributed to the email" +
+											" address provided.", Toast.LENGTH_LONG).show();
+								}
+						}
+					});
+				}
 				
 			}
 		});

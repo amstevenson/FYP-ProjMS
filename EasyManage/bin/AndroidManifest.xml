@@ -265,8 +265,12 @@
             android:label="@string/title_activity_choose_file" >
         </activity>
         <activity
-            android:name="com.easymanage.activities.ChooseGroupProjectActivity"
+            android:name=".activities.ChooseGroupProjectActivity"
             android:label="@string/title_activity_choose_group_project" >
+        </activity>
+        <activity
+            android:name="com.easymanage.activities.ChooseGroupMemberActivity"
+            android:label="@string/title_activity_choose_group_member" >
         </activity>
     </application>
 

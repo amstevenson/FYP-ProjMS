@@ -201,10 +201,10 @@
 
     <!-- Forgot password Activity -->
     <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
-    <string name="forgot_password_description">If you have forgotten your password, enter in your email address below. \n Then please enter the security
-         code that is linked to your account.</string>
-    <string name="forgot_password_txt_code">Security Code</string>
-    <string name="forgot_password_edit_code">Enter Code</string>
+    <string name="forgot_password_description">If you have forgotten your password, enter in your email address below. \n You will be
+         sent instructions that will allow you to reset it.</string>
+    <string name="forgot_password_txt_code">Email Address</string>
+    <string name="forgot_password_edit_code">Enter Email Address&#8230;</string>
     <string name="forgot_password_btn">Submit</string>
 
     <!-- Reset password Activity -->
@@ -261,8 +261,8 @@
     <string name="title_activity_user_selected_group_projects">Group Projects</string>
     <string name="search_group_projects">Search Group Projects&#8230;</string>
     <string name="lbl_group_projects_none">There are currently no projects that have been added to this group. </string>
-	<string name="empty_projects">Your account has no projects, please create one and try again.</string>
-    
+    <string name="empty_projects">Your account has no projects, please create one and try again.</string>
+
     <!-- Group Members -->
     <string name="title_activity_user_selected_group_members">Group Members</string>
     <string name="search_group_members">Search Group Members&#8230;</string>
@@ -332,5 +332,6 @@
     <string name="button_list_delete">Delete</string>
     <string name="title_activity_choose_file">ChooseFile</string>
     <string name="title_activity_choose_group_project">ChooseGroupProjectActivity</string>
+    <string name="title_activity_choose_group_member">ChooseGroupMemberActivity</string>
 
 </resources>

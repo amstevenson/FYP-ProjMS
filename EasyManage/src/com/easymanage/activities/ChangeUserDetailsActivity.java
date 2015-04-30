@@ -71,15 +71,15 @@ public class ChangeUserDetailsActivity extends Activity {
 	    			//
 	    			// Change the account details of the user
 	    			//
-	    			currentUser.add("forename", changeDetailsForename.getText().toString());
-	    			currentUser.add("surname", changeDetailsSurname.getText().toString());
+	    			currentUser.put("forename", changeDetailsForename.getText().toString());
+	    			currentUser.put("surname", changeDetailsSurname.getText().toString());
 	    			
 	    			currentUser.saveInBackground();
 	    			
 	    		}
 	    		else
 	    		{
-	    			Log.d("No user retrieved", "no user retrieved");
+	    			Log.d("Could not find current user", "Could not find current user");
 	    		}
 	            
 				final Handler handler = new Handler();

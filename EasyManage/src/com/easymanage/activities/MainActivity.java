@@ -37,6 +37,30 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		//
+		// Check to see if the information of a user has been cached. That is to say
+		// that a person may have already logged in once, and it would be annoying to 
+		// have to resubmit information each time. The logout option from the dashboard
+		// can be used to delete the cached information belonging to the user.
+		//
+		ParseUser currentUser = ParseUser.getCurrentUser();
+		if(currentUser != null)
+		{
+			//
+			// If the user is currently cached.
+			//
+			Intent intent = new Intent(
+					getApplicationContext(),
+					UserDashboardActivity.class);
+			
+			// Intent extras
+			intent.putExtra("userId", currentUser.getObjectId());
+			intent.putExtra("justRegistered", false);
+			
+			// Proceed to the dashboard activity
+			startActivity(intent);
+		}
+		
+		//
 		// View variables
 		//
 		TextView registerAccount    = (TextView)  findViewById(R.id.txtMainRegister);
